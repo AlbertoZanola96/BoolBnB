@@ -12,24 +12,8 @@ class SponsorsTableSeeder extends Seeder
      */
     public function run()
     {
-        $sponsors = [
-            [
-                'name' => 'Bronze',
-                'price' => 2.99,
-                'duration_in_days' => 1
-            ],
-            [
-                'name' => 'Silver',
-                'price' => 5.99,
-                'duration_in_days' => 3
-            ],
-            [
-                'name' => 'Gold',
-                'price' => 9.99,
-                'duration_in_days' => 6
-            ]
-        ];
-
+        $sponsors = config('sponsors');
+        
         foreach($sponsors as $sponsor) {
             $newSponsor = new Sponsor();
             $newSponsor->name = $sponsor['name'];
