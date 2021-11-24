@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lead extends Model
 {
-    //
+    // fillable
+    protected $fillable = ['name', 'email', 'message'];
+
+    // entity relation 
+    public function apartments() {
+        return $this->belongsTo('App\Apartment');
+    }
 }

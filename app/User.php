@@ -10,13 +10,18 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // entity relation 
+    public function apartments() {
+        return $this->hasMany('App\Apartment');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'surname', 'email', 'password', 'date_of_birth'
     ];
 
     /**
