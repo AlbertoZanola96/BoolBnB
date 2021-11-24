@@ -15,12 +15,16 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'HomeController@index')->name('guest.home');
+Route::get('/apartments/contact', 'Guest\ApartmentController@contact')->name('guest.apartments.contact');
+Route::get('/apartments/{slug}', 'Guest\ApartmentController@show')->name('guest.apartments.show');
+
 
 Auth::routes();
 
-// Gestione rotte admin 
+// Admin Routes
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     ->group(function() {
         Route::get('/', 'HomeController@index')->name('index');
+        Route::resource('/apartments', 'ApartmentController');
      });
 

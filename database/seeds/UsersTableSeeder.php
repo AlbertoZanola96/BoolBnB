@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $faker = FakerFactory::create('it_IT');
-        for($i = 0; $i < 20; $i++) {
+        for($i = 0; $i < 50; $i++) {
             $newUser = new User();
             $newUser->name = $faker->firstName();
             $newUser->surname = $faker->lastName();
