@@ -27,8 +27,8 @@ class CreateApartmentsTable extends Migration
             $table->string('lat');
             $table->string('lon');
             $table->boolean('visible')->default(true);
-            $table->boolean('sponsored')->default(false);
-            $table->boolean('slug')->unique();
+            // $table->boolean('sponsored')->default(false);
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
