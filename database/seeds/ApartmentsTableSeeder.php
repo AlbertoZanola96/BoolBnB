@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Faker\Factory as FakerFactory;
 use App\Apartment;
+use App\User;
 use Illuminate\Support\Str;
 
 class ApartmentsTableSeeder extends Seeder
@@ -16,9 +17,11 @@ class ApartmentsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $faker = FakerFactory::create('it_IT');
-        for($i = 0; $i < 20; $i++) {
+        $users = User::all();
+
+        foreach($users as $user) {
             $newApartment = new Apartment();
-            $newApartment->user_id = $i + 1;
+            $newApartment->user_id = $user->id;
             $newApartment->name = $faker->company() . ' B&B';
             $newApartment->description = $faker->realText();
             $newApartment->num_rooms = $faker->numberBetween(1,8);
