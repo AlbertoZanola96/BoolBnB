@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('guest.home');
+
+Auth::routes();
+
+// Gestione rotte admin 
+Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
+    ->group(function() {
+        Route::get('/', 'HomeController@index')->name('index');
+     });
+
