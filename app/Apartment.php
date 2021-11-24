@@ -11,8 +11,8 @@ class Apartment extends Model
     protected $fillable = ['name', 'description', 'num_rooms', 'num_beds', 'num_bathrooms', 'square_meters', 'address', 'lat', 'lon', 'slug'];
 
     // entity relation 
-    public function users() {
-        return $this->belongsTo('App\Users');
+    public function user() {
+        return $this->belongsTo('App\User');
     }
 
     public function leads() {

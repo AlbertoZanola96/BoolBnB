@@ -23,11 +23,11 @@ class CreateApartmentsTable extends Migration
             $table->tinyInteger('num_beds');
             $table->tinyInteger('num_bathrooms')->nullable();
             $table->smallInteger('square_meters')->nullable();
+            // $table->string('city');
             $table->string('address');
             $table->string('lat');
             $table->string('lon');
             $table->boolean('visible')->default(true);
-            // $table->boolean('sponsored')->default(false);
             $table->string('slug')->unique();
             $table->timestamps();
         });
