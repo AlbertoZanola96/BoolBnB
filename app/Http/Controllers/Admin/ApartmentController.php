@@ -49,12 +49,18 @@ class ApartmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $apartment = Apartment::where('slug', $slug)->first();
+
+        if($apartment){
+            return view('admin.apartments.show', compact('apartment'));
+        } else {
+            abort(404);
+        }
     }
 
     /**
