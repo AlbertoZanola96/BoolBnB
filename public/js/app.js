@@ -37270,10 +37270,6 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-function confirmDelete() {
-  var resp = confirm('Vuoi cancellare ?');
-}
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
