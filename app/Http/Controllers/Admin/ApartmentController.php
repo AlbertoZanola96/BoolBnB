@@ -88,21 +88,34 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $apartment = Apartment::where('slug', $slug)->first();
+        return view('admin.apartments.edit', compact('apartment'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Apartment $apartment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'num_rooms' => 'required',
+            'num_beds' => 'required',
+            'address' => 'required'
+        ]);
+
+        $form_data = $request->all();
+        $apartment->update($form_data);
+    
+        return redirect()->route('admin.apartments.index')->with('modified', 'Appartamento aggiornato');
     }
 
     /**
