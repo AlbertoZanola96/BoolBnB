@@ -83,11 +83,12 @@ class ApartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Apartment $apartment
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
+        return redirect()->route('admin.apartments.index')->with('status', 'Post elimiato');
     }
 }
