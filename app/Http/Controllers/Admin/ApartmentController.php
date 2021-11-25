@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
+use Illuminate\Support\Str;
+use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -35,26 +38,54 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Faker $faker)
     {
-        // da fare validazione dei dati ricevuti
-
+        $user = Auth::user();
+        // dd($user);
+        $faker = new Faker();
+        //convalida dati
+        $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'num_rooms' => 'required',
+            'num_beds' => 'required',
+            'num_bathrooms' => 'nullable',
+            'square_meters' => 'nullable',
+            'address' => 'required|max:255',
+            // 'lat' => 'required|max:255',
+            // 'long' => 'required|max:255',
+            'visible' => 'required'
+        ]);
 
         $form_data = $request->all();
+
         $newApartment = new Apartment();
         $newApartment->fill($form_data);
+
+        $slug = Str::slug($newApartment->name);
+        $newApartment->user_id = $user->id;
+        $newApartment->lat = '41.53436';
+        $newApartment->lon = '-5.36434';
+        $newApartment->slug = $slug;
         $newApartment->save();
+        return redirect()->route('admin.apartments.index')->with('inserted', `L'appartamento è stato correttamente salvato`);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $apartment = Apartment::where('slug', $slug)->first();
+
+        if($apartment){
+            return view('admin.apartments.show', compact('apartment'));
+        } else {
+            abort(404);
+        }
     }
 
     /**
@@ -63,21 +94,34 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $apartment = Apartment::where('slug', $slug)->first();
+        return view('admin.apartments.edit', compact('apartment'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Apartment $apartment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'num_rooms' => 'required',
+            'num_beds' => 'required',
+            'address' => 'required'
+        ]);
+
+        $form_data = $request->all();
+        $apartment->update($form_data);
+    
+        return redirect()->route('admin.apartments.index')->with('modified', 'Appartamento aggiornato');
     }
 
     /**
@@ -92,3 +136,4 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index')->with('status', 'Post elimiato');
     }
 }
+ 
