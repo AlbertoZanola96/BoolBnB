@@ -39,7 +39,7 @@
                         <a href="{{ route('admin.apartments.edit', $apartment->slug) }}">
                             <button class="btn btn-warning">Modify</button>
                         </a>
-                        <form action="" class="deleteForm" method="POST">
+                        <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" class="deleteForm" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
