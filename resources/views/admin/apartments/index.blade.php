@@ -33,10 +33,10 @@
                     <td>{{ $apartment->address }}</td>
                    
                     <td>
-                        <a href="">
+                        <a href="{{ route('admin.apartments.show', $apartment->slug) }}">
                             <button class="btn btn-primary">Details</button>
                         </a>
-                        <a href="">
+                        <a href="{{ route('admin.apartments.edit', $apartment->slug) }}">
                             <button class="btn btn-warning">Modify</button>
                         </a>
                         <form action="" class="deleteForm" method="POST">
