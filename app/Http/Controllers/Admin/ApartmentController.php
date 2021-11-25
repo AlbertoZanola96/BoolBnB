@@ -18,7 +18,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $user = Auth::user();
+        $apartments = Apartment::where('user_id', $user->id)->get();
         return view('admin.apartments.index', compact('apartments'));
     }
 
@@ -42,7 +43,7 @@ class ApartmentController extends Controller
     {
         $user = Auth::user();
         // dd($user);
-        $faker = new Faker();
+        // $faker = new Faker();
         //convalida dati
         $request->validate([
             'name' => 'required|max:255',
