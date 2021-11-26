@@ -1,8 +1,9 @@
 <header class="container-fluid d-flex align-items-center">
     <div class="row w-100">
         <div class="col w-100 d-flex justify-content-between">
-            <div id="logo">
-                Boolbnb
+                <div class="logo-img">
+                    
+                </div>
             </div>
 
             @if (Route::has('login'))
