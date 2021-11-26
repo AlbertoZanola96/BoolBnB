@@ -31,7 +31,7 @@
                     {{-- num_rooms  --}}
                     <div class="form-group">
                         <label for="num_rooms">Numero di camere</label>
-                        <input type="number" id="num_rooms" name="num_rooms" value="{{ old('num_rooms', $apartment->num_rooms) }}" class="form-control value @error('num_rooms') is-invalid @enderror">
+                        <input type="number" id="num_rooms" name="num_rooms" min="1" value="{{ old('num_rooms', $apartment->num_rooms) }}" class="form-control value @error('num_rooms') is-invalid @enderror">
                         @error('num_rooms')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -40,7 +40,7 @@
                     {{-- num_beds  --}}
                     <div class="form-group">
                         <label for="num_beds">Numero di letti</label>
-                        <input type="number" id="num_beds" name="num_beds" value="{{ old('num_beds', $apartment->num_beds) }}" class="form-control @error('num_beds') is-invalid @enderror">
+                        <input type="number" id="num_beds" name="num_beds" min="1" value="{{ old('num_beds', $apartment->num_beds) }}" class="form-control @error('num_beds') is-invalid @enderror">
                         @error('num_beds')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -49,7 +49,7 @@
                     {{-- num_bathrooms  --}}
                     <div class="form-group">
                         <label for="num_bathrooms">Numero di bagni</label>
-                        <input type="number" id="num_bathrooms" name="num_bathrooms" value="{{ old('num_bathrooms', $apartment->num_bathrooms) }}" class="form-control @error('num_bathrooms') is-invalid @enderror">
+                        <input type="number" id="num_bathrooms" name="num_bathrooms" min="1" value="{{ old('num_bathrooms', $apartment->num_bathrooms) }}" class="form-control @error('num_bathrooms') is-invalid @enderror">
                         @error('num_bathrooms')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -58,7 +58,7 @@
                     {{-- square meters  --}}
                     <div class="form-group">
                         <label for="square_meters">Metri quadrati</label>
-                        <input type="number" id="square_meters" name="square_meters" value="{{ old('square_meters', $apartment->square_meters) }}" class="form-control @error('square_meters') is-invalid @enderror">
+                        <input type="number" id="square_meters" name="square_meters" min="25" value="{{ old('square_meters', $apartment->square_meters) }}" class="form-control @error('square_meters') is-invalid @enderror">
                         @error('square_meters')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
