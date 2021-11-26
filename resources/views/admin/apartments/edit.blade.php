@@ -64,6 +64,15 @@
                         @enderror
                     </div>
 
+                    {{-- city  --}}
+                    <div class="form-group">
+                        <label for="city">Città</label>
+                        <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" value="{{ old('city', $apartment->city) }}">
+                        @error('city')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
                     {{-- address  --}}
                     <div class="form-group">
                         <label for="address">Indirizzo</label>

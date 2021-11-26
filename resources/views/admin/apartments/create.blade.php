@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
     <div class="container">
@@ -55,6 +55,14 @@
                         <label for="square_meters">Metri quadrati</label>
                         <input type="number" id="square_meters" name="square_meters" min="25" class="form-control @error('square_meters') is-invalid @enderror" value="{{ old('square_meters') }}">
                         @error('square_meters')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">Città</label>
+                        <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}">
+                        @error('city')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
