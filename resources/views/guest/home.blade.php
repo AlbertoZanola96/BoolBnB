@@ -11,6 +11,7 @@
 
         <!-- css -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
     </head>
     <body>
@@ -23,7 +24,6 @@
             <div class="links">
                 <a href="{{ route('index') }}" class="display-4 text-white font-weight-bold">Trova l'appartamento giusto per te</a>
             </div>
-            
         </div>
     </body>
 </html>
