@@ -17,9 +17,12 @@
         @include('partials.header')
 
         {{-- bg image --}}
-        <div class="banner">
+        <div class="banner d-flex justify-content-center align-items-center">
             <div class="layover"></div>
 
+            <div class="links">
+                <a href="{{ route('index') }}" class="display-4 text-white font-weight-bold">Trova l'appartamento giusto per te</a>
+            </div>
             
         </div>
     </body>
