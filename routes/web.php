@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// Homepage 
 Route::get('/', 'HomeController@index')->name('guest.home');
-Route::get('/apartments/contact', 'Guest\ApartmentController@contact')->name('guest.apartments.contact');
-Route::get('/apartments/{slug}', 'Guest\ApartmentController@show')->name('guest.apartments.show');
+// Search page 
+Route::get('/search', 'HomeController@search')->name('guest.search');
+
 
 Route::get('/apartments', 'ApartmentController@index')->name('index');
 Route::get('/apartments/{slug}', 'ApartmentController@show')->name('show');
