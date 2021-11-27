@@ -10037,6 +10037,38 @@ h3 {
   z-index: 999;
 }
 
+button.close {
+  top: 10px;
+  right: 15px;
+}
+
+.modal input {
+  border-radius: 15px;
+  border: 1px solid #1e90ff;
+}
+
+.loginbtn,
+.registerbtn,
+.resetbtn {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: linear-gradient(120deg, #1e90ff, #ff4757, #ff7f50);
+  background-size: 200%;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 16px;
+}
+
+.loginbtn:hover,
+.registerbtn:hover,
+.resetbtn:hover {
+  transform: scale(1.1);
+}
+
 header {
   position: fixed;
   height: 60px;
