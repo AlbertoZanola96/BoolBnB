@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import '_variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -18,5 +18,11 @@
 
 // lista appartamenti / admin
 @import './admin_index.scss';
+
+// utilities 
+@import './_utilities';
+
+// show 
+@import './show.scss';
 
 @import '~@fortawesome/fontawesome-free/css/all.min.css';

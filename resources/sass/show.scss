@@ -1,0 +1,29 @@
+#admin_show_container{
+
+    li{
+        list-style: none;
+    }
+
+    .w-45{
+        width: 45%;
+        max-height: 350px;
+    }
+    
+    .info-box{
+        max-height: 200px;
+        overflow: scroll;
+    }
+
+    .services-list{
+        margin: 0;
+
+        li{
+            margin: 5px 10px;
+            color: white;
+            padding: 5px 10px;
+            background-color: $clear-chill;
+            border-radius: 100px;
+
+        }
+    }
+}
