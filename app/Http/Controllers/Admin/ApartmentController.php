@@ -112,9 +112,10 @@ class ApartmentController extends Controller
     public function show($slug)
     {
         $apartment = Apartment::where('slug', $slug)->first();
+        $services = Service::all();
 
         if($apartment){
-            return view('admin.apartments.show', compact('apartment'));
+            return view('admin.apartments.show', compact('apartment', 'services'));
         } else {
             abort(404);
         }

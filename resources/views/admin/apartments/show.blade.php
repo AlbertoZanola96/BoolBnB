@@ -66,42 +66,11 @@
                             <h2 class="font-m">Servizi dell'immobile:</h2>
         
                             <ul class="d-flex p-0 info-box services-list flex-wrap">
-                                <li>
-                                    Piscina
-                                </li>
-                                <li>
-                                    Wi-Fi
-                                </li>
-                                <li>
-                                    Bar
-                                </li>
-                                <li>
-                                    TV
-                                </li>
-                                <li>
-                                    Aria Condizionata
-                                </li>
-                                <li>
-                                    Cucina
-                                </li>
-                                <li>
-                                    TV
-                                </li>
-                                <li>
-                                    Aria Condizionata
-                                </li>
-                                <li>
-                                    Cucina
-                                </li>
-                                <li>
-                                    TV
-                                </li>
-                                <li>
-                                    Aria Condizionata
-                                </li>
-                                <li>
-                                    Cucina
-                                </li>
+                                @foreach ($apartment->services as $service)
+                                    <li>
+                                        {{ $service->name}}
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>  
                     </div> 
