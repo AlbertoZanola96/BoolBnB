@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color:#343B3F;
+    // background-color:#343B3F;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -17,15 +17,15 @@ body {
   /* Sidebar links */
   .sidebar a {
     display: block;
-    color: white;
+    color: #343B3F;
     padding: 16px;
     text-decoration: none;
   }
   
   /* Active/current link */
   .sidebar a.active {
-    background-color: red;
-    color: white;
+    // background-color: red;
+    color: #343B3F;
   }
   
   /* Links on mouse-over */

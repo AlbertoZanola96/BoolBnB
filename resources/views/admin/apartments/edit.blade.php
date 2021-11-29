@@ -82,6 +82,27 @@
                         @enderror
                     </div>
 
+                    {{-- servizi  --}}
+                    @foreach ($services as $service)
+                        <div class="form-check mb-3 form-check-inline">
+                            @if($errors->any()) 
+                                <input
+                                {{ in_array($service->id, old('services', [])) ? 'checked' : null }}
+                                class="form-check-input" type="checkbox" name="services[]" value="{{ $service->id }}" id="{{ $service->id }}">
+                                <label class="form-check-label" for="{{ $service->id }}">
+                                    {{ $service->name }}
+                                </label>
+                            @else
+                                <input
+                                {{ $apartment->services->contains($service->id) ? 'checked' : null }}
+                                class="form-check-input" type="checkbox" name="services[]" value="{{ $service->id }}" id="{{ $service->id }}">
+                                <label class="form-check-label" for="{{ $service->id }}">
+                                    {{ $service->name }}
+                                </label>
+                            @endif
+                        </div>
+                    @endforeach
+
                     {{-- visible  --}}
                     <div class="form-group">
                         <label for="visible">Vuoi rendere visibile il nuovo appartamento?</label>

@@ -83,12 +83,19 @@
 
                     {{-- address  --}}
                     <div class="form-group search-box">
-                        {{-- <label for="address">Indirizzo</label>
-                        <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}">
-                        @error('address')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror --}}
                     </div>
+
+                    {{-- servizi  --}}
+                    @foreach ($services as $service)
+                        <div class="form-check mb-3 form-check-inline">
+                            <input
+                            {{ in_array($service->id, old('services', [])) ? 'checked' : null }}
+                            class="form-check-input" type="checkbox" name="services[]" value="{{ $service->id }}" id="{{ $service->id }}">
+                            <label class="form-check-label" for="{{ $service->id }}">
+                                {{ $service->name }}
+                            </label>
+                        </div>
+                    @endforeach
 
                     {{-- visible  --}}
                     <div class="form-group">

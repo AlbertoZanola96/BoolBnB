@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use App\Service;
 
 class ApartmentController extends Controller
 {
@@ -31,7 +32,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartments.create');
+        $services = Service::all();
+        return view('admin.apartments.create', compact('services'));
     }
 
     /**
@@ -56,6 +58,7 @@ class ApartmentController extends Controller
             'square_meters' => 'nullable',
             'city' => 'required',
             'address' => 'required|max:255',
+            'services' => 'exists:services,id',
             'visible' => 'required'
         ]);
 
@@ -93,6 +96,10 @@ class ApartmentController extends Controller
 
         // salviamo il nuovo apartment 
         $newApartment->save();
+
+        // attach servizi all'appartamento 
+        $newApartment->services()->attach($form_data['services']);
+
         return redirect()->route('admin.apartments.index')->with('inserted', `L'appartamento è stato correttamente salvato`);
     }
 
@@ -121,8 +128,9 @@ class ApartmentController extends Controller
      */
     public function edit($slug)
     {
+        $services = Service::all();
         $apartment = Apartment::where('slug', $slug)->first();
-        return view('admin.apartments.edit', compact('apartment'));
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**
@@ -138,18 +146,19 @@ class ApartmentController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'description' => 'required',
-            'num_rooms' => 'required',
+            'num_rooms' => 'required|digits_between:1,255',
             'num_beds' => 'required',
             'num_bathrooms' => 'nullable',
             'square_meters' => 'nullable',
             'city' => 'required',
             'address' => 'required|max:255',
+            'services' => 'exists:services,id',
             'visible' => 'required'
         ]);
 
         $form_data = $request->all();
 
-        // Facciamo la Request di lat e lon tramite l'indirizzo inserito
+        // Request di lat e lon tramite l'indirizzo inserito
         $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $request->address . ' ' . $request->city .'.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF');
 
         // controlliamo che ci sia un risultato altrimenti facciamo un redirect con un messaggio di errore
@@ -169,8 +178,15 @@ class ApartmentController extends Controller
         $apartment->lat = $lat;
         $apartment->lon = $lon;
 
-
+        // aggiorniamo l'appartamento 
         $apartment->update($form_data);
+
+        // sync services 
+        if(array_key_exists('services', $form_data)) {
+            $apartment->services()->sync($form_data['services']);
+        } else {
+            $apartment->services()->sync([]);
+        }
     
         return redirect()->route('admin.apartments.index')->with('modified', 'Appartamento aggiornato');
     }

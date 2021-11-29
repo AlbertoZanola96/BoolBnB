@@ -10109,7 +10109,9 @@ header {
 header #logo {
   font-size: 20px;
 }
-<<<<<<< HEAD
+header .input-right a {
+  color: white;
+}
 
 body {
   background-color: white;
@@ -10120,7 +10122,6 @@ body {
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #343B3F;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -10129,15 +10130,14 @@ body {
 /* Sidebar links */
 .sidebar a {
   display: block;
-  color: white;
+  color: #343B3F;
   padding: 16px;
   text-decoration: none;
 }
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: red;
-  color: white;
+  color: #343B3F;
 }
 
 /* Links on mouse-over */
@@ -10179,11 +10179,7 @@ i {
     text-align: center;
     float: none;
   }
-=======
-header .input-right a {
-  color: white;
 }
-
 .my_cont {
   position: relative;
   margin: 0 auto;
@@ -10231,5 +10227,4 @@ h5 {
 
 h5 {
   font-size: 15px;
->>>>>>> e36d8ff4ddac3271b76cab14e0485cac6fb5c529
 }
