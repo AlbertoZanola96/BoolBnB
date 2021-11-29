@@ -23,17 +23,17 @@
                     <div class="img"></div>
                     <div class="col-8 elementi">
                         <h2>{{ $apartment->name }}</h2>
-                        <h4> {{ $apartment->city }}</h4>
-                        <h5>{{ $apartment->address }}</h5>
+                        <h4 style="display: inline"><i class="fas fa-map-marker-alt mr-2"></i>{{ $apartment->city }}</h4>
+                        <h5 style="display: inline">{{ $apartment->address }}</h5>
                         <p>{{ $apartment->description}}</p>
                     </div>
                     <div class=" d-flex align-items-end justify-content-center flex-column my-btn">
                         <a href="{{ route('admin.apartments.show', $apartment->slug) }}">
-                            <button class="btn btn-primary m-2 ">Details</button>
+                            <button class="btn btn-dark m-2 ">Details</button>
                         </a>
 
                         <a href="{{ route('admin.apartments.edit', $apartment->slug) }}">
-                            <button class="btn btn-warning m-2 d-flex align-items-center">Modify</button>
+                            <button class="btn btn-dark m-2 d-flex align-items-center">Modify</button>
                         </a>
                         <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class="deleteForm" method="POST">
                             @csrf
