@@ -1,5 +1,5 @@
 window.Vue = require('vue');
-window.axios = ('axios');
+window.axios = require('axios');
 import App from './views/App';
 
 /**

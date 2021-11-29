@@ -8,6 +8,7 @@ use App\Apartment;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
@@ -41,33 +42,56 @@ class ApartmentController extends Controller
      */
     public function store(Request $request, Faker $faker)
     {
+        // definiamo l'utente logato
         $user = Auth::user();
-        // dd($user);
-        // $faker = new Faker();
-        //convalida dati
+        
+        //convalidiamo i dati ricevuti
+        // dd($request);
         $request->validate([
             'name' => 'required|max:255',
             'description' => 'required',
-            'num_rooms' => 'required',
+            'num_rooms' => 'required|digits_between:1,255',
             'num_beds' => 'required',
             'num_bathrooms' => 'nullable',
             'square_meters' => 'nullable',
+            'city' => 'required',
             'address' => 'required|max:255',
-            // 'lat' => 'required|max:255',
-            // 'long' => 'required|max:255',
             'visible' => 'required'
         ]);
 
+        // accediamo ai dati tramite la request, creiamo un nuovo apartment ed assegniamo i dati ricevuti 
         $form_data = $request->all();
-
         $newApartment = new Apartment();
         $newApartment->fill($form_data);
 
-        $slug = Str::slug($newApartment->name);
+        // assegniamo l'id dell'utente logato 
         $newApartment->user_id = $user->id;
-        $newApartment->lat = '41.53436';
-        $newApartment->lon = '-5.36434';
+
+        // creiamo lo slug utilizzando il nome della struttura 
+        $slug = Str::slug($newApartment->name);
         $newApartment->slug = $slug;
+
+        // Facciamo la Request di lat e lon tramite l'indirizzo inserito
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $newApartment->address . '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF');
+
+        // controlliamo che ci sia un risultato altrimenti facciamo un redirect con un messaggio di errore
+        if(empty($response->json()['results'])) {
+            return redirect()->route('admin.apartments.create')->with('invalid_address', 'Indirizzo Invalido')->withInput();
+        }
+        
+        $res_address = $response->json()['results'][0];
+        // dd($response->json());
+        // dd($res_address);
+
+        // salviamo lat e lon in una variabile 
+        $lat = $res_address['position']['lat'];
+        $lon = $res_address['position']['lon'];
+        
+        // assegniamo lat e lon a new apartment 
+        $newApartment->lat = $lat;
+        $newApartment->lon = $lon;
+
+        // salviamo il nuovo apartment 
         $newApartment->save();
         return redirect()->route('admin.apartments.index')->with('inserted', `L'appartamento è stato correttamente salvato`);
     }
@@ -112,14 +136,40 @@ class ApartmentController extends Controller
     {
         // dd($request);
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:255',
             'description' => 'required',
             'num_rooms' => 'required',
             'num_beds' => 'required',
-            'address' => 'required'
+            'num_bathrooms' => 'nullable',
+            'square_meters' => 'nullable',
+            'city' => 'required',
+            'address' => 'required|max:255',
+            'visible' => 'required'
         ]);
 
         $form_data = $request->all();
+
+        // Facciamo la Request di lat e lon tramite l'indirizzo inserito
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $request->address . ' ' . $request->city .'.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF');
+
+        // controlliamo che ci sia un risultato altrimenti facciamo un redirect con un messaggio di errore
+        if(empty($response->json()['results'])) {
+            return redirect()->route('admin.apartments.create')->with('invalid_address', 'Indirizzo Invalido')->withInput();
+        }
+        
+        $res_address = $response->json()['results'][0];
+        // dd($response->json());
+        // dd($res_address);
+
+        // salviamo lat e lon in una variabile 
+        $lat = $res_address['position']['lat'];
+        $lon = $res_address['position']['lon'];
+        
+        // assegniamo lat e lon a new apartment 
+        $apartment->lat = $lat;
+        $apartment->lon = $lon;
+
+
         $apartment->update($form_data);
     
         return redirect()->route('admin.apartments.index')->with('modified', 'Appartamento aggiornato');
