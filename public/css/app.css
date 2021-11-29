@@ -10038,7 +10038,64 @@ h3 {
 }
 
 .links {
-  z-index: 999;
+  z-index: 5;
+}
+
+.logo {
+  margin: 100px 0;
+  color: #ced6e0;
+}
+
+.logo img {
+  height: 100px;
+}
+
+.apartments li {
+  list-style: none;
+}
+
+.apartment-image {
+  width: 40%;
+}
+
+.apartment-image img {
+  width: 100%;
+}
+
+.apartment-description {
+  width: 60%;
+}
+
+button.close {
+  top: 10px;
+  right: 15px;
+}
+
+.modal input {
+  border-radius: 15px;
+  border: 1px solid #1e90ff;
+}
+
+.loginbtn,
+.registerbtn,
+.resetbtn {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: linear-gradient(120deg, #1e90ff, #ff4757, #ff7f50);
+  background-size: 200%;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 16px;
+}
+
+.loginbtn:hover,
+.registerbtn:hover,
+.resetbtn:hover {
+  transform: scale(1.1);
 }
 
 header {
@@ -10052,6 +10109,7 @@ header {
 header #logo {
   font-size: 20px;
 }
+<<<<<<< HEAD
 
 body {
   background-color: white;
@@ -10121,4 +10179,57 @@ i {
     text-align: center;
     float: none;
   }
+=======
+header .input-right a {
+  color: white;
+}
+
+.my_cont {
+  position: relative;
+  margin: 0 auto;
+  width: 1000px;
+  height: 230px;
+  background-color: #dfe4ea;
+  border-radius: 5px;
+  box-shadow: 5px 10px 18px gray;
+  transition: width 1s, height 1s;
+}
+
+.my_cont:hover {
+  width: 1100px;
+  height: 250px;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid gray;
+  margin: 15px 0 15px 0;
+  float: left;
+}
+
+.elementi {
+  margin-top: 15px;
+  margin-left: 200px;
+}
+
+.my-btn {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+
+h2 {
+  color: #2f3542;
+  font-weight: 800;
+}
+
+h4,
+h5 {
+  color: #57606f;
+}
+
+h5 {
+  font-size: 15px;
+>>>>>>> e36d8ff4ddac3271b76cab14e0485cac6fb5c529
 }
