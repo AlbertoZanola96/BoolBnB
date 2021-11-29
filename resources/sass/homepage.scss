@@ -13,8 +13,35 @@
 }
 
 .links {
-    z-index: 999;
+    z-index: 5;
 }
+
+.logo {
+    margin: 100px 0;
+    color: $twinkle-blue;
+}
+
+.logo img {
+    height: 100px;
+}
+
+.apartments li {
+    list-style: none;
+}
+
+.apartment-image {
+    width: calc(100% / 5 * 2);
+}
+
+.apartment-image img {
+    width: 100%;
+}
+
+.apartment-description {
+    width: calc(100% / 5 * 3);
+}
+
+// modal
 
 button.close {
     top: 10px;
@@ -47,3 +74,4 @@ button.close {
 .resetbtn:hover {
     transform: scale(1.1);
 }
+

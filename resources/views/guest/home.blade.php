@@ -255,13 +255,48 @@
         </div>
 
         {{-- bg image --}}
-        <div class="banner d-flex justify-content-center align-items-center">
+        <div class="banner d-flex flex-column align-items-center">
             <div class="layover"></div>
+
+            <div class="logo row justify-content-center">
+                <div class="col-5 d-flex flex-column align-items-center">
+                    <img src="../img/banner-2.jpg" alt="logo">
+                    <h3 class="text-justify">Il sito n.1 per trovare la casa perfetta per te</h3>
+                </div>
+            </div>
 
             <div class="links">
                 <a href="{{ route('index') }}" class="display-4 text-white font-weight-bold">Trova l'appartamento giusto per te</a>
             </div>
             
+        </div>
+
+        <div class="apartments container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center mt-5">I nostri migliori appartamenti</h1>
+                    <ul>
+                        {{-- @foreach ($apartments as $apartment) --}}
+                            <li>
+                                <div class="apartment-container mt-5">
+                                    <div class="apartment-image float-left">
+                                        <img src="../img/banner-2.jpg" alt="Foto appartamento sponsorizzato">
+                                    </div>
+                                    <div class="apartment-description pl-4 float-left">
+                                        <h2>Appartamento name</h2>
+                                        <p>Citta, indirizzo</p>
+                                        <p>Descrizione</p>
+                                        <p>Numero camere</p>
+                                        <p>Numero letti</p>
+                                        <p>Numero bagni</p>
+                                        <p>Grandezza</p>
+                                    </div>
+                                </div>
+                            </li>
+                        {{-- @endforeach --}}
+                    </ul>
+                </div>
+            </div>
         </div>
     </body>
 </html>

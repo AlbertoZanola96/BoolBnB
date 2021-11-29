@@ -10034,7 +10034,32 @@ h3 {
 }
 
 .links {
-  z-index: 999;
+  z-index: 5;
+}
+
+.logo {
+  margin: 100px 0;
+  color: #ced6e0;
+}
+
+.logo img {
+  height: 100px;
+}
+
+.apartments li {
+  list-style: none;
+}
+
+.apartment-image {
+  width: 40%;
+}
+
+.apartment-image img {
+  width: 100%;
+}
+
+.apartment-description {
+  width: 60%;
 }
 
 button.close {
@@ -10079,4 +10104,7 @@ header {
 }
 header #logo {
   font-size: 20px;
+}
+header .input-right a {
+  color: white;
 }
