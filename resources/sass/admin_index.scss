@@ -1,0 +1,25 @@
+.my_cont {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    border: 1px solid black;
+}
+
+.img{
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    margin: 15px 0 15px 0;
+    float: left;
+}
+
+.elementi {
+    margin-top: 15px;
+    margin-left: 200px;
+}
+
+.my-btn {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}
