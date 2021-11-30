@@ -10048,20 +10048,27 @@ h3 {
   border: none;
   outline: 0;
 }
+.banner .info-box-2 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 60%;
+  height: 10%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 4;
+}
+.banner .info-box-2 i {
+  font-size: 15px;
+  color: #2ed573;
+}
 
 .info-box {
   position: relative;
   height: 15vh;
   background-color: #2f3542;
-}
-.info-box .info-box-2 {
-  position: absolute;
-  transform: translate(34%, -50%);
-  width: 60%;
-  height: 50%;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 5px;
 }
 
 .apartments li {

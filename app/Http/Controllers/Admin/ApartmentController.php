@@ -163,7 +163,7 @@ class ApartmentController extends Controller
 
         // controlliamo che ci sia un risultato altrimenti facciamo un redirect con un messaggio di errore
         if(empty($response->json()['results'])) {
-            return redirect()->route('admin.apartments.create')->with('invalid_address', 'Indirizzo Invalido')->withInput();
+            return redirect()->route('admin.apartments.edit', $apartment->slug)->with('invalid_address', 'Indirizzo Invalido')->withInput();
         }
         
         $res_address = $response->json()['results'][0];

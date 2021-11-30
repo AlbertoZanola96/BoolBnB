@@ -5,6 +5,13 @@
         <div class="row">
             <div class="col-12">
                 <h1>Edit apartment</h1>
+
+                {{-- invalid address message --}}
+                @if (session('invalid_address'))
+                    <div class="alert alert-danger">
+                        {{ session('invalid_address') }}
+                    </div>
+                @endif
                 
                 <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST">
                     @csrf
