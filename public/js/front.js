@@ -1930,6 +1930,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('http://127.0.0.1:8000/api/apartments').then(function (res) {
         return _this.apartments = res.data.results;
       });
+    },
+    saveId: function saveId(e) {
+      var apartment_id = e.target.id;
+      console.log(e.target.id);
     }
   },
   created: function created() {
@@ -2452,7 +2456,22 @@ var render = function () {
     "div",
     _vm._l(_vm.apartments, function (apartment, index) {
       return _c("div", { key: index }, [
-        _c("h1", [_vm._v(_vm._s(apartment.name))]),
+        _c("h1", [
+          _vm._v(_vm._s(apartment.name) + " "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-link",
+              attrs: {
+                id: apartment.id,
+                "data-toggle": "modal",
+                "data-target": "#leads",
+              },
+              on: { click: _vm.saveId },
+            },
+            [_vm._v("Messaggio")]
+          ),
+        ]),
       ])
     }),
     0
@@ -14840,7 +14859,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#39\progetto_finale\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
