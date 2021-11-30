@@ -29,10 +29,10 @@ body {
   }
   
   /* Links on mouse-over */
-  .sidebar a:hover:not(.active) {
-    background-color: red;
-    color: white;
-  }
+  // .sidebar a:hover:not(.active) {
+    // background-color: red;
+    // color: white;
+  // }
   
   /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
   div.content {

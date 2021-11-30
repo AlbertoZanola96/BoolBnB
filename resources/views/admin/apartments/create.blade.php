@@ -39,7 +39,7 @@
                     {{-- num_rooms  --}}
                     <div class="form-group">
                         <label for="num_rooms">Numero di stanze</label>
-                        <input type="number" id="num_rooms" name="num_rooms"  class="form-control @error('num_rooms') is-invalid @enderror" value="{{ old('num_rooms') }}">
+                        <input type="number" id="num_rooms" name="num_rooms" min="1" class="form-control @error('num_rooms') is-invalid @enderror" value="{{ old('num_rooms') }}">
                         @error('num_rooms')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -72,18 +72,21 @@
                         @enderror
                     </div>
 
-                    {{-- city  --}}
+                    {{-- city 
                     <div class="form-group">
                         <label for="city">Città</label>
                         <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}">
                         @error('city')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- address  --}}
                     <div class="form-group search-box">
                     </div>
+                    @error('address')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
 
                     {{-- servizi  --}}
                     @foreach ($services as $service)
@@ -101,8 +104,8 @@
                     <div class="form-group">
                         <label for="visible">Vuoi rendere visibile il nuovo appartamento?</label>
                         <select name="visible" id="visible" class="form-control">
-                            <option value="true">Rendi visibile</option>
-                            <option value="false">Non rendere visibile</option>
+                            <option value="1">Visibile</option>
+                            <option value="0">Non visibile</option>
                         </select>
                     </div>
 

@@ -52,11 +52,11 @@ class ApartmentController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'description' => 'required',
-            'num_rooms' => 'required|digits_between:1,255',
-            'num_beds' => 'required',
-            'num_bathrooms' => 'nullable',
-            'square_meters' => 'nullable',
-            'city' => 'required',
+            'num_rooms' => 'required|integer|min:1|max:10',
+            'num_beds' => 'required|integer|min:1|max:10',
+            'num_bathrooms' => 'nullable|integer|min:1|max:10',
+            'square_meters' => 'nullable|integer|min:30|max:1000',
+            // 'city' => 'required',
             'address' => 'required|max:255',
             'services' => 'exists:services,id',
             'visible' => 'required'
@@ -112,10 +112,9 @@ class ApartmentController extends Controller
     public function show($slug)
     {
         $apartment = Apartment::where('slug', $slug)->first();
-        $services = Service::all();
 
         if($apartment){
-            return view('admin.apartments.show', compact('apartment', 'services'));
+            return view('admin.apartments.show', compact('apartment'));
         } else {
             abort(404);
         }
@@ -147,11 +146,11 @@ class ApartmentController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'description' => 'required',
-            'num_rooms' => 'required|digits_between:1,255',
-            'num_beds' => 'required',
-            'num_bathrooms' => 'nullable',
-            'square_meters' => 'nullable',
-            'city' => 'required',
+            'num_rooms' => 'required|integer|min:1|max:10',
+            'num_beds' => 'required|integer|min:1|max:10',
+            'num_bathrooms' => 'nullable|integer|min:1|max:10',
+            'square_meters' => 'nullable|integer|min:30|max:1000',
+            // 'city' => 'required',
             'address' => 'required|max:255',
             'services' => 'exists:services,id',
             'visible' => 'required'
@@ -160,7 +159,7 @@ class ApartmentController extends Controller
         $form_data = $request->all();
 
         // Request di lat e lon tramite l'indirizzo inserito
-        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $request->address . ' ' . $request->city .'.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF');
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' . $request->address . '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF');
 
         // controlliamo che ci sia un risultato altrimenti facciamo un redirect con un messaggio di errore
         if(empty($response->json()['results'])) {

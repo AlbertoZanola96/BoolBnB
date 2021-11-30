@@ -64,23 +64,21 @@
                         @enderror
                     </div>
 
-                    {{-- city  --}}
+                    {{-- city 
                     <div class="form-group">
                         <label for="city">Città</label>
                         <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" value="{{ old('city', $apartment->city) }}">
                         @error('city')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     {{-- address  --}}
-                    <div class="form-group">
-                        <label for="address">Indirizzo</label>
-                        <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address', $apartment->address) }}">
-                        @error('address')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                    <div class="form-group search-box">
                     </div>
+                    @error('address')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
 
                     {{-- servizi  --}}
                     @foreach ($services as $service)
@@ -107,8 +105,8 @@
                     <div class="form-group">
                         <label for="visible">Vuoi rendere visibile il nuovo appartamento?</label>
                         <select name="visible" id="visible" class="form-control">
-                            <option value="true">Rendi visibile</option>
-                            <option value="false">Non rendere visibile</option>
+                            <option value="1">Rendi visibile</option>
+                            <option value="0">Non rendere visibile</option>
                         </select>
                     </div>
 
@@ -120,4 +118,24 @@
             </div>
         </div>
     </div>
+    <script>
+        var options = {
+            searchOptions: {
+                key: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
+                language: 'it-IT',
+                limit: 5
+            },
+            autocompleteOptions: {
+                key: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
+                language: 'it-IT'
+            }
+        };
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+        var searchBox = document.querySelector('.search-box');
+        searchBox.append(searchBoxHTML);
+        document.querySelector('input.tt-search-box-input').name = 'address';
+        document.querySelector('input.tt-search-box-input').placeholder = '$apartment->address';
+        // document.body.append(searchBoxHTML);
+    </script>
 @endsection

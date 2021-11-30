@@ -1,30 +1,52 @@
+// banner 
 .banner {
     position: relative;
-    height: 800px;
-    background-image: url('../img/banner.jpg');
+    height: 85vh;
+    background-image: url('../img/banner-3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+
+    .layover {
+        position: absolute;
+        inset: 0;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+    }
+
+    .home-search {
+        width: 40%;
+        z-index: 2;
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            outline: 0;        }
+    }
 }
 
-.layover {
-    position: absolute;
-    inset: 0;
-    background-color: rgba($color: #000000, $alpha: 0.1);
+// info-box 
+.info-box {
+    position: relative;
+    height: 15vh;
+    background-color: $prestige-blue;
+
+    .info-box-2 {
+        position: absolute;
+        transform: translate(34%, -50%);
+        width: 60%;
+        height: 50%;
+        margin: 0 auto;
+        background-color: $white;
+        border-radius: 5px;
+    }
 }
 
-.links {
-    z-index: 5;
-}
 
-.logo {
-    margin: 100px 0;
-    color: $twinkle-blue;
-}
 
-.logo img {
-    height: 100px;
-}
-
+// apartments container
 .apartments li {
     list-style: none;
 }

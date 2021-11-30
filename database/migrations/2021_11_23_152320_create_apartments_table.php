@@ -23,7 +23,7 @@ class CreateApartmentsTable extends Migration
             $table->tinyInteger('num_beds');
             $table->tinyInteger('num_bathrooms')->nullable();
             $table->smallInteger('square_meters')->nullable();
-            $table->string('city');
+            // $table->string('city');
             $table->string('address');
             $table->string('lat');
             $table->string('lon');

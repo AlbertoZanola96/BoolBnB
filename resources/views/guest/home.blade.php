@@ -254,26 +254,29 @@
             </div>
         </div>
 
-        {{-- bg image --}}
-        <div class="banner d-flex flex-column align-items-center">
+        {{-- Banner --}}
+        <div class="banner d-flex flex-column align-items-center justify-content-center">
             <div class="layover"></div>
 
-            <div class="logo row justify-content-center">
-                <div class="col-5 d-flex flex-column align-items-center">
-                    <img src="../img/banner-2.jpg" alt="logo">
-                    <h3 class="text-justify">Il sito n.1 per trovare la casa perfetta per te</h3>
-                </div>
-            </div>
-
-            <div class="links">
-                <a href="{{ route('index') }}" class="display-4 text-white font-weight-bold">Trova l'appartamento giusto per te</a>
+            <div class="home-search">
+                <input type="text" placeholder="Cerca qui l'appartamento ideale per te" class="text-center">
             </div>
         </div>
 
+        {{-- info box  --}}
+        <div class="info-box">
+            <div class="info-box-2">
+
+            </div>
+
+
+        </div>
+
+        {{-- apartments  --}}
         <div class="apartments container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="title text-center mt-5">I nostri migliori appartamenti</h1>
+                    <h1 class="title text-center mt-5">Appartamenti in evidenza</h1>
                     <ul>
                         {{-- @foreach ($apartments as $apartment) --}}
                             <li>
