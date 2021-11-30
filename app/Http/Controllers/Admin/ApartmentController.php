@@ -113,11 +113,13 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::where('slug', $slug)->first();
 
-        if($apartment){
-            return view('admin.apartments.show', compact('apartment'));
-        } else {
+        if(!$apartment) {
             abort(404);
+        } elseif(Auth::user()->id != $apartment->user_id) {
+            return redirect()->back();
         }
+        
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -130,6 +132,13 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
         $apartment = Apartment::where('slug', $slug)->first();
+
+        if(!$apartment) {
+            abort(404);
+        } elseif(Auth::user()->id != $apartment->user_id) {
+            return redirect()->back();
+        }
+
         return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
