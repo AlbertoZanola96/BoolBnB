@@ -89,6 +89,7 @@
                     @enderror
 
                     {{-- servizi  --}}
+                    <label for="services" class="d-block font-weight-bold">Servizi</label>
                     @foreach ($services as $service)
                         <div class="form-check mb-3 form-check-inline">
                             <input
@@ -117,6 +118,8 @@
             </div>
         </div>
     </div>
+
+    {{-- script search auatocomplete  --}}
     <script>
         var options = {
             searchOptions: {
@@ -134,8 +137,10 @@
         var searchBox = document.querySelector('.search-box');
         searchBox.append(searchBoxHTML);
         document.querySelector('input.tt-search-box-input').name = 'address';
-        // document.body.append(searchBoxHTML);
+        document.querySelector('input.tt-search-box-input').placeholder = 'Inserisci Indirizzo Completo';
     </script>
+
+    {{-- frontend validation  --}}
     <script src="{{ asset('js/form_client_validation.js') }}"></script>
 @endsection
     

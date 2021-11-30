@@ -100,7 +100,7 @@ class ApartmentController extends Controller
         // attach servizi all'appartamento 
         $newApartment->services()->attach($form_data['services']);
 
-        return redirect()->route('admin.apartments.index')->with('inserted', `L'appartamento è stato correttamente salvato`);
+        return redirect()->route('admin.apartments.index')->with('inserted', 'L\'appartamento è stato correttamente salvato');
     }
 
     /**
@@ -200,7 +200,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return redirect()->route('admin.apartments.index')->with('deleted', 'Deleted');
+        return redirect()->route('admin.apartments.index')->with('deleted', 'Appartamento cancellato');
     }
 }
  
