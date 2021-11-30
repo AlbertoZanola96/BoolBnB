@@ -25,6 +25,24 @@
             border: none;
             outline: 0;        }
     }
+
+    .info-box-2 {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 60%;
+        height: 10%;
+        margin: 0 auto;
+        background-color: $white;
+        border-radius: 5px;
+        z-index: 4;
+
+        i {
+            font-size: 15px;
+            color: $ufo-green;
+        }
+    }
 }
 
 // info-box 
@@ -32,16 +50,6 @@
     position: relative;
     height: 15vh;
     background-color: $prestige-blue;
-
-    .info-box-2 {
-        position: absolute;
-        transform: translate(34%, -50%);
-        width: 60%;
-        height: 50%;
-        margin: 0 auto;
-        background-color: $white;
-        border-radius: 5px;
-    }
 }
 
 

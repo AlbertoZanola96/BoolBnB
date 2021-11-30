@@ -100,7 +100,7 @@ class ApartmentController extends Controller
         // attach servizi all'appartamento 
         $newApartment->services()->attach($form_data['services']);
 
-        return redirect()->route('admin.apartments.index')->with('inserted', `L'appartamento è stato correttamente salvato`);
+        return redirect()->route('admin.apartments.index')->with('inserted', 'L\'appartamento è stato correttamente salvato');
     }
 
     /**
@@ -113,11 +113,13 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::where('slug', $slug)->first();
 
-        if($apartment){
-            return view('admin.apartments.show', compact('apartment'));
-        } else {
+        if(!$apartment) {
             abort(404);
+        } elseif(Auth::user()->id != $apartment->user_id) {
+            return redirect()->back();
         }
+        
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -130,6 +132,13 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
         $apartment = Apartment::where('slug', $slug)->first();
+
+        if(!$apartment) {
+            abort(404);
+        } elseif(Auth::user()->id != $apartment->user_id) {
+            return redirect()->back();
+        }
+
         return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
@@ -163,7 +172,7 @@ class ApartmentController extends Controller
 
         // controlliamo che ci sia un risultato altrimenti facciamo un redirect con un messaggio di errore
         if(empty($response->json()['results'])) {
-            return redirect()->route('admin.apartments.create')->with('invalid_address', 'Indirizzo Invalido')->withInput();
+            return redirect()->route('admin.apartments.edit', $apartment->slug)->with('invalid_address', 'Indirizzo Invalido')->withInput();
         }
         
         $res_address = $response->json()['results'][0];
@@ -200,7 +209,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         $apartment->delete();
-        return redirect()->route('admin.apartments.index')->with('deleted', 'Deleted');
+        return redirect()->route('admin.apartments.index')->with('deleted', 'Appartamento cancellato');
     }
 }
  

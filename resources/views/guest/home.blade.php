@@ -255,21 +255,39 @@
         </div>
 
         {{-- Banner --}}
-        <div class="banner d-flex flex-column align-items-center justify-content-center">
-            <div class="layover"></div>
+        <div class=" container-fluid banner d-flex flex-column align-items-center justify-content-center">
+            <div class="row w-100 justify-content-center">
+                <div class="layover col"></div>
+    
+                {{-- input search  --}}
+                <div class="home-search">
+                    <input type="text" placeholder="Cerca qui l'appartamento ideale per te" class="text-center">
+                </div>
 
-            <div class="home-search">
-                <input type="text" placeholder="Cerca qui l'appartamento ideale per te" class="text-center">
+                <div class="info-box-2 d-flex align-items-center p-3">
+                    <i class="fas fa-circle mx-5"></i>
+
+                    <div class="center">
+                        <div class="info2-title">
+                            Vuoi il tuo appartamento in cima alla lista?
+                        </div>
+                        <div class="info2-description">
+                            Puoi ...
+                        </div>
+                    </div>
+
+                    <button>Prova</button>
+                </div>
             </div>
         </div>
 
         {{-- info box  --}}
-        <div class="info-box">
-            <div class="info-box-2">
+        <div class="info-box container-fluid">
+            <div class="row">
+                <div class="col">
 
+                </div>
             </div>
-
-
         </div>
 
         {{-- apartments  --}}

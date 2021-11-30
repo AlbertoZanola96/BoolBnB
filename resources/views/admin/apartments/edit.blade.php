@@ -5,6 +5,13 @@
         <div class="row">
             <div class="col-12">
                 <h1>Edit apartment</h1>
+
+                {{-- invalid address message --}}
+                @if (session('invalid_address'))
+                    <div class="alert alert-danger">
+                        {{ session('invalid_address') }}
+                    </div>
+                @endif
                 
                 <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST">
                     @csrf
@@ -81,6 +88,7 @@
                     @enderror
 
                     {{-- servizi  --}}
+                    <label for="services" class="d-block font-weight-bold">Servizi</label>
                     @foreach ($services as $service)
                         <div class="form-check mb-3 form-check-inline">
                             @if($errors->any()) 
@@ -135,7 +143,6 @@
         var searchBox = document.querySelector('.search-box');
         searchBox.append(searchBoxHTML);
         document.querySelector('input.tt-search-box-input').name = 'address';
-        document.querySelector('input.tt-search-box-input').placeholder = '$apartment->address';
-        // document.body.append(searchBoxHTML);
+        document.querySelector('input.tt-search-box-input').placeholder = 'Inserisci Indirizzo Completo';
     </script>
 @endsection

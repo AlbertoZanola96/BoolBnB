@@ -1,13 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    @if (session('status'))
+    @if (session('inserted'))
         <div class="alert alert-success">
-            {{ session('status') }}
+            {{ session('inserted') }}
         </div>
     @endif
     @if (session('modified'))
-        <div class="alert alert-succes">
+        <div class="alert alert-success">
             {{ session('modified') }}
         </div>
     @endif
@@ -15,7 +15,6 @@
         <div class="alert alert-danger">
             {{ session('deleted') }}
         </div>
-
     @endif 
     @foreach ($apartments as $apartment)
         <div class="container my_cont mb-3">
