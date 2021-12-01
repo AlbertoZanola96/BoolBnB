@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\Lead;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Auth;
@@ -214,10 +215,22 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index')->with('deleted', 'Appartamento cancellato');
     }
 
+
     public function sponsor() {        
         $sponsors = Sponsor::all();
         return view('admin.apartments.sponsor', compact('sponsors'));
-        
+    }   
+
+    public function message(){
+        $user = Auth::user();
+        $apartments = Apartment::where('user_id', $user->id)->get();
+        for ($i = 0; $i < count($apartments); $i++) {
+            $apartments_id[$i] = $apartments[$i]->id;
+        }
+        for ($i = 0; $i < count($apartments_id); $i++) {
+            $apartmentsleads[$i] = Lead::where('apartment_id', $apartments_id[$i])->get();
+        }
+        return view('admin.apartments.message', compact('apartmentsleads', 'apartments'));
     }
 }
  

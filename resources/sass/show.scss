@@ -1,20 +1,11 @@
-#admin_show_container{
+#show_container{
 
     li{
         list-style: none;
     }
 
-    .w-45{
-        width: 45%;
-    }
-    
-    .info-container{
-        overflow: scroll;
-    }
-
     .services-list{
         margin: 0;
-        height: 15vh;
 
         li span{
             margin: 5px 5px;
@@ -23,7 +14,6 @@
             padding: 5px 10px;
             background-color: $clear-chill;
             border-radius: 100px;
-            box-shadow: 0px 9px 30px -10px rgba(0,0,0,0.75);
         }
     }
 }
