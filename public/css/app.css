@@ -10397,19 +10397,45 @@ h5 {
 }
 #admin_show_container .w-45 {
   width: 45%;
-  max-height: 350px;
 }
-#admin_show_container .info-box {
-  max-height: 200px;
+#admin_show_container .info-container {
   overflow: scroll;
 }
 #admin_show_container .services-list {
   margin: 0;
+  height: 15vh;
 }
-#admin_show_container .services-list li {
-  margin: 5px 10px;
+#admin_show_container .services-list li span {
+  margin: 5px 5px;
+  display: inline-block;
   color: white;
   padding: 5px 10px;
   background-color: #1e90ff;
   border-radius: 100px;
+  box-shadow: 0px 9px 30px -10px rgba(0, 0, 0, 0.75);
+}
+
+#search-container {
+  height: 100vh;
+}
+#search-container .dataUi_container {
+  height: 100%;
+  width: 100%;
+}
+#search-container .dataUi_container .apartments-container {
+  height: 100%;
+  width: 100%;
+}
+#search-container .dataUi_container .apartments-container ul {
+  height: 100%;
+  overflow: auto;
+  list-style: none;
+}
+#search-container .dataUi_container .apartments-container ul li {
+  background-color: white;
+}
+#search-container .dataUi_container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
