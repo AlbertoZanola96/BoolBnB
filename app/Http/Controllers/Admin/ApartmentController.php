@@ -211,5 +211,9 @@ class ApartmentController extends Controller
         $apartment->delete();
         return redirect()->route('admin.apartments.index')->with('deleted', 'Appartamento cancellato');
     }
+
+    public function sponsor() {
+        return view('admin.apartments.sponsor');
+    }
 }
  
