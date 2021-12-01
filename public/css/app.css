@@ -10407,12 +10407,6 @@ h-100 {
 #show_container li {
   list-style: none;
 }
-#show_container .w-45 {
-  width: 45%;
-}
-#show_container .info-container {
-  overflow: scroll;
-}
 #show_container .services-list {
   margin: 0;
 }
@@ -10423,7 +10417,6 @@ h-100 {
   padding: 5px 10px;
   background-color: #1e90ff;
   border-radius: 100px;
-  box-shadow: 0px 9px 30px -10px rgba(0, 0, 0, 0.75);
 }
 
 h1 {
