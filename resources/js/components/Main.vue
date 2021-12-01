@@ -22,7 +22,7 @@
                     </ul>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="box-img col-12 col-md-6">
                     <img src="https://miro.medium.com/max/1400/1*qYUvh-EtES8dtgKiBRiLsA.png" alt="">
                 </div>
             </div>
@@ -44,10 +44,10 @@ export default {
             axios.get('http://127.0.0.1:8000/api/apartments')
                 .then(res => this.apartments = res.data.results)
         },
-        saveId:function(e){
-            let apartment_id = e.target.id;
-            console.log(e.target.id);
-        }
+        // saveId:function(e){
+        //     let apartment_id = e.target.id;
+        //     console.log(e.target.id);
+        // }
     },
     created() {
         this.getAppartments();
@@ -56,6 +56,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    
+#search-container{
+    height: 100vh;
 
+    .dataUi_container{
+        height: 100%;
+        width: 100%;
+
+        .apartments-container{
+            height: 100%;
+            width: 100%;
+
+            ul{
+                height: 100%;
+                overflow: auto;
+                list-style: none;
+
+                li{
+                    background-color: white;
+                }
+            }
+        }
+
+        .box-img {
+            height: 100vh;
+
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+}
 </style>

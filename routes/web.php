@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Homepage 
 Route::get('/', 'HomeController@index')->name('guest.home');
+
 // Search page 
 Route::get('/search', 'HomeController@search')->name('guest.search');
 

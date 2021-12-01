@@ -10414,28 +10414,3 @@ h5 {
   border-radius: 100px;
   box-shadow: 0px 9px 30px -10px rgba(0, 0, 0, 0.75);
 }
-
-#search-container {
-  height: 100vh;
-}
-#search-container .dataUi_container {
-  height: 100%;
-  width: 100%;
-}
-#search-container .dataUi_container .apartments-container {
-  height: 100%;
-  width: 100%;
-}
-#search-container .dataUi_container .apartments-container ul {
-  height: 100%;
-  overflow: auto;
-  list-style: none;
-}
-#search-container .dataUi_container .apartments-container ul li {
-  background-color: white;
-}
-#search-container .dataUi_container img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-}
