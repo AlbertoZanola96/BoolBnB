@@ -23,7 +23,13 @@
 @import './_utilities';
 
 // show 
-@import './show.scss';
+@import './show';
+
+// search 
+@import './search';
+
+// sponsor 
+@import './sponsor';
 
 // message
 @import './message.scss';

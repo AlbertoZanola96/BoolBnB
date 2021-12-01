@@ -224,5 +224,9 @@ class ApartmentController extends Controller
         }
         return view('admin.apartments.message', compact('apartmentsleads', 'apartments'));
     }
+    
+    public function sponsor() {
+        return view('admin.apartments.sponsor');
+    }
 }
  

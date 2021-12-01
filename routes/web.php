@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Homepage 
 Route::get('/', 'HomeController@index')->name('guest.home');
+
 // Search page 
 Route::get('/search', 'HomeController@search')->name('guest.search');
 
@@ -33,6 +34,7 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     ->group(function() {
         Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/apartments/sponsor', 'ApartmentController@sponsor')->name('apartments.sponsor');
         Route::resource('/apartments', 'ApartmentController');
         Route::get('/message', 'ApartmentController@message')->name('message');
      });
