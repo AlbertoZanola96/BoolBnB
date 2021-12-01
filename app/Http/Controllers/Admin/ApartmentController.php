@@ -10,6 +10,8 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Service;
+use App\Sponsor;
+
 
 class ApartmentController extends Controller
 {
@@ -212,8 +214,10 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index')->with('deleted', 'Appartamento cancellato');
     }
 
-    public function sponsor() {
-        return view('admin.apartments.sponsor');
+    public function sponsor() {        
+        $sponsors = Sponsor::all();
+        return view('admin.apartments.sponsor', compact('sponsors'));
+        
     }
 }
  
