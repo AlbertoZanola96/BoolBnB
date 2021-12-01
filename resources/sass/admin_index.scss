@@ -1,47 +1,63 @@
-.my_cont {
-    position: relative;
-    margin: 0 auto;
-    width: 1000px;
-    height: 230px;
+.principale {
+    width: 100vw;
+    height: 100vh;
     background-color: $city-lights;
-    border-radius: 5px;
-    box-shadow: 5px 10px 18px gray;
-    transition: width 1s, height 1s;
-}
+    
 
-.my_cont:hover {
-    background-color: $white;
-}
+    .card {
+        position: relative;
+        width: 1000px;
+        height: 230px;
+        background-color: rgb(248, 248, 248);
+        border-radius: 5px;
+        box-shadow: 5px 10px 18px gray;
+        transition: width 1s, height 1s;
+        margin: 0 auto;
+        
+        &:hover {
+            background-color: white;
+        }
 
-.img{
-    width: 200px;
-    height: 200px;
-    border: 1px solid gray;
-    margin: 15px 0 15px 0;
-    float: left;
-}
+        .img{
+            width: 200px;
+            height: 200px;
+            border: 1px solid gray;
+            margin: 15px 0 15px 0;
+            float: left;
+        }
 
-.elementi {
-    margin-top: 15px;
-    margin-left: 200px;
-}
+        .my-btn {
+            width: 100px;
+            height: 40px;
 
-.my-btn {
-    position: absolute;
-    top: 30px;
-    right: 10px;
-}
+            .btn{
+                position: relative;
+                top: 8px;
+                right: -25px;
+            }
 
-h2{
-    color: $prestige-blue;
-    font-weight: 800;
-}
+        }
+        
+        h2{
+            margin-top: 15px;
+            margin-left: 220px;
+            color: $prestige-blue;
+            font-weight: 800;
+        }
+        
+        h4 {
+            color: $grisaille;
+            margin-left: 20px;
+        }
+        
+        h5 {
+            color: $grisaille;
+            font-size: 15px;
+        }
 
-h4,
-h5 {
-    color: $grisaille;
+        p {
+            margin-left: 220px;
+        }
+    }
 }
-
-h5 {
-    font-size: 15px;
-}
+    
