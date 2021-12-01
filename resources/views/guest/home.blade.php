@@ -77,7 +77,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-8">
                                     {{-- login button --}}
-                                    <button type="submit" class="loginbtn">
+                                    <button type="submit" class="modalbtn">
                                         {{ __('Login') }}
                                     </button>
                                 </div>
@@ -196,7 +196,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-8">
                                     {{-- register button --}}
-                                    <button type="submit" class="registerbtn">
+                                    <button type="submit" class="modalbtn">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -241,7 +241,7 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-8">
                                     {{-- login button --}}
-                                    <button type="submit" class="resetbtn">
+                                    <button type="submit" class="modalbtn">
                                         {{ __('Send password reset link') }}
                                     </button>
                                 </div>

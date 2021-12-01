@@ -1954,6 +1954,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('http://127.0.0.1:8000/api/apartments').then(function (res) {
         return _this.apartments = res.data.results;
       });
+    },
+    saveId: function saveId(e) {
+      var apartment_id = e.target.id;
+      console.log(e.target.id);
     }
   },
   created: function created() {

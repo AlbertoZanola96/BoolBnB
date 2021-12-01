@@ -43,6 +43,10 @@ export default {
         getAppartments() {
             axios.get('http://127.0.0.1:8000/api/apartments')
                 .then(res => this.apartments = res.data.results)
+        },
+        saveId:function(e){
+            let apartment_id = e.target.id;
+            console.log(e.target.id);
         }
     },
     created() {
