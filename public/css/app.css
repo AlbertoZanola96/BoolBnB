@@ -10170,7 +10170,7 @@ i {
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
   .sidebar {
     width: 100%;
     height: auto;
@@ -10396,20 +10396,20 @@ i {
   background-color: #dfe4ea;
 }
 
-#admin_show_container li {
+#show_container li {
   list-style: none;
 }
-#admin_show_container .w-45 {
+#show_container .w-45 {
   width: 45%;
 }
-#admin_show_container .info-container {
+#show_container .info-container {
   overflow: scroll;
 }
-#admin_show_container .services-list {
+#show_container .services-list {
   margin: 0;
   height: 15vh;
 }
-#admin_show_container .services-list li span {
+#show_container .services-list li span {
   margin: 5px 5px;
   display: inline-block;
   color: white;
@@ -10483,4 +10483,17 @@ a {
 .btn-hover.color-1 {
   background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
   box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.lead {
+  cursor: pointer;
+  border-left: 1px solid #57606f;
+  border-right: 1px solid #57606f;
+  border-bottom: 1px solid #57606f;
+}
+.lead:hover {
+  background-color: #dfe4ea;
+}
+.lead:first-child {
+  border-top: 1px solid #57606f;
 }
