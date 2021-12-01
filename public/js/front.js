@@ -1916,6 +1916,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Main',
   data: function data() {
@@ -2448,17 +2472,70 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(_vm.apartments, function (apartment, index) {
-      return _c("div", { key: index }, [
-        _c("h1", [_vm._v(_vm._s(apartment.name))]),
-      ])
-    }),
-    0
-  )
+  return _c("div", { attrs: { id: "search-container" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "dataUi_container d-flex container-fluid" }, [
+      _c("div", { staticClass: "overflow apartments-container row" }, [
+        _c("div", { staticClass: "col-12 col-md-6 marble-background" }, [
+          _c(
+            "ul",
+            { staticClass: "p-0" },
+            _vm._l(_vm.apartments, function (apartment, index) {
+              return _c("li", { key: index, staticClass: "p-4 my-3" }, [
+                _c("div", { staticClass: "d-flex" }, [
+                  _vm._m(1, true),
+                  _vm._v(" "),
+                  _c("div", [_c("h2", [_vm._v(_vm._s(apartment.name))])]),
+                ]),
+              ])
+            }),
+            0
+          ),
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+      ]),
+    ]),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-container" }, [
+      _c("form", { attrs: { action: "" } }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("img", {
+        staticClass: "w-100",
+        attrs: {
+          src: "https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg",
+          alt: "",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 col-md-6" }, [
+      _c("img", {
+        attrs: {
+          src: "https://miro.medium.com/max/1400/1*qYUvh-EtES8dtgKiBRiLsA.png",
+          alt: "",
+        },
+      }),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -14840,7 +14917,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/ProgettoFinaleMackBookPro/BoolBnB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
