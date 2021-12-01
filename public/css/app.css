@@ -10313,7 +10313,7 @@ h5 {
 }
 
 .marble-text {
-  color: #dfe4ea;
+  color: #f1f2f6;
 }
 
 .font-min {
@@ -10330,6 +10330,10 @@ h5 {
 
 .font-s {
   font-size: 18px;
+}
+
+.font-ss {
+  font-size: 20px;
 }
 
 .font-sm {
@@ -10389,21 +10393,18 @@ h5 {
 }
 
 .marble-background {
-  background-color: #dfe4ea;
+  background-color: #f1f2f6;
+}
+
+h-100 {
+  height: 100%;
 }
 
 #admin_show_container li {
   list-style: none;
 }
-#admin_show_container .w-45 {
-  width: 45%;
-}
-#admin_show_container .info-container {
-  overflow: scroll;
-}
 #admin_show_container .services-list {
   margin: 0;
-  height: 15vh;
 }
 #admin_show_container .services-list li span {
   margin: 5px 5px;
@@ -10412,5 +10413,4 @@ h5 {
   padding: 5px 10px;
   background-color: #1e90ff;
   border-radius: 100px;
-  box-shadow: 0px 9px 30px -10px rgba(0, 0, 0, 0.75);
 }
