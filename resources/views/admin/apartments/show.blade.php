@@ -1,7 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div id="admin_show_container" class="marble-background">
+
+<div id="show_container">
     <div class="container my-4">
         <div class="row">
             <div class="col-12">
