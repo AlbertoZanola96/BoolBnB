@@ -24,7 +24,8 @@ Route::get('/apartments', 'ApartmentController@index')->name('index');
 Route::get('/apartments/{slug}', 'ApartmentController@show')->name('show');
 
 // Messaggi
-Route::post('/search', 'ApartmentController@handleMessageForm')->name('send');
+// Route::post('/search', 'ApartmentController@handleMessageForm')->name('send');
+Route::post('apartament/message', 'ApartmentController@sendMessage')->name('send');
 
 Auth::routes();
 
@@ -33,5 +34,6 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     ->group(function() {
         Route::get('/', 'HomeController@index')->name('index');
         Route::resource('/apartments', 'ApartmentController');
+        Route::get('/message', 'ApartmentController@message')->name('message');
      });
 
