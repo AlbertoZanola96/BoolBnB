@@ -102,9 +102,9 @@
                 </div>
             </div> 
 
-            <div class="col-12 col-lg-4 px-4 pt-4">
+            <div class="col-12 col-lg-4 px-md-4 pt-md-4">
                 <div class="sticky-top pt-3">
-                    <h3 class="font-ss my-2 p-3 white-background shadow">Opzioni scheda appartamento</h3>
+                    <h3 class="font-ss text-center my-2 p-3 white-background shadow">Opzioni scheda appartamento</h3>
 
                     <ul class="list-group mt-3 shadow">
                         <li class="list-group-item list-group-item-action">
