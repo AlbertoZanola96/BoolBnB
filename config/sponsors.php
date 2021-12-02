@@ -2,9 +2,9 @@
 
 return  [
     [
-        'name' => 'Bronze',
-        'price' => 2.99,
-        'duration_in_days' => 1
+        'name' => 'Gold',
+        'price' => 9.99,
+        'duration_in_days' => 6
     ],
     [
         'name' => 'Silver',
@@ -12,9 +12,9 @@ return  [
         'duration_in_days' => 3
     ],
     [
-        'name' => 'Gold',
-        'price' => 9.99,
-        'duration_in_days' => 6
+        'name' => 'Bronze',
+        'price' => 2.99,
+        'duration_in_days' => 1
     ]
 ];
 
