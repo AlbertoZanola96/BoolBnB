@@ -1,10 +1,9 @@
 .lead {
-    cursor: pointer;
     border-left: 1px solid $grisaille;
     border-right: 1px solid $grisaille;
     border-bottom: 1px solid $grisaille;
     &:hover {
-        background-color: $city-lights;
+        background-color: $white;
     }
     &:first-child {
         border-top: 1px solid $grisaille;

@@ -10486,13 +10486,12 @@ a {
 }
 
 .lead {
-  cursor: pointer;
   border-left: 1px solid #57606f;
   border-right: 1px solid #57606f;
   border-bottom: 1px solid #57606f;
 }
 .lead:hover {
-  background-color: #dfe4ea;
+  background-color: #ffffff;
 }
 .lead:first-child {
   border-top: 1px solid #57606f;
