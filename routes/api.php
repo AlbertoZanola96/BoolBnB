@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
+// Search apartments api route 
 Route::get('/apartments', 'Api\ApartmentController@searchApartment');
+
+// click tracking api route 
+Route::get('/clicks', 'Api\ClickController@clickTracking');
