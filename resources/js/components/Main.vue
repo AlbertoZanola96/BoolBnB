@@ -3,33 +3,75 @@
     <section id="input_container" class="container-fluid border-bottom">
         <div class="row align-items-center h-100 align-items-center">
             <div class="col-12">
-                <form action="" class="d-flex px-2">
+                <!-- <form action="" class="d-flex px-2"> -->
                     <div class="input-group justify-content-center align-items-center">
                         <div>
-                            <input class="btn" id="num_rooms" name="num_rooms" type="number" min="0" max="10" placeholder="N. camere">
+                            <!-- num_rooms  -->
+                            <input 
+                                class="btn" 
+                                v-model="num_rooms" 
+                                id="num_rooms" 
+                                name="num_rooms" 
+                                type="number" 
+                                min="0" 
+                                max="10" 
+                                placeholder="N. camere">
                         </div>
 
+                            <!-- num_beds  -->
                         <div>
-                            <input class="btn" id="num_beds" name="num_beds" type="number" min="0" max="10" placeholder="N. letti">
+                            <input 
+                                class="btn" 
+                                v-model="num_beds" 
+                                id="num_beds" 
+                                name="num_beds" 
+                                type="number" 
+                                min="0" 
+                                max="10" placeholder="N. letti">
                         </div>
 
+                            <!-- num_bathrooms  -->
                         <div>
-                            <input class="btn" id="num_bathrooms" name="num_bathrooms" type="number" min="0" max="10" placeholder="N. bagni">
+                            <input 
+                                class="btn" 
+                                v-model="num_bathrooms" 
+                                id="num_bathrooms" 
+                                name="num_bathrooms" 
+                                type="number" 
+                                min="0" 
+                                max="10" 
+                                placeholder="N. bagni">
                         </div>
 
+                            <!-- address  -->
                         <div>
-                            <input type="text" class="btn" id="address" name="address" placeholder="In quale città?">
+                            <input 
+                                type="text" 
+                                v-model="address" 
+                                class="btn" 
+                                id="address" 
+                                name="address" 
+                                placeholder="In quale città?">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">
+                            <!-- distance  -->
+                        <div>
+                            <label for="distance">km</label>
+                            <input type="range" v-model="distance" class="distance" id="distance" name="distance">
+                        </div>
+
+                            <!-- btn cerca  -->
+                        <button class="btn btn-primary" v-on:click="getApartments">
                             Inizia a cercare
                         </button>
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
         </div>
     </section>
 
+
+    <!-- apartment cards  -->
     <section id="dataUi_container" class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-5 col-lg-6 p-0 apartments-container">
@@ -90,21 +132,55 @@ export default {
     name: 'Main',
     data() {
         return {
-            apartments: []
+            apartments: [],
+            apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+            tomtom: 'https://api.tomtom.com/search/2/geocode/',
+            tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
+            num_rooms: '',
+            num_bathrooms: '',
+            num_beds: '',
+            address: null,
+            distance: 20,
+            lat: '',
+            lon: ''
+
         }
     },
     methods: {
-        getAppartments() {
-            axios.get('http://127.0.0.1:8000/api/apartments')
-                .then(res => this.apartments = res.data.results)
-        },
-        // saveId:function(e){
-        //     let apartment_id = e.target.id;
-        //     console.log(e.target.id);
-        // }
+        async getApartments() {
+
+                if (this.address !== null) {
+                    await axios.get(this.tomtom + this.address + this.tomtomKey)
+                        .then((res) => {
+                            console.log(res.data.results[0].position);
+                            this.lat = res.data.results[0].position.lat;
+                            this.lon = res.data.results[0].position.lon;
+                        });
+                }
+
+                axios.get(
+                    this.apiSearchApartments +
+                        "num_rooms=" +
+                        this.num_rooms +
+                        "&num_beds=" +
+                        this.num_beds +
+                        "&num_bathrooms=" +
+                        this.num_bathrooms +
+                        "&distance=" +
+                        this.distance +
+                        "&lat=" +
+                        this.lat +
+                        "&lon=" +
+                        this.lon
+                    )
+                    .then((res) => {
+                    this.apartments = res.data.results;
+                    console.log(res);
+                    });
+        }
     },
     created() {
-        this.getAppartments();
+         this.getApartments();      
     }
 }
 </script>

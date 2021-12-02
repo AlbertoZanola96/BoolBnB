@@ -22,7 +22,7 @@ Route::get('/search', 'HomeController@search')->name('guest.search');
 
 
 Route::get('/apartments', 'ApartmentController@index')->name('index');
-Route::get('/apartments/{slug}', 'ApartmentController@show')->name('show');
+Route::get('/apartments/{slug}', 'ApartmentController@show')->name('guest.show');
 
 // Messaggi
 // Route::post('/search', 'ApartmentController@handleMessageForm')->name('send');
