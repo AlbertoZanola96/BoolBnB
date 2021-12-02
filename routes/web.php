@@ -26,7 +26,7 @@ Route::get('/apartments/{slug}', 'ApartmentController@show')->name('show');
 
 // Messaggi
 // Route::post('/search', 'ApartmentController@handleMessageForm')->name('send');
-Route::post('apartament/message', 'ApartmentController@sendMessage')->name('send');
+Route::post('apartament/message', 'Guest\LeadController@sendMessage')->name('send');
 
 Auth::routes();
 
@@ -36,6 +36,8 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
         Route::get('/', 'HomeController@index')->name('index');
         Route::get('/apartments/sponsor', 'ApartmentController@sponsor')->name('apartments.sponsor');
         Route::resource('/apartments', 'ApartmentController');
-        Route::get('/message', 'ApartmentController@message')->name('message');
+        Route::resource('/message', 'LeadController');
+        // Route::post('/message/delete', 'LeadController@destroy')->name('apartments.message.destroy');
+        // Route::get('/message', 'LeadController@message')->name('apartments.message');
      });
 
