@@ -26,8 +26,8 @@ class HomeController extends Controller
         return view('guest.home');
     }
 
-    public function search()
+    public function vue()
     {
-        return view('guest.search');
+        return view('guest.vue');
     }
 }
