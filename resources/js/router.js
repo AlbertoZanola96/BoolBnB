@@ -11,17 +11,17 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/vue/home',
+            path: '/',
             name: 'Home',
             component: Home
         },
         {
-            path: '/vue/search',
+            path: '/search',
             name: 'Search',
             component: Search
         },
         {
-            path: '/vue/show/:slug',
+            path: '/show/:slug',
             name: 'Show',
             component: Show
         }
