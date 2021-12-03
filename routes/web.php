@@ -14,19 +14,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Homepage 
-Route::get('/', 'HomeController@index')->name('guest.home');
+// // Homepage 
+// Route::get('/', 'HomeController@index')->name('guest.home');
 
-// Search page 
-Route::get('/search', 'HomeController@search')->name('guest.search');
+// // Search page 
+// Route::get('/vue', 'HomeController@vue')->name('guest.vue');
 
 
-Route::get('/apartments', 'ApartmentController@index')->name('index');
-Route::get('/apartments/{slug}', 'ApartmentController@show')->name('guest.show');
+// Route::get('/apartments', 'ApartmentController@index')->name('index');
+// Route::get('/apartments/{slug}', 'ApartmentController@show')->name('guest.show');
 
-// Messaggi
+// // Messaggi
 // Route::post('/search', 'ApartmentController@handleMessageForm')->name('send');
-Route::post('apartament/message', 'Guest\LeadController@sendMessage')->name('send');
+// Route::post('apartament/message', 'Guest\LeadController@sendMessage')->name('send');
 
 Auth::routes();
 
@@ -41,3 +41,6 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
         // Route::get('/message', 'LeadController@message')->name('apartments.message');
      });
 
+
+//  vue routes     
+Route::get('/vue/{any}', 'HomeController@vue')->where('any', '.*');

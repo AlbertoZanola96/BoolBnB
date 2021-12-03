@@ -8,7 +8,7 @@ use App\Apartment;
 
 class ApartmentController extends Controller
 {
-    public function searchApartment(Request $request){
+    public function searchApartments(Request $request){
         $resQuery = $request->query();
 
         // query filtro senza raggio di km 
@@ -39,6 +39,17 @@ class ApartmentController extends Controller
         ]);
     }
 
+    public function showApartment(Request $request) {
+        // dd($request->apartment_slug);
+        $apartment = Apartment::where('slug', $request->apartment_slug)->first();
+
+        return response()->json([
+            'success' => true,
+            "results" => $apartment
+        ]);
+    }
+
+    // funzione distanza due punti 
     private function distanceCalculation($point1_lat, $point1_long, $point2_lat, $point2_long, $decimals = 2) {
         // Calculate the distance in degrees
         $degrees = rad2deg(acos((sin(deg2rad($point1_lat))*sin(deg2rad($point2_lat))) + (cos(deg2rad($point1_lat))*cos(deg2rad($point2_lat))*cos(deg2rad($point1_long-$point2_long)))));

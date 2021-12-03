@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Search apartments api route 
-Route::get('/apartments', 'Api\ApartmentController@searchApartment');
+// Search apartments 
+Route::get('/apartments', 'Api\ApartmentController@searchApartments');
+
+// Search single apartment 
+Route::get('/apartment', 'Api\ApartmentController@showApartment');
+
 
 // click tracking api route 
-Route::get('/clicks', 'Api\ClickController@clickTracking');
+Route::post('/clicks', 'Api\ClickController@clickTracking');

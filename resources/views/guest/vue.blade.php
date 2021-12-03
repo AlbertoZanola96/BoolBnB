@@ -30,7 +30,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <div class="modal-body">
-                    <form method="POST" action="{{ route('send') }}">
+                    <form method="POST" action="">
                         @csrf
 
                         {{-- name --}}

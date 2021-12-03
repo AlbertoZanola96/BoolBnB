@@ -106,11 +106,11 @@
                                 </ul>
 
                                 <div class="pt-2">
-                                    <a href="">
-                                        <button class="btn btn-primary">
+                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
+                                        <button class="btn btn-primary" >
                                             Visualizza immobile &#8594;
                                         </button>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
 <script>
 
 export default {
-    name: 'Main',
+    name: 'Search',
     data() {
         return {
             apartments: [],
@@ -143,7 +143,6 @@ export default {
             distance: 20,
             lat: '',
             lon: ''
-
         }
     },
     methods: {
@@ -152,7 +151,6 @@ export default {
                 if (this.address !== null) {
                     await axios.get(this.tomtom + this.address + this.tomtomKey)
                         .then((res) => {
-                            console.log(res.data.results[0].position);
                             this.lat = res.data.results[0].position.lat;
                             this.lon = res.data.results[0].position.lon;
                         });
@@ -175,12 +173,11 @@ export default {
                     )
                     .then((res) => {
                     this.apartments = res.data.results;
-                    console.log(res);
                     });
         }
     },
     created() {
-         this.getApartments();      
+        this.getApartments();
     }
 }
 </script>
