@@ -2064,13 +2064,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
       tomtom: 'https://api.tomtom.com/search/2/geocode/',
       tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
+      apiIpAddressIdApartment: 'http://127.0.0.1:8000/api/clicks?',
       num_rooms: '',
       num_bathrooms: '',
       num_beds: '',
       address: null,
       distance: 20,
       lat: '',
-      lon: ''
+      lon: '',
+      ip_address: '',
+      apartment_id: ''
     };
   },
   methods: {
@@ -2089,7 +2092,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _context.next = 3;
                 return axios.get(_this.tomtom + _this.address + _this.tomtomKey).then(function (res) {
-                  console.log(res.data.results[0].position);
                   _this.lat = res.data.results[0].position.lat;
                   _this.lon = res.data.results[0].position.lon;
                 });
@@ -2097,7 +2099,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 axios.get(_this.apiSearchApartments + "num_rooms=" + _this.num_rooms + "&num_beds=" + _this.num_beds + "&num_bathrooms=" + _this.num_bathrooms + "&distance=" + _this.distance + "&lat=" + _this.lat + "&lon=" + _this.lon).then(function (res) {
                   _this.apartments = res.data.results;
-                  console.log(res);
                 });
 
               case 4:
@@ -2106,6 +2107,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee);
+      }))();
+    },
+    getClicks: function getClicks(clicked_id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var response, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return fetch('http://api.ipify.org/?format=json');
+
+              case 2:
+                response = _context2.sent;
+                _context2.next = 5;
+                return response.json();
+
+              case 5:
+                data = _context2.sent;
+                _this2.ip_address = data.ip;
+                _this2.apartment_id = clicked_id;
+                console.log(_this2.ip_address);
+                console.log(_this2.apartment_id);
+                axios.post(_this2.apiIpAddressIdApartment + "ip_address=" + _this2.ip_address + "&apartment_id=" + _this2.apartment_id);
+
+              case 11:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     }
   },
@@ -4330,7 +4364,27 @@ var render = function () {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(1, true),
+                            _c("div", { staticClass: "pt-2" }, [
+                              _c("a", { attrs: { href: "" } }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-primary",
+                                    on: {
+                                      click: function ($event) {
+                                        $event.preventDefault()
+                                        return _vm.getClicks(apartment.id)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                                            Visualizza immobile →\r\n                                        "
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                            ]),
                           ]
                         ),
                       ]),
@@ -4342,7 +4396,7 @@ var render = function () {
             ]
           ),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(1),
         ]),
       ]
     ),
@@ -4366,20 +4420,6 @@ var staticRenderFns = [
         }),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pt-2" }, [
-      _c("a", { attrs: { href: "" } }, [
-        _c("button", { staticClass: "btn btn-primary" }, [
-          _vm._v(
-            "\r\n                                            Visualizza immobile →\r\n                                        "
-          ),
-        ]),
-      ]),
-    ])
   },
   function () {
     var _vm = this

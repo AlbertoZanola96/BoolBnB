@@ -107,7 +107,7 @@
 
                                 <div class="pt-2">
                                     <a href="">
-                                        <button class="btn btn-primary">
+                                        <button class="btn btn-primary" v-on:click.prevent="getClicks(apartment.id)">
                                             Visualizza immobile &#8594;
                                         </button>
                                     </a>
@@ -136,13 +136,16 @@ export default {
             apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
             tomtom: 'https://api.tomtom.com/search/2/geocode/',
             tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
+            apiIpAddressIdApartment: 'http://127.0.0.1:8000/api/clicks?',
             num_rooms: '',
             num_bathrooms: '',
             num_beds: '',
             address: null,
             distance: 20,
             lat: '',
-            lon: ''
+            lon: '',
+            ip_address: '',
+            apartment_id: ''
 
         }
     },
@@ -152,7 +155,6 @@ export default {
                 if (this.address !== null) {
                     await axios.get(this.tomtom + this.address + this.tomtomKey)
                         .then((res) => {
-                            console.log(res.data.results[0].position);
                             this.lat = res.data.results[0].position.lat;
                             this.lon = res.data.results[0].position.lon;
                         });
@@ -175,12 +177,23 @@ export default {
                     )
                     .then((res) => {
                     this.apartments = res.data.results;
-                    console.log(res);
                     });
+        },
+
+        async getClicks(clicked_id) {
+            const response = await fetch('http://api.ipify.org/?format=json');
+            const data = await response.json();
+            this.ip_address = data.ip;
+            this.apartment_id = clicked_id;
+            console.log(this.ip_address)
+            console.log(this.apartment_id)
+            axios.post(
+                this.apiIpAddressIdApartment + "ip_address=" + this.ip_address + "&apartment_id=" + this.apartment_id
+                )
         }
     },
     created() {
-         this.getApartments();      
+        this.getApartments();
     }
 }
 </script>
