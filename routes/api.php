@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/apartments', 'Api\ApartmentController@searchApartment');
 
 // click tracking api route 
-Route::get('/clicks', 'Api\ClickController@clickTracking');
+Route::post('/clicks', 'Api\ClickController@clickTracking');
