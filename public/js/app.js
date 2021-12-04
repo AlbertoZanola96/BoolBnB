@@ -37359,7 +37359,6 @@ __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/progetto finale/Boo
 module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/progetto finale/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
-
 /***/ })
 
 /******/ });
