@@ -10225,7 +10225,6 @@ i {
 .principale .card {
   position: relative;
   width: 1000px;
-  height: 230px;
   background-color: #f8f8f8;
   border-radius: 5px;
   box-shadow: 5px 10px 18px gray;
@@ -10236,15 +10235,14 @@ i {
   background-color: white;
 }
 .principale .card .img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 300px;
   border: 1px solid gray;
   margin: 15px 0 15px 0;
   float: left;
 }
 .principale .card .my-btn {
   width: 100px;
-  height: 40px;
 }
 .principale .card .my-btn .btn {
   position: relative;
@@ -10253,7 +10251,6 @@ i {
 }
 .principale .card h2 {
   margin-top: 15px;
-  margin-left: 220px;
   color: #2f3542;
   font-weight: 800;
 }
