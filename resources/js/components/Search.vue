@@ -139,7 +139,7 @@ export default {
             num_rooms: '',
             num_bathrooms: '',
             num_beds: '',
-            address: null,
+            address: this.$route.params.inputSearch,
             distance: 20,
             lat: '',
             lon: ''
@@ -148,7 +148,7 @@ export default {
     methods: {
         async getApartments() {
 
-                if (this.address !== null) {
+                if (this.$route.params.inputSearch) {
                     await axios.get(this.tomtom + this.address + this.tomtomKey)
                         .then((res) => {
                             this.lat = res.data.results[0].position.lat;

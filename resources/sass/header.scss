@@ -1,9 +1,9 @@
 header {
-    position: fixed;
+    // position: fixed;
     height: 60px;
-    background-color: transparent;
+    background-color: $prestige-blue;
     background-position: center;
-    color: white;
+    color: $white;
     z-index: 10;
 
     #logo {
@@ -11,7 +11,7 @@ header {
     }
 
     .input-right a{
-        font-size: 20px;
-        color: white;
+        font-size: 18px;
+        color: $white;
     }
 }

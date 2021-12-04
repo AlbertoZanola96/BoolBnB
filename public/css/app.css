@@ -10025,7 +10025,7 @@ h3 {
 }
 .banner {
   position: relative;
-  height: 85vh;
+  height: 80vh;
   background-image: url("../img/banner-3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -10040,6 +10040,10 @@ h3 {
   width: 40%;
   z-index: 2;
 }
+.banner .home-search label {
+  font-size: 18px;
+  color: white;
+}
 .banner .home-search input {
   width: 100%;
   padding: 10px;
@@ -10052,9 +10056,9 @@ h3 {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
   width: 60%;
   height: 10%;
+  transform: translate(-50%, 50%);
   margin: 0 auto;
   background-color: #ffffff;
   border-radius: 5px;
@@ -10064,26 +10068,44 @@ h3 {
   font-size: 15px;
   color: #2ed573;
 }
+.banner .info-box-2 .center {
+  margin-right: 50px;
+  font-size: 18px;
+}
+.banner .info-box-2 .center .info2-title {
+  color: #2ed573;
+}
+.banner .info-box-2 .center .info2-description {
+  color: #57606f;
+}
+.banner .info-box-2 .btn-home {
+  padding: 10px 70px;
+  border: 1px solid #2ed573;
+  background-color: white;
+  color: #2ed573;
+}
 
 .info-box {
   position: relative;
   height: 15vh;
   background-color: #2f3542;
 }
-
-.apartments li {
-  list-style: none;
-}
-
-.apartment-image {
-  width: 40%;
-}
-.apartment-image img {
-  width: 100%;
-}
-
-.apartment-description {
+.info-box .wrapper {
   width: 60%;
+  margin: 40px auto;
+  color: white;
+}
+.info-box .wrapper .center {
+  margin-left: 100px;
+  font-size: 18px;
+}
+.info-box .wrapper .center .info-description {
+  color: #a4b0be;
+}
+
+.apartments {
+  margin: 0 auto;
+  background-color: turquoise;
 }
 
 button.close {
@@ -10115,19 +10137,18 @@ button.close {
 }
 
 header {
-  position: fixed;
   height: 60px;
-  background-color: transparent;
+  background-color: #2f3542;
   background-position: center;
-  color: white;
+  color: #ffffff;
   z-index: 10;
 }
 header #logo {
   font-size: 20px;
 }
 header .input-right a {
-  font-size: 20px;
-  color: white;
+  font-size: 18px;
+  color: #ffffff;
 }
 
 body {
@@ -10200,7 +10221,6 @@ i {
 .principale .card {
   position: relative;
   width: 1000px;
-  height: 230px;
   background-color: #f8f8f8;
   border-radius: 5px;
   box-shadow: 5px 10px 18px gray;
@@ -10211,15 +10231,14 @@ i {
   background-color: white;
 }
 .principale .card .img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 300px;
   border: 1px solid gray;
   margin: 15px 0 15px 0;
   float: left;
 }
 .principale .card .my-btn {
   width: 100px;
-  height: 40px;
 }
 .principale .card .my-btn .btn {
   position: relative;
@@ -10228,7 +10247,6 @@ i {
 }
 .principale .card h2 {
   margin-top: 15px;
-  margin-left: 220px;
   color: #2f3542;
   font-weight: 800;
 }
@@ -10501,4 +10519,10 @@ a {
 }
 .lead:first-child {
   border-top: 1px solid #57606f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

@@ -1926,8 +1926,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: 'Home',
+  data: function data() {
+    return {
+      inputSearch: ''
+    };
+  },
+  methods: {
+    linkSearch: function linkSearch() {
+      this.$router.push({
+        name: 'Search',
+        params: {
+          inputSearch: this.inputSearch
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2088,7 +2164,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       num_rooms: '',
       num_bathrooms: '',
       num_beds: '',
-      address: null,
+      address: this.$route.params.inputSearch,
       distance: 20,
       lat: '',
       lon: ''
@@ -2103,7 +2179,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this.address !== null)) {
+                if (!_this.$route.params.inputSearch) {
                   _context.next = 3;
                   break;
                 }
@@ -4364,14 +4440,134 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass:
+          " container-fluid banner d-flex flex-column align-items-center justify-content-center",
+      },
+      [
+        _c("div", { staticClass: "row w-100 justify-content-center" }, [
+          _c("div", { staticClass: "layover col" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "home-search text-center" }, [
+            _c("label", { attrs: { for: "search" } }, [
+              _vm._v("Cerca qui l'appartamento ideale per te"),
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.inputSearch,
+                  expression: "inputSearch",
+                },
+              ],
+              staticClass: "text-center",
+              attrs: {
+                id: "search",
+                type: "text",
+                placeholder: "Inserisci una città o un indirizzo",
+              },
+              domProps: { value: _vm.inputSearch },
+              on: {
+                keyup: function ($event) {
+                  if (
+                    !$event.type.indexOf("key") &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.linkSearch.apply(null, arguments)
+                },
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.inputSearch = $event.target.value
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("sono la vue home")])])
+    return _c(
+      "div",
+      { staticClass: "info-box-2 d-flex align-items-center p-3" },
+      [
+        _c("i", { staticClass: "fas fa-circle mx-5" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "center" }, [
+          _c("div", { staticClass: "info2-title" }, [
+            _vm._v(
+              "\n                        Vuoi il tuo appartamento in cima alla lista?\n                    "
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info2-description" }, [
+            _vm._v(
+              "\n                        Registrati e dai un'occhiata alle nostre sponsorizzazioni!\n                    "
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "btn-home" }, [_vm._v("Registrati ora")]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-box container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "wrapper p-3" }, [
+            _c("div", { staticClass: "center" }, [
+              _c("div", { staticClass: "info-title" }, [
+                _vm._v(
+                  "\n                            Pubblica annunci gratuitamente\n                        "
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "info-description" }, [
+                _vm._v(
+                  "\n                            Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.\n                        "
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 col-md-8 col-lg-8 apartments" }, [
+          _vm._v("\n                dsadsadsa\n            "),
+        ]),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -20914,15 +21110,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
-    path: '/vue/home',
+    path: '/',
     name: 'Home',
     component: _components_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/vue/search',
+    path: '/search',
     name: 'Search',
     component: _components_Search__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
-    path: '/vue/show/:slug',
+    path: '/show/:slug',
     name: 'Show',
     component: _components_Show__WEBPACK_IMPORTED_MODULE_4__["default"]
   }]
