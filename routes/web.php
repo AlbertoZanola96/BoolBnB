@@ -35,6 +35,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     ->group(function() {
         Route::get('/', 'HomeController@index')->name('index');
         Route::get('/apartments/sponsor', 'ApartmentController@sponsor')->name('apartments.sponsor');
+        Route::get('/apartments/stats/{slug}', 'ApartmentController@viewStats')->name('apartments.stats');
         Route::resource('/apartments', 'ApartmentController');
         Route::resource('/message', 'LeadController');
         // Route::post('/message/delete', 'LeadController@destroy')->name('apartments.message.destroy');
