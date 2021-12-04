@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Service;
 use App\Sponsor;
+use App\Click;
+use App\Lead;
 
 
 class ApartmentController extends Controller
@@ -220,5 +222,49 @@ class ApartmentController extends Controller
         return view('admin.apartments.sponsor', compact('sponsors'));
     }   
 
+    public function viewStats($slug) {       
+        $apartment = Apartment::where('slug', $slug)->first(); 
+        $leads = Lead::where('apartment_id', $apartment->id)->get();
+        $clicks = Click::where('apartment_id', $apartment->id)->get();
+        if (!$apartment) {
+            abort(404);
+        }
+
+        $leads1 = 0;
+        $leads2 = 0;
+        $leads3 = 0;
+        $leads4 = 0;
+        $leads5 = 0;
+        $leads6 = 0;
+        $leads7 = 0;
+        $leads8 = 0;
+        $leads9 = 0;
+        $leads10 = 0;
+        $leads11 = 0;
+        $leads12 = 0;
+
+        $leadstats = [
+            'January' => $leads1,
+            'February' => $leads2, 
+            'March' => $leads3, 
+            'April' => $leads4, 
+            'May' => $leads5, 
+            'June' => $leads6, 
+            'July' => $leads7, 
+            'August' => $leads8, 
+            'September' => $leads9, 
+            'October' => $leads10, 
+            'November' => $leads11, 
+            'December' => $leads12
+        ];
+        
+        foreach ($leads as $lead) {
+            $date = explode("-", $lead->created_at->toDateString());
+            $month = $date[1];
+            // $('leads' . $month) += 1;
+        }
+        // dd($clicks);
+        return view('admin.apartments.stats', compact('leads', 'clicks'));
+    }
 }
  

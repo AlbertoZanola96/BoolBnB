@@ -37279,7 +37279,7 @@ var deleteArr = document.querySelectorAll('.deleteForm');
 console.log(deleteArr);
 deleteArr.forEach(function (el) {
   el.addEventListener('submit', function (e) {
-    var res = confirm('Delete Post?');
+    var res = confirm('Sei sicuro di voler eliminare?');
 
     if (!res) {
       e.preventDefault();
