@@ -14,7 +14,10 @@
 
 </head>
 <body>
-    @include('partials.header')
+    {{-- header  --}}
+    @include('partials.header', compact('user'))
+
+    {{-- vue app  --}}
     <div id="app">
         
     </div>
