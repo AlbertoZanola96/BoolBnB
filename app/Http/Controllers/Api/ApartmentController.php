@@ -40,12 +40,14 @@ class ApartmentController extends Controller
     }
 
     public function showApartment(Request $request) {
-        // dd($request->apartment_slug);
+    
         $apartment = Apartment::where('slug', $request->apartment_slug)->first();
+        $services = $apartment->services;
 
         return response()->json([
             'success' => true,
-            "results" => $apartment
+            'results' => $apartment,
+            'services' => $services
         ]);
     }
 

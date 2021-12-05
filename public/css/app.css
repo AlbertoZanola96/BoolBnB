@@ -10150,6 +10150,10 @@ header .input-right a {
   font-size: 18px;
   color: #ffffff;
 }
+header .input-right a .loged i {
+  font-size: 20px;
+  margin-right: 10px;
+}
 
 body {
   background-color: #dfe4ea;

@@ -2153,6 +2153,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Search',
   data: function data() {
@@ -2423,6 +2428,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Show',
   data: function data() {
@@ -2431,7 +2438,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       apiSingleApartment: 'http://127.0.0.1:8000/api/apartment?',
       ip_address: '',
       apartment_id: '',
-      apartment: ""
+      apartment: '',
+      apartmentServices: []
     };
   },
   methods: {
@@ -2458,7 +2466,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this.apartment_id = _this.$route.params.id;
                 console.log(_this.$route.params.id);
                 console.log(_this.ip_address);
-                axios.post(_this.apiIpAddressIdApartment + "ip_address=" + _this.ip_address + "&apartment_id=" + _this.apartment_id);
+
+                if (_this.apartment_id != undefined) {
+                  axios.post(_this.apiIpAddressIdApartment + "ip_address=" + _this.ip_address + "&apartment_id=" + _this.apartment_id);
+                }
 
               case 11:
               case "end":
@@ -2487,10 +2498,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 5:
                 data = _context2.sent;
+                console.log(res.data);
                 _this2.apartment = data;
+                _this2.apartmentServices = res.data.services;
                 console.log(data);
 
-              case 8:
+              case 10:
               case "end":
                 return _context2.stop();
             }
@@ -5143,7 +5156,38 @@ var render = function () {
                       ),
                     ]),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _c("div", { staticClass: "col pl-lg-3 pt-5 pt-lg-0 p-0" }, [
+                      _c(
+                        "div",
+                        { staticClass: "col white-background p-4 shadow" },
+                        [
+                          _c("h2", { staticClass: "font-sm mb-4" }, [
+                            _vm._v("Servizi dell'immobile:"),
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "d-flex p-0 info-container services-list flex-wrap",
+                            },
+                            _vm._l(
+                              _vm.apartmentServices,
+                              function (service, index) {
+                                return _c("li", { key: index }, [
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(service.name) +
+                                      "\n                                    "
+                                  ),
+                                ])
+                              }
+                            ),
+                            0
+                          ),
+                        ]
+                      ),
+                    ]),
                   ]
                 ),
               ]
@@ -5164,7 +5208,7 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(2),
+              _vm._m(1),
             ]),
           ]),
         ]),
@@ -5196,18 +5240,18 @@ var render = function () {
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
-              _vm._m(4),
+              _vm._m(3),
             ]),
           ]),
         ]),
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(5),
+    _vm._m(4),
   ])
 }
 var staticRenderFns = [
@@ -5223,22 +5267,6 @@ var staticRenderFns = [
           alt: "",
         },
       }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col pl-lg-3 pt-5 pt-lg-0 p-0" }, [
-      _c("div", { staticClass: "col white-background p-4 shadow" }, [
-        _c("h2", { staticClass: "font-sm mb-4" }, [
-          _vm._v("Servizi dell'immobile:"),
-        ]),
-        _vm._v(" "),
-        _c("ul", {
-          staticClass: "d-flex p-0 info-container services-list flex-wrap",
-        }),
-      ]),
     ])
   },
   function () {
