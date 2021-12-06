@@ -14,7 +14,8 @@
 
     {{-- TomTom Map Import CDN --}}
     <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps.css'>
-    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps-web.min.js"></script>
+    {{-- <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/maps/maps-web.min.js"></script> --}}
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.16.0/maps/maps-web.min.js'></script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.15.0/services/services-web.min.js"></script>
 
 </head>
@@ -332,36 +333,6 @@
             </div>
         </div>
     </div>
-
-    {{-- <div style="width: 100vw; height: 100vh" id="map-div"></div> --}}
-
-    {{-- <script>
-        const API_KEY = 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF';
-        const APPLICATION_NAME = 'My Application';
-        const APPLICATION_VERSION = '1.0';
-        
-        tt.setProductInfo(APPLICATION_NAME, APPLICATION_VERSION);
-
-        const GOLDEN_GATE_BRIDGE = {lng: -122.47483, lat: 37.80776};
-
-        var map = tt.map({
-            key: API_KEY,
-            container: 'map-div',
-            center: GOLDEN_GATE_BRIDGE,
-            zoom: 12,
-            style: {
-
-                map: 'basic_main',
-
-                poi: 'poi_main',
-
-                trafficIncidents: 'incidents_day',
-
-                trafficFlow: 'flow_relative'
-
-            }
-        });
-    </script> --}}
 
     <script src="{{ asset('js/front.js') }}"></script>
 </body>
