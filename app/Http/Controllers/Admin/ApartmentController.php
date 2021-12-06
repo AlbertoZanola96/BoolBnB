@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Service;
 use App\Sponsor;
+use Illuminate\Support\Facades\Storage;
+
+
 
 
 class ApartmentController extends Controller
@@ -61,11 +64,20 @@ class ApartmentController extends Controller
             // 'city' => 'required',
             'address' => 'required|max:255',
             'services' => 'exists:services,id',
-            'visible' => 'required'
+            'visible' => 'required',
+            'image' => 'image'
         ]);
 
         // accediamo ai dati tramite la request, creiamo un nuovo apartment ed assegniamo i dati ricevuti 
         $form_data = $request->all();
+
+        // verifico se è stata caricata un'immagine
+        if(array_key_exists('new_img', $form_data)) {
+            //se esiste salviamo l'immagine e recuperiamo il path
+            $image_path = Storage::put('apartment_images', $form_data['new_img']);
+            $form_data['image'] = $image_path;
+        }
+        
         $newApartment = new Apartment();
         $newApartment->fill($form_data);
 
@@ -164,7 +176,8 @@ class ApartmentController extends Controller
             // 'city' => 'required',
             'address' => 'required|max:255',
             'services' => 'exists:services,id',
-            'visible' => 'required'
+            'visible' => 'required',
+            'image' => 'image'
         ]);
 
         $form_data = $request->all();
@@ -188,6 +201,13 @@ class ApartmentController extends Controller
         // assegniamo lat e lon a new apartment 
         $apartment->lat = $lat;
         $apartment->lon = $lon;
+
+        // verifico se e' stata caricata un'immagine 
+        if(array_key_exists('new_img', $form_data)) {
+            Storage::delete($apartment->image);;
+            $image_path = Storage::put('apartment_images', $form_data['new_img']);
+            $form_data['image'] = $image_path;
+        }
 
         // aggiorniamo l'appartamento 
         $apartment->update($form_data);
