@@ -20,6 +20,8 @@ Route::get('/apartments', 'Api\ApartmentController@searchApartments');
 // Search single apartment 
 Route::get('/apartment', 'Api\ApartmentController@showApartment');
 
-
 // click tracking api route 
 Route::post('/clicks', 'Api\ClickController@clickTracking');
+
+// message send route 
+Route::post('/send-message', 'Api\LeadController@sendMessage');

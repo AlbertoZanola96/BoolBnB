@@ -3,13 +3,15 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <h1 class="text-danger">Sponsorizza il tuo appartamento</h1>
-            <h2>Mettila in risalto, scegli il miglior abbonamento per te!</h2>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="wrapper text-center">
+                <h1 class="text-danger">Sponsorizza il tuo appartamento</h1>
+                <h2>Mettila in risalto, scegli il miglior abbonamento per te!</h2>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 d-flex flex-wrap align-items-center">
+        <div class="col-12 d-flex flex-wrap align-items-center justify-content-center">
             @foreach ($sponsors as $sponsor)
                 <div class="sponsor d-flex flex-column align-items-center">
                     <div class="{{$sponsor->name}} card-body">

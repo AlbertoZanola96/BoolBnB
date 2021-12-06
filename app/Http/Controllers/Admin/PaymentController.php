@@ -72,6 +72,6 @@ class PaymentController extends Controller
             ]);
         }
 
-        // TODO: redirect della pagina alla pagina sponsor con sessio succesful o denied 
+        // TODO: redirect della pagina alla pagina sponsor con session succesful o denied 
     }
 }
