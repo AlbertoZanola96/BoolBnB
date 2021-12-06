@@ -102,32 +102,30 @@
 
 
 // modal
-
-button.close {
-    top: 10px;
-    right: 15px;
-}
-
-.modal input,
-.modal textarea {
-    border-radius: 15px;
-    border: 1px solid $clear-chill;
-}
-
-.modalbtn {
-    display: block;
-    width: 100%;
-    height: 50px;
-    border: none;
-    background: linear-gradient(120deg, $clear-chill, $watermelon, $coral);
-    background-size: 200%;
-    color: #fff;
-    outline: none;
-    cursor: pointer;
-    transition: 0.5s;
-    font-size: 16px;
-    &:hover {
-        transform: scale(1.1);
+.modal {
+    input,
+    textarea {
+        border-radius: 15px;
+        border: 1px solid $clear-chill;
+    }
+    button.close {
+        top: 10px;
+        right: 15px;
+    }
+    .modalbtn {
+        display: block;
+        width: 100%;
+        height: 50px;
+        border: none;
+        background: linear-gradient(120deg, $clear-chill, $watermelon, $coral);
+        background-size: 200%;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        transition: 0.5s;
+        font-size: 16px;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
-

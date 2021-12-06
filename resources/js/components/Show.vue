@@ -154,7 +154,7 @@
 
                         <!-- name -->
                         <div class="form-group row">
-                            <label for="name" class="text-white col-md-4 col-form-label text-md-right"></label>
+                            <label for="name" class="text-white col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
                                 <input placeholder="Insert your name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
@@ -163,7 +163,7 @@
                         
                         <!-- email -->
                         <div class="form-group row">
-                            <label for="email" class="text-white col-md-4 col-form-label text-md-right"></label>
+                            <label for="email" class="text-white col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
                                 <input placeholder="Insert E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">
@@ -172,7 +172,7 @@
 
                         <!-- messaggio -->
                         <div class="form-group row">
-                            <label for="message" class="text-white col-md-4 col-form-label text-md-right"></label>
+                            <label for="message" class="text-white col-md-4 col-form-label text-md-right">Message</label>
 
                             <div class="col-md-6">
                                 <textarea placeholder="Insert message" name="message" id="message" cols="30" rows="5" class="form-control @error('message') is-invalid @enderror" required autocomplete="message"></textarea>

@@ -68,7 +68,7 @@
                         </div>
 
                             <!-- btn cerca  -->
-                        <button class="btn btn-primary" v-on:click="getApartments(); mapDisplay();">
+                        <button class="btn btn-primary" v-on:click="getApartments">
                             Inizia a cercare
                         </button>
                     </div>
@@ -86,7 +86,7 @@
                     <li v-for="(apartment, index) in apartments" :key="index" class="p-4 my-4 border container-fluid">
                         <div class="d-flex row">
                             <div class="img-box col-12 col-lg-5 d-flex align-items-center">
-                                <img class="w-100" src="https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg" alt="">
+                                <img class="w-100" :src="'/storage/' + apartment.image" alt="">
                             </div>
 
                             <div class="col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between">
@@ -131,7 +131,7 @@
             </div>
 
             <div class="col-12 col-md-7 col-lg-6 p-0 box-img">
-                <div id="map-div"></div>
+                <div id="map-div" class="map"></div>
             </div>
         </div>
     </section>
@@ -155,16 +155,23 @@ export default {
             distance: 20,
             lat: '',
             lon: '',
-            map : {},
+            map : undefined,
             API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
-            AMSTERDAM: [4.899431, 52.379189],
+            popupOffsets: {
+                top: [0, 0],
+                bottom: [0, -70],
+                'bottom-right': [0, -70],
+                'bottom-left': [0, -70],
+                left: [25, -35],
+                right: [-25, -35]
+            }
         }
     },
     methods: {
         async getApartments() {
 
                 if (this.address) {
-                    axios.get(this.tomtom + this.address + this.tomtomKey)
+                    await axios.get(this.tomtom + this.address + this.tomtomKey)
                         .then((res) => {
                             this.lat = res.data.results[0].position.lat;
                             this.lon = res.data.results[0].position.lon;
@@ -188,21 +195,39 @@ export default {
                     )
                     .then((res) => {
                         this.apartments = res.data.results;
+                        // console.log('primo: ' + this.apartments);
+                        // TODO: rivedere sincronia dei dati 
+                        this.createMarker(this.apartments);
                     });
+                
+                if(this.map != undefined) {
+                    this.mapDisplay();
+                }
         },
         mapDisplay() {
-            console.log(this.lon, this.lat);
             this.map = tt.map({
             container: 'map-div',
             key: this.API_KEY,
             source: 'vector',
             center: [this.lon, this.lat],
-            zoom: 13,
+            zoom: 10,
             });
             this.map.addControl(new tt.FullscreenControl());
             this.map.addControl(new tt.NavigationControl());
-
+            
             // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
+        }, createMarker(array) {
+            console.log(this.apartments);
+            array.forEach((el) => {
+                let cor = [el.lon, el.lat];
+                        
+                let marker = new tt.Marker().setLngLat(cor).addTo(this.map);
+
+                let popup = new tt.Popup({offset: this.popupOffsets}).setHTML(
+                    `${el.name}`);
+                marker.setPopup(popup);
+            });
+
         }
     },
     created() {
