@@ -119,7 +119,7 @@
             </div>
 
             <div class="col-12 col-md-7 col-lg-6 p-0 box-img">
-                <img src="https://miro.medium.com/max/1400/1*qYUvh-EtES8dtgKiBRiLsA.png" alt="">
+                <div id="map-div"></div>
             </div>
         </div>
     </section>
@@ -142,7 +142,10 @@ export default {
             address: this.$route.params.inputSearch,
             distance: 20,
             lat: '',
-            lon: ''
+            lon: '',
+            map : {},
+            API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
+            AMSTERDAM: [4.899431, 52.379189],
         }
     },
     methods: {
@@ -178,6 +181,17 @@ export default {
     },
     created() {
         this.getApartments();
+    },
+    mounted() {
+        this.map = tt.map({
+        container: 'map-div',
+        key: this.API_KEY,
+        source: 'vector',
+        center: [this.lon, this.lat],
+        zoom: 13,
+        });
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
     }
 }
 </script>
@@ -251,8 +265,7 @@ export default {
                 height: 100%;
 
 
-                img{
-                    object-fit: cover;
+                #map-div{
                     width: 100%;
                     height: 100%;
                 }
