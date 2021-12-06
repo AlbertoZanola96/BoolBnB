@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,7 @@ class HomeController extends Controller
 
     public function vue()
     {
-        return view('guest.vue');
+        $user = Auth::user();
+        return view('guest.vue', compact('user'));
     }
 }

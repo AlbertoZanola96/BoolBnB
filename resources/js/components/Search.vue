@@ -83,28 +83,33 @@
                             </div>
 
                             <div class="col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between">
+                                <!-- apartment name  -->
                                 <div>
                                     <h2>{{ apartment.name }}</h2>
                                     <hr class="m-0 d-none d-lg-block">
                                 </div>
 
+                                <!-- services list  -->
                                 <ul id="services_list" class="d-none d-lg-flex flex-wrap p-0">
+                                    <!-- num_rooms  -->
                                     <li>
                                         <i class="fas fa-door-open font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.num_rooms }} camere</span> 
                                     </li>
                                     <li class="mx-3">|</li>
+                                    <!-- num_beds  -->
                                     <li>
                                         <i class="fas fa-bed font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.num_beds }} letti</span>
                                     </li>
                                     <li class="mx-3">|</li>
+                                    <!-- square meters  -->
                                     <li>
                                         <i class="fas fa-ruler-combined font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
                                     </li>
                                 </ul>
-
+                                    
                                 <div class="pt-2">
                                     <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
                                         <button class="btn btn-primary" >

@@ -81,7 +81,9 @@
                                     <h2 class="font-sm mb-4">Servizi dell'immobile:</h2>
                 
                                     <ul class="d-flex p-0 info-container services-list flex-wrap">
-                                        
+                                        <li v-for="(service, index) in apartmentServices" :key="index">
+                                            {{ service.name }}
+                                        </li>
                                     </ul>
                                 </div> 
                             </div> 
@@ -202,27 +204,32 @@ export default {
             apiSingleApartment: 'http://127.0.0.1:8000/api/apartment?',
             ip_address: '',
             apartment_id: '',
-            apartment: ""
+            apartment: '',
+            apartmentServices: []
         }
     }, 
     methods: {
         async getClicks() {
             const response = await fetch('http://api.ipify.org/?format=json');
-            const data = await response.json();
-            this.ip_address = data.ip;
-            this.apartment_id = this.$route.params.id;
-
-            console.log(this.$route.params.id);
-            console.log(this.ip_address);
-
-            axios.post(
-                this.apiIpAddressIdApartment + "ip_address=" + this.ip_address + "&apartment_id=" + this.apartment_id
-            );
+                const data = await response.json();
+                this.ip_address = data.ip;
+                this.apartment_id = this.$route.params.id;
+    
+                console.log(this.$route.params.id);
+                console.log(this.ip_address);
+    
+            if(this.apartment_id != undefined) {
+                axios.post(
+                    this.apiIpAddressIdApartment + "ip_address=" + this.ip_address + "&apartment_id=" + this.apartment_id
+                );
+            }
         },
         async getApartment() {
             const res = await axios.get(this.apiSingleApartment + 'apartment_slug=' + this.$route.params.slug);
             const data = await res.data.results;
+            console.log(res.data);
             this.apartment = data;
+            this.apartmentServices = res.data.services;
             console.log(data);
                 
         }
