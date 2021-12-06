@@ -16,6 +16,7 @@
             {{ session('deleted') }}
         </div>
     @endif 
+
     <div class="container principale">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 m-auto">
@@ -58,4 +59,5 @@
             </div>
         </div>
     </div>
+    {{-- @endif --}}
 @endsection
