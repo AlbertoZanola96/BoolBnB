@@ -13,7 +13,7 @@
                     </div>
                 @endif
                 
-                <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST">
+                <form action="{{ route('admin.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -108,6 +108,14 @@
                             @endif
                         </div>
                     @endforeach
+
+                    <div class="form-group">
+                        <label class="d-block" for="new_img">Immagine appartamento</label>
+                        <input type="file" id="new_img" name="new_img" class=" @error('new_img') is-invalid @enderror">
+                        @error('new_img')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                     {{-- visible  --}}
                     <div class="form-group">
