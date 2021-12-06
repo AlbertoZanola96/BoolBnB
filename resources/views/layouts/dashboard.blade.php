@@ -51,22 +51,22 @@
         <div class="row">
            <!-- The sidebar -->
             <div class="sidebar">
-                <a class="nav-link active" href="{{ route('admin.index') }}">
-                    <i class="fab fa-windows"></i>
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.index') }}">
+                    <i class="fab fa-windows pr-2"></i>
                     Dashboard
                 </a>
-                <a class="nav-link" href="{{ route('admin.apartments.index') }}">
-                    <i class="fas fa-house-user"></i>
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.index') }}">
+                    <i class="fas fa-house-user pr-2"></i>
                     I miei appartamenti
                 </a>
-                <a class="nav-link" href="{{ route('admin.apartments.create') }}">
-                    <i class="fas fa-plus-square"></i>
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.create') }}">
+                    <i class="fas fa-plus-square pr-2"></i>
                     Nuovo appartamento
                 </a>
-                <a class="logout" href="{{ route('logout') }}"
+                <a class="logout d-flex align-items-center" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt"></i>
+                    <i class="fas fa-sign-out-alt pr-2"></i>
                     Logout
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
