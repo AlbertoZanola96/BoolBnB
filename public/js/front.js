@@ -5424,11 +5424,15 @@ var staticRenderFns = [
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
-                  _c("label", {
-                    staticClass:
-                      "text-white col-md-4 col-form-label text-md-right",
-                    attrs: { for: "name" },
-                  }),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "text-white col-md-4 col-form-label text-md-right",
+                      attrs: { for: "name" },
+                    },
+                    [_vm._v("Name")]
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("input", {
@@ -5449,11 +5453,15 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
-                  _c("label", {
-                    staticClass:
-                      "text-white col-md-4 col-form-label text-md-right",
-                    attrs: { for: "email" },
-                  }),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "text-white col-md-4 col-form-label text-md-right",
+                      attrs: { for: "email" },
+                    },
+                    [_vm._v("E-Mail Address")]
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("input", {
@@ -5473,11 +5481,15 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
-                  _c("label", {
-                    staticClass:
-                      "text-white col-md-4 col-form-label text-md-right",
-                    attrs: { for: "message" },
-                  }),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "text-white col-md-4 col-form-label text-md-right",
+                      attrs: { for: "message" },
+                    },
+                    [_vm._v("Message")]
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-6" }, [
                     _c("textarea", {
@@ -21267,7 +21279,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#39\progetto_finale\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

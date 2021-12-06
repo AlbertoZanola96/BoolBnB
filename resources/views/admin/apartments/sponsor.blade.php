@@ -1,22 +1,26 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <h1>Sponsorizza la tua casa</h1>
-    <h2>Mettila in risalto tra i primi annunci</h2>
-    
-    <div class="row ">
-        @foreach ($sponsors as $sponsor)
-            <div class="gold  d-flex ">
-                <div class="card card-gold" style="width: 18rem;">
-                    <div class="card-body">
-                    <h2 class="card-title">{{ $sponsor->name }}</h2>
-                    <h3 class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</h2>
-                    <button class="btn-hover color-1"><a href=" {{ route('admin.apartments.sponsor.payment', ['slug' => $apartment->slug, 'sponsor_id' => $sponsor->id]) }} " class="card-link">Sponsorizza ora</a></button>
-                    <h4>{{ $sponsor->price }}</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-danger">Sponsorizza il tuo appartamento</h1>
+            <h2>Mettila in risalto, scegli il miglior abbonamento per te!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex flex-wrap align-items-center">
+            @foreach ($sponsors as $sponsor)
+                <div class="sponsor d-flex flex-column align-items-center">
+                    <div class="{{$sponsor->name}} card-body">
+                        <h2 class="card-title">{{ $sponsor->name }}</h2>
+                        <h4 class="text-light">Affrettati, se sponsorizzi ora il tuo appartamento sarà in evidenza per {{ $sponsor->duration_in_days }} giorni!</h4>
+                        <button class="btn-hover"><a href=" {{ route('admin.apartments.sponsor.payment', ['slug' => $apartment->slug, 'sponsor_id' => $sponsor->id]) }} " class="card-link text-dark">Sponsorizza ora</a></button>
+                        <h4 class="text-light">Acquista per {{ $sponsor->price }} €</h4>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 </div>
 @endsection
