@@ -4860,7 +4860,22 @@ var render = function () {
                     },
                     [
                       _c("div", { staticClass: "d-flex row" }, [
-                        _vm._m(0, true),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "img-box col-12 col-lg-5 d-flex align-items-center",
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "w-100",
+                              attrs: {
+                                src: "/storage/" + apartment.image,
+                                alt: "",
+                              },
+                            }),
+                          ]
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -4986,31 +5001,13 @@ var render = function () {
             ]
           ),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(0),
         ]),
       ]
     ),
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "img-box col-12 col-lg-5 d-flex align-items-center" },
-      [
-        _c("img", {
-          staticClass: "w-100",
-          attrs: {
-            src: "https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg",
-            alt: "",
-          },
-        }),
-      ]
-    )
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
