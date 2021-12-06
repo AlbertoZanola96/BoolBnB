@@ -2173,9 +2173,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       distance: 20,
       lat: '',
       lon: '',
-      map: {},
+      map: undefined,
       API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
-      AMSTERDAM: [4.899431, 52.379189]
+      popupOffsets: {
+        top: [0, 0],
+        bottom: [0, -70],
+        'bottom-right': [0, -70],
+        'bottom-left': [0, -70],
+        left: [25, -35],
+        right: [-25, -35]
+      }
     };
   },
   methods: {
@@ -2187,18 +2194,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (_this.address) {
-                  axios.get(_this.tomtom + _this.address + _this.tomtomKey).then(function (res) {
-                    _this.lat = res.data.results[0].position.lat;
-                    _this.lon = res.data.results[0].position.lon;
-                  });
+                if (!_this.address) {
+                  _context.next = 3;
+                  break;
                 }
 
-                axios.get(_this.apiSearchApartments + "num_rooms=" + _this.num_rooms + "&num_beds=" + _this.num_beds + "&num_bathrooms=" + _this.num_bathrooms + "&distance=" + _this.distance + "&lat=" + _this.lat + "&lon=" + _this.lon).then(function (res) {
-                  _this.apartments = res.data.results;
+                _context.next = 3;
+                return axios.get(_this.tomtom + _this.address + _this.tomtomKey).then(function (res) {
+                  _this.lat = res.data.results[0].position.lat;
+                  _this.lon = res.data.results[0].position.lon;
                 });
 
-              case 2:
+              case 3:
+                axios.get(_this.apiSearchApartments + "num_rooms=" + _this.num_rooms + "&num_beds=" + _this.num_beds + "&num_bathrooms=" + _this.num_bathrooms + "&distance=" + _this.distance + "&lat=" + _this.lat + "&lon=" + _this.lon).then(function (res) {
+                  _this.apartments = res.data.results; // console.log('primo: ' + this.apartments);
+                  // TODO: rivedere sincronia dei dati 
+
+                  _this.createMarker(_this.apartments);
+                });
+
+                if (_this.map != undefined) {
+                  _this.mapDisplay();
+                }
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2207,16 +2226,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     mapDisplay: function mapDisplay() {
-      console.log(this.lon, this.lat);
       this.map = tt.map({
         container: 'map-div',
         key: this.API_KEY,
         source: 'vector',
         center: [this.lon, this.lat],
-        zoom: 13
+        zoom: 10
       });
       this.map.addControl(new tt.FullscreenControl());
       this.map.addControl(new tt.NavigationControl()); // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
+    },
+    createMarker: function createMarker(array) {
+      var _this2 = this;
+
+      console.log(this.apartments);
+      array.forEach(function (el) {
+        var cor = [el.lon, el.lat];
+        var marker = new tt.Marker().setLngLat(cor).addTo(_this2.map);
+        var popup = new tt.Popup({
+          offset: _this2.popupOffsets
+        }).setHTML("".concat(el.name));
+        marker.setPopup(popup);
+      });
     }
   },
   created: function created() {
@@ -4790,12 +4821,7 @@ var render = function () {
                     "button",
                     {
                       staticClass: "btn btn-primary",
-                      on: {
-                        click: function ($event) {
-                          _vm.getApartments()
-                          _vm.mapDisplay()
-                        },
-                      },
+                      on: { click: _vm.getApartments },
                     },
                     [
                       _vm._v(
@@ -4990,7 +5016,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 col-md-7 col-lg-6 p-0 box-img" }, [
-      _c("div", { attrs: { id: "map-div" } }),
+      _c("div", { staticClass: "map", attrs: { id: "map-div" } }),
     ])
   },
 ]
