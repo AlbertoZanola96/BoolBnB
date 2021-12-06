@@ -56,8 +56,15 @@
 
                             <!-- distance  -->
                         <div>
-                            <label for="distance">km</label>
-                            <input type="range" v-model="distance" class="distance" id="distance" name="distance">
+                            <div>
+                                <label for="distance" class="d-flex justify-content-around m-0">
+                                    <span>Distanza:</span>
+                                    <output> {{ distance }} km</output>
+                                </label>
+                                </div>
+                            <div class="d-flex align-items-center">
+                                <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
+                            </div>
                         </div>
 
                             <!-- btn cerca  -->
@@ -239,17 +246,17 @@ export default {
     height: calc(100vh - 60px);
     
     #input_container{
-        height: 6%;
+        height: 8%;
 
         input{
             border: 1px solid rgb(107, 107, 107);
-            min-width: 100px;
+            min-width: 120px;
             margin: 0 15px;
         }
     }
 
     #dataUi_container{
-        height: 94%;
+        height: 92%;
 
 
         .row{
