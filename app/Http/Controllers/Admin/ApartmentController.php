@@ -71,7 +71,7 @@ class ApartmentController extends Controller
 
         // accediamo ai dati tramite la request, creiamo un nuovo apartment ed assegniamo i dati ricevuti 
         $form_data = $request->all();
-
+       
         // verifico se è stata caricata un'immagine
         if(array_key_exists('new_img', $form_data)) {
             //se esiste salviamo l'immagine e recuperiamo il path

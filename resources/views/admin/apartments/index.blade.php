@@ -16,9 +16,7 @@
             {{ session('deleted') }}
         </div>
     @endif 
-    @if (empty($apartments->items))
-        <h2>Non hai ancora inserito nessun appartamento, <a href="{{ route('admin.apartments.create') }}">crea il tuo primo annuncio</a></h2>
-    @else
+   
     <div class="container-fluid principale">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 m-auto">
@@ -27,7 +25,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 @if($apartment->image)
-                                    <img  src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
+                                    <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
                                 @endif
                                 <div class="container">
                                     <div class="row">
@@ -48,10 +46,10 @@
                                             <a class="m-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
                                                 <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
                                             </a>
-                                            <a class="m-1" href="{{ route('admin.apartments.sponsor') }}">
+                                            <a class="m-1" href="{{ route('admin.apartments.sponsor', $apartment->slug) }}">
                                                 <button class="btn btn-dark my-btn"><i class="fas fa-gem"></i></button>
                                             </a>
-                                            <form class="m-1" action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class="deleteForm" method="POST">
+                                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class="deleteForm m-1" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger my-btn"><i class="fas fa-trash-alt"></i></button>
@@ -61,9 +59,9 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-    @endif
+    </div>
 @endsection

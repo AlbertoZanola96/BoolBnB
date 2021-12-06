@@ -6,8 +6,10 @@
 
 require('./bootstrap');
 
+
 var deleteArr = document.querySelectorAll('.deleteForm');
 console.log(deleteArr);
+console.log('ciao');
 deleteArr.forEach(function (el) {
   el.addEventListener('submit', function (e) {
     var res = confirm('Sei sicuro di voler eliminare?');
