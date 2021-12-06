@@ -41,7 +41,7 @@
                                             <a href="{{ route('admin.apartments.edit', $apartment->slug) }}">
                                                 <button class="btn btn-dark m-2 my-btn">Modify</button>
                                             </a>
-                                            <a href="{{ route('admin.apartments.sponsor') }}">
+                                            <a href="{{ route('admin.apartments.sponsor', $apartment->slug) }}">
                                                 <button class="btn btn-dark m-2 my-btn">Sponsor</button>
                                             </a>
                                             <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class="deleteForm" method="POST">
