@@ -16,9 +16,13 @@
             {{ session('deleted') }}
         </div>
     @endif 
+<<<<<<< HEAD
     {{-- @if (empty($apartments->items))
         <h2>Non hai ancora inserito nessun appartamento, <a href="{{ route('admin.apartments.create') }}">crea il tuo primo annuncio</a></h2>
     @else --}}
+=======
+   
+>>>>>>> efcaa9e9347bc6cca9d2f003b94c157dbf6a08c8
     <div class="container-fluid principale">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 m-auto">
@@ -27,7 +31,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 @if($apartment->image)
-                                    <img  src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
+                                    <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
                                 @endif
                                 <div class="container">
                                     <div class="row">
@@ -48,9 +52,10 @@
                                             <a class="m-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
                                                 <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
                                             </a>
-                                            <a class="m-1" href="">
+                                            <a class="m-1" href="{{ route('admin.apartments.sponsor', $apartment->slug) }}">
                                                 <button class="btn btn-dark my-btn"><i class="fas fa-gem"></i></button>
                                             </a>
+                                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class="deleteForm m-1" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger my-btn"><i class="fas fa-trash-alt"></i></button>
@@ -65,5 +70,8 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     {{-- @endif --}}
+=======
+>>>>>>> efcaa9e9347bc6cca9d2f003b94c157dbf6a08c8
 @endsection
