@@ -52,7 +52,10 @@
         <div class="row">
             <div class="col-12 col-lg-8">
                 <div class="my-5">
-                    <img class="w-100 shadow" src="https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg" alt="">
+                    @if($apartment->image)
+                        <img class="my-img" src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
+                    @endif
+                    {{-- <img class="w-100 shadow" src="https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg" alt=""> --}}
                 </div> 
 
                 <div class="d-flex justify-content-between align-items-start container-fluid">

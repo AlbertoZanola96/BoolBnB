@@ -4,10 +4,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-4 col-md-auto">
                 <h1>Creazione nuovo appartmento</h1>
                             
-                <form action="{{ route('admin.apartments.store') }}" method="post">
+                <form action="{{ route('admin.apartments.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
 
@@ -93,6 +93,15 @@
                             </label>
                         </div>
                     @endforeach
+
+                    {{-- inserimento immagine --}}
+                    <div class="form-group">
+                        <label class="d-block" for="new_img">Immagine appartamento</label>
+                        <input type="file" id="new_img" name="new_img" class=" @error('new_img') is-invalid @enderror">
+                        @error('new_img')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                     {{-- visible  --}}
                     <div class="form-group">

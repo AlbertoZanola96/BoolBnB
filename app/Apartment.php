@@ -8,7 +8,7 @@ class Apartment extends Model
 
 {
     // fillable
-    protected $fillable = ['name', 'user_id', 'description', 'num_rooms', 'num_beds', 'num_bathrooms', 'square_meters', 'city', 'address', 'lat', 'lon', 'visible'];
+    protected $fillable = ['name', 'user_id', 'description', 'num_rooms', 'num_beds', 'num_bathrooms', 'square_meters', 'city', 'address', 'lat', 'lon', 'image', 'visible'];
 
     // entity relation 
     public function user() {
