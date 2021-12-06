@@ -16,6 +16,9 @@
             {{ session('deleted') }}
         </div>
     @endif 
+    @if (empty($apartments->items))
+        <h2>Non hai ancora inserito nessun appartamento, <a href="{{ route('admin.apartments.create') }}">crea il tuo primo annuncio</a></h2>
+    @else
     <div class="container-fluid principale">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 m-auto">
@@ -58,9 +61,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 @endsection

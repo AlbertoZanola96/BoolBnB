@@ -14,19 +14,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Homepage 
-Route::get('/', 'HomeController@index')->name('guest.home');
+// // Homepage 
+// Route::get('/', 'HomeController@index')->name('guest.home');
 
-// Search page 
-Route::get('/search', 'HomeController@search')->name('guest.search');
+// // Search page 
+// Route::get('/vue', 'HomeController@vue')->name('guest.vue');
 
 
-Route::get('/apartments', 'ApartmentController@index')->name('index');
-Route::get('/apartments/{slug}', 'ApartmentController@show')->name('guest.show');
+// Route::get('/apartments', 'ApartmentController@index')->name('index');
+// Route::get('/apartments/{slug}', 'ApartmentController@show')->name('guest.show');
 
-// Messaggi
+// // Messaggi
 // Route::post('/search', 'ApartmentController@handleMessageForm')->name('send');
-Route::post('apartament/message', 'Guest\LeadController@sendMessage')->name('send');
+// Route::post('apartament/message', 'Guest\LeadController@sendMessage')->name('send');
 
 Auth::routes();
 
@@ -34,10 +34,20 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     ->group(function() {
         Route::get('/', 'HomeController@index')->name('index');
-        Route::get('/apartments/sponsor', 'ApartmentController@sponsor')->name('apartments.sponsor');
+        // sponsor page 
+        Route::get('/apartments/sponsor/{slug}', 'ApartmentController@sponsor')->name('apartments.sponsor');
+        // sponsor payment page 
+        Route::get('/apartments/sponsor/payment/{slug}', 'PaymentController@index')->name('apartments.sponsor.payment');
+        Route::post('/apartments/sponsor/checkout/{slug}', 'PaymentController@checkout')->name('apartments.sponsor.checkout');
+        // stats page 
+        Route::get('/apartments/stats/{slug}', 'ApartmentController@viewStats')->name('apartments.stats');
+        // CRUD apartments 
         Route::resource('/apartments', 'ApartmentController');
+        // CRUD messages 
         Route::resource('/message', 'LeadController');
-        // Route::post('/message/delete', 'LeadController@destroy')->name('apartments.message.destroy');
-        // Route::get('/message', 'LeadController@message')->name('apartments.message');
      });
 
+
+//  vue routes     
+Route::get('/', 'HomeController@vue')->name('vue.home');
+Route::get('/{any}', 'HomeController@vue')->where('any', '.*')->name('vue');

@@ -116,8 +116,13 @@
                             </a>
                         </li>
                         <li class="list-group-item list-group-item-action">
-                            <a href="" class="btn btn-dark w-100">
+                            <a href="{{ route('admin.apartments.sponsor', $apartment->slug) }}" class="btn btn-dark w-100">
                                 Sponsorizzazione immobile
+                            </a>
+                        </li>
+                        <li class="list-group-item list-group-item-action">
+                            <a href="{{ route('admin.apartments.stats', $apartment->slug) }}" class="btn btn-dark w-100">
+                                Visualizza statistiche
                             </a>
                         </li>
                         <li class="list-group-item list-group-item-action">

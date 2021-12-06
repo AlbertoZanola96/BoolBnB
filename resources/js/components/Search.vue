@@ -83,34 +83,39 @@
                             </div>
 
                             <div class="col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between">
+                                <!-- apartment name  -->
                                 <div>
                                     <h2>{{ apartment.name }}</h2>
                                     <hr class="m-0 d-none d-lg-block">
                                 </div>
 
+                                <!-- services list  -->
                                 <ul id="services_list" class="d-none d-lg-flex flex-wrap p-0">
+                                    <!-- num_rooms  -->
                                     <li>
                                         <i class="fas fa-door-open font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.num_rooms }} camere</span> 
                                     </li>
                                     <li class="mx-3">|</li>
+                                    <!-- num_beds  -->
                                     <li>
                                         <i class="fas fa-bed font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.num_beds }} letti</span>
                                     </li>
                                     <li class="mx-3">|</li>
+                                    <!-- square meters  -->
                                     <li>
                                         <i class="fas fa-ruler-combined font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
                                     </li>
                                 </ul>
-
+                                    
                                 <div class="pt-2">
-                                    <a href="">
-                                        <button class="btn btn-primary" v-on:click.prevent="getClicks(apartment.id)">
+                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
+                                        <button class="btn btn-primary" >
                                             Visualizza immobile &#8594;
                                         </button>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -129,30 +134,26 @@
 <script>
 
 export default {
-    name: 'Main',
+    name: 'Search',
     data() {
         return {
             apartments: [],
             apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
             tomtom: 'https://api.tomtom.com/search/2/geocode/',
             tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
-            apiIpAddressIdApartment: 'http://127.0.0.1:8000/api/clicks?',
             num_rooms: '',
             num_bathrooms: '',
             num_beds: '',
-            address: null,
+            address: this.$route.params.inputSearch,
             distance: 20,
             lat: '',
-            lon: '',
-            ip_address: '',
-            apartment_id: ''
-
+            lon: ''
         }
     },
     methods: {
         async getApartments() {
 
-                if (this.address !== null) {
+                if (this.$route.params.inputSearch) {
                     await axios.get(this.tomtom + this.address + this.tomtomKey)
                         .then((res) => {
                             this.lat = res.data.results[0].position.lat;
@@ -178,18 +179,6 @@ export default {
                     .then((res) => {
                     this.apartments = res.data.results;
                     });
-        },
-
-        async getClicks(clicked_id) {
-            const response = await fetch('http://api.ipify.org/?format=json');
-            const data = await response.json();
-            this.ip_address = data.ip;
-            this.apartment_id = clicked_id;
-            console.log(this.ip_address)
-            console.log(this.apartment_id)
-            axios.post(
-                this.apiIpAddressIdApartment + "ip_address=" + this.ip_address + "&apartment_id=" + this.apartment_id
-                )
         }
     },
     created() {

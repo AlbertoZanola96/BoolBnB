@@ -19,7 +19,6 @@ class ClickController extends Controller
         
         foreach($clicks as $click) {
             if($click->ip_address == $guest_ip) {
-                echo 'record trovato';
                 die;
             }   
         }
@@ -29,6 +28,5 @@ class ClickController extends Controller
         $form = $request->all();
         $newClick->fill($form);
         $newClick->save();
-        echo 'record creato';
     }
 }
