@@ -61,7 +61,7 @@
                         </div>
 
                             <!-- btn cerca  -->
-                        <button class="btn btn-primary" v-on:click="getApartments">
+                        <button class="btn btn-primary" v-on:click="getApartments(); mapDisplay();">
                             Inizia a cercare
                         </button>
                     </div>
@@ -156,8 +156,8 @@ export default {
     methods: {
         async getApartments() {
 
-                if (this.$route.params.inputSearch) {
-                    await axios.get(this.tomtom + this.address + this.tomtomKey)
+                if (this.address) {
+                    axios.get(this.tomtom + this.address + this.tomtomKey)
                         .then((res) => {
                             this.lat = res.data.results[0].position.lat;
                             this.lon = res.data.results[0].position.lon;
@@ -180,23 +180,29 @@ export default {
                         this.lon
                     )
                     .then((res) => {
-                    this.apartments = res.data.results;
+                        this.apartments = res.data.results;
                     });
+        },
+        mapDisplay() {
+            console.log(this.lon, this.lat);
+            this.map = tt.map({
+            container: 'map-div',
+            key: this.API_KEY,
+            source: 'vector',
+            center: [this.lon, this.lat],
+            zoom: 13,
+            });
+            this.map.addControl(new tt.FullscreenControl());
+            this.map.addControl(new tt.NavigationControl());
+
+            // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
         }
     },
     created() {
         this.getApartments();
     },
     mounted() {
-        this.map = tt.map({
-        container: 'map-div',
-        key: this.API_KEY,
-        source: 'vector',
-        center: [this.lon, this.lat],
-        zoom: 13,
-        });
-        map.addControl(new tt.FullscreenControl());
-        map.addControl(new tt.NavigationControl());
+        this.mapDisplay();
     }
 }
 </script>
@@ -205,7 +211,7 @@ export default {
 @import "../../sass/_variables";
 
 #search-container{
-    height:100vh;
+    height: calc(100vh - 60px);
     
     #input_container{
         height: 6%;
