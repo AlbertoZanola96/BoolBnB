@@ -2158,6 +2158,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Search',
   data: function data() {
@@ -2585,7 +2592,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#search-container[data-v-5026ffd3] {\n  height: calc(100vh - 60px);\n}\n#search-container #input_container[data-v-5026ffd3] {\n  height: 6%;\n}\n#search-container #input_container input[data-v-5026ffd3] {\n  border: 1px solid #6b6b6b;\n  min-width: 100px;\n  margin: 0 15px;\n}\n#search-container #dataUi_container[data-v-5026ffd3] {\n  height: 94%;\n}\n#search-container #dataUi_container .row[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list) {\n  height: 100%;\n  overflow-y: scroll;\n  list-style: none;\n  background-color: #f1f2f6;\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar {\n  width: 10px;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb {\n  background: #888;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) li[data-v-5026ffd3] {\n  background-color: white;\n  box-shadow: 1px 7px 29px -11px rgba(0, 0, 0, 0.54);\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) ul[data-v-5026ffd3] {\n  list-style: none;\n}\n#search-container #dataUi_container .row .box-img[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .box-img #map-div[data-v-5026ffd3] {\n  width: 100%;\n  height: 100%;\n}", ""]);
+exports.push([module.i, "#search-container[data-v-5026ffd3] {\n  height: calc(100vh - 60px);\n}\n#search-container #input_container[data-v-5026ffd3] {\n  height: 8%;\n}\n#search-container #input_container input[data-v-5026ffd3] {\n  border: 1px solid #6b6b6b;\n  min-width: 120px;\n  margin: 0 15px;\n}\n#search-container #dataUi_container[data-v-5026ffd3] {\n  height: 92%;\n}\n#search-container #dataUi_container .row[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list) {\n  height: 100%;\n  overflow-y: scroll;\n  list-style: none;\n  background-color: #f1f2f6;\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar {\n  width: 10px;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb {\n  background: #888;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) li[data-v-5026ffd3] {\n  background-color: white;\n  box-shadow: 1px 7px 29px -11px rgba(0, 0, 0, 0.54);\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) ul[data-v-5026ffd3] {\n  list-style: none;\n}\n#search-container #dataUi_container .row .box-img[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .box-img #map-div[data-v-5026ffd3] {\n  width: 100%;\n  height: 100%;\n}", ""]);
 
 // exports
 
@@ -4760,30 +4767,49 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("div", [
-                    _c("label", { attrs: { for: "distance" } }, [_vm._v("km")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
+                    _c("div", [
+                      _c(
+                        "label",
                         {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.distance,
-                          expression: "distance",
+                          staticClass: "d-flex justify-content-around m-0",
+                          attrs: { for: "distance" },
                         },
-                      ],
-                      staticClass: "distance",
-                      attrs: {
-                        type: "range",
-                        id: "distance",
-                        name: "distance",
-                      },
-                      domProps: { value: _vm.distance },
-                      on: {
-                        __r: function ($event) {
-                          _vm.distance = $event.target.value
+                        [
+                          _c("span", [_vm._v("Distanza:")]),
+                          _vm._v(" "),
+                          _c("output", [
+                            _vm._v(" " + _vm._s(_vm.distance) + " km"),
+                          ]),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "d-flex align-items-center" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.distance,
+                            expression: "distance",
+                          },
+                        ],
+                        staticClass: "distance",
+                        attrs: {
+                          type: "range",
+                          id: "distance",
+                          name: "distance",
+                          oninput:
+                            "this.nextElementSibling.value = this.value + ' km'",
                         },
-                      },
-                    }),
+                        domProps: { value: _vm.distance },
+                        on: {
+                          __r: function ($event) {
+                            _vm.distance = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c(
@@ -4799,7 +4825,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\r\n                            Inizia a cercare\r\n                        "
+                        "\n                            Inizia a cercare\n                        "
                       ),
                     ]
                   ),
@@ -4940,7 +4966,7 @@ var render = function () {
                                       { staticClass: "btn btn-primary" },
                                       [
                                         _vm._v(
-                                          "\r\n                                            Visualizza immobile →\r\n                                        "
+                                          "\n                                            Visualizza immobile →\n                                        "
                                         ),
                                       ]
                                     ),
@@ -21244,7 +21270,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/progetto finale/BoolBnB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
