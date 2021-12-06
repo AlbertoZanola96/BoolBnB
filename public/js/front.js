@@ -2173,9 +2173,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       distance: 20,
       lat: '',
       lon: '',
-      map: {},
+      map: undefined,
       API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
-      AMSTERDAM: [4.899431, 52.379189]
+      popupOffsets: {
+        top: [0, 0],
+        bottom: [0, -70],
+        'bottom-right': [0, -70],
+        'bottom-left': [0, -70],
+        left: [25, -35],
+        right: [-25, -35]
+      }
     };
   },
   methods: {
@@ -2187,7 +2194,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!_this.$route.params.inputSearch) {
+                if (!_this.address) {
                   _context.next = 3;
                   break;
                 }
@@ -2200,31 +2207,54 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 axios.get(_this.apiSearchApartments + "num_rooms=" + _this.num_rooms + "&num_beds=" + _this.num_beds + "&num_bathrooms=" + _this.num_bathrooms + "&distance=" + _this.distance + "&lat=" + _this.lat + "&lon=" + _this.lon).then(function (res) {
-                  _this.apartments = res.data.results;
+                  _this.apartments = res.data.results; // console.log('primo: ' + this.apartments);
+                  // TODO: rivedere sincronia dei dati 
+
+                  _this.createMarker(_this.apartments);
                 });
 
-              case 4:
+                if (_this.map != undefined) {
+                  _this.mapDisplay();
+                }
+
+              case 5:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    mapDisplay: function mapDisplay() {
+      this.map = tt.map({
+        container: 'map-div',
+        key: this.API_KEY,
+        source: 'vector',
+        center: [this.lon, this.lat],
+        zoom: 10
+      });
+      this.map.addControl(new tt.FullscreenControl());
+      this.map.addControl(new tt.NavigationControl()); // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
+    },
+    createMarker: function createMarker(array) {
+      var _this2 = this;
+
+      console.log(this.apartments);
+      array.forEach(function (el) {
+        var cor = [el.lon, el.lat];
+        var marker = new tt.Marker().setLngLat(cor).addTo(_this2.map);
+        var popup = new tt.Popup({
+          offset: _this2.popupOffsets
+        }).setHTML("".concat(el.name));
+        marker.setPopup(popup);
+      });
     }
   },
   created: function created() {
     this.getApartments();
   },
   mounted: function mounted() {
-    this.map = tt.map({
-      container: 'map-div',
-      key: this.API_KEY,
-      source: 'vector',
-      center: [this.lon, this.lat],
-      zoom: 13
-    });
-    map.addControl(new tt.FullscreenControl());
-    map.addControl(new tt.NavigationControl());
+    this.mapDisplay();
   }
 });
 
@@ -2586,7 +2616,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#search-container[data-v-5026ffd3] {\n  height: 100vh;\n}\n#search-container #input_container[data-v-5026ffd3] {\n  height: 6%;\n}\n#search-container #input_container input[data-v-5026ffd3] {\n  border: 1px solid #6b6b6b;\n  min-width: 100px;\n  margin: 0 15px;\n}\n#search-container #dataUi_container[data-v-5026ffd3] {\n  height: 94%;\n}\n#search-container #dataUi_container .row[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list) {\n  height: 100%;\n  overflow-y: scroll;\n  list-style: none;\n  background-color: #f1f2f6;\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar {\n  width: 10px;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb {\n  background: #888;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) li[data-v-5026ffd3] {\n  background-color: white;\n  box-shadow: 1px 7px 29px -11px rgba(0, 0, 0, 0.54);\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) ul[data-v-5026ffd3] {\n  list-style: none;\n}\n#search-container #dataUi_container .row .box-img[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .box-img #map-div[data-v-5026ffd3] {\n  width: 100%;\n  height: 100%;\n}", ""]);
+exports.push([module.i, "#search-container[data-v-5026ffd3] {\n  height: calc(100vh - 60px);\n}\n#search-container #input_container[data-v-5026ffd3] {\n  height: 6%;\n}\n#search-container #input_container input[data-v-5026ffd3] {\n  border: 1px solid #6b6b6b;\n  min-width: 100px;\n  margin: 0 15px;\n}\n#search-container #dataUi_container[data-v-5026ffd3] {\n  height: 94%;\n}\n#search-container #dataUi_container .row[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list) {\n  height: 100%;\n  overflow-y: scroll;\n  list-style: none;\n  background-color: #f1f2f6;\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar {\n  width: 10px;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb {\n  background: #888;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) li[data-v-5026ffd3] {\n  background-color: white;\n  box-shadow: 1px 7px 29px -11px rgba(0, 0, 0, 0.54);\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) ul[data-v-5026ffd3] {\n  list-style: none;\n}\n#search-container #dataUi_container .row .box-img[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .box-img #map-div[data-v-5026ffd3] {\n  width: 100%;\n  height: 100%;\n}", ""]);
 
 // exports
 
@@ -4830,7 +4860,22 @@ var render = function () {
                     },
                     [
                       _c("div", { staticClass: "d-flex row" }, [
-                        _vm._m(0, true),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "img-box col-12 col-lg-5 d-flex align-items-center",
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "w-100",
+                              attrs: {
+                                src: "/storage/" + apartment.image,
+                                alt: "",
+                              },
+                            }),
+                          ]
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -4956,7 +5001,7 @@ var render = function () {
             ]
           ),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(0),
         ]),
       ]
     ),
@@ -4967,26 +5012,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "img-box col-12 col-lg-5 d-flex align-items-center" },
-      [
-        _c("img", {
-          staticClass: "w-100",
-          attrs: {
-            src: "https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg",
-            alt: "",
-          },
-        }),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 col-md-7 col-lg-6 p-0 box-img" }, [
-      _c("div", { attrs: { id: "map-div" } }),
+      _c("div", { staticClass: "map", attrs: { id: "map-div" } }),
     ])
   },
 ]
@@ -21239,8 +21266,8 @@ __webpack_require__.r(__webpack_exports__);
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
+module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
-module.exports = __webpack_require__(/*! C:\Users\alber\OneDrive\Desktop\Boolean\PHP\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

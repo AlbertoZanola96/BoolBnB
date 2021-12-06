@@ -24,7 +24,7 @@
                         <div class="row">
                             <div class="col-12">
                                 @if($apartment->image)
-                                    <img  src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
+                                    <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
                                 @endif
                                 <div class="row">
                                     <div class="col-12">
