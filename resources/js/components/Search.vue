@@ -79,7 +79,7 @@
                     <li v-for="(apartment, index) in apartments" :key="index" class="p-4 my-4 border container-fluid">
                         <div class="d-flex row">
                             <div class="img-box col-12 col-lg-5 d-flex align-items-center">
-                                <img class="w-100" src="https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg" alt="">
+                                <img class="w-100" src="{{ asset('storage/' . $apartment->image) }}" alt="">
                             </div>
 
                             <div class="col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between">
