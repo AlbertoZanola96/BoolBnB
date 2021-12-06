@@ -216,12 +216,14 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index')->with('deleted', 'Appartamento cancellato');
     }
 
-
-    public function sponsor() {        
+    // sponsor -------------------------------------
+    public function sponsor($slug) {   
+        $apartment = Apartment::where('slug', $slug)->first(); 
         $sponsors = Sponsor::all();
-        return view('admin.apartments.sponsor', compact('sponsors'));
+        return view('admin.apartments.sponsor', compact('sponsors', 'apartment'));
     }   
 
+    // statistiche --------------------------------
     public function viewStats($slug) {       
         $apartment = Apartment::where('slug', $slug)->first(); 
         $leads = Lead::where('apartment_id', $apartment->id)->get();
