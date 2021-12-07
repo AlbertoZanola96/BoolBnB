@@ -182,7 +182,7 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-8">
                                 <!-- send message button -->
-                                <button type="submit" class="modalbtn">
+                                <button v-on:click="sendLeadData()" type="submit" class="modalbtn">
                                     Send message
                                 </button>
                             </div>
@@ -202,10 +202,14 @@ export default {
         return {
             apiIpAddressIdApartment: 'http://127.0.0.1:8000/api/clicks?',
             apiSingleApartment: 'http://127.0.0.1:8000/api/apartment?',
+            apiLead: 'http://127.0.0.1:8000/api/lead?',
             ip_address: '',
             apartment_id: '',
             apartment: '',
-            apartmentServices: []
+            apartmentServices: [],
+            name: '',
+            email: '',
+            message: ''
         }
     }, 
     methods: {
@@ -227,11 +231,19 @@ export default {
         async getApartment() {
             const res = await axios.get(this.apiSingleApartment + 'apartment_slug=' + this.$route.params.slug);
             const data = await res.data.results;
-            console.log(res.data);
+            // console.log(res.data);
             this.apartment = data;
             this.apartmentServices = res.data.services;
-            console.log(data);
+            // console.log(data);
                 
+        },
+        sendLeadData() {
+            if(this.apartment_id != undefined) {
+                console.log(this.email);
+                axios.post(
+                    this.apiLead + "apartment_id=" + this.apartment_id + "&name=" + this.name + "&email=" + this.email + "&message=" + this.message
+                );
+            }
         }
     },
     created() {
