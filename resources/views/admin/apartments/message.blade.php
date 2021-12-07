@@ -8,6 +8,11 @@
             </div>
         </div>
     </div> --}}
+    @if (session('deleted'))
+        <div class="alert alert-danger">
+            {{ session('deleted') }}
+        </div>
+    @endif 
     @foreach ($apartmentsleads as $apartmentleads)
         @foreach ($apartmentleads as $lead)
             <div class="container-fluid pt-5 pb-5 lead">
