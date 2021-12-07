@@ -211,12 +211,12 @@ export default {
     methods: {
         async getClicks() {
             const response = await fetch('http://api.ipify.org/?format=json');
-                const data = await response.json();
-                this.ip_address = data.ip;
-                this.apartment_id = this.$route.params.id;
+            const data = await response.json();
+            this.ip_address = data.ip;
+            this.apartment_id = this.$route.params.id;
     
-                console.log(this.$route.params.id);
-                console.log(this.ip_address);
+                // console.log(this.apartment_id);
+                // console.log(this.ip_address);
     
             if(this.apartment_id != undefined) {
                 axios.post(

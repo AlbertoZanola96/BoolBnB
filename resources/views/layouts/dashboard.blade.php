@@ -59,6 +59,10 @@
                     <i class="fas fa-house-user pr-2"></i>
                     I miei appartamenti
                 </a>
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.message.index') }}">
+                    <i class="fas fa-envelope pr-2"></i>
+                    I tuoi messaggi
+                </a>
                 <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.create') }}">
                     <i class="fas fa-plus-square pr-2"></i>
                     Nuovo appartamento
