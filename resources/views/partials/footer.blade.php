@@ -41,7 +41,7 @@
                         <a href=""><i class="fab fa-linkedin"></i>
                         <p>Grazioli Eduardo</p></a>
                     
-                        <a href=""><i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/mariano-marchionna/"><i class="fab fa-linkedin"></i>
                         <p>Marchionna Mariano</p></a>
                     </div>
                 </div>
