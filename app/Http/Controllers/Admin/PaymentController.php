@@ -55,11 +55,24 @@ class PaymentController extends Controller
             'submitForSettlement' => True
             ]
         ]);
+
         // dd($apartment->sponsors);
         // if($apartment->sponsors) {
         //     return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
         // }
+
+        // query per prendere solo le sponsorizzazioni attive 
+        $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
+                        ->where('apartments.id', $apartment->id)
+                        ->where('status', true)
+                        ->get();
         
+        // redirect in caso di sponsorizzazione ancora attiva 
+        if(count($sponsored) > 0) {
+            return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
+        }
+        
+        // creazione del record nella tabella ponte e redirect all'index con alert success 
         if($result->success) {
             $startDate = Carbon::now()->toDateTimeString();
             $expirationDate = Carbon::now()->add($sponsor->duration_in_days, 'days')->toDateTimeString(); 
