@@ -4641,12 +4641,12 @@ var render = function () {
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
-    _c("div", { staticClass: "container-fluid" }, [
-      _c(
-        "div",
-        { staticClass: "row" },
-        _vm._l(_vm.apartments, function (apartment, index) {
-          return _c("div", { key: index, staticClass: "col-12" }, [
+    _c(
+      "div",
+      { staticClass: "container-fluid" },
+      _vm._l(_vm.apartments, function (apartment, index) {
+        return _c("div", { key: index, staticClass: "row my-3" }, [
+          _c("div", { staticClass: "col-12 col-md-8 col-lg-6 mx-auto card" }, [
             _c("img", {
               attrs: {
                 src: "/storage/" + apartment.image,
@@ -4681,11 +4681,11 @@ var render = function () {
                 ]),
               ]),
             ]),
-          ])
-        }),
-        0
-      ),
-    ]),
+          ]),
+        ])
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = [

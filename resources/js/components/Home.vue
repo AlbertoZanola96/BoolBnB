@@ -56,8 +56,8 @@
 
         <!-- apartments  -->
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12" v-for="(apartment, index) in apartments" :key="index">       
+            <div class="row my-3" v-for="(apartment, index) in apartments" :key="index">
+                <div class="col-12 col-md-8 col-lg-6 mx-auto card">       
                     <img :src="'/storage/' + apartment.image" :alt="apartment.name ">
                     
                     <div class="row">

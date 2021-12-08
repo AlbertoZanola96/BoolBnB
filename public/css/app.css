@@ -10202,12 +10202,6 @@ body {
     float: none;
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .principale {
   width: clac(-100vw);
   background-color: #dfe4ea;
