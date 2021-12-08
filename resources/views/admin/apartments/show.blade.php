@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="p-4 white-background shadow">
-                    <div class="d-flex item-align-end overflow-auto">
+                    <div class="d-flex item-align-end">
                         <i class="fas fa-home font-m"></i>
                         <h1 class="font-ml mb-0 ml-3">{{$apartment->name}}</h1>
                     </div>
@@ -50,7 +50,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-md-8">
                 <div class="my-5">
                     @if($apartment->image)
                         <img class="my-img" src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="col pl-lg-3 pt-5 pt-lg-0 p-0">
-                            <div class="col white-background p-4 shadow">
+                            <div class="white-background p-4 shadow">
                                 <h2 class="font-sm mb-4">Servizi dell'immobile:</h2>
             
                                 <ul class="d-flex p-0 info-container services-list flex-wrap">
@@ -105,7 +105,7 @@
                 </div>
             </div> 
 
-            <div class="col-12 col-lg-4 px-md-4 pt-md-4">
+            <div class="col-12 col-md-4 px-md-4 pt-md-4">
                 <div class="sticky-top pt-3">
                     <h3 class="font-ss text-center my-2 p-3 white-background shadow">Opzioni scheda appartamento</h3>
 
@@ -157,10 +157,6 @@
                     </div>
                     <hr>
                     <p><span><i class="fas fa-map-pin font-xxs mr-4"></i></span>{{ $apartment->address }}</p>
-                    <hr>
-                    <div class="w-100">
-                        <img class="w-100" src="https://miro.medium.com/max/1400/1*qYUvh-EtES8dtgKiBRiLsA.png" alt="">
-                    </div>
                 </div>
             </div>
         </div>

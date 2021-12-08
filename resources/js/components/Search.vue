@@ -2,7 +2,7 @@
 <div id="search-container">
     <section id="input_container" class="container-fluid border-bottom">
         <div class="row align-items-center h-100 align-items-center">
-            <div class="col-12">
+            <div class="col-12 d-none d-md-block">
                 <!-- <form action="" class="d-flex px-2"> -->
                     <div class="input-group justify-content-center align-items-center">
                         <div>
@@ -13,39 +13,42 @@
                                 id="num_rooms" 
                                 name="num_rooms" 
                                 type="number" 
-                                min="0" 
+                                min="1" 
                                 max="10" 
                                 placeholder="N. camere">
                         </div>
 
                             <!-- num_beds  -->
                         <div>
-                            <input 
+                            <input
+                                required
                                 class="btn" 
                                 v-model="num_beds" 
                                 id="num_beds" 
                                 name="num_beds" 
                                 type="number" 
-                                min="0" 
+                                min="1" 
                                 max="10" placeholder="N. letti">
                         </div>
 
                             <!-- num_bathrooms  -->
                         <div>
-                            <input 
+                            <input
+                                required 
                                 class="btn" 
                                 v-model="num_bathrooms" 
                                 id="num_bathrooms" 
                                 name="num_bathrooms" 
                                 type="number" 
-                                min="0" 
+                                min="1" 
                                 max="10" 
                                 placeholder="N. bagni">
                         </div>
 
                             <!-- address  -->
                         <div>
-                            <input 
+                            <input
+                                required 
                                 type="text" 
                                 v-model="address" 
                                 class="btn" 
@@ -74,6 +77,102 @@
                     </div>
                 <!-- </form> -->
             </div>
+
+            <div class="col-12 d-md-none">
+                <a href="" data-toggle="modal" data-target="#leads" class="btn btn-primary w-100">
+                    Invia un messaggio
+                </a>
+            </div>
+
+            <div class="">
+                <div class="modal fade" id="leads" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark">
+                            <div class="mt-2 d-flex justify-content-center align-items-end">
+                                <h3 class="modal-title text-white" id="staticBackdropLabel">Filtri di ricerca</h3>
+                            </div>
+                            <button type="button" class="close text-white position-absolute" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="modal-body">
+                                <form method="POST" action="">
+                                    <div class="input-group justify-content-center align-items-center">
+                                        <div>
+                                            <!-- num_rooms  -->
+                                            <input 
+                                                class="btn" 
+                                                v-model="num_rooms" 
+                                                id="num_rooms" 
+                                                name="num_rooms" 
+                                                type="number" 
+                                                min="1" 
+                                                max="10" 
+                                                placeholder="N. camere">
+                                        </div>
+
+                                            <!-- num_beds  -->
+                                        <div>
+                                            <input
+                                                required
+                                                class="btn" 
+                                                v-model="num_beds" 
+                                                id="num_beds" 
+                                                name="num_beds" 
+                                                type="number" 
+                                                min="1" 
+                                                max="10" placeholder="N. letti">
+                                        </div>
+
+                                            <!-- num_bathrooms  -->
+                                        <div>
+                                            <input
+                                                required 
+                                                class="btn" 
+                                                v-model="num_bathrooms" 
+                                                id="num_bathrooms" 
+                                                name="num_bathrooms" 
+                                                type="number" 
+                                                min="1" 
+                                                max="10" 
+                                                placeholder="N. bagni">
+                                        </div>
+
+                                            <!-- address  -->
+                                        <div>
+                                            <input
+                                                required 
+                                                type="text" 
+                                                v-model="address" 
+                                                class="btn" 
+                                                id="address" 
+                                                name="address" 
+                                                placeholder="In quale città?">
+                                        </div>
+
+                                            <!-- distance  -->
+                                        <div>
+                                            <div>
+                                                <label for="distance" class="d-flex justify-content-around m-0">
+                                                    <span>Distanza:</span>
+                                                    <output> {{ distance }} km</output>
+                                                </label>
+                                                </div>
+                                            <div class="d-flex align-items-center">
+                                                <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
+                                            </div>
+                                        </div>
+
+                                            <!-- btn cerca  -->
+                                        <button class="btn btn-primary" v-on:click="getApartments">
+                                            Inizia a cercare
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -92,12 +191,16 @@
                             <div class="col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between">
                                 <!-- apartment name  -->
                                 <div>
-                                    <h2>{{ apartment.name }}</h2>
-                                    <hr class="m-0 d-none d-lg-block">
+                                    <h2 class="m-0">{{ apartment.name }}</h2>
+                                    <hr class="my-2">
+                                    <h4 class="font-xxs gray-text">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span class="ml-2">{{ apartment.address }}</span>
+                                    </h4>
                                 </div>
 
                                 <!-- services list  -->
-                                <ul id="services_list" class="d-none d-lg-flex flex-wrap p-0">
+                                <ul id="services_list" class="d-none d-lg-flex flex-wrap pl-0 py-3 white-background">
                                     <!-- num_rooms  -->
                                     <li>
                                         <i class="fas fa-door-open font-xxs"></i>
@@ -217,7 +320,7 @@ export default {
             
             // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
         }, createMarker(array) {
-            console.log(this.apartments);
+            // console.log(this.apartments);
             array.forEach((el) => {
                 let cor = [el.lon, el.lat];
                         
@@ -250,8 +353,14 @@ export default {
 
         input{
             border: 1px solid rgb(107, 107, 107);
-            min-width: 120px;
+            width: 120px;
             margin: 0 15px;
+        }
+
+        @media (max-width: 1000px) {
+            input{
+                max-width: 90px;
+            }
         }
     }
 
