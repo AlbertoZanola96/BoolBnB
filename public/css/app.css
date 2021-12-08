@@ -10220,6 +10220,9 @@ body {
   transition: width 1s, height 1s;
   margin: 0 auto;
 }
+.principale .card a {
+  text-decoration: none;
+}
 .principale .card:hover {
   background-color: white;
 }
@@ -10572,6 +10575,10 @@ footer .title h3 {
   background: #363F49;
   opacity: 0.9;
   position: absolute;
+}
+
+.welcome {
+  height: 70vh;
 }
 
 * {
