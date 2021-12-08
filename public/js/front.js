@@ -2514,15 +2514,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 data = _context.sent;
                 _this.ip_address = data.ip;
-                _this.apartment_id = _this.$route.params.id;
-                console.log(_this.$route.params.id);
-                console.log(_this.ip_address);
+                _this.apartment_id = _this.$route.params.id; // console.log(this.apartment_id);
+                // console.log(this.ip_address);
 
                 if (_this.apartment_id != undefined) {
                   axios.post(_this.apiIpAddressIdApartment + "ip_address=" + _this.ip_address + "&apartment_id=" + _this.apartment_id);
                 }
 
-              case 11:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -4851,7 +4850,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\r\n                            Inizia a cercare\r\n                        "
+                        "\n                            Inizia a cercare\n                        "
                       ),
                     ]
                   ),
@@ -5007,7 +5006,7 @@ var render = function () {
                                       { staticClass: "btn btn-primary" },
                                       [
                                         _vm._v(
-                                          "\r\n                                            Visualizza immobile →\r\n                                        "
+                                          "\n                                            Visualizza immobile →\n                                        "
                                         ),
                                       ]
                                     ),
@@ -21305,7 +21304,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/andreagambino/Desktop/Boolean 39/BoolBnB/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
