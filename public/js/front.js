@@ -2241,6 +2241,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       apartments: [],
       apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+      apiSponsored: 'http://127.0.0.1:8000/api/sponsored?',
       tomtom: 'https://api.tomtom.com/search/2/geocode/',
       tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
       num_rooms: '',
@@ -2248,8 +2249,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       num_beds: '',
       address: this.$route.params.inputSearch,
       distance: 20,
-      lat: '',
-      lon: '',
+      lat: 41.89056,
+      lon: 12.49427,
       map: undefined,
       API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
       popupOffsets: {
@@ -2259,7 +2260,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'bottom-left': [0, -70],
         left: [25, -35],
         right: [-25, -35]
-      }
+      },
+      zoomValue: 5
     };
   },
   methods: {
@@ -2303,12 +2305,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     mapDisplay: function mapDisplay() {
+      if (this.address != undefined) {
+        this.zoomValue = 10;
+      }
+
       this.map = tt.map({
         container: 'map-div',
         key: this.API_KEY,
         source: 'vector',
         center: [this.lon, this.lat],
-        zoom: 10
+        zoom: this.zoomValue
       });
       this.map.addControl(new tt.FullscreenControl());
       this.map.addControl(new tt.NavigationControl()); // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
@@ -2325,10 +2331,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }).setHTML("".concat(el.name));
         marker.setPopup(popup);
       });
+    },
+    getSponsored: function getSponsored() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var res, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get(_this3.apiSponsored);
+
+              case 2:
+                res = _context2.sent;
+                _context2.next = 5;
+                return res.data.results;
+
+              case 5:
+                data = _context2.sent;
+                _this3.apartments = data;
+
+                _this3.createMarker(_this3.apartments);
+
+                console.log(_this3.apartments);
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   created: function created() {
-    this.getApartments();
+    if (this.address != undefined) {
+      this.getApartments();
+    } else {
+      this.getSponsored();
+    }
   },
   mounted: function mounted() {
     this.mapDisplay();
