@@ -10220,6 +10220,9 @@ body {
   transition: width 1s, height 1s;
   margin: 0 auto;
 }
+.principale .card a {
+  text-decoration: none;
+}
 .principale .card:hover {
   background-color: white;
 }
