@@ -50,4 +50,4 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
 
 //  vue routes     
 Route::get('/', 'HomeController@vue')->name('vue.home');
-Route::get('/{any}', 'HomeController@vue')->where('any', '.*')->name('vue');
+Route::get('/{any}', 'HomeController@vue')->where('any', 'search')->name('vue');

@@ -170,7 +170,7 @@
                             <label for="name" class="text-white col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
-                                <input placeholder="Insert your name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
+                                <input v-model="nameMessage" placeholder="Insert your name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
                             </div>
                         </div>
                         
@@ -179,7 +179,7 @@
                             <label for="email" class="text-white col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input placeholder="Insert E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">
+                                <input v-model="emailMessage" placeholder="Insert E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">
                             </div>
                         </div>
 
@@ -188,14 +188,15 @@
                             <label for="message" class="text-white col-md-4 col-form-label text-md-right">Message</label>
 
                             <div class="col-md-6">
-                                <textarea placeholder="Insert message" name="message" id="message" cols="30" rows="5" class="form-control @error('message') is-invalid @enderror" required autocomplete="message"></textarea>
+                                <textarea v-model="message" placeholder="Insert message" name="message" id="message" cols="30" rows="5" class="form-control @error('message') is-invalid @enderror" required autocomplete="message"></textarea>
                             </div>
                         </div>
 
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-8">
                                 <!-- send message button -->
-                                <button type="submit" class="modalbtn">
+                                <!-- <router-link :to="{ name: 'Show', params: {  } }"> -->
+                                <button v-on:click="sendLeadData()" type="submit" class="modalbtn">
                                     Send message
                                 </button>
                             </div>
@@ -205,7 +206,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 </template>
 
 <script>
@@ -215,6 +216,7 @@ export default {
         return {
             apiIpAddressIdApartment: 'http://127.0.0.1:8000/api/clicks?',
             apiSingleApartment: 'http://127.0.0.1:8000/api/apartment?',
+            apiLead: 'http://127.0.0.1:8000/api/send-message?',
             ip_address: '',
             apartment_id: '',
             apartment: '',
@@ -229,17 +231,20 @@ export default {
                 left: [25, -35],
                 right: [-25, -35]
             },
+            nameMessage: '',
+            emailMessage: '',
+            message: '',
         }
     }, 
     methods: {
         async getClicks() {
             const response = await fetch('http://api.ipify.org/?format=json');
-                const data = await response.json();
-                this.ip_address = data.ip;
-                this.apartment_id = this.$route.params.id;
+            const data = await response.json();
+            this.ip_address = data.ip;
+            this.apartment_id = this.$route.params.id;
     
-                console.log(this.$route.params.id);
-                console.log(this.ip_address);
+                // console.log(this.apartment_id);
+                // console.log(this.ip_address);
     
             if(this.apartment_id != undefined) {
                 axios.post(
@@ -250,7 +255,7 @@ export default {
         async getApartment() {
             const res = await axios.get(this.apiSingleApartment + 'apartment_slug=' + this.$route.params.slug);
             const data = await res.data.results;
-            console.log(res.data);
+            // console.log(res.data);
             this.apartment = data;
             this.apartmentServices = res.data.services;
             console.log(data);
@@ -276,7 +281,15 @@ export default {
             let popup = new tt.Popup({offset: this.popupOffsets}).setHTML(
                     `${array.address}`);
             marker.setPopup(popup);
-        },                                       
+            // console.log(data);  
+        },
+        sendLeadData() {
+            if(this.apartment_id != undefined) {
+                axios.post(
+                    this.apiLead + "apartment_id=" + this.apartment_id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message
+                );
+            }
+        }
     },
     created() {
         this.getClicks();

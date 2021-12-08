@@ -1,12 +1,5 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .principale {
     width: clac(100vw - 200);
-    height: 100vh;
     background-color: $city-lights;
     
 
@@ -19,6 +12,10 @@
         transition: width 1s, height 1s;
         margin: 0 auto;
         
+        a {
+            text-decoration: none;
+        }
+
         &:hover {
             background-color: white;
         }

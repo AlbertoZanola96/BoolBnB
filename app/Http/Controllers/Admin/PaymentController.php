@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Apartment;
 use App\Sponsor;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
@@ -54,9 +55,10 @@ class PaymentController extends Controller
             'submitForSettlement' => True
             ]
         ]);
-        
-        // Amount ricevuta  
-        $amount = $result->transaction->amount;
+        dd($apartment->sponsors);
+        if($apartment->sponsors) {
+            return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
+        }
         
         if($result->success) {
             $startDate = Carbon::now()->toDateTimeString();
@@ -70,8 +72,11 @@ class PaymentController extends Controller
                 'status' => true,
                 'payment_id' => $result->transaction->id
             ]);
+
+        return redirect()->route('admin.apartments.index')->with('paymentSuccess', 'Appartamento sponsorizzato con successo');
         }
 
-        // TODO: redirect della pagina alla pagina sponsor con sessio succesful o denied 
+        // TODO: redirect della pagina alla pagina sponsor con session denied 
+
     }
 }

@@ -249,6 +249,7 @@ export default {
         return {
             apartments: [],
             apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+            apiSponsored: 'http://127.0.0.1:8000/api/sponsored?',
             tomtom: 'https://api.tomtom.com/search/2/geocode/',
             tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
             num_rooms: '',
@@ -256,8 +257,8 @@ export default {
             num_beds: '',
             address: this.$route.params.inputSearch,
             distance: 20,
-            lat: '',
-            lon: '',
+            lat: 41.89056,
+            lon: 12.49427,
             map : undefined,
             API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
             popupOffsets: {
@@ -267,7 +268,8 @@ export default {
                 'bottom-left': [0, -70],
                 left: [25, -35],
                 right: [-25, -35]
-            }
+            },
+            zoomValue: 5
         }
     },
     methods: {
@@ -306,14 +308,18 @@ export default {
                 if(this.map != undefined) {
                     this.mapDisplay();
                 }
+                
         },
         mapDisplay() {
+            if(this.address != undefined) {
+                this.zoomValue = 10;
+            }
             this.map = tt.map({
             container: 'map-div',
             key: this.API_KEY,
             source: 'vector',
             center: [this.lon, this.lat],
-            zoom: 10,
+            zoom: this.zoomValue,
             });
             this.map.addControl(new tt.FullscreenControl());
             this.map.addControl(new tt.NavigationControl());
@@ -331,10 +337,21 @@ export default {
                 marker.setPopup(popup);
             });
 
+        },
+        async getSponsored() {
+            const res = await axios.get(this.apiSponsored);
+            const data = await res.data.results;
+            this.apartments = data;
+            this.createMarker(this.apartments);
+            console.log(this.apartments);
         }
     },
     created() {
-        this.getApartments();
+        if(this.address != undefined) {
+            this.getApartments();
+        } else {
+            this.getSponsored();
+        }
     },
     mounted() {
         this.mapDisplay();

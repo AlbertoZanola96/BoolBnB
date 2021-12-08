@@ -59,6 +59,10 @@
                     <i class="fas fa-house-user pr-2"></i>
                     I miei appartamenti
                 </a>
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.message.index') }}">
+                    <i class="fas fa-envelope pr-2"></i>
+                    I tuoi messaggi
+                </a>
                 <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.create') }}">
                     <i class="fas fa-plus-square pr-2"></i>
                     Nuovo appartamento
@@ -77,9 +81,11 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">
                 @yield('content')
                 
-            </main>
+            </main>  
+            
         </div>
     </div>
+    @include('partials.footer')
     @yield('script')
 </body>
 </html>

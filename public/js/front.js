@@ -1920,6 +1920,41 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1991,10 +2026,42 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Home',
   data: function data() {
     return {
+      apiSponsored: 'http://127.0.0.1:8000/api/sponsored?',
+      apartments: [],
       inputSearch: ''
     };
   },
   methods: {
+    getSponsored: function getSponsored() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get(_this.apiSponsored);
+
+              case 2:
+                res = _context.sent;
+                _context.next = 5;
+                return res.data.results;
+
+              case 5:
+                data = _context.sent;
+                _this.apartments = data;
+                console.log(_this.apartments);
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
     linkSearch: function linkSearch() {
       this.$router.push({
         name: 'Search',
@@ -2003,6 +2070,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
+  },
+  created: function created() {
+    this.getSponsored();
   }
 });
 
@@ -2274,6 +2344,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       apartments: [],
       apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+      apiSponsored: 'http://127.0.0.1:8000/api/sponsored?',
       tomtom: 'https://api.tomtom.com/search/2/geocode/',
       tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
       num_rooms: '',
@@ -2281,8 +2352,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       num_beds: '',
       address: this.$route.params.inputSearch,
       distance: 20,
-      lat: '',
-      lon: '',
+      lat: 41.89056,
+      lon: 12.49427,
       map: undefined,
       API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
       popupOffsets: {
@@ -2292,7 +2363,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'bottom-left': [0, -70],
         left: [25, -35],
         right: [-25, -35]
-      }
+      },
+      zoomValue: 5
     };
   },
   methods: {
@@ -2336,12 +2408,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     mapDisplay: function mapDisplay() {
+      if (this.address != undefined) {
+        this.zoomValue = 10;
+      }
+
       this.map = tt.map({
         container: 'map-div',
         key: this.API_KEY,
         source: 'vector',
         center: [this.lon, this.lat],
-        zoom: 10
+        zoom: this.zoomValue
       });
       this.map.addControl(new tt.FullscreenControl());
       this.map.addControl(new tt.NavigationControl()); // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
@@ -2358,10 +2434,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }).setHTML("".concat(el.name));
         marker.setPopup(popup);
       });
+    },
+    getSponsored: function getSponsored() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var res, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.get(_this3.apiSponsored);
+
+              case 2:
+                res = _context2.sent;
+                _context2.next = 5;
+                return res.data.results;
+
+              case 5:
+                data = _context2.sent;
+                _this3.apartments = data;
+
+                _this3.createMarker(_this3.apartments);
+
+                console.log(_this3.apartments);
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   created: function created() {
-    this.getApartments();
+    if (this.address != undefined) {
+      this.getApartments();
+    } else {
+      this.getSponsored();
+    }
   },
   mounted: function mounted() {
     this.mapDisplay();
@@ -2597,12 +2710,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Show',
   data: function data() {
     return {
       apiIpAddressIdApartment: 'http://127.0.0.1:8000/api/clicks?',
       apiSingleApartment: 'http://127.0.0.1:8000/api/apartment?',
+      apiLead: 'http://127.0.0.1:8000/api/send-message?',
       ip_address: '',
       apartment_id: '',
       apartment: '',
@@ -2616,7 +2731,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         'bottom-left': [0, -70],
         left: [25, -35],
         right: [-25, -35]
-      }
+      },
+      nameMessage: '',
+      emailMessage: '',
+      message: ''
     };
   },
   methods: {
@@ -2640,15 +2758,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 data = _context.sent;
                 _this.ip_address = data.ip;
-                _this.apartment_id = _this.$route.params.id;
-                console.log(_this.$route.params.id);
-                console.log(_this.ip_address);
+                _this.apartment_id = _this.$route.params.id; // console.log(this.apartment_id);
+                // console.log(this.ip_address);
 
                 if (_this.apartment_id != undefined) {
                   axios.post(_this.apiIpAddressIdApartment + "ip_address=" + _this.ip_address + "&apartment_id=" + _this.apartment_id);
                 }
 
-              case 11:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -2675,14 +2792,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 5:
                 data = _context2.sent;
-                console.log(res.data);
+                // console.log(res.data);
                 _this2.apartment = data;
                 _this2.apartmentServices = res.data.services;
                 console.log(data);
 
                 _this2.mapDisplay(_this2.apartment);
 
-              case 11:
+              case 10:
               case "end":
                 return _context2.stop();
             }
@@ -2708,7 +2825,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var popup = new tt.Popup({
         offset: this.popupOffsets
       }).setHTML("".concat(array.address));
-      marker.setPopup(popup);
+      marker.setPopup(popup); // console.log(data);  
+    },
+    sendLeadData: function sendLeadData() {
+      if (this.apartment_id != undefined) {
+        axios.post(this.apiLead + "apartment_id=" + this.apartment_id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message);
+      }
     }
   },
   created: function created() {
@@ -4760,7 +4882,51 @@ var render = function () {
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
-    _vm._m(2),
+    _c(
+      "div",
+      { staticClass: "container-fluid" },
+      _vm._l(_vm.apartments, function (apartment, index) {
+        return _c("div", { key: index, staticClass: "row my-3" }, [
+          _c("div", { staticClass: "col-12 col-md-8 col-lg-6 mx-auto card" }, [
+            _c("img", {
+              attrs: {
+                src: "/storage/" + apartment.image,
+                alt: apartment.name,
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("h3", { staticClass: "ml-3" }, [
+                  _vm._v(_vm._s(apartment.name)),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "h4",
+                  {
+                    staticClass: "ml-3 mt-3",
+                    staticStyle: { display: "inline" },
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-map-marker-alt mr-2" }),
+                    _vm._v(_vm._s(apartment.city)),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h5", { staticStyle: { display: "inline" } }, [
+                  _vm._v(_vm._s(apartment.address)),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "ml-3 mt-3" }, [
+                  _vm._v(_vm._s(apartment.description)),
+                ]),
+              ]),
+            ]),
+          ]),
+        ])
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = [
@@ -4814,18 +4980,6 @@ var staticRenderFns = [
               ]),
             ]),
           ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 col-md-8 col-lg-8 apartments" }, [
-          _vm._v("\n                dsadsadsa\n            "),
         ]),
       ]),
     ])
@@ -5759,13 +5913,13 @@ var render = function () {
                   _vm._v(" "),
                   _c("h4", { staticClass: "font-xs text-dark" }, [
                     _vm._v(
-                      " \n                            Contatta direttamente il proprietario di\n                            "
+                      " \n                                Contatta direttamente il proprietario di\n                                "
                     ),
                     _c("span", { staticClass: "gray-text" }, [
                       _vm._v('"' + _vm._s(_vm.apartment.name) + '"'),
                     ]),
                     _vm._v(
-                      "\n                            !\n                         "
+                      "\n                                !\n                             "
                     ),
                   ]),
                 ]
@@ -5811,7 +5965,213 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(5),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "leads",
+          "data-backdrop": "static",
+          "data-keyboard": "false",
+          tabindex: "-1",
+          "aria-labelledby": "staticBackdropLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content bg-dark" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("form", { attrs: { method: "POST", action: "" } }, [
+                _c("input", {
+                  attrs: {
+                    name: "apartment_id",
+                    id: "apartment_id",
+                    type: "hidden",
+                    value: "",
+                  },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    name: "slug",
+                    id: "slug",
+                    type: "hidden",
+                    value: "",
+                  },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "text-white col-md-4 col-form-label text-md-right",
+                      attrs: { for: "name" },
+                    },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.nameMessage,
+                          expression: "nameMessage",
+                        },
+                      ],
+                      staticClass:
+                        "form-control @error('name') is-invalid @enderror",
+                      attrs: {
+                        placeholder: "Insert your name",
+                        id: "name",
+                        type: "text",
+                        name: "name",
+                        value: "",
+                        required: "",
+                        autocomplete: "name",
+                        autofocus: "",
+                      },
+                      domProps: { value: _vm.nameMessage },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.nameMessage = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "text-white col-md-4 col-form-label text-md-right",
+                      attrs: { for: "email" },
+                    },
+                    [_vm._v("E-Mail Address")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.emailMessage,
+                          expression: "emailMessage",
+                        },
+                      ],
+                      staticClass:
+                        "form-control @error('email') is-invalid @enderror",
+                      attrs: {
+                        placeholder: "Insert E-Mail Address",
+                        id: "email",
+                        type: "email",
+                        name: "email",
+                        value: "",
+                        required: "",
+                        autocomplete: "email",
+                      },
+                      domProps: { value: _vm.emailMessage },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.emailMessage = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "text-white col-md-4 col-form-label text-md-right",
+                      attrs: { for: "message" },
+                    },
+                    [_vm._v("Message")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.message,
+                          expression: "message",
+                        },
+                      ],
+                      staticClass:
+                        "form-control @error('message') is-invalid @enderror",
+                      attrs: {
+                        placeholder: "Insert message",
+                        name: "message",
+                        id: "message",
+                        cols: "30",
+                        rows: "5",
+                        required: "",
+                        autocomplete: "message",
+                      },
+                      domProps: { value: _vm.message },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.message = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row d-flex justify-content-center" },
+                  [
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "modalbtn",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.sendLeadData()
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Send message\n                                "
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -5863,7 +6223,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Invia un messaggio\n                            "
+              "\n                                    Invia un messaggio\n                                "
             ),
           ]
         ),
@@ -5896,178 +6256,34 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
+      { staticClass: "mt-2 d-flex justify-content-center align-items-end" },
+      [
+        _c(
+          "h3",
+          {
+            staticClass: "modal-title text-white",
+            attrs: { id: "staticBackdropLabel" },
+          },
+          [_vm._v("Invia messaggio")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
       {
-        staticClass: "modal fade",
+        staticClass: "close text-white position-absolute",
         attrs: {
-          id: "leads",
-          "data-backdrop": "static",
-          "data-keyboard": "false",
-          tabindex: "-1",
-          "aria-labelledby": "staticBackdropLabel",
-          "aria-hidden": "true",
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close",
         },
       },
-      [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content bg-dark" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "mt-2 d-flex justify-content-center align-items-end",
-              },
-              [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "modal-title text-white",
-                    attrs: { id: "staticBackdropLabel" },
-                  },
-                  [_vm._v("Invia messaggio")]
-                ),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "close text-white position-absolute",
-                attrs: {
-                  type: "button",
-                  "data-dismiss": "modal",
-                  "aria-label": "Close",
-                },
-              },
-              [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("form", { attrs: { method: "POST", action: "" } }, [
-                _c("input", {
-                  attrs: {
-                    name: "apartment_id",
-                    id: "apartment_id",
-                    type: "hidden",
-                    value: "",
-                  },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    name: "slug",
-                    id: "slug",
-                    type: "hidden",
-                    value: "",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass:
-                        "text-white col-md-4 col-form-label text-md-right",
-                      attrs: { for: "name" },
-                    },
-                    [_vm._v("Name")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("input", {
-                      staticClass:
-                        "form-control @error('name') is-invalid @enderror",
-                      attrs: {
-                        placeholder: "Insert your name",
-                        id: "name",
-                        type: "text",
-                        name: "name",
-                        value: "",
-                        required: "",
-                        autocomplete: "name",
-                        autofocus: "",
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass:
-                        "text-white col-md-4 col-form-label text-md-right",
-                      attrs: { for: "email" },
-                    },
-                    [_vm._v("E-Mail Address")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("input", {
-                      staticClass:
-                        "form-control @error('email') is-invalid @enderror",
-                      attrs: {
-                        placeholder: "Insert E-Mail Address",
-                        id: "email",
-                        type: "email",
-                        name: "email",
-                        value: "",
-                        required: "",
-                        autocomplete: "email",
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass:
-                        "text-white col-md-4 col-form-label text-md-right",
-                      attrs: { for: "message" },
-                    },
-                    [_vm._v("Message")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("textarea", {
-                      staticClass:
-                        "form-control @error('message') is-invalid @enderror",
-                      attrs: {
-                        placeholder: "Insert message",
-                        name: "message",
-                        id: "message",
-                        cols: "30",
-                        rows: "5",
-                        required: "",
-                        autocomplete: "message",
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row d-flex justify-content-center" },
-                  [
-                    _c("div", { staticClass: "col-md-8" }, [
-                      _c(
-                        "button",
-                        { staticClass: "modalbtn", attrs: { type: "submit" } },
-                        [
-                          _vm._v(
-                            "\n                                Send message\n                            "
-                          ),
-                        ]
-                      ),
-                    ]),
-                  ]
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
   },
 ]

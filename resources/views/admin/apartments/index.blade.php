@@ -16,6 +16,16 @@
             {{ session('deleted') }}
         </div>
     @endif 
+    @if (session('paymentSuccess'))
+        <div class="alert alert-success">
+            {{ session('paymentSuccess') }}
+        </div>
+    @endif 
+    @if (session('alreadySponsored'))
+        <div class="alert alert-danger">
+            {{ session('alreadySponsored') }}
+        </div>
+    @endif 
 
     <div class="container principale">
         <div class="row">
@@ -39,7 +49,7 @@
                                         <a class="p-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
                                             <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
                                         </a>
-                                        <a class="p-1" href="{{ route('admin.apartments.sponsor', $apartment->slug) }}">
+                                        <a class="p-1" href="{{ route('admin.apartments.stats', $apartment->slug) }}">
                                             <button class="btn btn-dark my-btn"><i class="far fa-chart-bar"></i></button>
                                         </a>
                                         <a class="p-1" href="{{ route('admin.apartments.sponsor',  $apartment->slug) }}">
