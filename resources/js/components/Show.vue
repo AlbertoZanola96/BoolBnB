@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <div id="show_container">
-
+<div>
+    <div id="show_container">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -193,7 +192,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 </template>
 
 <script>

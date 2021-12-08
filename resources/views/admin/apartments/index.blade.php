@@ -21,6 +21,11 @@
             {{ session('paymentSuccess') }}
         </div>
     @endif 
+    @if (session('alreadySponsored'))
+        <div class="alert alert-danger">
+            {{ session('alreadySponsored') }}
+        </div>
+    @endif 
 
     <div class="container principale">
         <div class="row">

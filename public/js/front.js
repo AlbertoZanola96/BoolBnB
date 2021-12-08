@@ -2594,7 +2594,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Show',
   data: function data() {
@@ -5391,9 +5390,9 @@ var render = function () {
                               function (service, index) {
                                 return _c("li", { key: index }, [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\r\n                                            " +
                                       _vm._s(service.name) +
-                                      "\n                                    "
+                                      "\r\n                                        "
                                   ),
                                 ])
                               }
@@ -5660,7 +5659,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                                Send message\n                            "
+                            "\r\n                                    Send message\r\n                                "
                           ),
                         ]
                       ),
@@ -5708,7 +5707,7 @@ var staticRenderFns = [
           },
           [
             _vm._v(
-              "\n                                Invia un messaggio\n                            "
+              "\r\n                                    Invia un messaggio\r\n                                "
             ),
           ]
         ),
