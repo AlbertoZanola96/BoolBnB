@@ -55,10 +55,10 @@ class PaymentController extends Controller
             'submitForSettlement' => True
             ]
         ]);
-        dd($apartment->sponsors);
-        if($apartment->sponsors) {
-            return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
-        }
+        // dd($apartment->sponsors);
+        // if($apartment->sponsors) {
+        //     return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
+        // }
         
         if($result->success) {
             $startDate = Carbon::now()->toDateTimeString();
