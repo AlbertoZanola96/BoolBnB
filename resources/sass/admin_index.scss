@@ -12,6 +12,10 @@
         transition: width 1s, height 1s;
         margin: 0 auto;
         
+        a {
+            text-decoration: none;
+        }
+
         &:hover {
             background-color: white;
         }
