@@ -1920,6 +1920,41 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1991,10 +2026,42 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Home',
   data: function data() {
     return {
+      apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+      apartments: [],
       inputSearch: ''
     };
   },
   methods: {
+    getSponsored: function getSponsored() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get(_this.apiSearchApartments);
+
+              case 2:
+                res = _context.sent;
+                _context.next = 5;
+                return res.data.results;
+
+              case 5:
+                data = _context.sent;
+                _this.apartments = data;
+                console.log(_this.apartments);
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
     linkSearch: function linkSearch() {
       this.$router.push({
         name: 'Search',
@@ -2003,6 +2070,9 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
+  },
+  created: function created() {
+    this.getSponsored();
   }
 });
 
@@ -4563,7 +4633,51 @@ var render = function () {
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
-    _vm._m(2),
+    _c("div", { staticClass: "container-fluid" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.apartments, function (apartment, index) {
+          return _c("div", { key: index, staticClass: "col-12" }, [
+            _c("img", {
+              attrs: {
+                src: "/storage/" + apartment.image,
+                alt: apartment.name,
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("h3", { staticClass: "ml-3" }, [
+                  _vm._v(_vm._s(apartment.name)),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "h4",
+                  {
+                    staticClass: "ml-3 mt-3",
+                    staticStyle: { display: "inline" },
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-map-marker-alt mr-2" }),
+                    _vm._v(_vm._s(apartment.city)),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h5", { staticStyle: { display: "inline" } }, [
+                  _vm._v(_vm._s(apartment.address)),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "ml-3 mt-3" }, [
+                  _vm._v(_vm._s(apartment.description)),
+                ]),
+              ]),
+            ]),
+          ])
+        }),
+        0
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -4617,18 +4731,6 @@ var staticRenderFns = [
               ]),
             ]),
           ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 col-md-8 col-lg-8 apartments" }, [
-          _vm._v("\n                dsadsadsa\n            "),
         ]),
       ]),
     ])

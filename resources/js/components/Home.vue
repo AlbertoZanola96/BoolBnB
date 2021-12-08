@@ -57,9 +57,36 @@
         <!-- apartments  -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-md-8 col-lg-8 apartments">
-                    dsadsadsa
+                <div class="col-12" v-for="(apartment, index) in apartments" :key="index">       
+                    <img :src="'/storage/' + apartment.image" :alt="apartment.name ">
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="ml-3">{{ apartment.name }}</h3>
+                            <h4 class="ml-3 mt-3" style="display: inline"><i class="fas fa-map-marker-alt mr-2"></i>{{ apartment.city }}</h4>
+                            <h5 class="" style="display: inline">{{ apartment.address }}</h5>
+                            <p class="ml-3 mt-3">{{ apartment.description }}</p>
+                            <!-- <a class="p-1" href="{{ route('admin.apartments.show', $apartment->slug) }}">
+                                <button class="btn btn-dark my-btn "><i class="fas fa-info"></i></button>
+                            </a>
+                            <a class="p-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
+                                <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
+                            </a>
+                            <a class="p-1" href="{{ route('admin.apartments.sponsor', $apartment->slug) }}">
+                                <button class="btn btn-dark my-btn"><i class="far fa-chart-bar"></i></button>
+                            </a>
+                            <a class="p-1" href="{{ route('admin.apartments.sponsor',  $apartment->slug) }}">
+                                <button class="btn btn-dark my-btn"><i class="fas fa-gem"></i></button>
+                            </a> -->
+                            <!-- <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class=" m-1 deleteForm" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger my-btn"><i class="fas fa-trash-alt"></i></button>
+                            </form> -->
+                        </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -70,17 +97,28 @@ export default {
     name: 'Home',
     data() {
         return {
+            apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+            apartments: [],
             inputSearch: ''
         }
     },
     methods: {
+        async getSponsored() {
+            const res = await axios.get(this.apiSearchApartments);
+            const data = await res.data.results;
+            this.apartments = data;
+            console.log(this.apartments);
+        },
         linkSearch() {
             this.$router.push({ name: 'Search', params: { inputSearch: this.inputSearch } })
         }
+    },
+    created() {
+        this.getSponsored();
     }
 }
 </script>
 
 <style lang="scss" scoped>
-
+    
 </style>
