@@ -182,7 +182,7 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-8">
                                 <!-- send message button -->
-                                <router-link :to="{ name: 'Show', params: {  } }">
+                                <!-- <router-link :to="{ name: 'Show', params: {  } }"> -->
                                 <button v-on:click="sendLeadData()" type="submit" class="modalbtn">
                                     Send message
                                 </button>

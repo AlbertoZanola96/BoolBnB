@@ -55,9 +55,6 @@ class PaymentController extends Controller
             ]
         ]);
         
-        // Amount ricevuta  
-        $amount = $result->transaction->amount;
-        
         if($result->success) {
             $startDate = Carbon::now()->toDateTimeString();
             $expirationDate = Carbon::now()->add($sponsor->duration_in_days, 'days')->toDateTimeString(); 
@@ -70,8 +67,11 @@ class PaymentController extends Controller
                 'status' => true,
                 'payment_id' => $result->transaction->id
             ]);
+
+        return redirect()->route('admin.apartments.index')->with('paymentSuccess', 'Appartamento sponsorizzato con successo');
         }
 
-        // TODO: redirect della pagina alla pagina sponsor con session succesful o denied 
+        // TODO: redirect della pagina alla pagina sponsor con session successfull o denied 
+
     }
 }

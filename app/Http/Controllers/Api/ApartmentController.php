@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
+use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends Controller
 {
@@ -39,6 +40,7 @@ class ApartmentController extends Controller
         ]);
     }
 
+    // Cerca singolo appartamento 
     public function showApartment(Request $request) {
     
         $apartment = Apartment::where('slug', $request->apartment_slug)->first();
@@ -49,6 +51,16 @@ class ApartmentController extends Controller
             'results' => $apartment,
             'services' => $services
         ]);
+    }
+
+    // cerca appartamenti sponsorizzati 
+    public function sponsored() {
+        $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')->where('status', true)->get();
+    
+        return response()->json([
+            'success' => true,
+            'results' => $sponsored
+        ]); 
     }
 
     // funzione distanza due punti 

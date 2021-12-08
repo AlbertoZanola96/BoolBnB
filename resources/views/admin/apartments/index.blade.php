@@ -16,6 +16,11 @@
             {{ session('deleted') }}
         </div>
     @endif 
+    @if (session('paymentSuccess'))
+        <div class="alert alert-success">
+            {{ session('paymentSuccess') }}
+        </div>
+    @endif 
 
     <div class="container principale">
         <div class="row">

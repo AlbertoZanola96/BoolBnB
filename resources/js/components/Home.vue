@@ -97,14 +97,14 @@ export default {
     name: 'Home',
     data() {
         return {
-            apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+            apiSponsored: 'http://127.0.0.1:8000/api/sponsored?',
             apartments: [],
             inputSearch: ''
         }
     },
     methods: {
         async getSponsored() {
-            const res = await axios.get(this.apiSearchApartments);
+            const res = await axios.get(this.apiSponsored);
             const data = await res.data.results;
             this.apartments = data;
             console.log(this.apartments);
