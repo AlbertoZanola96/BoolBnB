@@ -2557,10 +2557,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       apiIpAddressIdApartment: 'http://127.0.0.1:8000/api/clicks?',
       apiSingleApartment: 'http://127.0.0.1:8000/api/apartment?',
+      apiLead: 'http://127.0.0.1:8000/api/lead?',
       ip_address: '',
       apartment_id: '',
       apartment: '',
-      apartmentServices: []
+      apartmentServices: [],
+      name: '',
+      email: '',
+      message: ''
     };
   },
   methods: {
@@ -2584,15 +2588,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 data = _context.sent;
                 _this.ip_address = data.ip;
-                _this.apartment_id = _this.$route.params.id;
-                console.log(_this.$route.params.id);
-                console.log(_this.ip_address);
+                _this.apartment_id = _this.$route.params.id; // console.log(this.apartment_id);
+                // console.log(this.ip_address);
 
                 if (_this.apartment_id != undefined) {
                   axios.post(_this.apiIpAddressIdApartment + "ip_address=" + _this.ip_address + "&apartment_id=" + _this.apartment_id);
                 }
 
-              case 11:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -2619,18 +2622,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 5:
                 data = _context2.sent;
-                console.log(res.data);
+                // console.log(res.data);
                 _this2.apartment = data;
-                _this2.apartmentServices = res.data.services;
-                console.log(data);
+                _this2.apartmentServices = res.data.services; // console.log(data);
 
-              case 10:
+              case 8:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
       }))();
+    },
+    sendLeadData: function sendLeadData() {
+      if (this.apartment_id != undefined) {
+        console.log(this.email);
+        axios.post(this.apiLead + "apartment_id=" + this.apartment_id + "&name=" + this.name + "&email=" + this.email + "&message=" + this.message);
+      }
     }
   },
   created: function created() {
@@ -5415,7 +5423,83 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(4),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "leads",
+          "data-backdrop": "static",
+          "data-keyboard": "false",
+          tabindex: "-1",
+          "aria-labelledby": "staticBackdropLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content bg-dark" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("form", { attrs: { method: "POST", action: "" } }, [
+                _c("input", {
+                  attrs: {
+                    name: "apartment_id",
+                    id: "apartment_id",
+                    type: "hidden",
+                    value: "",
+                  },
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: {
+                    name: "slug",
+                    id: "slug",
+                    type: "hidden",
+                    value: "",
+                  },
+                }),
+                _vm._v(" "),
+                _vm._m(6),
+                _vm._v(" "),
+                _vm._m(7),
+                _vm._v(" "),
+                _vm._m(8),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row d-flex justify-content-center" },
+                  [
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "modalbtn",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.sendLeadData()
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Send message\n                            "
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -5486,179 +5570,126 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "leads",
-          "data-backdrop": "static",
-          "data-keyboard": "false",
-          tabindex: "-1",
-          "aria-labelledby": "staticBackdropLabel",
-          "aria-hidden": "true",
-        },
-      },
+      { staticClass: "mt-2 d-flex justify-content-center align-items-center" },
       [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content bg-dark" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "mt-2 d-flex justify-content-center align-items-center",
-              },
-              [
-                _c(
-                  "h3",
-                  {
-                    staticClass: "modal-title text-white",
-                    attrs: { id: "staticBackdropLabel" },
-                  },
-                  [_vm._v("Invia messaggio")]
-                ),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "close text-white position-absolute",
-                attrs: {
-                  type: "button",
-                  "data-dismiss": "modal",
-                  "aria-label": "Close",
-                },
-              },
-              [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("form", { attrs: { method: "POST", action: "" } }, [
-                _c("input", {
-                  attrs: {
-                    name: "apartment_id",
-                    id: "apartment_id",
-                    type: "hidden",
-                    value: "",
-                  },
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    name: "slug",
-                    id: "slug",
-                    type: "hidden",
-                    value: "",
-                  },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass:
-                        "text-white col-md-4 col-form-label text-md-right",
-                      attrs: { for: "name" },
-                    },
-                    [_vm._v("Name")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("input", {
-                      staticClass:
-                        "form-control @error('name') is-invalid @enderror",
-                      attrs: {
-                        placeholder: "Insert your name",
-                        id: "name",
-                        type: "text",
-                        name: "name",
-                        value: "",
-                        required: "",
-                        autocomplete: "name",
-                        autofocus: "",
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass:
-                        "text-white col-md-4 col-form-label text-md-right",
-                      attrs: { for: "email" },
-                    },
-                    [_vm._v("E-Mail Address")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("input", {
-                      staticClass:
-                        "form-control @error('email') is-invalid @enderror",
-                      attrs: {
-                        placeholder: "Insert E-Mail Address",
-                        id: "email",
-                        type: "email",
-                        name: "email",
-                        value: "",
-                        required: "",
-                        autocomplete: "email",
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass:
-                        "text-white col-md-4 col-form-label text-md-right",
-                      attrs: { for: "message" },
-                    },
-                    [_vm._v("Message")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("textarea", {
-                      staticClass:
-                        "form-control @error('message') is-invalid @enderror",
-                      attrs: {
-                        placeholder: "Insert message",
-                        name: "message",
-                        id: "message",
-                        cols: "30",
-                        rows: "5",
-                        required: "",
-                        autocomplete: "message",
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "row d-flex justify-content-center" },
-                  [
-                    _c("div", { staticClass: "col-md-8" }, [
-                      _c(
-                        "button",
-                        { staticClass: "modalbtn", attrs: { type: "submit" } },
-                        [
-                          _vm._v(
-                            "\n                                Send message\n                            "
-                          ),
-                        ]
-                      ),
-                    ]),
-                  ]
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
+        _c(
+          "h3",
+          {
+            staticClass: "modal-title text-white",
+            attrs: { id: "staticBackdropLabel" },
+          },
+          [_vm._v("Invia messaggio")]
+        ),
       ]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close text-white position-absolute",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        {
+          staticClass: "text-white col-md-4 col-form-label text-md-right",
+          attrs: { for: "name" },
+        },
+        [_vm._v("Name")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("input", {
+          staticClass: "form-control @error('name') is-invalid @enderror",
+          attrs: {
+            placeholder: "Insert your name",
+            id: "name",
+            type: "text",
+            name: "name",
+            value: "",
+            required: "",
+            autocomplete: "name",
+            autofocus: "",
+          },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        {
+          staticClass: "text-white col-md-4 col-form-label text-md-right",
+          attrs: { for: "email" },
+        },
+        [_vm._v("E-Mail Address")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("input", {
+          staticClass: "form-control @error('email') is-invalid @enderror",
+          attrs: {
+            placeholder: "Insert E-Mail Address",
+            id: "email",
+            type: "email",
+            name: "email",
+            value: "",
+            required: "",
+            autocomplete: "email",
+          },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        {
+          staticClass: "text-white col-md-4 col-form-label text-md-right",
+          attrs: { for: "message" },
+        },
+        [_vm._v("Message")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("textarea", {
+          staticClass: "form-control @error('message') is-invalid @enderror",
+          attrs: {
+            placeholder: "Insert message",
+            name: "message",
+            id: "message",
+            cols: "30",
+            rows: "5",
+            required: "",
+            autocomplete: "message",
+          },
+        }),
+      ]),
+    ])
   },
 ]
 render._withStripped = true

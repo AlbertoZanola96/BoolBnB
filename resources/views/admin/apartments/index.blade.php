@@ -39,7 +39,7 @@
                                         <a class="p-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
                                             <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
                                         </a>
-                                        <a class="p-1" href="{{ route('admin.apartments.sponsor', $apartment->slug) }}">
+                                        <a class="p-1" href="{{ route('admin.apartments.stats', $apartment->slug) }}">
                                             <button class="btn btn-dark my-btn"><i class="far fa-chart-bar"></i></button>
                                         </a>
                                         <a class="p-1" href="{{ route('admin.apartments.sponsor',  $apartment->slug) }}">
