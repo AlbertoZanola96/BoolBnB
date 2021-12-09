@@ -10196,7 +10196,7 @@ body {
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 250px;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -10205,16 +10205,25 @@ body {
 }
 .sidebar a {
   display: block;
-  color: #2f3542;
-  padding: 16px;
+  color: #57606f;
   text-decoration: none;
   /* Active/current link */
 }
 .sidebar a:hover {
   background-color: #a4b0be;
 }
-.sidebar i {
+.sidebar a i {
+  width: 15%;
+  height: 20px;
   font-size: 23px;
+}
+.sidebar a span {
+  display: none;
+  width: 85%;
+}
+
+.main-dashboard {
+  min-height: calc(100vh - 420px);
 }
 
 /* Links on mouse-over */
@@ -10222,6 +10231,8 @@ body {
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 767px) {
   .sidebar {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: auto;
     position: relative;
@@ -10231,31 +10242,25 @@ body {
   }
 }
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
-.principale {
+#principale {
   width: clac(-100vw);
   background-color: #dfe4ea;
 }
-.principale .card {
+#principale .card {
   position: relative;
   background-color: #f8f8f8;
   border-radius: 5px;
-  box-shadow: 5px 10px 18px gray;
+  box-shadow: 0px 0px 18px gray;
   transition: width 1s, height 1s;
   margin: 0 auto;
 }
-.principale .card a {
+#principale .card a {
   text-decoration: none;
 }
-.principale .card:hover {
+#principale .card:hover {
   background-color: white;
 }
-.principale .card img {
+#principale .card img {
   width: 40%;
   height: 91%;
   margin: 15px 0 15px 0;
@@ -10263,29 +10268,29 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.principale .card .my-btn {
+#principale .card .my-btn {
   width: 50px;
   margin-bottom: 5px;
   margin-top: 5px;
 }
-.principale .card .my-btn i {
+#principale .card .my-btn i {
   font-size: 22px;
 }
-.principale .card h3 {
+#principale .card h3 {
   margin-top: 15px;
   color: #2f3542;
   font-weight: 800;
   max-height: 30px;
   overflow: hidden;
 }
-.principale .card h4 {
+#principale .card h4 {
   color: #57606f;
 }
-.principale .card h5 {
+#principale .card h5 {
   color: #57606f;
   font-size: 15px;
 }
-.principale .card p {
+#principale .card p {
   width: 100%;
   height: 110px;
   overflow: auto;
@@ -10476,7 +10481,7 @@ h-100 {
 }
 
 .sponsor {
-  width: calc(25% - 60px);
+  width: calc(20% - 60px);
   min-width: 200px;
   margin: 30px;
 }
@@ -10529,16 +10534,37 @@ h-100 {
   color: #CD7F32;
 }
 
-.lead {
-  border-left: 1px solid #57606f;
-  border-right: 1px solid #57606f;
-  border-bottom: 1px solid #57606f;
+#messages {
+  min-height: 500px;
 }
-.lead:hover {
+#messages .msg-box {
+  border-radius: 5px;
   background-color: #ffffff;
+  box-shadow: 0px 0px 3px;
 }
-.lead:first-child {
-  border-top: 1px solid #57606f;
+#messages .msg-box .app-name {
+  color: #57606f;
+}
+#messages .msg-box .msg-icon {
+  font-size: 40px;
+}
+#messages .msg-box .msg-icon i {
+  position: relative;
+}
+#messages .msg-box .msg-icon i .msg-counter {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  font-size: 15px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+}
+
+#single-apartment {
+  min-height: calc(100vh - 420px);
 }
 
 footer {
@@ -10549,18 +10575,18 @@ footer {
   height: 350px;
   background: #000;
   color: #fff;
-  background-image: url("https://st3.idealista.it/news/archivie/2021-11/mappa_it.jpg?sv=GgDHBJgx");
+  background-image: url("https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg");
   background-size: cover;
   position: relative;
 }
 footer .info {
   justify-content: center;
 }
-footer ul {
+footer .info ul {
   z-index: 1;
   padding: 30px;
 }
-footer ul li {
+footer .info ul li {
   list-style-type: none;
   text-align: center;
 }
@@ -10568,11 +10594,8 @@ footer a {
   color: white;
   text-decoration: none;
 }
-footer .hr {
-  width: 800px;
-  height: 3px;
-  background-color: white;
-  z-index: 1;
+footer a:hover {
+  color: #57606f;
 }
 footer .copyright {
   padding: 20px;
@@ -10589,10 +10612,6 @@ footer p:hover {
 }
 footer a:hover {
   color: #0D66C2;
-}
-footer .copy p {
-  text-align: center;
-  margin-top: 20px;
 }
 footer .title h3 {
   text-align: center;

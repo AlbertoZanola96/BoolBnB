@@ -221,10 +221,13 @@
                                         <i class="fas fa-ruler-combined font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
                                     </li>
+                                    <li>
+                                        {{ apartment.apartment_id }}
+                                    </li>
                                 </ul>
                                     
                                 <div class="pt-2">
-                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
+                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.apartment_id} }">
                                         <button class="btn btn-primary" >
                                             Visualizza immobile &#8594;
                                         </button>

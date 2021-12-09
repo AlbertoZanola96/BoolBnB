@@ -1,7 +1,7 @@
 <footer>
     <div class="container-fluid overlay">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12  info text-center d-flex">
+            <div class="col-lg-12 col-md-12 col-sm-12 info text-center d-flex">
                 <ul>
                     <li><a href="/">CHI SIAMO</a></li>
                     <li><a href="/">INFO LEGALI</a></li>
@@ -14,40 +14,58 @@
                 </ul>
 
                 <ul>
-                    <li><a href="/">PUBBLICITÁ</a></li>
+                    <li><a href="/">PUBBLICITA'</a></li>
                     <li><a href="/">CONTATTACI</a></li>
                     <li><a href="/">LAVORA CON NOI</a></li>
                 </ul>
             </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="title"><h3>SITO REALIZZATO DA:</h3></div>
+
+            <div class="row w-100">
+                <div class=" col-lg-12 linkedin d-flex justify-content-center">
+                    <div class="text-center mx-4">
+                        <a href="/">
+                            <i class="fab fa-linkedin"></i>
+                            <p>Zanola Alberto</p>
+                        </a>
+                    </div>
+                    
+                    <div class="text-center mx-4">
+                        <a href="">
+                            <i class="fab fa-linkedin"></i>
+                            <p>Infante Manuel</p>
+                        </a>
+                    </div>
+                    
+                    <div class="text-center mx-4">
+                        <a href="https://www.linkedin.comsin/andrea-gambino-809bb21a9/">
+                            <i class="fab fa-linkedin"></i>
+                            <p>Gambino Andrea</p>
+                        </a>
+                    </div>
+
+                    <div class="text-center mx-4">
+                        <a href="">
+                            <i class="fab fa-linkedin"></i>
+                            <p>Grazioli Eduardo</p>
+                        </a>
+                    </div>
+                
+                    <div class="text-center mx-4">
+                        <a href="https://www.linkedin.com/in/mariano-marchionna/">
+                            <i class="fab fa-linkedin"></i>
+                            <p>Marchionna Mariano</p>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class=" col-lg-12 linkedin d-flex text-center  ">
-                        <a href="/"><i class="fab fa-linkedin"></i>
-                        <p>Zanola Alberto</p></a>
-                        
-                        <a href=""><i class="fab fa-linkedin"></i>
-                        <p>Infante Manuel</p></a>
-                        
-                        <a href="https://www.linkedin.comsin/andrea-gambino-809bb21a9/"><i class="fab fa-linkedin"></i>
-                        <p>Gambino Andrea</p></a>
-                        
-                        <a href=""><i class="fab fa-linkedin"></i>
-                        <p>Grazioli Eduardo</p></a>
-                    
-                        <a href="https://www.linkedin.com/in/mariano-marchionna/"><i class="fab fa-linkedin"></i>
-                        <p>Marchionna Mariano</p></a>
-                    </div>
+        </div>  
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <p>Copyright BoolBnb - Tutti i diritti riservati</p>
                 </div>
             </div>
         </div>
-    <div class="copy">
-        <p class="">Copyright BoolBnb - Tutti i diritti riservati</p>
     </div>
 </footer>

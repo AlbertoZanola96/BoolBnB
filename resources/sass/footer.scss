@@ -6,35 +6,32 @@ footer {
     height: 350px;
     background: #000;
     color: #fff;
-    background-image: url('https://st3.idealista.it/news/archivie/2021-11/mappa_it.jpg?sv=GgDHBJgx');
+    background-image: url('https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg');
     background-size: cover;
     position: relative;
 
     .info {
         justify-content: center;
-    }
-
-    ul {
-        z-index: 1;
-        padding: 30px;
         
-        li  {
-            list-style-type: none; 
-            text-align: center;
+        ul {
+            z-index: 1;
+            padding: 30px;
+            
+            li  {
+                list-style-type: none; 
+                text-align: center;
+            }
         }
     }
+
     
     a {
         color: white;
         text-decoration: none;
-    }
 
-
-    .hr {
-        width: 800px;
-        height: 3px;
-        background-color: white;
-        z-index: 1;
+        &:hover {
+            color: $grisaille;
+        }
     }
 
     .copyright {
@@ -64,11 +61,6 @@ footer {
 
     a:hover {
         color:#0D66C2;
-    }
-
-    .copy p {
-        text-align: center;
-        margin-top: 20px;
     }
 
     .title h3 {

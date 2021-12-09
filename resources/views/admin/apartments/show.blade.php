@@ -117,7 +117,7 @@
                         </li>
                         <li class="list-group-item list-group-item-action">
                             <a href="{{ route('admin.apartments.sponsor', $apartment->slug) }}" class="btn btn-dark w-100">
-                                Sponsorizzazione immobile
+                                Sponsorizza immobile
                             </a>
                         </li>
                         <li class="list-group-item list-group-item-action">

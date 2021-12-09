@@ -6,7 +6,7 @@ body {
 .sidebar {
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 250px;
     // background-color:#343B3F;
     position: fixed;
     height: 100%;
@@ -16,8 +16,7 @@ body {
   /* Sidebar links */
   a {
     display: block;
-    color: $prestige-blue;
-    padding: 16px;
+    color: $grisaille;
     text-decoration: none;
 
     /* Active/current link */
@@ -25,10 +24,22 @@ body {
     // background-color: red;
       background-color: $peace;
     }
+
+    i {
+        width: 15%;
+        height: 20px;
+        font-size: 23px;
+    }
+
+    span {
+      display: none;
+      width: 85%;
+    }
   }
-  i {
-      font-size: 23px;
-  }
+}
+
+.main-dashboard {
+  min-height: calc(100vh - 420px);
 }
   
   /* Links on mouse-over */
@@ -47,6 +58,8 @@ body {
   /* On screens that are less than 700px wide, make the sidebar into a topbar */
   @media screen and (max-width: 767px) {
     .sidebar {
+      display: flex;
+      justify-content: center;
       width: 100%;
       height: auto;
       position: relative;
@@ -57,9 +70,9 @@ body {
   }
   
   /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  }
+  // @media screen and (max-width: 400px) {
+  //   .sidebar a {
+  //     text-align: center;
+  //     float: none;
+  //   }
+  // }
