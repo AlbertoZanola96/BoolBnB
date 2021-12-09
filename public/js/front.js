@@ -2933,17 +2933,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       marker.setPopup(popup); // console.log(data);  
     },
     sendLeadData: function sendLeadData() {
-      if (this.apartment_id != undefined) {
-        axios.post(this.apiLead + "apartment_id=" + this.apartment_id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message);
-      }
+      if (this.apartment) {
+        axios.post(this.apiLead + "apartment_id=" + this.apartment.id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message);
+      } // this.$router.push({ name: 'Success', params: {slug: this.apartment.slug, id: this.apartment_id} });
 
-      this.$router.push({
-        name: 'Success',
-        params: {
-          slug: this.apartment.slug,
-          id: this.apartment_id
-        }
-      });
     }
   },
   created: function created() {
@@ -5463,7 +5456,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Inizia a cercare\n                        "
+                        "\r\n                            Inizia a cercare\r\n                        "
                       ),
                     ]
                   ),
@@ -5701,7 +5694,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                                Inizia a cercare\n                                            "
+                                      "\r\n                                                Inizia a cercare\r\n                                            "
                                     ),
                                   ]
                                 ),
@@ -5852,9 +5845,9 @@ var render = function () {
                                 _vm._v(" "),
                                 _c("li", [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\r\n                                        " +
                                       _vm._s(apartment.apartment_id) +
-                                      "\n                                    "
+                                      "\r\n                                    "
                                   ),
                                 ]),
                               ]
@@ -5883,7 +5876,7 @@ var render = function () {
                                       { staticClass: "btn btn-primary" },
                                       [
                                         _vm._v(
-                                          "\n                                            Visualizza immobile →\n                                        "
+                                          "\r\n                                            Visualizza immobile →\r\n                                        "
                                         ),
                                       ]
                                     ),
@@ -6424,7 +6417,7 @@ var render = function () {
                     "button",
                     {
                       staticClass: "modalbtn",
-                      attrs: { type: "button" },
+                      attrs: { type: "submit" },
                       on: { click: _vm.sendLeadData },
                     },
                     [
@@ -22418,7 +22411,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/progetto finale/BoolBnB/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | Statistiche
+@endsection
+
 @section('content')
     <div class="container bg-light mb-5">
         <div class="row">

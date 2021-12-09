@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | Messaggi
+@endsection
+
 @section('content')
     @if (session('deleted'))
         <div class="alert alert-danger">

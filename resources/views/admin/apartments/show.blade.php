@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | {{ $apartment->name }}
+@endsection
+
 @section('content')
 
 <div id="show_container">

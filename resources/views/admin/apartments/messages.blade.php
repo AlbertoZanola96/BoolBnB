@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | Messaggi
+@endsection
+
 @section('content')
     <div id="single-apartment" class="container">
         @foreach ($leads as $lead)

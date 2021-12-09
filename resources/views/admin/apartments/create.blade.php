@@ -1,6 +1,10 @@
 
 @extends('layouts.dashboard')
 
+@section('title')
+    | Nuovo appartamento
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

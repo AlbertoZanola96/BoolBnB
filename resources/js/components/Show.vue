@@ -193,7 +193,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-8">
                             <!-- send message button -->
-                            <button type="button" v-on:click="sendLeadData" class="modalbtn">
+                            <button type="submit" v-on:click="sendLeadData" class="modalbtn">
                                 Send message
                             </button>
                         </div>
@@ -280,13 +280,13 @@ export default {
             // console.log(data);  
         },
         sendLeadData() {
-            if(this.apartment_id != undefined) {
+            if(this.apartment) {
                 axios.post(
-                    this.apiLead + "apartment_id=" + this.apartment_id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message
+                    this.apiLead + "apartment_id=" + this.apartment.id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message
                 );
             }
             
-            this.$router.push({ name: 'Success', params: {slug: this.apartment.slug, id: this.apartment_id} });
+            // this.$router.push({ name: 'Success', params: {slug: this.apartment.slug, id: this.apartment_id} });
         }
     },
     created() {
