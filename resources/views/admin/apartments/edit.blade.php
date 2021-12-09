@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Edit apartment</h1>
+                <h1>Modifica informazioni generali</h1>
 
                 {{-- invalid address message --}}
                 @if (session('invalid_address'))

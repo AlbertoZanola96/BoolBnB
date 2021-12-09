@@ -1,21 +1,27 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <h1>payment</h1>
-    <form id="payment-form" action="{{ route('admin.apartments.sponsor.checkout', ['slug' => $apartment->slug, 'sponsor_id' => $sponsor->id]) }}" method="post">
-        @csrf
-        @method('POST')
-
-        <div id="dropin-container"></div>
-        <input type="submit">
-        <input type="hidden" id="nonce" name="payment_method_nonce"/>
-    </form>
-
-    <!-- pass client token to js  -->
-    <div id="clientToken" class="d-none">
-        @php
-            echo $clientToken;
-        @endphp
+    <div class="container">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <h1>payment</h1>
+                <form id="payment-form" action="{{ route('admin.apartments.sponsor.checkout', ['slug' => $apartment->slug, 'sponsor_id' => $sponsor->id]) }}" method="post">
+                    @csrf
+                    @method('POST')
+            
+                    <div id="dropin-container"></div>
+                    <input type="submit">
+                    <input type="hidden" id="nonce" name="payment_method_nonce"/>
+                </form>
+            
+                <!-- pass client token to js  -->
+                <div id="clientToken" class="d-none">
+                    @php
+                        echo $clientToken;
+                    @endphp
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

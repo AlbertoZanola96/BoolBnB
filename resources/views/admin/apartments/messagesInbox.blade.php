@@ -1,19 +1,38 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    {{-- <div class="container-fluid mb-3">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">I TUOI MESSAGGI</h1>
-            </div>
-        </div>
-    </div> --}}
     @if (session('deleted'))
         <div class="alert alert-danger">
             {{ session('deleted') }}
         </div>
     @endif 
-    @foreach ($apartmentsleads as $apartmentleads)
+
+    <div id="messages" class="container-fluid">
+        @foreach ($apartments as $apartment)
+            <div class="row">
+                <div class="col-8 mx-auto">
+                    <div class="msg-box d-flex justify-content-between align-items-center my-2 px-3">
+                        <div class="app-name">
+                            {{ $apartment->name }}
+                        </div>
+                        <div class="msg-icon">
+                            <a href="{{ route('admin.messages.show', $apartment->slug) }}">
+                                <i class="far fa-envelope">
+                                    @if (count($apartment->leads) > 0)
+                                        <div class="msg-counter d-flex justify-content-center align-items-center">
+                                            {{ count($apartment->leads) }}
+                                        </div>
+                                    @endif
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    {{-- @foreach ($apartmentsleads as $apartmentleads)
         @foreach ($apartmentleads as $lead)
             <div class="container-fluid pt-5 pb-5 lead">
                 <div class="row">
@@ -39,5 +58,5 @@
                 </div>
             </div>
         @endforeach 
-    @endforeach 
+    @endforeach  --}}
 @endsection
