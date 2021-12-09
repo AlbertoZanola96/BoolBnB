@@ -4,8 +4,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-4 col-md-auto">
+            <div class="col-12 col-md-auto">
                 <h1>Informazioni generali</h1>
+                    
                             
                 <form action="{{ route('admin.apartments.store') }}" method="post" enctype="multipart/form-data">
                     @csrf

@@ -61,6 +61,11 @@ class PaymentController extends Controller
             ]
         ]);
 
+        // dd($apartment->sponsors);
+        // if($apartment->sponsors) {
+        //     return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
+        // }
+
         // query per prendere solo le sponsorizzazioni attive 
         $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
                         ->where('apartments.id', $apartment->id)

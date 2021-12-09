@@ -129,6 +129,4 @@
 module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\form_client_validation.js */"./resources/js/form_client_validation.js");
 
 
-/***/ })
-
 /******/ });
