@@ -15,6 +15,7 @@ class PaymentController extends Controller
 {
     public function index(Request $request, $slug) {
 
+        $user = Auth::user();
         $apartment = Apartment::where('slug', $slug)->first();
         $sponsor = Sponsor::find($request->sponsor_id);
 
@@ -28,7 +29,7 @@ class PaymentController extends Controller
 
         //   generazione del token dell'utente 
           $clientToken = $gateway->clientToken()->generate();
-        return view('admin.apartments.payment', compact('clientToken', 'apartment', 'sponsor'));
+        return view('admin.apartments.payment', compact('clientToken', 'apartment', 'sponsor', 'user'));
     }
 
     public function checkout(Request $request, $slug) {

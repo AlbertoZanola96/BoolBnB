@@ -23,14 +23,15 @@ class LeadController extends Controller
         // for ($i = 0; $i < count($apartments_id); $i++) {
         //     $apartmentsleads[$i] = Lead::where('apartment_id', $apartments_id[$i])->get();
         // }
-        return view('admin.apartments.messagesInbox', compact('apartments'));
+        return view('admin.apartments.messagesInbox', compact('apartments', 'user'));
     }
 
     public function show($slug) {
+        $user = Auth::user();
         $apartment = Apartment::where('slug', $slug)->first();
         $leads = Lead::where('apartment_id', $apartment->id)->get();
         
-        return view('admin.apartments.messages', compact('leads'));
+        return view('admin.apartments.messages', compact('leads', 'user'));
     }
 
     public function destroy($id)
