@@ -37359,6 +37359,7 @@ __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#39\progetto_final
 module.exports = __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#39\progetto_finale\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
+
 /***/ })
 
 /******/ });

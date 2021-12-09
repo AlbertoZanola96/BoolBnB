@@ -130,5 +130,4 @@ module.exports = __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#
 
 
 /***/ })
-
 /******/ });

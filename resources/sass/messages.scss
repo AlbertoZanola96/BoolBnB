@@ -1,0 +1,40 @@
+// Messages Inbox 
+#messages {
+    min-height: 500px;
+
+    .msg-box {
+        border-radius: 5px;
+        background-color: $white;
+        box-shadow: 0px 0px 3px;
+
+        .app-name {
+            color: $grisaille;
+        }
+
+        .msg-icon {
+            font-size: 40px;
+
+            i {
+                position: relative;
+
+                .msg-counter {
+                    position: absolute;
+                    top: -2px;
+                    right: -6px;
+                    width: 20px;
+                    height: 20px;
+                    font-size: 15px;
+                    background-color: red;
+                    color: white;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+// Messages single apartment 
+
+#single-apartment {
+    min-height: calc(100vh - 420px);
+}

@@ -13,13 +13,24 @@ class LeadController extends Controller
     public function index(){
         $user = Auth::user();
         $apartments = Apartment::where('user_id', $user->id)->get();
-        for ($i = 0; $i < count($apartments); $i++) {
-            $apartments_id[$i] = $apartments[$i]->id;
-        }
-        for ($i = 0; $i < count($apartments_id); $i++) {
-            $apartmentsleads[$i] = Lead::where('apartment_id', $apartments_id[$i])->get();
-        }
-        return view('admin.apartments.message', compact('apartmentsleads', 'apartments'));
+
+        // $messages = DB::table('leads')->whereIn('apartments.id', $apartments)->get();
+        // dd($messages);
+
+        // for ($i = 0; $i < count($apartments); $i++) {
+        //     $apartments_id[$i] = $apartments[$i]->id;
+        // }
+        // for ($i = 0; $i < count($apartments_id); $i++) {
+        //     $apartmentsleads[$i] = Lead::where('apartment_id', $apartments_id[$i])->get();
+        // }
+        return view('admin.apartments.messagesInbox', compact('apartments'));
+    }
+
+    public function show($slug) {
+        $apartment = Apartment::where('slug', $slug)->first();
+        $leads = Lead::where('apartment_id', $apartment->id)->get();
+        
+        return view('admin.apartments.messages', compact('leads'));
     }
 
     public function destroy($id)

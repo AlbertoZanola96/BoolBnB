@@ -1,48 +1,62 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    @if (session('inserted'))
-        <div class="alert alert-success">
-            {{ session('inserted') }}
-        </div>
-    @endif
-    @if (session('modified'))
-        <div class="alert alert-success">
-            {{ session('modified') }}
-        </div>
-    @endif
-    @if (session('deleted'))
-        <div class="alert alert-danger">
-            {{ session('deleted') }}
-        </div>
-    @endif 
-    @if (session('paymentSuccess'))
-        <div class="alert alert-success">
-            {{ session('paymentSuccess') }}
-        </div>
-    @endif 
-    @if (session('alreadySponsored'))
-        <div class="alert alert-danger">
-            {{ session('alreadySponsored') }}
-        </div>
-    @endif 
 
-    <div class="container principale">
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 m-auto">
+<div id="principale" class="container mx-auto">
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 m-auto">
+                @if (session('inserted'))
+                    <div class="alert alert-success">
+                        {{ session('inserted') }}
+                    </div>
+                @endif
+                @if (session('modified'))
+                    <div class="alert alert-success">
+                        {{ session('modified') }}
+                    </div>
+                @endif
+                @if (session('deleted'))
+                    <div class="alert alert-danger">
+                        {{ session('deleted') }}
+                    </div>
+                @endif 
+                @if (session('paymentSuccess'))
+                    <div class="alert alert-success">
+                        {{ session('paymentSuccess') }}
+                    </div>
+                @endif 
+                @if (session('alreadySponsored'))
+                    <div class="alert alert-danger">
+                        {{ session('alreadySponsored') }}
+                    </div>
+                @endif 
+                @if (session('paymentDenied'))
+                    <div class="alert alert-danger">
+                        {{ session('paymentDenied') }}
+                    </div>
+                @endif 
+
                 @foreach ($apartments as $apartment)
                     <div class="container-fluid card mb-4">
                         <div class="row">
                             <div class="col-12">
+                                <!-- ap image  -->
                                 @if($apartment->image)
                                     <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
                                 @endif
                                 <div class="row">
                                     <div class="col-12">
+                                        <!-- ap name  -->
                                         <h3 class="ml-3">{{ $apartment->name }}</h3>
                                         <h4 class="ml-3 mt-3" style="display: inline"><i class="fas fa-map-marker-alt mr-2"></i>{{ $apartment->city }}</h4>
+
+                                        <!-- ap address  -->
                                         <h5 class="" style="display: inline">{{ $apartment->address }}</h5>
+
+                                        <!-- ap description  -->
                                         <p class="ml-3 mt-3">{{ $apartment->description }}</p>
+
+                                        <!-- card buttons  -->
                                         <a class="p-1" href="{{ route('admin.apartments.show', $apartment->slug) }}">
                                             <button class="btn btn-dark my-btn "><i class="fas fa-info"></i></button>
                                         </a>
@@ -69,5 +83,4 @@
             </div>
         </div>
     </div>
-    {{-- @endif --}}
 @endsection
