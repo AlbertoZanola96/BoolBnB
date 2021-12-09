@@ -20,7 +20,7 @@
         @include('partials.header')
         
         {{-- login modal --}}
-        <div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="login" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content bg-dark">
                     <div class="mt-2 d-flex justify-content-center align-items-center">
@@ -83,10 +83,10 @@
                                 </div>
                                 {{-- forgot password link --}}
                                 @if (Route::has('password.request'))
-                                    <a href="" class="btn btn-link" onclick="$('#login').modal('hide')" data-toggle="modal" data-target="#resetpassword">Fotgot your password?</a>
+                                    <a href="" class="btn btn-link" onclick="$('#login').modal('hide')" data-toggle="modal" data-target="#resetpassword" data-backdrop="true">Fotgot your password?</a>
                                 @endif
                                 {{-- register link --}}
-                                <a href="" class="btn btn-link" onclick="$('#login').modal('hide')" data-toggle="modal" data-target="#register">Don't have an account? Sign up!</a>
+                                <a href="" class="btn btn-link" onclick="$('#login').modal('hide')" data-backdrop="true" data-toggle="modal" data-target="#register">Don't have an account? Sign up!</a>
                             </div>
                         </form>
                     </div>
@@ -94,8 +94,9 @@
             </div>
         </div>
 
+
         {{-- register modal --}}
-        <div class="modal fade" id="register" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="register" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content bg-dark">
                     <div class="mt-2 d-flex justify-content-center align-items-center">
@@ -201,7 +202,7 @@
                                     </button>
                                 </div>
                                 {{-- login link --}}
-                                <a href="" class="btn btn-link" onclick="$('#register').modal('hide')" data-toggle="modal" data-target="#login">Do you already have an account?</a>
+                                <a href="" class="btn btn-link" onclick="$('#register').modal('hide')" data-toggle="modal" data-target="#login" data-backdrop="true">Do you already have an account?</a>
                             </div>
                         </form>
                     </div>
@@ -210,7 +211,7 @@
         </div>
 
         {{-- reset password modal --}}
-        <div class="modal fade" id="resetpassword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="resetpassword" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content bg-dark">
                     <div class="mt-2 d-flex justify-content-center align-items-center">
@@ -246,7 +247,7 @@
                                     </button>
                                 </div>
                                 {{-- register link --}}
-                                <a href="" class="btn btn-link" onclick="$('#resetpassword').modal('hide')" data-toggle="modal" data-target="#register">Do you remember password? Sign up!</a>
+                                <a href="" class="btn btn-link" onclick="$('#resetpassword').modal('hide')" data-toggle="modal" data-target="#register" data-backdrop="true">Do you remember password? Sign up!</a>
                             </div>
                         </form>
                     </div>

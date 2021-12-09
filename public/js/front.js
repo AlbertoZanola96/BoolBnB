@@ -5178,9 +5178,18 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", [
-                    _c("button", { staticClass: "btn-home px-5 py-3" }, [
-                      _vm._v("Registrati ora"),
-                    ]),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn-home px-5 py-3",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#register",
+                          "data-backdrop": "true",
+                        },
+                      },
+                      [_vm._v("Registrati ora")]
+                    ),
                   ]),
                 ]
               ),
@@ -5463,7 +5472,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Inizia a cercare\n                        "
+                        "\r\n                            Inizia a cercare\r\n                        "
                       ),
                     ]
                   ),
@@ -5701,7 +5710,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                                Inizia a cercare\n                                            "
+                                      "\r\n                                                Inizia a cercare\r\n                                            "
                                     ),
                                   ]
                                 ),
@@ -5852,9 +5861,9 @@ var render = function () {
                                 _vm._v(" "),
                                 _c("li", [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\r\n                                        " +
                                       _vm._s(apartment.apartment_id) +
-                                      "\n                                    "
+                                      "\r\n                                    "
                                   ),
                                 ]),
                               ]
@@ -5883,7 +5892,7 @@ var render = function () {
                                       { staticClass: "btn btn-primary" },
                                       [
                                         _vm._v(
-                                          "\n                                            Visualizza immobile →\n                                        "
+                                          "\r\n                                            Visualizza immobile →\r\n                                        "
                                         ),
                                       ]
                                     ),
@@ -6254,7 +6263,7 @@ var render = function () {
         staticClass: "modal fade",
         attrs: {
           id: "leads",
-          "data-backdrop": "static",
+          "data-backdrop": "true",
           "data-keyboard": "false",
           tabindex: "-1",
           "aria-labelledby": "staticBackdropLabel",
@@ -6487,6 +6496,7 @@ var staticRenderFns = [
               href: "",
               "data-toggle": "modal",
               "data-target": "#leads",
+              "data-backdrop": "true",
             },
           },
           [
@@ -22418,7 +22428,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/progetto finale/BoolBnB/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#39\progetto_finale\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

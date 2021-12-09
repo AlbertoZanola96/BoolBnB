@@ -10041,7 +10041,7 @@ h3 {
 }
 .banner .home-search label {
   font-size: 18px;
-  color: white;
+  color: #ffffff;
 }
 .banner .home-search input {
   width: 100%;
@@ -10079,7 +10079,7 @@ h3 {
   width: 100%;
   padding: 10px;
   border: 1px solid #2ed573;
-  background-color: white;
+  background-color: #ffffff;
   color: #2ed573;
 }
 
@@ -10090,7 +10090,7 @@ h3 {
 }
 .info-box .wrapper {
   margin: 0 auto;
-  color: white;
+  color: #ffffff;
   transform: translate(0, -50%);
 }
 .info-box .wrapper .center {
@@ -10124,8 +10124,12 @@ h3 {
 .info-box .info-box-2 .btn-home {
   width: 100%;
   border: 1px solid #2ed573;
-  background-color: white;
+  background-color: #ffffff;
   color: #2ed573;
+}
+.info-box .info-box-2 .btn-home:hover {
+  color: #ffffff;
+  background-color: #2ed573;
 }
 
 .apartments {
@@ -10149,7 +10153,7 @@ h3 {
   border: none;
   background: linear-gradient(120deg, #1e90ff, #ff4757, #ff7f50);
   background-size: 200%;
-  color: #fff;
+  color: #ffffff;
   outline: none;
   cursor: pointer;
   transition: 0.5s;
