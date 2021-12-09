@@ -44,10 +44,10 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
         // CRUD apartments 
         Route::resource('/apartments', 'ApartmentController');
         // CRUD messages 
-        Route::resource('/message', 'LeadController');
+        Route::resource('/messages', 'LeadController');
      });
 
 
 //  vue routes     
 Route::get('/', 'HomeController@vue')->name('vue.home');
-Route::get('/{any}', 'HomeController@vue')->where('any', 'search', 'show')->name('vue');
+Route::get('/{any}', 'HomeController@vue')->where('any', '.*')->name('vue');

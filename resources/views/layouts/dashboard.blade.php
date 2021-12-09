@@ -47,45 +47,51 @@
             </li>
         </ul>
     </nav>
-    <div class="container-fluid">
-        <div class="row">
-           <!-- The sidebar -->
-            <div class="sidebar">
-                <a class="nav-link d-flex align-items-center" href="{{ route('admin.index') }}">
-                    <i class="fab fa-windows pr-2"></i>
-                    Dashboard
-                </a>
-                <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.index') }}">
-                    <i class="fas fa-house-user pr-2"></i>
-                    I miei appartamenti
-                </a>
-                <a class="nav-link d-flex align-items-center" href="{{ route('admin.message.index') }}">
-                    <i class="fas fa-envelope pr-2"></i>
-                    I tuoi messaggi
-                </a>
-                <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.create') }}">
-                    <i class="fas fa-plus-square pr-2"></i>
-                    Nuovo appartamento
-                </a>
-                <a class="logout d-flex align-items-center" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt pr-2"></i>
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
-
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">
-                @yield('content')
-                
-            </main>  
-            
-        </div>
+    <!-- The sidebar -->
+    <div class="sidebar mt-3">
+        <a class="nav-link d-flex align-items-center" href="{{ route('admin.index') }}">
+            <i class="far fa-user d-flex justify-content-center"></i>
+            <span class="ml-2 d-lg-block">
+                Dashboard
+            </span>
+        </a>
+        <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.index') }}">
+            <i class="fas fa-home d-flex justify-content-center"></i>
+            <span class="ml-2 d-lg-block">
+                I miei appartamenti
+            </span>
+        </a>
+        <a class="nav-link d-flex align-items-center" href="{{ route('admin.messages.index') }}">
+            <i class="far fa-envelope d-flex justify-content-center"></i> 
+            <span class="ml-2 d-lg-block">
+                I tuoi messaggi
+            </span>
+        </a>
+        <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.create') }}">
+            <i class="fas fa-plus d-flex justify-content-center"></i>
+            <span class="ml-2 d-lg-block">
+                Nuovo appartamento
+            </span>
+        </a>
+        <a class="nav-link logout d-flex align-items-center" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <i class="fas fa-sign-out-alt d-flex justify-content-center"></i>
+            <span class="ml-2 d-lg-block">
+                Logout
+            </span>
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
+
+    <main role="main" class="mx-auto mt-3 main-dashboard">
+        @yield('content')
+    </main>  
+
     @include('partials.footer')
+    
     @yield('script')
 </body>
 </html>

@@ -2,7 +2,7 @@
 <div id="search-container">
     <section id="input_container" class="container-fluid border-bottom">
         <div class="row align-items-center h-100 align-items-center">
-            <div class="col-12">
+            <div class="col-12 d-none d-md-block input-lg">
                 <!-- <form action="" class="d-flex px-2"> -->
                     <div class="input-group justify-content-center align-items-center">
                         <div>
@@ -13,39 +13,42 @@
                                 id="num_rooms" 
                                 name="num_rooms" 
                                 type="number" 
-                                min="0" 
+                                min="1" 
                                 max="10" 
                                 placeholder="N. camere">
                         </div>
 
                             <!-- num_beds  -->
                         <div>
-                            <input 
+                            <input
+                                required
                                 class="btn" 
                                 v-model="num_beds" 
                                 id="num_beds" 
                                 name="num_beds" 
                                 type="number" 
-                                min="0" 
+                                min="1" 
                                 max="10" placeholder="N. letti">
                         </div>
 
                             <!-- num_bathrooms  -->
                         <div>
-                            <input 
+                            <input
+                                required 
                                 class="btn" 
                                 v-model="num_bathrooms" 
                                 id="num_bathrooms" 
                                 name="num_bathrooms" 
                                 type="number" 
-                                min="0" 
+                                min="1" 
                                 max="10" 
                                 placeholder="N. bagni">
                         </div>
 
                             <!-- address  -->
                         <div>
-                            <input 
+                            <input
+                                required 
                                 type="text" 
                                 v-model="address" 
                                 class="btn" 
@@ -74,6 +77,105 @@
                     </div>
                 <!-- </form> -->
             </div>
+
+            <div class="col-12 d-md-none">
+                <a href="" data-toggle="modal" data-target="#leads" class="btn btn-primary w-100">
+                    <i class="fas fa-sliders-h"></i>
+                    <span class="ml-3">Filtri di ricerca</span>
+                </a>
+            </div>
+
+            <div class="">
+                <div class="modal fade" id="leads" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark">
+                            <div class="mt-2 d-flex justify-content-center align-items-end">
+                                <h3 class="modal-title text-white" id="staticBackdropLabel">Filtri di ricerca</h3>
+                            </div>
+                            <button type="button" class="close text-white position-absolute" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="modal-body">
+                                <form method="POST" action="" class="container">
+                                    <div class="row input-group ml-0">
+                                        <div class="col-12 my-3">
+                                            <!-- num_rooms  -->
+                                            <input 
+                                                class="btn w-100" 
+                                                v-model="num_rooms" 
+                                                id="num_rooms" 
+                                                name="num_rooms" 
+                                                type="number" 
+                                                min="1" 
+                                                max="10" 
+                                                placeholder="N. camere">
+                                        </div>
+
+                                            <!-- num_beds  -->
+                                        <div class="col-12 my-3">
+                                            <input
+                                                required
+                                                class="btn w-100" 
+                                                v-model="num_beds" 
+                                                id="num_beds" 
+                                                name="num_beds" 
+                                                type="number" 
+                                                min="1" 
+                                                max="10" placeholder="N. letti">
+                                        </div>
+
+                                            <!-- num_bathrooms  -->
+                                        <div class="col-12 my-3">
+                                            <input
+                                                required 
+                                                class="btn w-100" 
+                                                v-model="num_bathrooms" 
+                                                id="num_bathrooms" 
+                                                name="num_bathrooms" 
+                                                type="number" 
+                                                min="1" 
+                                                max="10" 
+                                                placeholder="N. bagni">
+                                        </div>
+
+                                            <!-- address  -->
+                                        <div class="col-12 my-3">
+                                            <input
+                                                required 
+                                                type="text" 
+                                                v-model="address" 
+                                                class="btn w-100" 
+                                                id="address" 
+                                                name="address" 
+                                                placeholder="In quale città?">
+                                        </div>
+
+                                            <!-- distance  -->
+                                        <div class="col-12 my-3">
+                                            <div class="mb-2">
+                                                <label for="distance" class="d-flex justify-content-around m-0">
+                                                    <span class="white-text">Distanza:</span>
+                                                    <output class="white-text"> {{ distance }} km</output>
+                                                </label>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center">
+                                                <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
+                                            </div>
+                                        </div>
+
+                                            <!-- btn cerca  -->
+                                        <div class="col-12 my-3">
+                                            <button class="btn btn-primary w-100" v-on:click="getApartments">
+                                                Inizia a cercare
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -92,12 +194,16 @@
                             <div class="col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between">
                                 <!-- apartment name  -->
                                 <div>
-                                    <h2>{{ apartment.name }}</h2>
-                                    <hr class="m-0 d-none d-lg-block">
+                                    <h2 class="m-0">{{ apartment.name }}</h2>
+                                    <hr class="my-2">
+                                    <h4 class="font-xxs gray-text">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span class="ml-2">{{ apartment.address }}</span>
+                                    </h4>
                                 </div>
 
                                 <!-- services list  -->
-                                <ul id="services_list" class="d-none d-lg-flex flex-wrap p-0">
+                                <ul id="services_list" class="d-none d-lg-flex flex-wrap pl-0 py-3 white-background">
                                     <!-- num_rooms  -->
                                     <li>
                                         <i class="fas fa-door-open font-xxs"></i>
@@ -115,10 +221,13 @@
                                         <i class="fas fa-ruler-combined font-xxs"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
                                     </li>
+                                    <li>
+                                        {{ apartment.apartment_id }}
+                                    </li>
                                 </ul>
                                     
                                 <div class="pt-2">
-                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
+                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.apartment_id} }">
                                         <button class="btn btn-primary" >
                                             Visualizza immobile &#8594;
                                         </button>
@@ -146,6 +255,7 @@ export default {
         return {
             apartments: [],
             apiSearchApartments: 'http://127.0.0.1:8000/api/apartments?',
+            apiSponsored: 'http://127.0.0.1:8000/api/sponsored?',
             tomtom: 'https://api.tomtom.com/search/2/geocode/',
             tomtomKey: '.json?key=bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
             num_rooms: '',
@@ -153,8 +263,8 @@ export default {
             num_beds: '',
             address: this.$route.params.inputSearch,
             distance: 20,
-            lat: '',
-            lon: '',
+            lat: 41.89056,
+            lon: 12.49427,
             map : undefined,
             API_KEY: 'bUmDAHcIFvGHLQEcg77j9yMpuaI5gGMF',
             popupOffsets: {
@@ -164,7 +274,8 @@ export default {
                 'bottom-left': [0, -70],
                 left: [25, -35],
                 right: [-25, -35]
-            }
+            },
+            zoomValue: 5
         }
     },
     methods: {
@@ -203,21 +314,25 @@ export default {
                 if(this.map != undefined) {
                     this.mapDisplay();
                 }
+                
         },
         mapDisplay() {
+            if(this.address != undefined) {
+                this.zoomValue = 10;
+            }
             this.map = tt.map({
             container: 'map-div',
             key: this.API_KEY,
             source: 'vector',
             center: [this.lon, this.lat],
-            zoom: 10,
+            zoom: this.zoomValue,
             });
             this.map.addControl(new tt.FullscreenControl());
             this.map.addControl(new tt.NavigationControl());
             
             // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
         }, createMarker(array) {
-            console.log(this.apartments);
+            // console.log(this.apartments);
             array.forEach((el) => {
                 let cor = [el.lon, el.lat];
                         
@@ -228,10 +343,21 @@ export default {
                 marker.setPopup(popup);
             });
 
+        },
+        async getSponsored() {
+            const res = await axios.get(this.apiSponsored);
+            const data = await res.data.results;
+            this.apartments = data;
+            this.createMarker(this.apartments);
+            console.log(this.apartments);
         }
     },
     created() {
-        this.getApartments();
+        if(this.address != undefined) {
+            this.getApartments();
+        } else {
+            this.getSponsored();
+        }
     },
     mounted() {
         this.mapDisplay();
@@ -248,10 +374,18 @@ export default {
     #input_container{
         height: 8%;
 
-        input{
-            border: 1px solid rgb(107, 107, 107);
-            min-width: 120px;
-            margin: 0 15px;
+        .input-lg{
+            input{
+                border: 1px solid rgb(107, 107, 107);
+                width: 120px;
+                margin: 0 15px;
+            }
+
+            @media (max-width: 1000px) {
+                input{
+                    max-width: 90px;
+                }
+            }
         }
     }
 
