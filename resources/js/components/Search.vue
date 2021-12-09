@@ -2,7 +2,7 @@
 <div id="search-container">
     <section id="input_container" class="container-fluid border-bottom">
         <div class="row align-items-center h-100 align-items-center">
-            <div class="col-12 d-none d-md-block">
+            <div class="col-12 d-none d-md-block input-lg">
                 <!-- <form action="" class="d-flex px-2"> -->
                     <div class="input-group justify-content-center align-items-center">
                         <div>
@@ -80,7 +80,8 @@
 
             <div class="col-12 d-md-none">
                 <a href="" data-toggle="modal" data-target="#leads" class="btn btn-primary w-100">
-                    Invia un messaggio
+                    <i class="fas fa-sliders-h"></i>
+                    <span class="ml-3">Filtri di ricerca</span>
                 </a>
             </div>
 
@@ -95,12 +96,12 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <div class="modal-body">
-                                <form method="POST" action="">
-                                    <div class="input-group justify-content-center align-items-center">
-                                        <div>
+                                <form method="POST" action="" class="container">
+                                    <div class="row input-group ml-0">
+                                        <div class="col-12 my-3">
                                             <!-- num_rooms  -->
                                             <input 
-                                                class="btn" 
+                                                class="btn w-100" 
                                                 v-model="num_rooms" 
                                                 id="num_rooms" 
                                                 name="num_rooms" 
@@ -111,10 +112,10 @@
                                         </div>
 
                                             <!-- num_beds  -->
-                                        <div>
+                                        <div class="col-12 my-3">
                                             <input
                                                 required
-                                                class="btn" 
+                                                class="btn w-100" 
                                                 v-model="num_beds" 
                                                 id="num_beds" 
                                                 name="num_beds" 
@@ -124,10 +125,10 @@
                                         </div>
 
                                             <!-- num_bathrooms  -->
-                                        <div>
+                                        <div class="col-12 my-3">
                                             <input
                                                 required 
-                                                class="btn" 
+                                                class="btn w-100" 
                                                 v-model="num_bathrooms" 
                                                 id="num_bathrooms" 
                                                 name="num_bathrooms" 
@@ -138,34 +139,36 @@
                                         </div>
 
                                             <!-- address  -->
-                                        <div>
+                                        <div class="col-12 my-3">
                                             <input
                                                 required 
                                                 type="text" 
                                                 v-model="address" 
-                                                class="btn" 
+                                                class="btn w-100" 
                                                 id="address" 
                                                 name="address" 
                                                 placeholder="In quale città?">
                                         </div>
 
                                             <!-- distance  -->
-                                        <div>
-                                            <div>
+                                        <div class="col-12 my-3">
+                                            <div class="mb-2">
                                                 <label for="distance" class="d-flex justify-content-around m-0">
-                                                    <span>Distanza:</span>
-                                                    <output> {{ distance }} km</output>
+                                                    <span class="white-text">Distanza:</span>
+                                                    <output class="white-text"> {{ distance }} km</output>
                                                 </label>
-                                                </div>
-                                            <div class="d-flex align-items-center">
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center">
                                                 <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
                                             </div>
                                         </div>
 
                                             <!-- btn cerca  -->
-                                        <button class="btn btn-primary" v-on:click="getApartments">
-                                            Inizia a cercare
-                                        </button>
+                                        <div class="col-12 my-3">
+                                            <button class="btn btn-primary w-100" v-on:click="getApartments">
+                                                Inizia a cercare
+                                            </button>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -368,15 +371,17 @@ export default {
     #input_container{
         height: 8%;
 
-        input{
-            border: 1px solid rgb(107, 107, 107);
-            width: 120px;
-            margin: 0 15px;
-        }
-
-        @media (max-width: 1000px) {
+        .input-lg{
             input{
-                max-width: 90px;
+                border: 1px solid rgb(107, 107, 107);
+                width: 120px;
+                margin: 0 15px;
+            }
+
+            @media (max-width: 1000px) {
+                input{
+                    max-width: 90px;
+                }
             }
         }
     }

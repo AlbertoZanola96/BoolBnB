@@ -10037,7 +10037,6 @@ h3 {
   background-color: rgba(0, 0, 0, 0.3);
 }
 .banner .home-search {
-  width: 40%;
   z-index: 2;
 }
 .banner .home-search label {
@@ -10056,8 +10055,6 @@ h3 {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 60%;
-  height: 10%;
   transform: translate(-50%, 50%);
   margin: 0 auto;
   background-color: #ffffff;
@@ -10079,7 +10076,8 @@ h3 {
   color: #57606f;
 }
 .banner .info-box-2 .btn-home {
-  padding: 10px 70px;
+  width: 100%;
+  padding: 10px;
   border: 1px solid #2ed573;
   background-color: white;
   color: #2ed573;
@@ -10087,20 +10085,47 @@ h3 {
 
 .info-box {
   position: relative;
-  height: 15vh;
+  min-height: 15vh;
   background-color: #2f3542;
 }
 .info-box .wrapper {
-  width: 60%;
-  margin: 40px auto;
+  margin: 0 auto;
   color: white;
+  transform: translate(0, -50%);
 }
 .info-box .wrapper .center {
-  margin-left: 100px;
   font-size: 18px;
+  margin: 0 auto;
 }
 .info-box .wrapper .center .info-description {
   color: #a4b0be;
+}
+.info-box .info-box-2 {
+  position: relative;
+  transform: translate(0, -50%);
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 4;
+}
+.info-box .info-box-2 i {
+  font-size: 15px;
+  color: #2ed573;
+}
+.info-box .info-box-2 .center {
+  font-size: 18px;
+}
+.info-box .info-box-2 .center .info2-title {
+  color: #2ed573;
+}
+.info-box .info-box-2 .center .info2-description {
+  color: #57606f;
+}
+.info-box .info-box-2 .btn-home {
+  width: 100%;
+  border: 1px solid #2ed573;
+  background-color: white;
+  color: #2ed573;
 }
 
 .apartments {
@@ -10132,6 +10157,16 @@ h3 {
 }
 .modal .modalbtn:hover {
   transform: scale(1.1);
+}
+
+ul {
+  list-style: none;
+}
+ul .sponsor-card {
+  transition: all 1s;
+}
+ul .sponsor-card:hover {
+  box-shadow: 2px 0px 25px -10px rgba(0, 0, 0, 0.431);
 }
 
 header {

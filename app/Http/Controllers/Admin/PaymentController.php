@@ -70,7 +70,7 @@ class PaymentController extends Controller
         // redirect in caso di sponsorizzazione ancora attiva 
         if(count($sponsored) > 0) {
             return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
-        }
+        }  
         
         // creazione del record nella tabella ponte e redirect all'index con alert success 
         if($result->success) {
