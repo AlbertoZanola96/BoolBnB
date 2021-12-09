@@ -15,11 +15,11 @@
                             </div>
                         </a>
                     @else
-                        <a href="" class="btn btn-link" data-toggle="modal" data-target="#login">Login</a>
+                        <a href="" class="btn btn-link" data-toggle="modal" data-target="#login" data-backdrop="true">Login</a>
                         
                         
                         @if (Route::has('register'))
-                            <a href="" class="btn btn-link" data-toggle="modal" data-target="#register">Register</a>
+                            <a href="" class="btn btn-link" data-toggle="modal" data-target="#register" data-backdrop="true">Register</a>
                         @endif
                     @endauth
                 </div>

@@ -5178,9 +5178,18 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", [
-                    _c("button", { staticClass: "btn-home px-5 py-3" }, [
-                      _vm._v("Registrati ora"),
-                    ]),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn-home px-5 py-3",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#register",
+                          "data-backdrop": "true",
+                        },
+                      },
+                      [_vm._v("Registrati ora")]
+                    ),
                   ]),
                 ]
               ),
@@ -6254,7 +6263,7 @@ var render = function () {
         staticClass: "modal fade",
         attrs: {
           id: "leads",
-          "data-backdrop": "static",
+          "data-backdrop": "true",
           "data-keyboard": "false",
           tabindex: "-1",
           "aria-labelledby": "staticBackdropLabel",
@@ -6487,6 +6496,7 @@ var staticRenderFns = [
               href: "",
               "data-toggle": "modal",
               "data-target": "#leads",
+              "data-backdrop": "true",
             },
           },
           [
