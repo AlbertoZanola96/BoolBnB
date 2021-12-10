@@ -134,6 +134,4 @@ module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/pr
 /***/ })
 
 
-/***/ })
-
 /******/ });
