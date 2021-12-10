@@ -22424,7 +22424,6 @@ __webpack_require__.r(__webpack_exports__);
 module.exports = __webpack_require__(/*! C:\Users\alber\OneDrive\Desktop\Boolean\PHP\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
-
 /***/ })
 
 /******/ });

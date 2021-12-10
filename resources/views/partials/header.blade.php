@@ -1,5 +1,4 @@
 <header class="container-fluid d-flex align-items-center">
-<<<<<<< HEAD
     <div class="row w-100">
         <div class="col w-100 d-flex justify-content-between align-items-center">
             <div id="logo">

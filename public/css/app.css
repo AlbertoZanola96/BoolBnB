@@ -10694,6 +10694,11 @@ footer .title h3 {
   position: absolute;
 }
 
+img {
+  width: 400px;
+  height: 250px;
+}
+
 * {
   margin: 0;
   padding: 0;
