@@ -5465,7 +5465,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Inizia a cercare\n                        "
+                        "\r\n                            Inizia a cercare\r\n                        "
                       ),
                     ]
                   ),
@@ -5703,7 +5703,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                                Inizia a cercare\n                                            "
+                                      "\r\n                                                Inizia a cercare\r\n                                            "
                                     ),
                                   ]
                                 ),
@@ -5854,9 +5854,9 @@ var render = function () {
                                 _vm._v(" "),
                                 _c("li", [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\r\n                                        " +
                                       _vm._s(apartment.apartment_id) +
-                                      "\n                                    "
+                                      "\r\n                                    "
                                   ),
                                 ]),
                               ]
@@ -5885,7 +5885,7 @@ var render = function () {
                                       { staticClass: "btn btn-primary" },
                                       [
                                         _vm._v(
-                                          "\n                                            Visualizza immobile →\n                                        "
+                                          "\r\n                                            Visualizza immobile →\r\n                                        "
                                         ),
                                       ]
                                     ),
@@ -22421,7 +22421,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/andreagambino/Desktop/Boolean 39/BoolBnB/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\alber\OneDrive\Desktop\Boolean\PHP\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+
 
 
 /***/ })

@@ -112,8 +112,14 @@
                             @endif
                         </div>
                     @endforeach
-
+                    {{-- img --}}
                     <div class="form-group">
+                        @if ($apartment->image)
+                            <p>Immagine di copertina presente: </p>
+                            <img class="d-block" src="{{ asset('storage/' . $apartment->image) }}" alt="">
+                        @else 
+                            <p>Immagine di copertina non presente</p>
+                        @endif
                         <label class="d-block" for="new_img">Immagine appartamento</label>
                         <input type="file" id="new_img" name="new_img" class=" @error('new_img') is-invalid @enderror">
                         @error('new_img')
