@@ -227,7 +227,7 @@
                                 </ul>
                                     
                                 <div class="pt-2">
-                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.apartment_id} }">
+                                    <router-link target="_blank" :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.apartment_id} }">
                                         <button class="btn btn-primary" >
                                             Visualizza immobile &#8594;
                                         </button>
