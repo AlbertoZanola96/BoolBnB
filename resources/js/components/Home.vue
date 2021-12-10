@@ -68,7 +68,7 @@
         <div class="container-fluid p-4">
             <ul class="row mb-0">
                 <li v-for="(apartment, index) in apartments" :key="index" class="col-12 col-md-6 p-3">
-                    <div class="white-background overflow-hidden sponsor-card">
+                    <div v-if="apartment.visible == 1" class="white-background overflow-hidden sponsor-card">
                         <div class="row w-100 ml-0 align-items-center">
                             <div class="col-12 col-xl-6 d-flex align-items-center">
                                 <img class="w-100" :src="'/storage/' + apartment.image" alt="">

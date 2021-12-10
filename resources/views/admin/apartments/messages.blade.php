@@ -24,7 +24,7 @@
                 </div>
             </div>
             {{-- no message  --}}
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-10 mx-auto p-4 no-msg d-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('../images/no_message.png') }}" alt="Envelope">
                     <h4 class="info mb-4">

@@ -185,23 +185,13 @@
         <div class="row">
             <div class="col-12 col-md-5 col-lg-6 p-0 apartments-container">
                 <ul class="px-4 py-2">
-                    <li v-for="(apartment, index) in apartments" :key="index" class="p-4 my-4 border container-fluid">
-                        <div class="d-flex row">
-                            <div class="img-box col-12 col-lg-5 d-flex align-items-center">
-                                <img class="w-100" :src="'/storage/' + apartment.image" alt="">
-                            </div>
-
-                            <div class="col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between">
-                                <!-- apartment name  -->
-                                <div>
-                                    <h2 class="m-0">{{ apartment.name }}</h2>
-                                    <hr class="my-2">
-                                    <h4 class="font-xxs gray-text">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <span class="ml-2">{{ apartment.address }}</span>
-                                    </h4>
+                    <li v-for="(apartment, index) in apartments" :key="index">
+                        <div v-if="apartment.visible == 1" class="p-4 my-4 border container-fluid">
+                            <div class="d-flex row">
+                                <div class="img-box col-12 col-lg-5 d-flex align-items-center">
+                                    <img class="w-100" :src="'/storage/' + apartment.image" alt="">
                                 </div>
-
+                                
                                 <!-- services list  -->
                                 <ul id="services_list" class="d-none d-lg-flex flex-wrap pl-0 py-3 white-background">
                                     <!-- num_rooms  -->
