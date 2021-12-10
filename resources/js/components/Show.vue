@@ -2,146 +2,146 @@
     <div>
         <div id="show_container">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mt-5">
-                    <div class="p-4 white-background shadow">
-                        <div class="d-flex item-align-end">
-                            <i class="fas fa-home font-m"></i>
-                            <h1 class="font-ml mb-0 ml-3 darkgray-text">{{ apartment.name }}</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mt-5">
+                        <div class="p-4 white-background shadow">
+                            <div class="d-flex item-align-end">
+                                <i class="fas fa-home font-m"></i>
+                                <h1 class="font-ml mb-0 ml-3 darkgray-text">{{ apartment.name }}</h1>
+                            </div>
+                            <hr class="d-none d-md-block">
+                            <div class="d-none d-md-inline-block">
+                                <ul class="font-xxs d-flex p-0">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt font-xxs"></i>
+                                        <span class="darkgray-text ml-1">{{ apartment.address }}</span>
+                                    </li>
+                                    <li class="mx-3">|</li>
+                                    <li>
+                                        <i class="fas fa-door-open font-xxs bruschetta-text"></i>
+                                        <span class="darkgray-text ml-1">{{ apartment.num_rooms }} camere</span>
+                                    </li>
+                                    <li class="mx-3">|</li>
+                                    <li>
+                                        <i class="fas fa-bed font-xxs bruschetta-text"></i>
+                                        <span class="darkgray-text ml-1">{{ apartment.num_beds }} letti</span>
+                                    </li>
+                                    <li class="mx-3">|</li>
+                                    <li>
+                                        <i class="fas fa-ruler-combined font-xxs bruschetta-text"></i>
+                                        <span class="darkgray-text ml-1">{{ apartment.square_meters }} mq</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <hr class="d-none d-md-block">
-                        <div class="d-none d-md-inline-block">
-                            <ul class="font-xxs d-flex p-0">
-                                <li>
-                                    <i class="fas fa-map-marker-alt font-xxs"></i>
-                                    <span class="darkgray-text ml-1">{{ apartment.address }}</span>
-                                </li>
-                                <li class="mx-3">|</li>
-                                <li>
-                                    <i class="fas fa-door-open font-xxs bruschetta-text"></i>
-                                    <span class="darkgray-text ml-1">{{ apartment.num_rooms }} camere</span>
-                                </li>
-                                <li class="mx-3">|</li>
-                                <li>
-                                    <i class="fas fa-bed font-xxs bruschetta-text"></i>
-                                    <span class="darkgray-text ml-1">{{ apartment.num_beds }} letti</span>
-                                </li>
-                                <li class="mx-3">|</li>
-                                <li>
-                                    <i class="fas fa-ruler-combined font-xxs bruschetta-text"></i>
-                                    <span class="darkgray-text ml-1">{{ apartment.square_meters }} mq</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="my-5">
+                            <img class="w-100 shadow" :src="'/storage/' + apartment.image" alt="">
+                        </div> 
+
+                        <div class="d-flex justify-content-between align-items-start container-fluid">
+                            <div class="row row-cols-1 row-cols-lg-2 justify-content-between">
+                                <div class="col pr-lg-3 p-0">
+                                    <div class="white-background p-4 shadow">
+                                        <h2 class="mb-4 font-sm">Caratteristiche immobile:</h2>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <span class="darkgray-text">Numero stanze: {{ apartment.num_rooms }} </span>
+                                                <span></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="darkgray-text">Numero letti: {{ apartment.num_beds }} </span>
+                                                <span></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="darkgray-text">Numero bagni: {{ apartment.num_bathrooms }} </span>
+                                                <span></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="darkgray-text">Metri quadrati: {{ apartment.square_meters }}</span>
+                                                <span>mq</span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <span class="darkgray-text">Indirizzo: {{ apartment.address }}</span>
+                                                <span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col pl-lg-3 pt-5 pt-lg-0 p-0">
+                                    <div class="white-background p-4 shadow">
+                                        <h2 class="font-sm mb-4">Servizi dell'immobile:</h2>
+                    
+                                        <ul class="d-flex p-0 info-container services-list flex-wrap">
+                                            <li v-for="(service, index) in apartmentServices" :key="index">
+                                                <span>{{ service.name }}</span>
+                                            </li>
+                                        </ul>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="col-12 col-md-4 pt-4 px-4">
+                        <div class="sticky-top pt-4">
+                            <div class="white-background p-4 text-center rounded border mb-4 shadow">
+                                <h3 class="font-sm py-4 text-dark">Vuoi maggiori informazioni?</h3>
+                                <h4 class="font-xs text-dark"> 
+                                    Contatta direttamente il proprietario di
+                                    <span class="gray-text">"{{ apartment.name }}"</span>
+                                    !
+                                </h4>
+                            </div>
+
+                            <ul class="list-group shadow">
+                                <li class="list-group-item list-group-item-action">
+                                    <a href="" data-toggle="modal" data-target="#leads" data-backdrop="true" class="btn blue-background text-white w-100">
+                                        Invia un messaggio
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8">
-                    <div class="my-5">
-                        <img class="w-100 shadow" :src="'/storage/' + apartment.image" alt="">
-                    </div> 
-
-                    <div class="d-flex justify-content-between align-items-start container-fluid">
-                        <div class="row row-cols-1 row-cols-lg-2 justify-content-between">
-                            <div class="col pr-lg-3 p-0">
-                                <div class="white-background p-4 shadow">
-                                    <h2 class="mb-4 font-sm">Caratteristiche immobile:</h2>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <span class="darkgray-text">Numero stanze: {{ apartment.num_rooms }} </span>
-                                            <span></span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="darkgray-text">Numero letti: {{ apartment.num_beds }} </span>
-                                            <span></span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="darkgray-text">Numero bagni: {{ apartment.num_bathrooms }} </span>
-                                            <span></span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="darkgray-text">Metri quadrati: {{ apartment.square_meters }}</span>
-                                            <span>mq</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span class="darkgray-text">Indirizzo: {{ apartment.address }}</span>
-                                            <span></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col pl-lg-3 pt-5 pt-lg-0 p-0">
-                                <div class="white-background p-4 shadow">
-                                    <h2 class="font-sm mb-4">Servizi dell'immobile:</h2>
                 
-                                    <ul class="d-flex p-0 info-container services-list flex-wrap">
-                                        <li v-for="(service, index) in apartmentServices" :key="index">
-                                            <span>{{ service.name }}</span>
-                                        </li>
-                                    </ul>
-                                </div> 
-                            </div> 
-                        </div>
-                    </div>
-                </div> 
-
-                <div class="col-12 col-md-4 pt-4 px-4">
-                    <div class="sticky-top pt-4">
-                        <div class="white-background p-4 text-center rounded border mb-4 shadow">
-                            <h3 class="font-sm py-4 text-dark">Vuoi maggiori informazioni?</h3>
-                            <h4 class="font-xs text-dark"> 
-                                Contatta direttamente il proprietario di
-                                <span class="gray-text">"{{ apartment.name }}"</span>
-                                !
-                             </h4>
-                        </div>
-
-                        <ul class="list-group shadow">
-                            <li class="list-group-item list-group-item-action">
-                                <a href="" data-toggle="modal" data-target="#leads" data-backdrop="true" class="btn blue-background text-white w-100">
-                                    Invia un messaggio
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="white-background p-4 my-5 shadow">
+                            <h2 class="font-m">Descrizione:</h2>
+                            <hr>
+                            <p>{{ apartment.description }}</p>
+                        </div>  
+                    </div> 
                 </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-12">
-                    <div class="white-background p-4 my-5 shadow">
-                        <h2 class="font-m">Descrizione:</h2>
-                        <hr>
-                        <p>{{ apartment.description }}</p>
-                    </div>  
-                </div> 
-            </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="white-background p-4 shadow mb-5">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-map-marker-alt font-m"></i>
-                            <h2 class="font-m mx-3 mb-0">Indirizzo immobile:</h2>
-                        </div>
-                        <hr>
-                        <p><span><i class="fas fa-map-pin font-xxs mr-4"></i>{{ apartment.address }}</span></p>
-                        <hr>
-                        <div class="w-100">
-                            <div id="map-div"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="white-background p-4 shadow mb-5">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt font-m"></i>
+                                <h2 class="font-m mx-3 mb-0">Indirizzo immobile:</h2>
+                            </div>
+                            <hr>
+                            <p><span><i class="fas fa-map-pin font-xxs mr-4"></i>{{ apartment.address }}</span></p>
+                            <hr>
+                            <div class="w-100">
+                                <div id="map-div"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
