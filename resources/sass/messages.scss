@@ -55,9 +55,6 @@
         }
 
         .guest-msg {
-            // white-space: nowrap; 
-            // overflow: hidden;
-            // text-overflow: ellipsis;
             color: $grisaille;
         }
 
@@ -78,6 +75,7 @@
             right: 20px;
             bottom: 10px;
             cursor: pointer;
+            color: $prestige-blue;
         }
     }
 

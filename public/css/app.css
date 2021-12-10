@@ -10225,7 +10225,6 @@ header .navigation .dropdown .nav-item a:hover {
 header .navigation .dropdown .login {
   margin-right: 20px;
 }
-
 body {
   background-color: #dfe4ea;
 }
@@ -10649,6 +10648,7 @@ h2 {
   right: 20px;
   bottom: 10px;
   cursor: pointer;
+  color: #2f3542;
 }
 #single-apartment .no-msg {
   border-radius: 5px;
