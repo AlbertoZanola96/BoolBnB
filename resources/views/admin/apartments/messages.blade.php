@@ -6,6 +6,7 @@
 
 @section('content')
     <div id="single-apartment" class="container mb-2">
+        {{-- message deleted  --}}
         @if (session('deleted'))
             <div class="alert alert-danger">
                 {{ session('deleted') }}
@@ -14,6 +15,15 @@
 
         <!-- case no msg -->
         @if(count($leads) == 0)
+            {{-- redirect back  --}}
+            <div class="row">
+                <div class="col-10 mx-auto p-0 mb-3">
+                    <a class="btn btn-secondary shadow" href="{{ route('admin.messages.index') }}">
+                        <span>&#8592;</span> Torna alla lista degli appartamenti
+                    </a>
+                </div>
+            </div>
+            {{-- no message  --}}
             <div class="row">
                 <div class="col-10 mx-auto p-4 no-msg d-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('../images/no_message.png') }}" alt="Envelope">
@@ -24,6 +34,14 @@
             </div>
         @else
             <!-- case messages -->
+            <div class="row">
+                <div class="col-8 mx-auto p-0 mb-3">
+                    <a class="btn btn-secondary shadow" href="{{ route('admin.messages.index') }}">
+                        <span>&#8592;</span> Torna alla lista degli appartamenti
+                    </a>
+                </div>
+            </div>
+            {{-- messages  --}}
             @foreach ($leads as $lead)
                 <div class="row">
                     <div class="col-8 mx-auto single-msg my-3 p-3">
