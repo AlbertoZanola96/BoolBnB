@@ -77,19 +77,14 @@
     min-height: 15vh;
     background-color: $prestige-blue;
 
-    .wrapper {
-        margin: 0 auto;
+    .info-title {
         color: $white;
-        transform: translate(0, -50%);
+        font-size: 18px;
+    }
 
-        .center {
-            font-size: 18px;
-            margin: 0 auto;
-
-            .info-description {
-                color: $peace;
-            }
-        }
+    .info-description {
+        font-size: 18px;
+        color: $peace;
     }
 
     .info-box-2 {
@@ -106,7 +101,6 @@
         }
 
         .center {
-            
             font-size: 18px;
 
             .info2-title {
@@ -123,21 +117,14 @@
             border: 1px solid $ufo-green;
             background-color: $white;
             color: $ufo-green;
+
             &:hover {
                 color: $white;
                 background-color: $ufo-green;
             }
         }
-
     }
 }
-
-// in evidenza 
-.apartments {
-    margin: 0 auto;
-    background-color: turquoise;
-}
-
 
 // modal
 .modal {

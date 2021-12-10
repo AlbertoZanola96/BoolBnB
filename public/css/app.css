@@ -10088,16 +10088,12 @@ h3 {
   min-height: 15vh;
   background-color: #2f3542;
 }
-.info-box .wrapper {
-  margin: 0 auto;
+.info-box .info-title {
   color: #ffffff;
-  transform: translate(0, -50%);
-}
-.info-box .wrapper .center {
   font-size: 18px;
-  margin: 0 auto;
 }
-.info-box .wrapper .center .info-description {
+.info-box .info-description {
+  font-size: 18px;
   color: #a4b0be;
 }
 .info-box .info-box-2 {
@@ -10130,11 +10126,6 @@ h3 {
 .info-box .info-box-2 .btn-home:hover {
   color: #ffffff;
   background-color: #2ed573;
-}
-
-.apartments {
-  margin: 0 auto;
-  background-color: turquoise;
 }
 
 .modal .modal-content {

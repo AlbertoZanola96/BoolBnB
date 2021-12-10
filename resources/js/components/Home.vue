@@ -19,7 +19,7 @@
                 </div>
 
                 <!-- info box 2  -->
-                <!-- <div class="info-box-2 d-flex align-items-center p-3">
+                <div class="info-box-2 d-flex align-items-center p-3">
                     <div>
                         <i class="fas fa-circle mx-5"></i>
                     </div>
@@ -36,55 +36,25 @@
                     <div>
                         <button class="btn-home">Registrati ora</button>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
 
         <!-- info box  -->
         <div class="info-box container-fluid">
             <div class="row">
-                <div class="col">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="info-box-2 d-flex align-items-center p-4 flex-wrap flex-sm-nowrap justify-content-between">
-                                <div>
-                                    <i class="fas fa-circle mx-5"></i>
-                                </div>
-
-                                <div class="center mx-md-5 my-4 my-sm-0">
-                                    <div class="info2-title">
-                                        Vuoi il tuo appartamento in cima alla lista?
-                                    </div>
-                                    <div class="info2-description">
-                                        Registrati e dai un'occhiata alle nostre sponsorizzazioni!
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <button class="btn-home px-5 py-3">Registrati ora</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="wrapper">
-                                <div class="center px-5">
-                                    <div class="info-title">
-                                        Pubblica annunci gratuitamente
-                                    </div>
-                                    <div class="info-description">
-                                        Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-12 info-title">
+                    Pubblica annunci gratuitamente
+                </div>
+                <div class="row">
+                    <div class="col-12 info-description">
+                        Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
 
-        <!-- Appartamenti -->
-
+        <!-- section title -->
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mt-5">
@@ -94,6 +64,7 @@
             </div>
         </div>
 
+        <!-- appartamenti sponsorizzati  -->
         <div class="container-fluid p-4">
             <ul class="row mb-0">
                 <li v-for="(apartment, index) in apartments" :key="index" class="col-12 col-md-6 p-3">
@@ -145,7 +116,7 @@
 
                                 <div>
                                     <hr class="d-none d-md-block">
-                                    <router-link target="_blank" :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
+                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
                                         <button class="btn blue-background w-100 text-white" >
                                             Visualizza immobile &#8594;
                                         </button>
@@ -157,43 +128,6 @@
                 </li>
             </ul>
         </div>
-
-        <!-- apartments  -->
-        <!-- <div class="container-fluid">
-            <div class="row my-3" v-for="(apartment, index) in apartments" :key="index">
-                <div class="col-12 col-md-8 col-lg-6 mx-auto card">       
-                    <img :src="'/storage/' + apartment.image" :alt="apartment.name ">
-                    
-                    <div class="row">
-                        <div class="col-12">
-                            <h3 class="ml-3">{{ apartment.name }}</h3>
-                            <h4 class="ml-3 mt-3" style="display: inline"><i class="fas fa-map-marker-alt mr-2"></i>{{ apartment.city }}</h4>
-                            <h5 class="" style="display: inline">{{ apartment.address }}</h5>
-                            <p class="ml-3 mt-3">{{ apartment.description }}</p> -->
-
-                            <!-- <a class="p-1" href="{{ route('admin.apartments.show', $apartment->slug) }}">
-                                <button class="btn btn-dark my-btn "><i class="fas fa-info"></i></button>
-                            </a>
-                            <a class="p-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
-                                <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
-                            </a>
-                            <a class="p-1" href="{{ route('admin.apartments.sponsor', $apartment->slug) }}">
-                                <button class="btn btn-dark my-btn"><i class="far fa-chart-bar"></i></button>
-                            </a>
-                            <a class="p-1" href="{{ route('admin.apartments.sponsor',  $apartment->slug) }}">
-                                <button class="btn btn-dark my-btn"><i class="fas fa-gem"></i></button>
-                            </a> -->
-                            <!-- <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class=" m-1 deleteForm" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger my-btn"><i class="fas fa-trash-alt"></i></button>
-                            </form> -->
-                        <!-- </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div> -->
     </div>
 </template>
 

@@ -2061,72 +2061,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   data: function data() {
@@ -4987,13 +4921,15 @@ var render = function () {
               }),
             ]
           ),
+          _vm._v(" "),
+          _vm._m(0),
         ]),
       ]
     ),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
     _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "container-fluid p-4" }, [
       _c(
@@ -5157,7 +5093,6 @@ var render = function () {
                               "router-link",
                               {
                                 attrs: {
-                                  target: "_blank",
                                   to: {
                                     name: "Show",
                                     params: {
@@ -5203,60 +5138,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "info-box-2 d-flex align-items-center p-3" },
+      [
+        _c("div", [_c("i", { staticClass: "fas fa-circle mx-5" })]),
+        _vm._v(" "),
+        _c("div", { staticClass: "center" }, [
+          _c("div", { staticClass: "info2-title" }, [
+            _vm._v(
+              "\n                        Vuoi il tuo appartamento in cima alla lista?\n                    "
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info2-description" }, [
+            _vm._v(
+              "\n                        Registrati e dai un'occhiata alle nostre sponsorizzazioni!\n                    "
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("button", { staticClass: "btn-home" }, [_vm._v("Registrati ora")]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "info-box container-fluid" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "info-box-2 d-flex align-items-center p-4 flex-wrap flex-sm-nowrap justify-content-between",
-                },
-                [
-                  _c("div", [_c("i", { staticClass: "fas fa-circle mx-5" })]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "center mx-md-5 my-4 my-sm-0" }, [
-                    _c("div", { staticClass: "info2-title" }, [
-                      _vm._v(
-                        "\n                                    Vuoi il tuo appartamento in cima alla lista?\n                                "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "info2-description" }, [
-                      _vm._v(
-                        "\n                                    Registrati e dai un'occhiata alle nostre sponsorizzazioni!\n                                "
-                      ),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("button", { staticClass: "btn-home px-5 py-3" }, [
-                      _vm._v("Registrati ora"),
-                    ]),
-                  ]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "wrapper" }, [
-                _c("div", { staticClass: "center px-5" }, [
-                  _c("div", { staticClass: "info-title" }, [
-                    _vm._v(
-                      "\n                                    Pubblica annunci gratuitamente\n                                "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info-description" }, [
-                    _vm._v(
-                      "\n                                    Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.\n                                "
-                    ),
-                  ]),
-                ]),
-              ]),
-            ]),
+        _c("div", { staticClass: "col-12 info-title" }, [
+          _vm._v(
+            "\n                Pubblica annunci gratuitamente\n            "
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 info-description" }, [
+            _vm._v(
+              "\n                    Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.\n                "
+            ),
           ]),
         ]),
       ]),
