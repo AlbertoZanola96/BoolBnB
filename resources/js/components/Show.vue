@@ -148,60 +148,6 @@
             </div>
         </div>
     </div>
-    <!-- message modal  -->
-    <div class="modal fade" id="leads" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-                <div class="mt-2 d-flex justify-content-center align-items-end">
-                    <h3 class="modal-title text-white" id="staticBackdropLabel">Invia messaggio</h3>
-                </div>
-                <button type="button" class="close text-white position-absolute" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="modal-body">
-                    <!-- input nascosti per prendere id e slug  -->
-                    <input name="apartment_id" id="apartment_id" type="hidden" value="">
-                    <input name="slug" id="slug" type="hidden" value="">
-
-                    <!-- name -->
-                    <div class="form-group row">
-                        <label for="name" class="text-white col-md-4 col-form-label text-md-right">Name</label>
-
-                        <div class="col-md-6">
-                            <input v-model="nameMessage" placeholder="Insert your name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
-                        </div>
-                    </div>
-                    
-                    <!-- email -->
-                    <div class="form-group row">
-                        <label for="email" class="text-white col-md-4 col-form-label text-md-right">E-Mail Address</label>
-
-                        <div class="col-md-6">
-                            <input v-model="emailMessage" placeholder="Insert E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">
-                        </div>
-                    </div>
-
-                    <!-- messaggio -->
-                    <div class="form-group row">
-                        <label for="message" class="text-white col-md-4 col-form-label text-md-right">Message</label>
-
-                        <div class="col-md-6">
-                            <textarea v-model="message" placeholder="Insert message" name="message" id="message" cols="30" rows="5" class="form-control @error('message') is-invalid @enderror" required autocomplete="message"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-8">
-                            <!-- send message button -->
-                            <button type="submit" v-on:click="sendLeadData" class="modalbtn">
-                                Send message
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 </template>
 

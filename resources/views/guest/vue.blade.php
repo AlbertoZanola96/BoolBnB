@@ -30,81 +30,65 @@
     {{-- footer  --}}
     @include('partials.footer')
 
-    {{-- message modal --}}
-    <div class="modal fade" id="leads" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- message modal  -->
+    <div class="modal fade" id="leads" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark">
-                <div class="mt-2 d-flex justify-content-center align-items-center">
+                <div class="mt-2 d-flex justify-content-center align-items-end">
                     <h3 class="modal-title text-white" id="staticBackdropLabel">Invia messaggio</h3>
                 </div>
                 <button type="button" class="close text-white position-absolute" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <div class="modal-body">
-                    <form method="POST" action="">
-                        @csrf
+                    <!-- input nascosti per prendere id e slug  -->
+                    <input name="apartment_id" id="apartment_id" type="hidden" value="">
+                    <input name="slug" id="slug" type="hidden" value="">
 
-                        {{-- name --}}
-                        <div class="form-group row">
-                            <label for="name" class="text-white col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                    <!-- name -->
+                    <div class="form-group row">
+                        <label for="name" class="text-white col-md-4 col-form-label text-md-right">Name</label>
 
-                            <div class="col-md-6">
-                                <input placeholder="Insert your name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="col-md-6">
+                            <input v-model="nameMessage" placeholder="Insert your name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
                         </div>
-                        
-                        {{-- email --}}
-                        <div class="form-group row">
-                            <label for="email" class="text-white col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    </div>
+                    
+                    <!-- email -->
+                    <div class="form-group row">
+                        <label for="email" class="text-white col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
-                            <div class="col-md-6">
-                                <input placeholder="Insert E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="col-md-6">
+                            <input v-model="emailMessage" placeholder="Insert E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">
                         </div>
+                    </div>
 
-                        {{-- messaggio --}}
-                        <div class="form-group row">
-                            <label for="message" class="text-white col-md-4 col-form-label text-md-right">{{ __('Message') }}</label>
+                    <!-- messaggio -->
+                    <div class="form-group row">
+                        <label for="message" class="text-white col-md-4 col-form-label text-md-right">Message</label>
 
-                            <div class="col-md-6">
-                                <textarea placeholder="Insert message" name="message" id="message" cols="30" rows="5" class="form-control @error('message') is-invalid @enderror" required autocomplete="message">{{ old('message') }}</textarea>
-
-                                @error('message')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+                        <div class="col-md-6">
+                            <textarea v-model="message" placeholder="Insert message" name="message" id="message" cols="30" rows="5" class="form-control @error('message') is-invalid @enderror" required autocomplete="message"></textarea>
                         </div>
+                    </div>
 
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-8">
-                                {{-- send message button --}}
-                                <button type="submit" class="modalbtn">
-                                    Send message
-                                </button>
-                            </div>
+                    <div class="row d-flex justify-content-center link">
+                        <div class="col-md-10">
+                            <!-- send message button -->
+                            <button type="submit" v-on:click="sendLeadData" id="leadbtn" class="modalbtn">
+                                Send message
+                            </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
      {{-- login modal --}}
-     <div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+     <div class="modal fade" id="login" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark">
+            <div class="modal-content">
                 <div class="mt-2 d-flex justify-content-center align-items-center">
                     <h3 class="modal-title text-white" id="staticBackdropLabel">LOGIN</h3>
                 </div>
@@ -156,8 +140,8 @@
                             </div>
                         </div>
                         
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-8">
+                        <div class="row d-flex justify-content-center link">
+                            <div class="col-md-10">
                                 {{-- login button --}}
                                 <button type="submit" class="modalbtn">
                                     {{ __('Login') }}
@@ -165,10 +149,10 @@
                             </div>
                             {{-- forgot password link --}}
                             @if (Route::has('password.request'))
-                                <a href="" class="btn btn-link" onclick="$('#login').modal('hide')" data-toggle="modal" data-target="#resetpassword">Fotgot your password?</a>
+                                <a href="" id="forgot" data-backdrop="true" onclick="$('#login').modal('hide')" data-toggle="modal" data-target="#resetpassword">Fotgot your password?</a>
                             @endif
                             {{-- register link --}}
-                            <a href="" class="btn btn-link" onclick="$('#login').modal('hide')" data-toggle="modal" data-target="#register">Don't have an account? Sign up!</a>
+                            <a href="" data-backdrop="true" onclick="$('#login').modal('hide')" data-toggle="modal" data-target="#register">Don't have an account? Sign up!</a>
                         </div>
                     </form>
                 </div>
@@ -177,9 +161,9 @@
     </div>
 
     {{-- register modal --}}
-    <div class="modal fade" id="register" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div  class="modal fade" id="register" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark">
+            <div class="modal-content">
                 <div class="mt-2 d-flex justify-content-center align-items-center">
                     <h3 class="modal-title text-white" id="staticBackdropLabel">REGISTER</h3>
                 </div>
@@ -275,15 +259,15 @@
                             </div>
                         </div>
 
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-8">
+                        <div class="row d-flex justify-content-center link">
+                            <div class="col-md-10">
                                 {{-- register button --}}
                                 <button type="submit" class="modalbtn">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                             {{-- login link --}}
-                            <a href="" class="btn btn-link" onclick="$('#register').modal('hide')" data-toggle="modal" data-target="#login">Do you already have an account?</a>
+                            <a href="" data-backdrop="true" onclick="$('#register').modal('hide')" data-toggle="modal" data-target="#login">Do you already have an account?</a>
                         </div>
                     </form>
                 </div>
@@ -292,9 +276,9 @@
     </div>
 
     {{-- reset password modal --}}
-    <div class="modal fade" id="resetpassword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div data-backdrop="true" class="modal fade" id="resetpassword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content bg-dark">
+            <div class="modal-content">
                 <div class="mt-2 d-flex justify-content-center align-items-center">
                     <h3 class="modal-title text-white" id="staticBackdropLabel">RESET PASSWORD</h3>
                 </div>
@@ -320,15 +304,15 @@
                             </div>
                         </div>
                         
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-8">
+                        <div class="row d-flex justify-content-center link">
+                            <div class="col-md-10">
                                 {{-- login button --}}
                                 <button type="submit" class="modalbtn">
                                     {{ __('Send password reset link') }}
                                 </button>
                             </div>
                             {{-- register link --}}
-                            <a href="" class="btn btn-link" onclick="$('#resetpassword').modal('hide')" data-toggle="modal" data-target="#register">Do you remember password? Sign up!</a>
+                            <a href="" onclick="$('#resetpassword').modal('hide')" data-backdrop="true" data-toggle="modal" data-target="#register">Do you remember password? Sign up!</a>
                         </div>
                     </form>
                 </div>
