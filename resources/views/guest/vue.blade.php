@@ -31,7 +31,7 @@
     @include('partials.footer')
 
     <!-- message modal  -->
-    <div class="modal fade" id="leads" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="leads" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark">
                 <div class="mt-2 d-flex justify-content-center align-items-end">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
      {{-- login modal --}}
      <div class="modal fade" id="login" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
