@@ -18,8 +18,8 @@
 
                     {{-- name  --}}
                     <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" name="name" placeholder="Inserisci nome" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+                        <label for="name">Titolo</label>
+                        <input type="text" name="name" placeholder="Inserisci il titolo dell'annuncio" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                         @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -70,15 +70,6 @@
                         @enderror
                     </div>
 
-                    {{-- city 
-                    <div class="form-group">
-                        <label for="city">Città</label>
-                        <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}">
-                        @error('city')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div> --}}
-
                     {{-- address  --}}
                     <div class="form-group search-box">
                     </div>
@@ -126,7 +117,7 @@
         </div>
     </div>
 
-    {{-- script search auatocomplete  --}}
+    {{-- script search autocomplete  --}}
     <script>
         var options = {
             searchOptions: {

@@ -10493,13 +10493,17 @@ h-100 {
   width: 725px;
 }
 
+h2 {
+  color: #57606f;
+}
+
 .sponsor {
   width: calc(20% - 60px);
   min-width: 200px;
   margin: 30px;
 }
 .sponsor .card-body {
-  background-color: #23282B;
+  background-color: #2f3542;
   text-align: center;
 }
 .sponsor .card-body .btn-hover {
@@ -10515,8 +10519,6 @@ h-100 {
   background-size: 300% 100%;
   border-radius: 50px;
   transition: all 0.4s ease-in-out;
-  background-image: linear-gradient(to right, #3490dc, #38c172, #4dc0b5, #2ed573);
-  box-shadow: 0 4px 15px 0 #1e90ff;
 }
 .sponsor .card-body .btn-hover:hover {
   background-position: 100% 0;
@@ -10532,6 +10534,12 @@ h-100 {
 .sponsor .Gold h2 {
   color: #FFD700;
 }
+.sponsor .Gold .btn-detail {
+  background-image: linear-gradient(to right, #f1f2f6, #ced6e0, #eccc68, #FFD700);
+}
+.sponsor .Gold .btn-detail:hover {
+  box-shadow: 0 4px 15px 0 #eccc68;
+}
 .sponsor .Silver {
   height: 65vh;
   box-shadow: 0px 0px 20px #C0C0C0;
@@ -10539,12 +10547,21 @@ h-100 {
 .sponsor .Silver h2 {
   color: #C0C0C0;
 }
+.sponsor .Silver .btn-detail {
+  background-image: linear-gradient(to right, #f1f2f6, #ced6e0, #C0C0C0, #747d8c);
+}
+.sponsor .Silver .btn-detail:hover {
+  box-shadow: 0 4px 15px 0 #C0C0C0;
+}
 .sponsor .Bronze {
   height: 60vh;
   box-shadow: 0px 0px 20px #CD7F32;
 }
 .sponsor .Bronze h2 {
   color: #CD7F32;
+}
+.sponsor .Bronze .btn-detail {
+  background-image: linear-gradient(to right, #f1f2f6, #ced6e0, #CD7F32, #ffa502);
 }
 
 #messages {
@@ -10562,6 +10579,7 @@ h-100 {
   font-size: 40px;
 }
 #messages .msg-box .msg-icon i {
+  color: #57606f;
   position: relative;
 }
 #messages .msg-box .msg-icon i .msg-counter {
@@ -10570,14 +10588,57 @@ h-100 {
   right: -6px;
   width: 20px;
   height: 20px;
-  font-size: 15px;
-  background-color: red;
-  color: white;
+  font-size: 12px;
+  background-color: #ff4757;
+  color: #ffffff;
   border-radius: 50%;
 }
 
 #single-apartment {
   min-height: calc(100vh - 420px);
+}
+#single-apartment .single-msg {
+  position: relative;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 3px;
+}
+#single-apartment .single-msg .guest-name {
+  color: #2f3542;
+  font-size: 28px;
+}
+#single-apartment .single-msg .guest-email {
+  color: #747d8c;
+}
+#single-apartment .single-msg .guest-msg {
+  color: #57606f;
+}
+#single-apartment .single-msg button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: #ffffff;
+  border: none;
+}
+#single-apartment .single-msg button i {
+  color: #ff6348;
+}
+#single-apartment .single-msg .show-msg {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  cursor: pointer;
+}
+#single-apartment .no-msg {
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px;
+  background-color: #ffffff;
+}
+#single-apartment .no-msg img {
+  width: 30%;
+}
+#single-apartment .no-msg .info {
+  color: #2f3542;
 }
 
 footer {
