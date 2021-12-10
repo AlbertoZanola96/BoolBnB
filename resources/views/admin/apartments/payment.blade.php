@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row">
             <div class="col-8 mx-auto">
-                <h1>payment</h1>
+                <h1>Inserisci la tua carta e sponsorizza il tuo appartamento!</h1>
                 <form id="payment-form" action="{{ route('admin.apartments.sponsor.checkout', ['slug' => $apartment->slug, 'sponsor_id' => $sponsor->id]) }}" method="post">
                     @csrf
                     @method('POST')
             
                     <div id="dropin-container"></div>
-                    <input type="submit">
+                    <input class="btn blue-background w-100 text-white mb-5" type="submit">
                     <input type="hidden" id="nonce" name="payment_method_nonce"/>
                 </form>
             
