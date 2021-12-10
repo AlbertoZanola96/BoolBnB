@@ -10791,8 +10791,9 @@ footer .title h3 {
 }
 
 .mia-img {
-  width: 0px;
+  width: 400px;
   height: 250px;
+  margin-bottom: 20px;
 }
 
 * {
