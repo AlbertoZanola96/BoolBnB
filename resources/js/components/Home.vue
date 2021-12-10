@@ -98,53 +98,55 @@
             <ul class="row mb-0">
                 <li v-for="(apartment, index) in apartments" :key="index" class="col-12 col-md-6 p-3">
                     <div class="white-background p-3 overflow-hidden sponsor-card">
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-12 col-lg-6 d-flex align-items-center">
-                                <img src="https://magazine.livingdmore.com/wp-content/uploads/2021/08/caratteristiche-casa-lusso.jpg" alt="" class="w-100">
+                                <img class="w-100" :src="'/storage/' + apartment.image" alt="">
                             </div>
 
-                            <div class="col-12 col-lg-6 mt-3 mt-lg-0">
+                            <div class="col-12 col-lg-6 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between">
                                 <div>
-                                    <h2 class="m-0">{{ apartment.name }}</h2>
+                                    <h2 class="m-0 text-overflow">{{ apartment.name }}</h2>
                                     <hr class="my-2">
-                                    <h4 class="font-xxs gray-text">
+                                    <h4 class="font-xxs gray-text text-overflow">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <span class="ml-2">{{ apartment.address }}</span>
                                     </h4>
-                                </div>
+                                    <!-- services list  -->
+                                    <ul id="services_list" class="d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-lg-3 white-background">
+                                        <!-- num_rooms  -->
+                                        <li>
+                                            <i class="fas fa-door-open font-xxs watermelon-text"></i>
+                                            <span class="d-inline-block mx-1">{{ apartment.num_rooms }} camere</span> 
+                                        </li>
+                                        <li class="mx-3">|</li>
+                                        <!-- num_beds  -->
+                                        <li>
+                                            <i class="fas fa-bed font-xxs watermelon-text"></i>
+                                            <span class="d-inline-block mx-1">{{ apartment.num_beds }} letti</span>
+                                        </li>
+                                        <li class="mx-3">|</li>
+                                        <!-- square meters  -->
+                                        <li>
+                                            <i class="fas fa-ruler-combined font-xxs watermelon-text"></i>
+                                            <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
+                                        </li>
+                                    </ul>
 
-                                <!-- services list  -->
-                                <ul id="services_list" class="d-flex d-md-none d-lg-flex flex-wrap pl-0 py-3 white-background">
-                                    <!-- num_rooms  -->
-                                    <li>
-                                        <i class="fas fa-door-open font-xxs"></i>
-                                        <span class="d-inline-block mx-1">{{ apartment.num_rooms }} camere</span> 
-                                    </li>
-                                    <li class="mx-3">|</li>
-                                    <!-- num_beds  -->
-                                    <li>
-                                        <i class="fas fa-bed font-xxs"></i>
-                                        <span class="d-inline-block mx-1">{{ apartment.num_beds }} letti</span>
-                                    </li>
-                                    <li class="mx-3">|</li>
-                                    <!-- square meters  -->
-                                    <li>
-                                        <i class="fas fa-ruler-combined font-xxs"></i>
-                                        <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
-                                    </li>
-                                </ul>
-                                
-                                <hr>
+                                    <div>
+                                        <hr class="mt-0 d-none d-lg-block">
 
-                                <div>
-                                    {{ apartment.description }}
+                                        <div class="description-box d-none d-lg-block">
+                                            <div>
+                                                <p> {{ !(apartment.description.length > 150) ? apartment.description : apartment.description.substring(1, 150) + '...' }} </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                    
-                                <hr>
 
                                 <div class="pt-2">
-                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
-                                        <button class="btn btn-primary" >
+                                    <hr class="d-none d-md-block">
+                                    <router-link target="_blank" :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
+                                        <button class="btn btn-primary w-100" >
                                             Visualizza immobile &#8594;
                                         </button>
                                     </router-link>
