@@ -1,37 +1,95 @@
 header {
-    // position: fixed;
-    height: 60px;
+    width: 100%;
+    height: 80px;
     background-color: $prestige-blue;
-    background-position: center;
     color: $white;
     z-index: 10;
+    .navigation {
+        padding: 0;
+        #logo {
+            // width: 100px;
+            height: 80px;
 
-    #logo {
-        width: 100px;
-        height: 100%;
-
-        img {
-            width: 150px;
-            height: 150%;
-            object-fit: cover;
-            object-position:center;
-        }
-    }
-
-    .input-right a{
-        font-size: 18px;
-        color: $white;
-
-        .loged {
-            i {
-                font-size: 20px;
-                margin-right: 10px;
+            img {
+                height: 100%;
+                object-fit: cover;
+                object-position:center;
             }
         }
+        .dropdown {
+            z-index: 10;
+            background-color: $prestige-blue;
+            ul {
+                margin-bottom: 0;
+            }
+            .nav-item {
+                a {
+                    font-size: 18px;
+                    color: $white;
+                    text-decoration: none;
+                    .loged {
+                        i {
+                            font-size: 20px;
+                            margin: 0 10px;
+                        }
+                        margin-right: 10px;
+                    }
+                    &:hover {
+                        color: $bruschetta;
+                    }
+                }
+            }
+            .visibility {
+                display: none;
+            }
+            .login {
+                margin-right: 20px;
+            }
+            .dropdown-menu {
+                border: 1px solid $white;
+                background-color: $prestige-blue;
+                left: auto;
+                right: 0;
+                li a {
+                    color: $white;
+                    text-decoration: none;
+                    &:hover {
+                        color: $bruschetta;
+                    }
+                }
+            }
+        }
+    }
+}
 
-        a {
-            // list-style: none;
-
+@media screen and (max-width: 767px) {
+    header {
+        .navigation {
+            .dropdown {
+                position: absolute;
+                top: 65px;
+                right: 0;
+                border: 1px solid $white;
+                border-radius: 5px;
+                .login,
+                .register {
+                    margin: 0 10px;
+                }
+                .visibility {
+                    display: block;
+                    margin: 0 10px;
+                }
+                .row-dropdown {
+                    display: none;
+                }
+                .dropdown-menu {
+                    display: none;
+                }
+            }
+            .navbar-collapse {
+                flex-basis: auto;
+                flex-grow: 0;
+            }
         }
     }
 }
