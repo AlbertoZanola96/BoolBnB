@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div>
-                                    <button class="btn-home px-5 py-3">Registrati ora</button>
+                                    <button class="btn-home px-5 py-3" data-toggle="modal" data-target="#register" data-backdrop="true">Registrati ora</button>
                                 </div>
                             </div>
                         </div>

@@ -6,7 +6,7 @@
             </div>    
             
             <div class="logo col-md-2">
-                <img src="../img/Logodef.png" alt="">
+                <img src="../img/Logo.png" alt="">
             </div>
 
             <div class="col-lg-1 col-sm-2 col-md-2" id="logo">

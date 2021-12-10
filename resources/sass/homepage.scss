@@ -18,7 +18,7 @@
 
         label {
             font-size: 18px;
-            color: white;
+            color: $white;
         }
 
         input {
@@ -64,7 +64,7 @@
             width: 100%;
             padding: 10px;
             border: 1px solid $ufo-green;
-            background-color: white;
+            background-color: $white;
             color: $ufo-green;
         }
 
@@ -79,7 +79,7 @@
 
     .wrapper {
         margin: 0 auto;
-        color: white;
+        color: $white;
         transform: translate(0, -50%);
 
         .center {
@@ -121,8 +121,12 @@
         .btn-home {
             width: 100%;
             border: 1px solid $ufo-green;
-            background-color: white;
+            background-color: $white;
             color: $ufo-green;
+            &:hover {
+                color: $white;
+                background-color: $ufo-green;
+            }
         }
 
     }
@@ -153,7 +157,7 @@
         border: none;
         background: linear-gradient(120deg, $clear-chill, $watermelon, $coral);
         background-size: 200%;
-        color: #fff;
+        color: $white;
         outline: none;
         cursor: pointer;
         transition: 0.5s;

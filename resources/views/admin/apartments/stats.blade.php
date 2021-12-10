@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | Statistiche
+@endsection
+
 @section('content')
     <div class="container my-4">
         <div class="row">
