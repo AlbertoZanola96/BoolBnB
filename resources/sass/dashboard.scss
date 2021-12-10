@@ -20,9 +20,8 @@ body {
     text-decoration: none;
 
     /* Active/current link */
-    &:hover {
-    // background-color: red;
-      background-color: $peace;
+    span:hover {
+      color: red;
     }
 
     i {
@@ -56,7 +55,7 @@ body {
   // }
   
   /* On screens that are less than 700px wide, make the sidebar into a topbar */
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 3000px) {
     .sidebar {
       display: flex;
       justify-content: center;
