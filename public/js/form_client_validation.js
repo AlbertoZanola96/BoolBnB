@@ -126,7 +126,9 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+
 module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/progetto finale/BoolBnB/resources/js/form_client_validation.js */"./resources/js/form_client_validation.js");
+
 
 
 /***/ })
