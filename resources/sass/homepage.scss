@@ -196,13 +196,13 @@ ul{
         .row{
 
             @media screen and (min-width: 992px) {
-                height: 310px;
-                max-height: 310px;
+                height: 330px;
+                max-height: 330px;
             }
         }
 
         .description-box{
-            height: 70px;
+            max-height: 55px;
             & div{
                 display: -webkit-box;
                 -webkit-box-orient: vertical;

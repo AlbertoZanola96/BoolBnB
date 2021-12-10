@@ -10187,12 +10187,12 @@ ul .sponsor-card:hover {
 }
 @media screen and (min-width: 992px) {
   ul .sponsor-card .row {
-    height: 310px;
-    max-height: 310px;
+    height: 330px;
+    max-height: 330px;
   }
 }
 ul .sponsor-card .description-box {
-  height: 70px;
+  max-height: 55px;
 }
 ul .sponsor-card .description-box div {
   display: -webkit-box;
