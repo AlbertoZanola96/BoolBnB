@@ -10461,6 +10461,10 @@ body {
   color: #ff4757;
 }
 
+.bruschetta-text {
+  color: #ff6348;
+}
+
 .white-text {
   color: #ffffff;
 }
@@ -10514,7 +10518,7 @@ body {
 }
 
 .blue-background {
-  background-color: #3742fa;
+  background-color: #2f3542;
 }
 
 .lightgray-background {
@@ -10549,6 +10553,10 @@ body {
   background-color: #f1f2f6;
 }
 
+.bruschetta-background {
+  background-color: #ff6348;
+}
+
 h-100 {
   height: 100%;
 }
@@ -10559,9 +10567,6 @@ h-100 {
   white-space: nowrap;
 }
 
-#show_container h1 {
-  color: #335b7c;
-}
 #show_container h3 {
   color: black;
 }
@@ -10576,7 +10581,7 @@ h-100 {
   display: inline-block;
   color: white;
   padding: 5px 10px;
-  background-color: #1e90ff;
+  background-color: #ff6348;
   border-radius: 100px;
 }
 #show_container .my-img {

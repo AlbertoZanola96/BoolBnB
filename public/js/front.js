@@ -5022,7 +5022,7 @@ var render = function () {
                               _c("li", [
                                 _c("i", {
                                   staticClass:
-                                    "fas fa-door-open font-xxs watermelon-text",
+                                    "fas fa-door-open font-xxs bruschetta-text",
                                 }),
                                 _vm._v(" "),
                                 _c(
@@ -5041,7 +5041,7 @@ var render = function () {
                               _c("li", [
                                 _c("i", {
                                   staticClass:
-                                    "fas fa-bed font-xxs watermelon-text",
+                                    "fas fa-bed font-xxs bruschetta-text",
                                 }),
                                 _vm._v(" "),
                                 _c(
@@ -5060,7 +5060,7 @@ var render = function () {
                               _c("li", [
                                 _c("i", {
                                   staticClass:
-                                    "fas fa-ruler-combined font-xxs watermelon-text",
+                                    "fas fa-ruler-combined font-xxs bruschetta-text",
                                 }),
                                 _vm._v(" "),
                                 _c(
@@ -5129,7 +5129,10 @@ var render = function () {
                               [
                                 _c(
                                   "button",
-                                  { staticClass: "btn btn-primary w-100" },
+                                  {
+                                    staticClass:
+                                      "btn blue-background w-100 text-white",
+                                  },
                                   [
                                     _vm._v(
                                       "\n                                        Visualizza immobile →\n                                    "
@@ -5450,7 +5453,7 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn blue-background text-white",
                       on: { click: _vm.getApartments },
                     },
                     [
@@ -5688,7 +5691,8 @@ var render = function () {
                                 _c(
                                   "button",
                                   {
-                                    staticClass: "btn btn-primary w-100",
+                                    staticClass:
+                                      "btn blue-background text-white w-100",
                                     on: { click: _vm.getApartments },
                                   },
                                   [
@@ -5787,7 +5791,8 @@ var render = function () {
                               [
                                 _c("li", [
                                   _c("i", {
-                                    staticClass: "fas fa-door-open font-xxs",
+                                    staticClass:
+                                      "fas fa-door-open font-xxs bruschetta-text",
                                   }),
                                   _vm._v(" "),
                                   _c(
@@ -5807,7 +5812,8 @@ var render = function () {
                                 _vm._v(" "),
                                 _c("li", [
                                   _c("i", {
-                                    staticClass: "fas fa-bed font-xxs",
+                                    staticClass:
+                                      "fas fa-bed font-xxs bruschetta-text",
                                   }),
                                   _vm._v(" "),
                                   _c(
@@ -5828,7 +5834,7 @@ var render = function () {
                                 _c("li", [
                                   _c("i", {
                                     staticClass:
-                                      "fas fa-ruler-combined font-xxs",
+                                      "fas fa-ruler-combined font-xxs bruschetta-text",
                                   }),
                                   _vm._v(" "),
                                   _c(
@@ -5873,7 +5879,10 @@ var render = function () {
                                   [
                                     _c(
                                       "button",
-                                      { staticClass: "btn btn-primary" },
+                                      {
+                                        staticClass:
+                                          "btn blue-background text-white",
+                                      },
                                       [
                                         _vm._v(
                                           "\r\n                                            Visualizza immobile →\r\n                                        "
@@ -5911,7 +5920,7 @@ var staticRenderFns = [
       _c(
         "a",
         {
-          staticClass: "btn btn-primary w-100",
+          staticClass: "btn blue-background text-white w-100",
           attrs: { href: "", "data-toggle": "modal", "data-target": "#leads" },
         },
         [
@@ -5997,7 +6006,7 @@ var render = function () {
               _c("div", { staticClass: "d-flex item-align-end" }, [
                 _c("i", { staticClass: "fas fa-home font-m" }),
                 _vm._v(" "),
-                _c("h1", { staticClass: "font-ml mb-0 ml-3 gray-text" }, [
+                _c("h1", { staticClass: "font-ml mb-0 ml-3 darkgray-text" }, [
                   _vm._v(_vm._s(_vm.apartment.name)),
                 ]),
               ]),
@@ -6009,15 +6018,19 @@ var render = function () {
                   _c("li", [
                     _c("i", { staticClass: "fas fa-map-marker-alt font-xxs" }),
                     _vm._v(" "),
-                    _c("span", [_vm._v(_vm._s(_vm.apartment.address))]),
+                    _c("span", { staticClass: "darkgray-text ml-1" }, [
+                      _vm._v(_vm._s(_vm.apartment.address)),
+                    ]),
                   ]),
                   _vm._v(" "),
                   _c("li", { staticClass: "mx-3" }, [_vm._v("|")]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("i", { staticClass: "fas fa-door-open font-xxs" }),
+                    _c("i", {
+                      staticClass: "fas fa-door-open font-xxs bruschetta-text",
+                    }),
                     _vm._v(" "),
-                    _c("span", [
+                    _c("span", { staticClass: "darkgray-text ml-1" }, [
                       _vm._v(_vm._s(_vm.apartment.num_rooms) + " camere"),
                     ]),
                   ]),
@@ -6025,9 +6038,11 @@ var render = function () {
                   _c("li", { staticClass: "mx-3" }, [_vm._v("|")]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("i", { staticClass: "fas fa-bed font-xxs" }),
+                    _c("i", {
+                      staticClass: "fas fa-bed font-xxs bruschetta-text",
+                    }),
                     _vm._v(" "),
-                    _c("span", [
+                    _c("span", { staticClass: "darkgray-text ml-1" }, [
                       _vm._v(_vm._s(_vm.apartment.num_beds) + " letti"),
                     ]),
                   ]),
@@ -6035,9 +6050,12 @@ var render = function () {
                   _c("li", { staticClass: "mx-3" }, [_vm._v("|")]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("i", { staticClass: "fas fa-ruler-combined font-xxs" }),
+                    _c("i", {
+                      staticClass:
+                        "fas fa-ruler-combined font-xxs bruschetta-text",
+                    }),
                     _vm._v(" "),
-                    _c("span", [
+                    _c("span", { staticClass: "darkgray-text ml-1" }, [
                       _vm._v(_vm._s(_vm.apartment.square_meters) + " mq"),
                     ]),
                   ]),
@@ -6255,7 +6273,7 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "btn btn-primary w-100",
+            staticClass: "btn blue-background text-white w-100",
             attrs: {
               href: "",
               "data-toggle": "modal",

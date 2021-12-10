@@ -115,19 +115,19 @@
                                     <ul id="services_list" class="d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-xl-3 white-background">
                                         <!-- num_rooms  -->
                                         <li>
-                                            <i class="fas fa-door-open font-xxs watermelon-text"></i>
+                                            <i class="fas fa-door-open font-xxs bruschetta-text"></i>
                                             <span class="d-inline-block mx-1">{{ apartment.num_rooms }} camere</span> 
                                         </li>
                                         <li class="mx-3">|</li>
                                         <!-- num_beds  -->
                                         <li>
-                                            <i class="fas fa-bed font-xxs watermelon-text"></i>
+                                            <i class="fas fa-bed font-xxs bruschetta-text"></i>
                                             <span class="d-inline-block mx-1">{{ apartment.num_beds }} letti</span>
                                         </li>
                                         <li class="mx-3">|</li>
                                         <!-- square meters  -->
                                         <li>
-                                            <i class="fas fa-ruler-combined font-xxs watermelon-text"></i>
+                                            <i class="fas fa-ruler-combined font-xxs bruschetta-text"></i>
                                             <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
                                         </li>
                                     </ul>
@@ -146,7 +146,7 @@
                                 <div>
                                     <hr class="d-none d-md-block">
                                     <router-link target="_blank" :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
-                                        <button class="btn btn-primary w-100" >
+                                        <button class="btn blue-background w-100 text-white" >
                                             Visualizza immobile &#8594;
                                         </button>
                                     </router-link>
