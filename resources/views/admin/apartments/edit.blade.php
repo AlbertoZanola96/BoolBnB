@@ -124,7 +124,7 @@
                     <div class="form-group">
                         @if ($apartment->image)
                             <p>Immagine di copertina presente: </p>
-                            <img class="d-block" src="{{ asset('storage/' . $apartment->image) }}" alt="">
+                            <img class=" mia-img d-block" src="{{ asset('storage/' . $apartment->image) }}" alt="">
                         @else 
                             <p>Immagine di copertina non presente</p>
                         @endif
