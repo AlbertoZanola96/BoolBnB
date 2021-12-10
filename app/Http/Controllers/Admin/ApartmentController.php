@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
 use Illuminate\Support\Str;
-use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Service;
@@ -57,13 +56,12 @@ class ApartmentController extends Controller
         //convalidiamo i dati ricevuti
         // dd($request);
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:apartments,name',
             'description' => 'required',
             'num_rooms' => 'required|integer|min:1|max:10',
             'num_beds' => 'required|integer|min:1|max:10',
             'num_bathrooms' => 'nullable|integer|min:1|max:10',
             'square_meters' => 'nullable|integer|min:30|max:1000',
-            // 'city' => 'required',
             'address' => 'required|max:255',
             'services' => 'exists:services,id',
             'visible' => 'required',
@@ -250,47 +248,23 @@ class ApartmentController extends Controller
     public function viewStats($slug) {      
         $user = Auth::user(); 
         $apartment = Apartment::where('slug', $slug)->first(); 
-        $leads = Lead::where('apartment_id', $apartment->id)->get();
-        $clicks = Click::where('apartment_id', $apartment->id)->get();
-        if (!$apartment) {
-            abort(404);
+
+        // filtro messaggi per mese 
+        $leadsPerMonth = [];
+        for($i = 0; $i < 12; $i++) {
+            $leadsPerMonth[] = Lead::where('apartment_id', $apartment->id)->whereMonth('created_at', $i + 1)->count();
         }
 
-        $leads1 = 0;
-        $leads2 = 0;
-        $leads3 = 0;
-        $leads4 = 0;
-        $leads5 = 0;
-        $leads6 = 0;
-        $leads7 = 0;
-        $leads8 = 0;
-        $leads9 = 0;
-        $leads10 = 0;
-        $leads11 = 0;
-        $leads12 = 0;
-
-        $leadstats = [
-            'January' => $leads1,
-            'February' => $leads2, 
-            'March' => $leads3, 
-            'April' => $leads4, 
-            'May' => $leads5, 
-            'June' => $leads6, 
-            'July' => $leads7, 
-            'August' => $leads8, 
-            'September' => $leads9, 
-            'October' => $leads10, 
-            'November' => $leads11, 
-            'December' => $leads12
-        ];
+        // filtro clicks per mese 
+        $clicksPerMonth = [];
+        for($i = 0; $i < 12; $i++) {
+            $clicksPerMonth[] = Click::where('apartment_id', $apartment->id)->whereMonth('created_at', $i + 1)->count();
+        }
         
-        foreach ($leads as $lead) {
-            $date = explode("-", $lead->created_at->toDateString());
-            $month = $date[1];
-            // $('leads' . $month) += 1;
-        }
-        // dd($clicks);
-        return view('admin.apartments.stats', compact('leads', 'clicks', 'user'));
+        json_encode($leadsPerMonth);
+        json_encode($clicksPerMonth);
+
+        return view('admin.apartments.stats', compact('user', 'leadsPerMonth', 'clicksPerMonth', 'apartment'));
     }
 }
  

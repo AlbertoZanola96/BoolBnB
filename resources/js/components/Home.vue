@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div>
-                                    <button class="btn-home px-5 py-3" data-toggle="modal" data-target="#register" data-backdrop="true">Registrati ora</button>
+                                    <button class="btn-home px-5 py-3">Registrati ora</button>
                                 </div>
                             </div>
                         </div>
@@ -97,13 +97,13 @@
         <div class="container-fluid p-4">
             <ul class="row mb-0">
                 <li v-for="(apartment, index) in apartments" :key="index" class="col-12 col-md-6 p-3">
-                    <div class="white-background p-3 overflow-hidden sponsor-card">
-                        <div class="row align-items-center">
-                            <div class="col-12 col-lg-6 d-flex align-items-center">
+                    <div class="white-background overflow-hidden sponsor-card">
+                        <div class="row w-100 ml-0 align-items-center">
+                            <div class="col-12 col-xl-6 d-flex align-items-center">
                                 <img class="w-100" :src="'/storage/' + apartment.image" alt="">
                             </div>
 
-                            <div class="col-12 col-lg-6 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between">
+                            <div class="col-12 col-xl-6 py-3 py-xl-3 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between">
                                 <div>
                                     <h2 class="m-0 text-overflow">{{ apartment.name }}</h2>
                                     <hr class="my-2">
@@ -112,30 +112,30 @@
                                         <span class="ml-2">{{ apartment.address }}</span>
                                     </h4>
                                     <!-- services list  -->
-                                    <ul id="services_list" class="d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-lg-3 white-background">
+                                    <ul id="services_list" class="d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-xl-3 white-background">
                                         <!-- num_rooms  -->
                                         <li>
-                                            <i class="fas fa-door-open font-xxs watermelon-text"></i>
+                                            <i class="fas fa-door-open font-xxs bruschetta-text"></i>
                                             <span class="d-inline-block mx-1">{{ apartment.num_rooms }} camere</span> 
                                         </li>
                                         <li class="mx-3">|</li>
                                         <!-- num_beds  -->
                                         <li>
-                                            <i class="fas fa-bed font-xxs watermelon-text"></i>
+                                            <i class="fas fa-bed font-xxs bruschetta-text"></i>
                                             <span class="d-inline-block mx-1">{{ apartment.num_beds }} letti</span>
                                         </li>
                                         <li class="mx-3">|</li>
                                         <!-- square meters  -->
                                         <li>
-                                            <i class="fas fa-ruler-combined font-xxs watermelon-text"></i>
+                                            <i class="fas fa-ruler-combined font-xxs bruschetta-text"></i>
                                             <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
                                         </li>
                                     </ul>
 
                                     <div>
-                                        <hr class="mt-0 d-none d-lg-block">
+                                        <hr class="mt-0 d-none d-xl-block">
 
-                                        <div class="description-box d-none d-lg-block">
+                                        <div class="description-box d-none d-xl-block">
                                             <div>
                                                 <p> {{ !(apartment.description.length > 150) ? apartment.description : apartment.description.substring(1, 150) + '...' }} </p>
                                             </div>
@@ -143,10 +143,10 @@
                                     </div>
                                 </div>
 
-                                <div class="pt-2">
+                                <div>
                                     <hr class="d-none d-md-block">
                                     <router-link target="_blank" :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
-                                        <button class="btn btn-primary w-100" >
+                                        <button class="btn blue-background w-100 text-white" >
                                             Visualizza immobile &#8594;
                                         </button>
                                     </router-link>

@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Schema\Builder;
 
 class ApartmentController extends Controller
 {
     public function searchApartments(Request $request){
         $resQuery = $request->query();
-
+        
         // query filtro senza raggio di km 
         $query = Apartment::where('num_rooms', '>=', $resQuery['num_rooms'] ?? 0)
         ->where('num_beds', '>=', $resQuery['num_beds'] ?? 0)

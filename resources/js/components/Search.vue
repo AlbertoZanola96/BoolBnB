@@ -71,7 +71,7 @@
                         </div>
 
                             <!-- btn cerca  -->
-                        <button class="btn btn-primary" v-on:click="getApartments">
+                        <button class="btn blue-background text-white" v-on:click="getApartments">
                             Inizia a cercare
                         </button>
                     </div>
@@ -79,7 +79,7 @@
             </div>
 
             <div class="col-12 d-md-none">
-                <a href="" data-toggle="modal" data-target="#leads" class="btn btn-primary w-100">
+                <a href="" data-toggle="modal" data-target="#leads" class="btn blue-background text-white w-100">
                     <i class="fas fa-sliders-h"></i>
                     <span class="ml-3">Filtri di ricerca</span>
                 </a>
@@ -165,7 +165,7 @@
 
                                             <!-- btn cerca  -->
                                         <div class="col-12 my-3">
-                                            <button class="btn btn-primary w-100" v-on:click="getApartments">
+                                            <button class="btn blue-background text-white w-100" v-on:click="getApartments">
                                                 Inizia a cercare
                                             </button>
                                         </div>
@@ -206,19 +206,19 @@
                                 <ul id="services_list" class="d-none d-lg-flex flex-wrap pl-0 py-3 white-background">
                                     <!-- num_rooms  -->
                                     <li>
-                                        <i class="fas fa-door-open font-xxs"></i>
+                                        <i class="fas fa-door-open font-xxs bruschetta-text"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.num_rooms }} camere</span> 
                                     </li>
                                     <li class="mx-3">|</li>
                                     <!-- num_beds  -->
                                     <li>
-                                        <i class="fas fa-bed font-xxs"></i>
+                                        <i class="fas fa-bed font-xxs bruschetta-text"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.num_beds }} letti</span>
                                     </li>
                                     <li class="mx-3">|</li>
                                     <!-- square meters  -->
                                     <li>
-                                        <i class="fas fa-ruler-combined font-xxs"></i>
+                                        <i class="fas fa-ruler-combined font-xxs bruschetta-text"></i>
                                         <span class="d-inline-block mx-1">{{ apartment.square_meters }}mq</span>
                                     </li>
                                     <li>
@@ -228,7 +228,7 @@
                                     
                                 <div class="pt-2">
                                     <router-link target="_blank" :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.apartment_id} }">
-                                        <button class="btn btn-primary" >
+                                        <button class="btn blue-background text-white" >
                                             Visualizza immobile &#8594;
                                         </button>
                                     </router-link>

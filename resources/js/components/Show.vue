@@ -8,29 +8,29 @@
                     <div class="p-4 white-background shadow">
                         <div class="d-flex item-align-end">
                             <i class="fas fa-home font-m"></i>
-                            <h1 class="font-ml mb-0 ml-3 gray-text">{{ apartment.name }}</h1>
+                            <h1 class="font-ml mb-0 ml-3 darkgray-text">{{ apartment.name }}</h1>
                         </div>
                         <hr class="d-none d-md-block">
                         <div class="d-none d-md-inline-block">
                             <ul class="font-xxs d-flex p-0">
                                 <li>
                                     <i class="fas fa-map-marker-alt font-xxs"></i>
-                                    <span>{{ apartment.address }}</span>
+                                    <span class="darkgray-text ml-1">{{ apartment.address }}</span>
                                 </li>
                                 <li class="mx-3">|</li>
                                 <li>
-                                    <i class="fas fa-door-open font-xxs"></i>
-                                    <span>{{ apartment.num_rooms }} camere</span>
+                                    <i class="fas fa-door-open font-xxs bruschetta-text"></i>
+                                    <span class="darkgray-text ml-1">{{ apartment.num_rooms }} camere</span>
                                 </li>
                                 <li class="mx-3">|</li>
                                 <li>
-                                    <i class="fas fa-bed font-xxs"></i>
-                                    <span>{{ apartment.num_beds }} letti</span>
+                                    <i class="fas fa-bed font-xxs bruschetta-text"></i>
+                                    <span class="darkgray-text ml-1">{{ apartment.num_beds }} letti</span>
                                 </li>
                                 <li class="mx-3">|</li>
                                 <li>
-                                    <i class="fas fa-ruler-combined font-xxs"></i>
-                                    <span>{{ apartment.square_meters }} mq</span>
+                                    <i class="fas fa-ruler-combined font-xxs bruschetta-text"></i>
+                                    <span class="darkgray-text ml-1">{{ apartment.square_meters }} mq</span>
                                 </li>
                             </ul>
                         </div>
@@ -104,7 +104,7 @@
 
                         <ul class="list-group shadow">
                             <li class="list-group-item list-group-item-action">
-                                <a href="" data-toggle="modal" data-target="#leads" data-backdrop="true" class="btn btn-primary w-100">
+                                <a href="" data-toggle="modal" data-target="#leads" data-backdrop="true" class="btn blue-background text-white w-100">
                                     Invia un messaggio
                                 </a>
                             </li>
