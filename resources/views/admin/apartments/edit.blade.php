@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | Modifica appartamento
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

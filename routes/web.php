@@ -14,20 +14,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// // Homepage 
-// Route::get('/', 'HomeController@index')->name('guest.home');
-
-// // Search page 
-// Route::get('/vue', 'HomeController@vue')->name('guest.vue');
-
-
-// Route::get('/apartments', 'ApartmentController@index')->name('index');
-// Route::get('/apartments/{slug}', 'ApartmentController@show')->name('guest.show');
-
-// // Messaggi
-// Route::post('/search', 'ApartmentController@handleMessageForm')->name('send');
-// Route::post('apartament/message', 'Guest\LeadController@sendMessage')->name('send');
-
 Auth::routes();
 
 // Admin Routes

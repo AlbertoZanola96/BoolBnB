@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -55,8 +56,8 @@ class ApartmentController extends Controller
 
     // cerca appartamenti sponsorizzati 
     public function sponsored() {
-        $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')->where('status', true)->get();
-    
+        $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')->whereDate('expiration_date', '>', Carbon::now()->toDateString())->get();
+        
         return response()->json([
             'success' => true,
             'results' => $sponsored

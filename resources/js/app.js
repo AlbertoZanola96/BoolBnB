@@ -6,8 +6,8 @@
 
 require('./bootstrap');
 
-
-var deleteArr = document.querySelectorAll('.deleteForm');
+// confirm delete buttons 
+const deleteArr = document.querySelectorAll('.deleteForm');
 console.log(deleteArr);
 
 deleteArr.forEach(function (el) {
@@ -20,6 +20,19 @@ deleteArr.forEach(function (el) {
   });
 });
 
+// reset modals 
 $('#leads').on('hidden.bs.modal', function () {
   $(this).find('form').trigger('reset');
 })
+
+// toggle view msgs 
+const showMsgs = document.querySelectorAll('.show-msg');
+
+showMsgs.forEach((el) => {
+  el.addEventListener('click', (e) => {
+    const msg = e.target.previousElementSibling;
+    msg.classList.toggle('text-truncate');
+    e.target.classList.toggle('fa-chevron-down');
+    e.target.classList.toggle('fa-chevron-up');
+  });
+});

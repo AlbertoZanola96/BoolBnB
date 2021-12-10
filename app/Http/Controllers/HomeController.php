@@ -22,11 +22,6 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('guest.home');
-    }
-
     public function vue()
     {
         $user = Auth::user();

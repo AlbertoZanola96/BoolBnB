@@ -2933,17 +2933,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       marker.setPopup(popup); // console.log(data);  
     },
     sendLeadData: function sendLeadData() {
-      if (this.apartment_id != undefined) {
-        axios.post(this.apiLead + "apartment_id=" + this.apartment_id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message);
-      }
+      if (this.apartment) {
+        axios.post(this.apiLead + "apartment_id=" + this.apartment.id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message);
+      } // this.$router.push({ name: 'Success', params: {slug: this.apartment.slug, id: this.apartment_id} });
 
-      this.$router.push({
-        name: 'Success',
-        params: {
-          slug: this.apartment.slug,
-          id: this.apartment_id
-        }
-      });
     }
   },
   created: function created() {
@@ -5178,9 +5171,18 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", [
-                    _c("button", { staticClass: "btn-home px-5 py-3" }, [
-                      _vm._v("Registrati ora"),
-                    ]),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn-home px-5 py-3",
+                        attrs: {
+                          "data-toggle": "modal",
+                          "data-target": "#register",
+                          "data-backdrop": "true",
+                        },
+                      },
+                      [_vm._v("Registrati ora")]
+                    ),
                   ]),
                 ]
               ),
@@ -6254,7 +6256,7 @@ var render = function () {
         staticClass: "modal fade",
         attrs: {
           id: "leads",
-          "data-backdrop": "static",
+          "data-backdrop": "true",
           "data-keyboard": "false",
           tabindex: "-1",
           "aria-labelledby": "staticBackdropLabel",
@@ -6424,7 +6426,7 @@ var render = function () {
                     "button",
                     {
                       staticClass: "modalbtn",
-                      attrs: { type: "button" },
+                      attrs: { type: "submit" },
                       on: { click: _vm.sendLeadData },
                     },
                     [
@@ -6487,6 +6489,7 @@ var staticRenderFns = [
               href: "",
               "data-toggle": "modal",
               "data-target": "#leads",
+              "data-backdrop": "true",
             },
           },
           [
@@ -22419,6 +22422,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! C:\Users\alber\OneDrive\Desktop\Boolean\PHP\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+
 
 
 /***/ })

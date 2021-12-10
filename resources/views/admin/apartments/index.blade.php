@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | I miei appartamenti
+@endsection
+
 @section('content')
 
 <div id="principale" class="container mx-auto">

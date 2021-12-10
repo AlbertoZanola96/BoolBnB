@@ -37273,7 +37273,8 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // confirm delete buttons 
+
 
 var deleteArr = document.querySelectorAll('.deleteForm');
 console.log(deleteArr);
@@ -37285,9 +37286,20 @@ deleteArr.forEach(function (el) {
       e.preventDefault();
     }
   });
-});
+}); // reset modals 
+
 $('#leads').on('hidden.bs.modal', function () {
   $(this).find('form').trigger('reset');
+}); // toggle view msgs 
+
+var showMsgs = document.querySelectorAll('.show-msg');
+showMsgs.forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    var msg = e.target.previousElementSibling;
+    msg.classList.toggle('text-truncate');
+    e.target.classList.toggle('fa-chevron-down');
+    e.target.classList.toggle('fa-chevron-up');
+  });
 });
 
 /***/ }),
@@ -37357,7 +37369,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 __webpack_require__(/*! C:\Users\alber\OneDrive\Desktop\Boolean\PHP\BoolBnB\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\alber\OneDrive\Desktop\Boolean\PHP\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
-
 
 /***/ })
 
