@@ -10185,6 +10185,22 @@ ul .sponsor-card {
 ul .sponsor-card:hover {
   box-shadow: 2px 0px 25px -10px rgba(0, 0, 0, 0.431);
 }
+@media screen and (min-width: 992px) {
+  ul .sponsor-card .row {
+    height: 310px;
+    max-height: 310px;
+  }
+}
+ul .sponsor-card .description-box {
+  height: 70px;
+}
+ul .sponsor-card .description-box div {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  height: 100%;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+}
 
 header {
   width: 100%;
@@ -10535,6 +10551,12 @@ body {
 
 h-100 {
   height: 100%;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #show_container h1 {

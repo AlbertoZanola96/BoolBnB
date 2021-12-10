@@ -1,17 +1,10 @@
 <template>
     <div>
         <div id="show_container">
-        <div class="container my-4">
-            <div class="row">
-                <div class="col-12">
-                    <a class="btn btn-secondary shadow" href=""><span>&#8592;</span> Torna alla ricerca</a>
-                </div>
-            </div>
-        </div>
 
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 mt-5">
                     <div class="p-4 white-background shadow">
                         <div class="d-flex item-align-end">
                             <i class="fas fa-home font-m"></i>
@@ -50,7 +43,7 @@
             <div class="row">
                 <div class="col-12 col-md-8">
                     <div class="my-5">
-                        <img class="w-100 shadow" src="https://www.lignius.it/fileadmin/_processed_/b/8/csm_suedtirolhaus_MirrorHouses_5cbac.0_a556da6959.jpg" alt="">
+                        <img class="w-100 shadow" :src="'/storage/' + apartment.image" alt="">
                     </div> 
 
                     <div class="d-flex justify-content-between align-items-start container-fluid">

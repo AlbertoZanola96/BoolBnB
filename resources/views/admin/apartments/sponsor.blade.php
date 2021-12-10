@@ -5,6 +5,14 @@
 @endsection
 
 @section('content')
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-secondary shadow" href="{{ route('admin.apartments.index') }}"><span>&#8592;</span> Torna ai tuoi immobili</a>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 d-flex justify-content-center">

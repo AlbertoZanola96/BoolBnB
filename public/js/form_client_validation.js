@@ -128,7 +128,10 @@
 
 module.exports = __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#39\progetto_finale\BoolBnB\resources\js\form_client_validation.js */"./resources/js/form_client_validation.js");
 
+module.exports = __webpack_require__(/*! /Users/manuelinfante/Desktop/Boolean/progetto finale/BoolBnB/resources/js/form_client_validation.js */"./resources/js/form_client_validation.js");
+
 
 /***/ })
+
 
 /******/ });
