@@ -1,10 +1,14 @@
+h2 {
+    color: $grisaille;
+}
+
 .sponsor{
     width: calc(100%/5 - 60px);
     min-width: 200px;
     margin: 30px;
 
     .card-body {
-        background-color: $sponsor-bg;
+        background-color: $prestige-blue;
         text-align: center;
         
         .btn-hover {
@@ -24,8 +28,6 @@
             -webkit-transition: all .4s ease-in-out;
             transition: all .4s ease-in-out;
 
-            background-image: linear-gradient(to right, $blue, $green, $teal, $ufo-green);
-            box-shadow: 0 4px 15px 0 $clear-chill;
             &:hover {
                 background-position: 100% 0;
                 -o-transition: all .4s ease-in-out;
@@ -44,6 +46,13 @@
         h2 {
             color: $gold;
         }
+
+        .btn-detail {
+            background-image: linear-gradient(to right, $anti-flash-white, $twinkle-blue, $sand, $gold);
+            &:hover {
+                box-shadow: 0 4px 15px 0 $sand;
+            }
+        }
     }
 
     .Silver {
@@ -52,6 +61,13 @@
         h2 {
             color: $silver;
         }
+
+        .btn-detail {
+            background-image: linear-gradient(to right, $anti-flash-white, $twinkle-blue, $silver, $bay-wharf);
+            &:hover {
+                box-shadow: 0 4px 15px 0 $silver;
+            }
+        }
     }
 
     .Bronze {
@@ -59,6 +75,10 @@
         box-shadow: 0px 0px 20px $bronze;
         h2 {
             color: $bronze;
+        }
+
+        .btn-detail {
+            background-image: linear-gradient(to right, $anti-flash-white, $twinkle-blue, $bronze, $orange-2);
         }
     }
 }

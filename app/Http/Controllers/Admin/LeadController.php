@@ -14,15 +14,6 @@ class LeadController extends Controller
         $user = Auth::user();
         $apartments = Apartment::where('user_id', $user->id)->get();
 
-        // $messages = DB::table('leads')->whereIn('apartments.id', $apartments)->get();
-        // dd($messages);
-
-        // for ($i = 0; $i < count($apartments); $i++) {
-        //     $apartments_id[$i] = $apartments[$i]->id;
-        // }
-        // for ($i = 0; $i < count($apartments_id); $i++) {
-        //     $apartmentsleads[$i] = Lead::where('apartment_id', $apartments_id[$i])->get();
-        // }
         return view('admin.apartments.messagesInbox', compact('apartments', 'user'));
     }
 
@@ -36,8 +27,8 @@ class LeadController extends Controller
 
     public function destroy($id)
     {
-        $lead = Lead::where('id', $id)->first();
+        $lead = Lead::find($id);
         $lead->delete();
-        return redirect()->route('admin.message.index')->with('deleted', 'Messaggio cancellato');
+        return redirect()->back()->with('deleted', 'Messaggio cancellato');
     }
 }
