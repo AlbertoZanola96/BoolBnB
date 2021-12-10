@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('title')
+    | Benvenuto
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

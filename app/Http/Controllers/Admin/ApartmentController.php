@@ -28,7 +28,7 @@ class ApartmentController extends Controller
     {
         $user = Auth::user();
         $apartments = Apartment::where('user_id', $user->id)->get();
-        return view('admin.apartments.index', compact('apartments'));
+        return view('admin.apartments.index', compact('apartments', 'user'));
     }
 
     /**
@@ -38,8 +38,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
         $services = Service::all();
-        return view('admin.apartments.create', compact('services'));
+        return view('admin.apartments.create', compact('services', 'user'));
     }
 
     /**
@@ -48,7 +49,7 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Faker $faker)
+    public function store(Request $request)
     {
         // definiamo l'utente logato
         $user = Auth::user();
@@ -126,6 +127,7 @@ class ApartmentController extends Controller
      */
     public function show($slug)
     {
+        $user = Auth::user();
         $apartment = Apartment::where('slug', $slug)->first();
 
         if(!$apartment) {
@@ -134,7 +136,7 @@ class ApartmentController extends Controller
             return redirect()->back();
         }
         
-        return view('admin.apartments.show', compact('apartment'));
+        return view('admin.apartments.show', compact('apartment', 'user'));
     }
 
     /**
@@ -145,6 +147,7 @@ class ApartmentController extends Controller
      */
     public function edit($slug)
     {
+        $user = Auth::user();
         $services = Service::all();
         $apartment = Apartment::where('slug', $slug)->first();
 
@@ -154,7 +157,7 @@ class ApartmentController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.apartments.edit', compact('apartment', 'services'));
+        return view('admin.apartments.edit', compact('apartment', 'services', 'user'));
     }
 
     /**
@@ -236,14 +239,16 @@ class ApartmentController extends Controller
     }
 
     // sponsor -------------------------------------
-    public function sponsor($slug) {   
+    public function sponsor($slug) {  
+        $user = Auth::user(); 
         $apartment = Apartment::where('slug', $slug)->first(); 
         $sponsors = Sponsor::all();
-        return view('admin.apartments.sponsor', compact('sponsors', 'apartment'));
+        return view('admin.apartments.sponsor', compact('sponsors', 'apartment', 'user'));
     }   
 
     // statistiche --------------------------------
-    public function viewStats($slug) {       
+    public function viewStats($slug) {      
+        $user = Auth::user(); 
         $apartment = Apartment::where('slug', $slug)->first(); 
         $leads = Lead::where('apartment_id', $apartment->id)->get();
         $clicks = Click::where('apartment_id', $apartment->id)->get();
@@ -285,7 +290,7 @@ class ApartmentController extends Controller
             // $('leads' . $month) += 1;
         }
         // dd($clicks);
-        return view('admin.apartments.stats', compact('leads', 'clicks'));
+        return view('admin.apartments.stats', compact('leads', 'clicks', 'user'));
     }
 }
  

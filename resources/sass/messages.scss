@@ -15,6 +15,7 @@
             font-size: 40px;
 
             i {
+                color: $grisaille;
                 position: relative;
 
                 .msg-counter {
@@ -23,9 +24,9 @@
                     right: -6px;
                     width: 20px;
                     height: 20px;
-                    font-size: 15px;
-                    background-color: red;
-                    color: white;
+                    font-size: 12px;
+                    background-color: $watermelon;
+                    color: $white;
                     border-radius: 50%;
                 }
             }
@@ -37,4 +38,62 @@
 
 #single-apartment {
     min-height: calc(100vh - 420px);
+
+    .single-msg {
+        position: relative;
+        border-radius: 5px;
+        background-color: $white;
+        box-shadow: 0px 0px 3px;
+
+        .guest-name {
+            color: $prestige-blue;
+            font-size: 28px;
+        }
+
+        .guest-email {
+            color: $bay-wharf;
+        }
+
+        .guest-msg {
+            // white-space: nowrap; 
+            // overflow: hidden;
+            // text-overflow: ellipsis;
+            color: $grisaille;
+        }
+
+        button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: $white;
+            border: none;
+
+            i {
+                color: $bruschetta;
+            }
+        }
+
+        .show-msg {
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            cursor: pointer;
+        }
+    }
+
+    // case no msg 
+    .no-msg {
+        border-radius: 5px;
+        box-shadow: 0px 0px 3px;
+        background-color: $white;
+
+        img {
+            width: 30%;
+        }
+
+        .info {
+            color: $prestige-blue;
+        }
+    }
+
 }

@@ -15,6 +15,7 @@ class PaymentController extends Controller
 {
     public function index(Request $request, $slug) {
 
+        $user = Auth::user();
         $apartment = Apartment::where('slug', $slug)->first();
         $sponsor = Sponsor::find($request->sponsor_id);
 
@@ -28,7 +29,7 @@ class PaymentController extends Controller
 
         //   generazione del token dell'utente 
           $clientToken = $gateway->clientToken()->generate();
-        return view('admin.apartments.payment', compact('clientToken', 'apartment', 'sponsor'));
+        return view('admin.apartments.payment', compact('clientToken', 'apartment', 'sponsor', 'user'));
     }
 
     public function checkout(Request $request, $slug) {
@@ -66,15 +67,14 @@ class PaymentController extends Controller
         //     return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha ancora un abbonamento in corso di validità');
         // }
 
-        // query per prendere solo le sponsorizzazioni attive 
+        // query per controllare se ci sono sponsorizzazioni attive 
         $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
                         ->where('apartments.id', $apartment->id)
-                        ->where('status', true)
+                        ->whereDate('expiration_date', '>', Carbon::now()->toDateString())
                         ->get();
         
         // redirect in caso di sponsorizzazione ancora attiva 
         if(count($sponsored) > 0) {
-
             return redirect()->route('admin.apartments.index')->with('alreadySponsored', 'Questo appartamento ha già un abbonamento in corso di validità');
         }
         
@@ -95,7 +95,7 @@ class PaymentController extends Controller
         return redirect()->route('admin.apartments.index')->with('paymentSuccess', 'Appartamento sponsorizzato con successo');
         }
 
-        // redirect della pagina alla pagina 
+        // redirect della pagina in caso di pagamento non riuscito
         return redirect()->route('admin.apartments.index')->with('paymentDenied', 'Non siamo riusciti a concludere la transazione');
     }
 }
