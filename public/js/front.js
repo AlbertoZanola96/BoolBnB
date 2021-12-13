@@ -2408,6 +2408,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Search',
   data: function data() {
@@ -5511,62 +5513,64 @@ var render = function () {
                         ),
                       ]
                     ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "d-flex align-items-center services py-3 overflow-x",
-                      },
-                      [
-                        _c(
-                          "span",
-                          {
-                            staticClass: "d-block font-s font-weight-bold",
-                            attrs: { for: "services" },
-                          },
-                          [_vm._v("Servizi |")]
-                        ),
-                        _vm._v(" "),
-                        _vm._l(
-                          _vm.apartmentServices,
-                          function (apartmentService, index) {
-                            return _c("div", { key: index }, [
-                              _c("input", {
-                                staticClass: "form-check-input",
-                                attrs: {
-                                  type: "checkbox",
-                                  name: apartmentService,
-                                  id: apartmentService,
-                                },
-                                domProps: { value: apartmentService },
-                              }),
-                              _vm._v(" "),
-                              _c(
-                                "label",
-                                {
-                                  staticClass:
-                                    "form-check-label py-1 px-2 mx-2 shadow",
-                                  attrs: { for: apartmentService },
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    " +
-                                      _vm._s(apartmentService) +
-                                      "\n                                "
-                                  ),
-                                ]
-                              ),
-                            ])
-                          }
-                        ),
-                      ],
-                      2
-                    ),
                   ]
                 ),
               ]
             ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 d-none d-md-block input-lg" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex justify-content-center align-items-center services py-3 overflow-x",
+                },
+                [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "d-block font-s font-weight-bold",
+                      attrs: { for: "services" },
+                    },
+                    [_vm._v("Servizi |")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(
+                    _vm.apartmentServices,
+                    function (apartmentService, index) {
+                      return _c("div", { key: index }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            name: apartmentService,
+                            id: apartmentService,
+                          },
+                          domProps: { value: apartmentService },
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass:
+                              "form-check-label py-1 px-2 mx-2 shadow",
+                            attrs: { for: apartmentService },
+                          },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(apartmentService) +
+                                "\n                        "
+                            ),
+                          ]
+                        ),
+                      ])
+                    }
+                  ),
+                ],
+                2
+              ),
+            ]),
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
