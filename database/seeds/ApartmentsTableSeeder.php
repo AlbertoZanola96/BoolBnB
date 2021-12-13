@@ -33,6 +33,7 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment->address = $addresses[$counter]['address'];
             $newApartment->lat = $addresses[$counter]['lat'];
             $newApartment->lon = $addresses[$counter]['lon'];
+            $newApartment->image = 'img-app/casa-' . $faker->numberBetween(1,30) . '.jpg';
             $newApartment->slug = Str::slug($newApartment->name);
             $newApartment->save();
             $counter++;
