@@ -2373,6 +2373,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Search',
   data: function data() {
@@ -5730,117 +5739,148 @@ var render = function () {
                               ),
                               _vm._v(" "),
                               _c(
-                                "ul",
+                                "div",
                                 {
                                   staticClass:
-                                    "d-none d-lg-flex flex-wrap pl-0 py-3 white-background",
-                                  attrs: { id: "services_list" },
+                                    "col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between",
                                 },
                                 [
-                                  _c("li", [
-                                    _c("i", {
-                                      staticClass:
-                                        "fas fa-door-open font-xxs bruschetta-text",
-                                    }),
+                                  _c("div", [
+                                    _c("h2", { staticClass: "m-0" }, [
+                                      _vm._v(_vm._s(apartment.name)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("hr", { staticClass: "my-2" }),
                                     _vm._v(" "),
                                     _c(
-                                      "span",
-                                      { staticClass: "d-inline-block mx-1" },
+                                      "h4",
+                                      { staticClass: "font-xxs gray-text" },
                                       [
-                                        _vm._v(
-                                          _vm._s(apartment.num_rooms) +
-                                            " camere"
-                                        ),
+                                        _c("i", {
+                                          staticClass: "fas fa-map-marker-alt",
+                                        }),
+                                        _vm._v(" "),
+                                        _c("span", { staticClass: "ml-2" }, [
+                                          _vm._v(_vm._s(apartment.address)),
+                                        ]),
                                       ]
                                     ),
                                   ]),
                                   _vm._v(" "),
-                                  _c("li", { staticClass: "mx-3" }, [
-                                    _vm._v("|"),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", [
-                                    _c("i", {
-                                      staticClass:
-                                        "fas fa-bed font-xxs bruschetta-text",
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "d-inline-block mx-1" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(apartment.num_beds) + " letti"
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", { staticClass: "mx-3" }, [
-                                    _vm._v("|"),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", [
-                                    _c("i", {
-                                      staticClass:
-                                        "fas fa-ruler-combined font-xxs bruschetta-text",
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "d-inline-block mx-1" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(apartment.square_meters) + "mq"
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", [
-                                    _vm._v(
-                                      "\r\n                                        " +
-                                        _vm._s(apartment.apartment_id) +
-                                        "\r\n                                    "
-                                    ),
-                                  ]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "pt-2" },
-                                [
                                   _c(
-                                    "router-link",
+                                    "ul",
                                     {
-                                      attrs: {
-                                        to: {
-                                          name: "Show",
-                                          params: {
-                                            slug: apartment.slug,
-                                            id: apartment.apartment_id,
-                                          },
-                                        },
-                                      },
+                                      staticClass:
+                                        "d-none d-lg-flex flex-wrap pl-0 py-3 white-background",
+                                      attrs: { id: "services_list" },
                                     },
                                     [
-                                      _c(
-                                        "button",
-                                        {
+                                      _c("li", [
+                                        _c("i", {
                                           staticClass:
-                                            "btn blue-background text-white",
+                                            "fas fa-door-open font-xxs bruschetta-text",
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass: "d-inline-block mx-1",
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(apartment.num_rooms) +
+                                                " camere"
+                                            ),
+                                          ]
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { staticClass: "mx-3" }, [
+                                        _vm._v("|"),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-bed font-xxs bruschetta-text",
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass: "d-inline-block mx-1",
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(apartment.num_beds) +
+                                                " letti"
+                                            ),
+                                          ]
+                                        ),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", { staticClass: "mx-3" }, [
+                                        _vm._v("|"),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("li", [
+                                        _c("i", {
+                                          staticClass:
+                                            "fas fa-ruler-combined font-xxs bruschetta-text",
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass: "d-inline-block mx-1",
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(apartment.square_meters) +
+                                                "mq"
+                                            ),
+                                          ]
+                                        ),
+                                      ]),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    { staticClass: "pt-2" },
+                                    [
+                                      _c(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to: {
+                                              name: "Show",
+                                              params: {
+                                                slug: apartment.slug,
+                                                id: apartment.apartment_id,
+                                              },
+                                            },
+                                          },
                                         },
                                         [
-                                          _vm._v(
-                                            "\r\n                                            Visualizza immobile →\r\n                                        "
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn blue-background text-white",
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\r\n                                                Visualizza immobile →\r\n                                            "
+                                              ),
+                                            ]
                                           ),
                                         ]
                                       ),
-                                    ]
+                                    ],
+                                    1
                                   ),
-                                ],
-                                1
+                                ]
                               ),
                             ]),
                           ]
@@ -6225,7 +6265,6 @@ var render = function () {
       },
       [
         _c("div", { staticClass: "modal-dialog" }, [
-
           _c("div", { staticClass: "modal-content" }, [
             _vm._m(3),
             _vm._v(" "),

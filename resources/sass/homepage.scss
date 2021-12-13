@@ -32,99 +32,99 @@
     }
 
     // info box 2 
-    .info-box-2 {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
-        margin: 0 auto;
-        background-color: $white;
-        border-radius: 5px;
-        z-index: 4;
+    // .info-box-2 {
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 50%;
+    //     transform: translate(-50%, 50%);
+    //     margin: 0 auto;
+    //     background-color: $white;
+    //     border-radius: 5px;
+    //     z-index: 4;
 
-        i {
-            font-size: 15px;
-            color: $ufo-green;
-        }
+    //     i {
+    //         font-size: 15px;
+    //         color: $ufo-green;
+    //     }
 
-        .center {
-            margin-right: 50px;
-            font-size: 18px;
+    //     .center {
+    //         margin-right: 50px;
+    //         font-size: 18px;
 
-            .info2-title {
-                color: $ufo-green;
-            }
+    //         .info2-title {
+    //             color: $ufo-green;
+    //         }
     
-            .info2-description {
-                color: $grisaille;
-            }
-        }
+    //         .info2-description {
+    //             color: $grisaille;
+    //         }
+    //     }
 
-        .btn-home {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid $ufo-green;
-            background-color: $white;
-            color: $ufo-green;
-        }
+    //     .btn-home {
+    //         width: 100%;
+    //         padding: 10px;
+    //         border: 1px solid $ufo-green;
+    //         background-color: $white;
+    //         color: $ufo-green;
+    //     }
 
-    }
+    // }
 }
 
 // info-box 
-.info-box {
-    position: relative;
-    min-height: 15vh;
-    background-color: $prestige-blue;
+// .info-box {
+//     position: relative;
+//     min-height: 15vh;
+//     background-color: $prestige-blue;
 
-    .info-title {
-        color: $white;
-        font-size: 18px;
-    }
+//     .info-title {
+//         color: $white;
+//         font-size: 18px;
+//     }
 
-    .info-description {
-        font-size: 18px;
-        color: $peace;
-    }
+//     .info-description {
+//         font-size: 18px;
+//         color: $peace;
+//     }
 
-    .info-box-2 {
-        position: relative;
-        transform: translate(0, -50%);
-        margin: 0 auto;
-        background-color: $white;
-        border-radius: 5px;
-        z-index: 4;
+//     .info-box-2 {
+//         position: relative;
+//         transform: translate(0, -50%);
+//         margin: 0 auto;
+//         background-color: $white;
+//         border-radius: 5px;
+//         z-index: 4;
 
-        i {
-            font-size: 15px;
-            color: $ufo-green;
-        }
+//         i {
+//             font-size: 15px;
+//             color: $ufo-green;
+//         }
 
-        .center {
-            font-size: 18px;
+//         .center {
+//             font-size: 18px;
 
-            .info2-title {
-                color: $ufo-green;
-            }
+//             .info2-title {
+//                 color: $ufo-green;
+//             }
     
-            .info2-description {
-                color: $grisaille;
-            }
-        }
+//             .info2-description {
+//                 color: $grisaille;
+//             }
+//         }
 
-        .btn-home {
-            width: 100%;
-            border: 1px solid $ufo-green;
-            background-color: $white;
-            color: $ufo-green;
+//         .btn-home {
+//             width: 100%;
+//             border: 1px solid $ufo-green;
+//             background-color: $white;
+//             color: $ufo-green;
 
-            &:hover {
-                color: $white;
-                background-color: $ufo-green;
-            }
-        }
-    }
-}
+//             &:hover {
+//                 color: $white;
+//                 background-color: $ufo-green;
+//             }
+//         }
+//     }
+// }
 
 // modal
 .modal {
