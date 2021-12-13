@@ -10345,6 +10345,9 @@ body {
   height: 100%;
   /* Sidebar links */
 }
+.sidebar .nav-link:hover {
+  color: #ff6348;
+}
 .sidebar a {
   display: block;
   color: #57606f;
@@ -10352,7 +10355,7 @@ body {
   /* Active/current link */
 }
 .sidebar a span:hover {
-  color: red;
+  color: #ff6348;
 }
 .sidebar a i {
   width: 15%;
@@ -10383,6 +10386,17 @@ body {
 #principale {
   width: clac(-100vw);
   background-color: #dfe4ea;
+}
+#principale .card-header {
+  background-color: #2f3542;
+  height: 50px;
+}
+#principale .card-body {
+  height: 100px;
+}
+#principale .card-body p {
+  font-weight: 500;
+  color: #57606F;
 }
 #principale .card {
   position: relative;
@@ -10432,6 +10446,10 @@ body {
   width: 100%;
   height: 110px;
   overflow: auto;
+}
+#principale .bruschetta {
+  color: white;
+  background-color: #ff6348;
 }
 
 .font-min {
@@ -10628,6 +10646,10 @@ h-100 {
 #show_container .my-img {
   width: 725px;
 }
+#show_container .bruschetta {
+  color: white;
+  background-color: #ff6348;
+}
 
 h2 {
   color: #57606f;
@@ -10703,6 +10725,32 @@ h2 {
 #messages {
   min-height: 500px;
 }
+#messages .msg-pr {
+  width: 100%;
+  height: 210px;
+  border-radius: 5px;
+}
+#messages .msg-pr .card-header {
+  background-color: #2f3542;
+  height: 50px;
+}
+#messages .msg-pr a {
+  text-decoration: none;
+}
+#messages .msg-pr a .card-body {
+  height: 100px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 18px gray;
+}
+#messages .msg-pr a .card-body:hover {
+  background-color: white;
+}
+#messages .msg-pr a .card-body p {
+  font-weight: 500;
+  color: #57606F;
+  text-decoration: none;
+  text-underline-position: none;
+}
 #messages .msg-box {
   border-radius: 5px;
   background-color: #ffffff;
@@ -10725,7 +10773,7 @@ h2 {
   width: 20px;
   height: 20px;
   font-size: 12px;
-  background-color: #ff4757;
+  background-color: #ff6348;
   color: #ffffff;
   border-radius: 50%;
 }

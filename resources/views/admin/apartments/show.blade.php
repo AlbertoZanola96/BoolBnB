@@ -133,7 +133,7 @@
                             <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" class="deleteForm" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger w-100">Elimina scheda immobile</button>
+                                <button type="submit" class="btn bruschetta w-100">Elimina scheda immobile</button>
                             </form>
                         </li>
                     </ul>

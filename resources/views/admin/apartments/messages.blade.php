@@ -40,7 +40,7 @@
                         <span>&#8592;</span> Torna alla lista degli appartamenti
                     </a>
                 </div>
-            </div>
+            </div> 
             {{-- messages  --}}
             @foreach ($leads as $lead)
                 <div class="row">

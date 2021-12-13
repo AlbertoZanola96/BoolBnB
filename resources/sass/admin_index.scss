@@ -1,6 +1,19 @@
 #principale {
     width: clac(100vw - 200);
     background-color: $city-lights;
+
+    .card-header{
+        background-color: $prestige-blue;
+        height: 50px;
+    }
+
+    .card-body{
+        height: 100px;
+        p {
+            font-weight: 500;
+            color: #57606F;
+        }
+    }
     
 
     .card {
@@ -60,6 +73,11 @@
             height: 110px;
             overflow: auto;
         }
+    }
+
+    .bruschetta {
+        color: white;
+       background-color: $bruschetta;
     }
 }
     
