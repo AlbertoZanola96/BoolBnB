@@ -175,12 +175,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="d-flex align-items-center flex-wrap services py-3">
-                                            <span for="services" class="d-block font-s white-text font-weight-bold">Servizi |</span>
+                                        <span for="services" class="d-block w-100 font-s white-text text-center font-weight-bold">Servizi:</span>
 
+                                        <div class="d-flex align-items-center justify-content-center flex-wrap services py-3">
                                             <div v-for="(apartmentService, index) in apartmentServices" :key="index">
                                                 <input
-                                                class="form-check-input" type="checkbox" :name="apartmentService + '1'" :value="apartmentService + '1'" :id="apartmentService + '1'">
+                                                    class="form-check-input" type="checkbox" :name="apartmentService + '1'" :value="apartmentService + '1'" :id="apartmentService + '1'">
                                                 <label class="form-check-label py-1 px-2 mx-2 my-2 shadow" :for="apartmentService + '1'">
                                                     {{ apartmentService }}
                                                 </label>
@@ -190,7 +190,7 @@
 
                                             <!-- btn cerca  -->
                                         <div class="col-12 my-3">
-                                            <button class="btn blue-background text-white w-100" v-on:click="getApartments">
+                                            <button class="btn background-gradient text-white w-100" v-on:click="getApartments">
                                                 Inizia a cercare
                                             </button>
                                         </div>
@@ -445,7 +445,7 @@ export default {
         }
 
         input:checked + label {
-            background-color: #237DC7;
+            background-color: $bruschetta;
             color: white;
         }
     }
@@ -516,8 +516,8 @@ export default {
         }
     }
 
-    .backgroundred{
-        background-color: red;
+    .background-gradient{
+        background: linear-gradient(120deg, #57606f, #ff7f50, #ff6348);
     }
 
 }
