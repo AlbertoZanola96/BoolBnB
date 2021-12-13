@@ -514,6 +514,16 @@ export default {
                     height: 100%;
                 }
             }
+
+            @media (max-width: 768px) {
+                .apartments-container{
+                    height: 70%;
+                }
+
+                .box-img{
+                    height: 30%;
+                }
+            }
             
         }
     }
