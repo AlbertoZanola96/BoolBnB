@@ -36,62 +36,64 @@
                 @endif 
                 @if (session('paymentDenied'))
                     <div class="alert alert-danger">
-                        {{ session('paymentDenied') }}
-                    </div>
                 @endif 
-
-                @if ($apartments == [])
-                    <div class="row">
-                        <div class="col-12">
-                            <P>NESSUN' APPARTAMENTO</P>
-                        </div>
+                @if (count($apartments) == 0)
+                    <div class="card mt-5">
+                        <div class="card-header"></div>
+                        <a href="{{ route('admin.apartments.create') }}">
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p class="d-flex justify-content-center mt-3">Nessun appartamento inserito.</p>
+                                </blockquote>
+                            </div>
+                        </a>
                     </div>
-                @endif
+                @else
+                    @foreach ($apartments as $apartment)
+                        <div class="container-fluid card mb-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- ap image  -->
+                                    @if($apartment->image)
+                                        <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
+                                    @endif
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- ap name  -->
+                                            <h3 class="ml-3">{{ $apartment->name }}</h3>
+                                            <h4 class="ml-3 mt-3" style="display: inline"><i class="fas fa-map-marker-alt mr-2"></i>{{ $apartment->city }}</h4>
 
-                @foreach ($apartments as $apartment)
-                    <div class="container-fluid card mb-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- ap image  -->
-                                @if($apartment->image)
-                                    <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->name }}">
-                                @endif
-                                <div class="row">
-                                    <div class="col-12">
-                                        <!-- ap name  -->
-                                        <h3 class="ml-3">{{ $apartment->name }}</h3>
-                                        <h4 class="ml-3 mt-3" style="display: inline"><i class="fas fa-map-marker-alt mr-2"></i>{{ $apartment->city }}</h4>
+                                            <!-- ap address  -->
+                                            <h5 class="" style="display: inline">{{ $apartment->address }}</h5>
 
-                                        <!-- ap address  -->
-                                        <h5 class="" style="display: inline">{{ $apartment->address }}</h5>
+                                            <!-- ap description  -->
+                                            <p class="ml-3 mt-3">{{ $apartment->description }}</p>
 
-                                        <!-- ap description  -->
-                                        <p class="ml-3 mt-3">{{ $apartment->description }}</p>
-
-                                        <!-- card buttons  -->
-                                        <a class="p-1" href="{{ route('admin.apartments.show', $apartment->slug) }}">
-                                            <button class="btn btn-dark my-btn "><i class="fas fa-info"></i></button>
-                                        </a>
-                                        <a class="p-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
-                                            <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
-                                        </a>
-                                        <a class="p-1" href="{{ route('admin.apartments.stats', $apartment->slug) }}">
-                                            <button class="btn btn-dark my-btn"><i class="far fa-chart-bar"></i></button>
-                                        </a>
-                                        <a class="p-1" href="{{ route('admin.apartments.sponsor',  $apartment->slug) }}">
-                                            <button class="btn btn-dark my-btn"><i class="fas fa-gem"></i></button>
-                                        </a>
-                                        <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class=" m-1 deleteForm" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger my-btn"><i class="fas fa-trash-alt"></i></button>
-                                        </form>
+                                            <!-- card buttons  -->
+                                            <a class="p-1" href="{{ route('admin.apartments.show', $apartment->slug) }}">
+                                                <button class="btn btn-dark my-btn "><i class="fas fa-info"></i></button>
+                                            </a>
+                                            <a class="p-1" href="{{ route('admin.apartments.edit', $apartment->slug) }}">
+                                                <button class="btn btn-dark my-btn"><i class="fas fa-edit"></i></button>
+                                            </a>
+                                            <a class="p-1" href="{{ route('admin.apartments.stats', $apartment->slug) }}">
+                                                <button class="btn btn-dark my-btn"><i class="far fa-chart-bar"></i></button>
+                                            </a>
+                                            <a class="p-1" href="{{ route('admin.apartments.sponsor',  $apartment->slug) }}">
+                                                <button class="btn btn-dark my-btn"><i class="fas fa-gem"></i></button>
+                                            </a>
+                                            <form action="{{ route('admin.apartments.destroy', $apartment->id) }}" style="display: inline" class=" m-1 deleteForm" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn bruschetta my-btn"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
