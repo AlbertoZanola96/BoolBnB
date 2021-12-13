@@ -14,7 +14,7 @@ class AddImageApartmentsTable extends Migration
     public function up()
     {
         Schema::table('apartments', function (Blueprint $table) {
-            $table->string('image')->nullable()->after('slug');
+            $table->string('image')->after('slug');
         });
     }
 
