@@ -227,6 +227,9 @@ ul{
     .info-box-2 {
         .info-container {
             flex-direction: column;
+            .info-text {
+                margin: 20px 0;
+            }
         }
         .button-home {
             display: inline;
