@@ -3,90 +3,89 @@
     <section id="input_container" class="container-fluid border-bottom">
         <div class="row align-items-center h-100 align-items-center">
             <div class="col-12 d-none d-md-block input-lg">
-                <!-- <form action="" class="d-flex px-2"> -->
-                    <div class="input-group justify-content-center align-items-center">
-                        <div>
-                            <!-- num_rooms  -->
-                            <input 
-                                class="btn" 
-                                v-model="num_rooms" 
-                                id="num_rooms" 
-                                name="num_rooms" 
-                                type="number" 
-                                min="1" 
-                                max="10" 
-                                placeholder="N. camere">
-                        </div>
-
-                            <!-- num_beds  -->
-                        <div>
-                            <input
-                                required
-                                class="btn" 
-                                v-model="num_beds" 
-                                id="num_beds" 
-                                name="num_beds" 
-                                type="number" 
-                                min="1" 
-                                max="10" placeholder="N. letti">
-                        </div>
-
-                            <!-- num_bathrooms  -->
-                        <div>
-                            <input
-                                required 
-                                class="btn" 
-                                v-model="num_bathrooms" 
-                                id="num_bathrooms" 
-                                name="num_bathrooms" 
-                                type="number" 
-                                min="1" 
-                                max="10" 
-                                placeholder="N. bagni">
-                        </div>
-
-                            <!-- address  -->
-                        <div>
-                            <input
-                                required 
-                                type="text" 
-                                v-model="address" 
-                                class="btn" 
-                                id="address" 
-                                name="address" 
-                                placeholder="In quale città?">
-                        </div>
-
-                            <!-- distance  -->
-                        <div>
-                            <div>
-                                <label for="distance" class="d-flex justify-content-around m-0">
-                                    <span>Distanza:</span>
-                                    <output> {{ distance }} km</output>
-                                </label>
-                                </div>
-                            <div class="d-flex align-items-center">
-                                <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
-                            </div>
-                        </div>
-
-                            <!-- btn cerca  -->
-                        <button class="btn blue-background text-white" v-on:click="getApartments">
-                            Inizia a cercare
-                        </button>
+                <div class="input-group justify-content-center align-items-center">
+                    <div>
+                        <!-- num_rooms  -->
+                        <input 
+                            class="btn" 
+                            v-model="num_rooms" 
+                            id="num_rooms" 
+                            name="num_rooms" 
+                            type="number" 
+                            min="1" 
+                            max="10" 
+                            placeholder="N. camere">
                     </div>
-                <!-- </form> -->
+
+                        <!-- num_beds  -->
+                    <div>
+                        <input
+                            required
+                            class="btn" 
+                            v-model="num_beds" 
+                            id="num_beds" 
+                            name="num_beds" 
+                            type="number" 
+                            min="1" 
+                            max="10" placeholder="N. letti">
+                    </div>
+
+                        <!-- num_bathrooms  -->
+                    <div>
+                        <input
+                            required 
+                            class="btn" 
+                            v-model="num_bathrooms" 
+                            id="num_bathrooms" 
+                            name="num_bathrooms" 
+                            type="number" 
+                            min="1" 
+                            max="10" 
+                            placeholder="N. bagni">
+                    </div>
+
+                        <!-- address  -->
+                    <div>
+                        <input
+                            required 
+                            type="text" 
+                            v-model="address" 
+                            class="btn" 
+                            id="address" 
+                            name="address" 
+                            placeholder="In quale città?">
+                    </div>
+
+                        <!-- distance  -->
+                    <div>
+                        <div>
+                            <label for="distance" class="d-flex justify-content-around m-0">
+                                <span>Distanza:</span>
+                                <output> {{ distance }} km</output>
+                            </label>
+                            </div>
+                        <div class="d-flex align-items-center">
+                            <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
+                        </div>
+                    </div>
+
+                        <!-- btn cerca  -->
+                    <button class="btn blue-background text-white" v-on:click="getApartments">
+                        Inizia a cercare
+                    </button>
+                </div>
             </div>
 
             <div class="col-12 d-md-none">
-                <a href="" data-toggle="modal" data-target="#leads" class="btn blue-background text-white w-100">
+                <a href="" data-toggle="modal" data-target="#search" class="btn blue-background text-white w-100">
                     <i class="fas fa-sliders-h"></i>
                     <span class="ml-3">Filtri di ricerca</span>
                 </a>
             </div>
 
+            <!-- modale filtri responsive  -->
             <div class="">
-                <div class="modal fade" id="leads" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="search" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content bg-dark">
                             <div class="mt-2 d-flex justify-content-center align-items-end">
@@ -96,81 +95,77 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <div class="modal-body">
-                                <form method="POST" action="" class="container">
-                                    <div class="row input-group ml-0">
-                                        <div class="col-12 my-3">
-                                            <!-- num_rooms  -->
-                                            <input 
-                                                class="btn w-100" 
-                                                v-model="num_rooms" 
-                                                id="num_rooms" 
-                                                name="num_rooms" 
-                                                type="number" 
-                                                min="1" 
-                                                max="10" 
-                                                placeholder="N. camere">
-                                        </div>
+                                <div class="row input-group ml-0">
+                                    <div class="col-12 my-3">
+                                        <!-- num_rooms  -->
+                                        <input 
+                                            class="btn w-100" 
+                                            v-model="num_rooms" 
+                                            id="num_rooms" 
+                                            name="num_rooms" 
+                                            type="number" 
+                                            min="0" 
+                                            max="10" 
+                                            placeholder="N. camere">
+                                    </div>
 
-                                            <!-- num_beds  -->
-                                        <div class="col-12 my-3">
-                                            <input
-                                                required
-                                                class="btn w-100" 
-                                                v-model="num_beds" 
-                                                id="num_beds" 
-                                                name="num_beds" 
-                                                type="number" 
-                                                min="1" 
-                                                max="10" placeholder="N. letti">
-                                        </div>
+                                        <!-- num_beds  -->
+                                    <div class="col-12 my-3">
+                                        <input
+                                            class="btn w-100" 
+                                            v-model="num_beds" 
+                                            id="num_beds" 
+                                            name="num_beds" 
+                                            type="number" 
+                                            min="0" 
+                                            max="10" placeholder="N. letti">
+                                    </div>
 
-                                            <!-- num_bathrooms  -->
-                                        <div class="col-12 my-3">
-                                            <input
-                                                required 
-                                                class="btn w-100" 
-                                                v-model="num_bathrooms" 
-                                                id="num_bathrooms" 
-                                                name="num_bathrooms" 
-                                                type="number" 
-                                                min="1" 
-                                                max="10" 
-                                                placeholder="N. bagni">
-                                        </div>
+                                        <!-- num_bathrooms  -->
+                                    <div class="col-12 my-3">
+                                        <input 
+                                            class="btn w-100" 
+                                            v-model="num_bathrooms" 
+                                            id="num_bathrooms" 
+                                            name="num_bathrooms" 
+                                            type="number" 
+                                            min="0" 
+                                            max="10" 
+                                            placeholder="N. bagni">
+                                    </div>
 
-                                            <!-- address  -->
-                                        <div class="col-12 my-3">
-                                            <input
-                                                required 
-                                                type="text" 
-                                                v-model="address" 
-                                                class="btn w-100" 
-                                                id="address" 
-                                                name="address" 
-                                                placeholder="In quale città?">
-                                        </div>
+                                        <!-- address  -->
+                                    <div class="col-12 my-3">
+                                        <input
+                                            required 
+                                            type="text" 
+                                            v-model="address" 
+                                            class="btn w-100" 
+                                            id="address" 
+                                            name="address" 
+                                            placeholder="In quale città?">
+                                    </div>
 
-                                            <!-- distance  -->
-                                        <div class="col-12 my-3">
-                                            <div class="mb-2">
-                                                <label for="distance" class="d-flex justify-content-around m-0">
-                                                    <span class="white-text">Distanza:</span>
-                                                    <output class="white-text"> {{ distance }} km</output>
-                                                </label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-center">
-                                                <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
-                                            </div>
+                                        <!-- distance  -->
+                                    <div class="col-12 my-3">
+                                        <div class="mb-2">
+                                            <label for="distance" class="d-flex justify-content-around m-0">
+                                                <span class="white-text">Distanza:</span>
+                                                <output class="white-text"> {{ distance }} km</output>
+                                            </label>
                                         </div>
-
-                                            <!-- btn cerca  -->
-                                        <div class="col-12 my-3">
-                                            <button class="btn blue-background text-white w-100" v-on:click="getApartments">
-                                                Inizia a cercare
-                                            </button>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
                                         </div>
                                     </div>
-                                </form>
+
+                                        <!-- btn cerca  -->
+                                    <div class="col-12 my-3">
+                                        <button class="btn blue-background text-white w-100" v-on:click="getApartments">
+                                            Inizia a cercare
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -186,7 +181,7 @@
             <div class="col-12 col-md-5 col-lg-6 p-0 apartments-container">
                 <ul class="px-4 py-2">
                     <li v-for="(apartment, index) in apartments" :key="index">
-                        <div v-if="apartment.visible == 1" class="p-4 my-4 border container-fluid">
+                        <div class="p-4 my-4 border container-fluid">
                             <div class="d-flex row">
                                 <div class="img-box col-12 col-lg-5 d-flex align-items-center">
                                     <img class="w-100" :src="'/storage/' + apartment.image" alt="">
@@ -225,7 +220,7 @@
                                     </ul>
                                         
                                     <div class="pt-2">
-                                        <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.apartment_id} }">
+                                        <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
                                             <button class="btn blue-background text-white" >
                                                 Visualizza immobile &#8594;
                                             </button>
@@ -308,6 +303,8 @@ export default {
                         // console.log('primo: ' + this.apartments);
                         // TODO: rivedere sincronia dei dati 
                         this.createMarker(this.apartments);
+                        $('#search').modal('hide');
+                        $('#search form :input').val("");
                     });
                 
                 if(this.map != undefined) {
@@ -352,11 +349,11 @@ export default {
         }
     },
     created() {
-        if(this.address != undefined) {
+        // if(this.address != undefined) {
             this.getApartments();
-        } else {
-            this.getSponsored();
-        }
+        // } else {
+        //     this.getSponsored();
+        // }
     },
     mounted() {
         this.mapDisplay();

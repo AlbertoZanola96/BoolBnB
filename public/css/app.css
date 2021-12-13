@@ -10051,6 +10051,82 @@ h3 {
   border: none;
   outline: 0;
 }
+.banner .info-box-2 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 4;
+}
+.banner .info-box-2 i {
+  font-size: 15px;
+  color: #2ed573;
+}
+.banner .info-box-2 .center {
+  margin-right: 50px;
+  font-size: 18px;
+}
+.banner .info-box-2 .center .info2-title {
+  color: #2ed573;
+}
+.banner .info-box-2 .center .info2-description {
+  color: #57606f;
+}
+.banner .info-box-2 .btn-home {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2ed573;
+  background-color: #ffffff;
+  color: #2ed573;
+}
+
+.info-box {
+  position: relative;
+  min-height: 15vh;
+  background-color: #2f3542;
+}
+.info-box .info-title {
+  color: #ffffff;
+  font-size: 18px;
+}
+.info-box .info-description {
+  font-size: 18px;
+  color: #a4b0be;
+}
+.info-box .info-box-2 {
+  position: relative;
+  transform: translate(0, -50%);
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  z-index: 4;
+}
+.info-box .info-box-2 i {
+  font-size: 15px;
+  color: #2ed573;
+}
+.info-box .info-box-2 .center {
+  font-size: 18px;
+}
+.info-box .info-box-2 .center .info2-title {
+  color: #2ed573;
+}
+.info-box .info-box-2 .center .info2-description {
+  color: #57606f;
+}
+.info-box .info-box-2 .btn-home {
+  width: 100%;
+  border: 1px solid #2ed573;
+  background-color: #ffffff;
+  color: #2ed573;
+}
+.info-box .info-box-2 .btn-home:hover {
+  color: #ffffff;
+  background-color: #2ed573;
+}
 
 .modal .modal-content {
   background-color: #2f3542;
@@ -10128,7 +10204,7 @@ header .navigation {
   padding: 0;
 }
 header .navigation #logo {
-  height: 80px;
+  height: 70px;
 }
 header .navigation #logo img {
   height: 100%;

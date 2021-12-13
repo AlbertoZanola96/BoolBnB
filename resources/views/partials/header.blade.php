@@ -18,7 +18,7 @@
                         <ul class="navbar-nav">
                             @auth
                                 <li class="nav-item">
-                                    <a href="{{ url('/admin') }}">
+                                    <a href="{{ url('/admin/apartments') }}">
                                         <div class="loged d-flex align-items-center">
                                             <i class="far fa-user"></i>
                                             {{ $user->name . ' ' . $user->surname }}

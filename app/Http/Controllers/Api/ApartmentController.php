@@ -13,13 +13,29 @@ class ApartmentController extends Controller
 {
     public function searchApartments(Request $request){
         $resQuery = $request->query();
+
+        $ids = explode(',', $request->services);
         
         // query filtro senza raggio di km 
-        $query = Apartment::where('num_rooms', '>=', $resQuery['num_rooms'] ?? 0)
+        $filteredApartments = Apartment::where('num_rooms', '>=', $resQuery['num_rooms'] ?? 0)
         ->where('num_beds', '>=', $resQuery['num_beds'] ?? 0)
-        ->where('num_bathrooms', '>=', $resQuery['num_bathrooms'] ?? 0);
+        ->where('num_bathrooms', '>=', $resQuery['num_bathrooms'] ?? 0)
+        ->where('visible', 1)
+        ->get();
 
-        $filteredApartments = $query->get();
+        if(!empty($request->services)){
+            $filteredApartments = Apartment::whereHas('services', function($q) use($ids){
+                $q->whereIn('service_id', $ids);
+            })->get();
+        }
+        
+        // query filtro senza raggio di km 
+        // $query = Apartment::where('visible', 1)
+        // ->where('num_rooms', '>=', $resQuery['num_rooms'] ?? 0)
+        // ->where('num_beds', '>=', $resQuery['num_beds'] ?? 0)
+        // ->where('num_bathrooms', '>=', $resQuery['num_bathrooms'] ?? 0);
+
+        // $filteredApartments = $query->get();
 
         $matchingApartments = [];
         $stdRadius = $request->distance;

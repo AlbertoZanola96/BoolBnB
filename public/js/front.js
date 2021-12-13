@@ -2377,11 +2377,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Search',
   data: function data() {
@@ -2437,6 +2432,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   // TODO: rivedere sincronia dei dati 
 
                   _this.createMarker(_this.apartments);
+
+                  $('#search').modal('hide');
+                  $('#search form :input').val("");
                 });
 
                 if (_this.map != undefined) {
@@ -2514,11 +2512,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   created: function created() {
-    if (this.address != undefined) {
-      this.getApartments();
-    } else {
-      this.getSponsored();
-    }
+    // if(this.address != undefined) {
+    this.getApartments(); // } else {
+    //     this.getSponsored();
+    // }
   },
   mounted: function mounted() {
     this.mapDisplay();
@@ -4935,215 +4932,195 @@ var render = function () {
         { staticClass: "row mb-0" },
         _vm._l(_vm.apartments, function (apartment, index) {
           return _c("li", { key: index, staticClass: "col-12 col-md-6 p-3" }, [
-            apartment.visible == 1
-              ? _c(
+            _c(
+              "div",
+              { staticClass: "white-background overflow-hidden sponsor-card" },
+              [
+                _c(
                   "div",
-                  {
-                    staticClass:
-                      "white-background overflow-hidden sponsor-card",
-                  },
+                  { staticClass: "row w-100 ml-0 align-items-center" },
                   [
                     _c(
                       "div",
-                      { staticClass: "row w-100 ml-0 align-items-center" },
+                      {
+                        staticClass:
+                          "col-12 col-xl-6 d-flex align-items-center",
+                      },
                       [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "col-12 col-xl-6 d-flex align-items-center",
+                        _c("img", {
+                          staticClass: "w-100",
+                          attrs: {
+                            src: "/storage/" + apartment.image,
+                            alt: "",
                           },
-                          [
-                            _c("img", {
-                              staticClass: "w-100",
-                              attrs: {
-                                src: "/storage/" + apartment.image,
-                                alt: "",
-                              },
-                            }),
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "col-12 col-xl-6 py-3 py-xl-3 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between",
-                          },
-                          [
-                            _c("div", [
-                              _c("h2", { staticClass: "m-0 text-overflow" }, [
-                                _vm._v(_vm._s(apartment.name)),
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-12 col-xl-6 py-3 py-xl-3 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between",
+                      },
+                      [
+                        _c("div", [
+                          _c("h2", { staticClass: "m-0 text-overflow" }, [
+                            _vm._v(_vm._s(apartment.name)),
+                          ]),
+                          _vm._v(" "),
+                          _c("hr", { staticClass: "my-2" }),
+                          _vm._v(" "),
+                          _c(
+                            "h4",
+                            { staticClass: "font-xxs gray-text text-overflow" },
+                            [
+                              _c("i", { staticClass: "fas fa-map-marker-alt" }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "ml-2" }, [
+                                _vm._v(_vm._s(apartment.address)),
                               ]),
-                              _vm._v(" "),
-                              _c("hr", { staticClass: "my-2" }),
-                              _vm._v(" "),
-                              _c(
-                                "h4",
-                                {
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-xl-3 white-background",
+                              attrs: { id: "services_list" },
+                            },
+                            [
+                              _c("li", [
+                                _c("i", {
                                   staticClass:
-                                    "font-xxs gray-text text-overflow",
-                                },
-                                [
-                                  _c("i", {
-                                    staticClass: "fas fa-map-marker-alt",
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", { staticClass: "ml-2" }, [
-                                    _vm._v(_vm._s(apartment.address)),
-                                  ]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "ul",
-                                {
-                                  staticClass:
-                                    "d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-xl-3 white-background",
-                                  attrs: { id: "services_list" },
-                                },
-                                [
-                                  _c("li", [
-                                    _c("i", {
-                                      staticClass:
-                                        "fas fa-door-open font-xxs bruschetta-text",
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "d-inline-block mx-1" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(apartment.num_rooms) +
-                                            " camere"
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", { staticClass: "mx-3" }, [
-                                    _vm._v("|"),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", [
-                                    _c("i", {
-                                      staticClass:
-                                        "fas fa-bed font-xxs bruschetta-text",
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "d-inline-block mx-1" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(apartment.num_beds) + " letti"
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", { staticClass: "mx-3" }, [
-                                    _vm._v("|"),
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("li", [
-                                    _c("i", {
-                                      staticClass:
-                                        "fas fa-ruler-combined font-xxs bruschetta-text",
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      { staticClass: "d-inline-block mx-1" },
-                                      [
-                                        _vm._v(
-                                          _vm._s(apartment.square_meters) + "mq"
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("div", [
-                                _c("hr", {
-                                  staticClass: "mt-0 d-none d-xl-block",
+                                    "fas fa-door-open font-xxs bruschetta-text",
                                 }),
                                 _vm._v(" "),
                                 _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "description-box d-none d-xl-block",
-                                  },
+                                  "span",
+                                  { staticClass: "d-inline-block mx-1" },
                                   [
-                                    _c("div", [
-                                      _c("p", [
-                                        _vm._v(
-                                          " " +
-                                            _vm._s(
-                                              !(
-                                                apartment.description.length >
-                                                150
-                                              )
-                                                ? apartment.description
-                                                : apartment.description.substring(
-                                                    1,
-                                                    150
-                                                  ) + "..."
-                                            ) +
-                                            " "
-                                        ),
-                                      ]),
-                                    ]),
-                                  ]
-                                ),
-                              ]),
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              [
-                                _c("hr", { staticClass: "d-none d-md-block" }),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: {
-                                      to: {
-                                        name: "Show",
-                                        params: {
-                                          slug: apartment.slug,
-                                          id: apartment.id,
-                                        },
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn blue-background w-100 text-white",
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Visualizza immobile →\n                                    "
-                                        ),
-                                      ]
+                                    _vm._v(
+                                      _vm._s(apartment.num_rooms) + " camere"
                                     ),
                                   ]
                                 ),
-                              ],
-                              1
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "mx-3" }, [_vm._v("|")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _c("i", {
+                                  staticClass:
+                                    "fas fa-bed font-xxs bruschetta-text",
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "d-inline-block mx-1" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(apartment.num_beds) + " letti"
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("li", { staticClass: "mx-3" }, [_vm._v("|")]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _c("i", {
+                                  staticClass:
+                                    "fas fa-ruler-combined font-xxs bruschetta-text",
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  { staticClass: "d-inline-block mx-1" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(apartment.square_meters) + "mq"
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c("hr", { staticClass: "mt-0 d-none d-xl-block" }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "description-box d-none d-xl-block",
+                              },
+                              [
+                                _c("div", [
+                                  _c("p", [
+                                    _vm._v(
+                                      " " +
+                                        _vm._s(
+                                          !(apartment.description.length > 150)
+                                            ? apartment.description
+                                            : apartment.description.substring(
+                                                1,
+                                                150
+                                              ) + "..."
+                                        ) +
+                                        " "
+                                    ),
+                                  ]),
+                                ]),
+                              ]
                             ),
-                          ]
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _c("hr", { staticClass: "d-none d-md-block" }),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "Show",
+                                    params: {
+                                      slug: apartment.slug,
+                                      id: apartment.apartment_id,
+                                    },
+                                  },
+                                },
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn blue-background w-100 text-white",
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                        Visualizza immobile →\n                                    "
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
                         ),
                       ]
                     ),
                   ]
-                )
-              : _vm._e(),
+                ),
+              ]
+            ),
           ])
         }),
         0
@@ -5441,7 +5418,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\r\n                            Inizia a cercare\r\n                        "
+                        "\r\n                        Inizia a cercare\r\n                    "
                       ),
                     ]
                   ),
@@ -5457,7 +5434,7 @@ var render = function () {
                 {
                   staticClass: "modal fade",
                   attrs: {
-                    id: "leads",
+                    id: "search",
                     "data-backdrop": "static",
                     "data-keyboard": "false",
                     tabindex: "-1",
@@ -5473,221 +5450,202 @@ var render = function () {
                       _vm._m(2),
                       _vm._v(" "),
                       _c("div", { staticClass: "modal-body" }, [
-                        _c(
-                          "form",
-                          {
-                            staticClass: "container",
-                            attrs: { method: "POST", action: "" },
-                          },
-                          [
-                            _c("div", { staticClass: "row input-group ml-0" }, [
-                              _c("div", { staticClass: "col-12 my-3" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.num_rooms,
-                                      expression: "num_rooms",
-                                    },
-                                  ],
-                                  staticClass: "btn w-100",
-                                  attrs: {
-                                    id: "num_rooms",
-                                    name: "num_rooms",
-                                    type: "number",
-                                    min: "1",
-                                    max: "10",
-                                    placeholder: "N. camere",
-                                  },
-                                  domProps: { value: _vm.num_rooms },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.num_rooms = $event.target.value
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-12 my-3" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.num_beds,
-                                      expression: "num_beds",
-                                    },
-                                  ],
-                                  staticClass: "btn w-100",
-                                  attrs: {
-                                    required: "",
-                                    id: "num_beds",
-                                    name: "num_beds",
-                                    type: "number",
-                                    min: "1",
-                                    max: "10",
-                                    placeholder: "N. letti",
-                                  },
-                                  domProps: { value: _vm.num_beds },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.num_beds = $event.target.value
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-12 my-3" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.num_bathrooms,
-                                      expression: "num_bathrooms",
-                                    },
-                                  ],
-                                  staticClass: "btn w-100",
-                                  attrs: {
-                                    required: "",
-                                    id: "num_bathrooms",
-                                    name: "num_bathrooms",
-                                    type: "number",
-                                    min: "1",
-                                    max: "10",
-                                    placeholder: "N. bagni",
-                                  },
-                                  domProps: { value: _vm.num_bathrooms },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.num_bathrooms = $event.target.value
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-12 my-3" }, [
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.address,
-                                      expression: "address",
-                                    },
-                                  ],
-                                  staticClass: "btn w-100",
-                                  attrs: {
-                                    required: "",
-                                    type: "text",
-                                    id: "address",
-                                    name: "address",
-                                    placeholder: "In quale città?",
-                                  },
-                                  domProps: { value: _vm.address },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.address = $event.target.value
-                                    },
-                                  },
-                                }),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-12 my-3" }, [
-                                _c("div", { staticClass: "mb-2" }, [
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass:
-                                        "d-flex justify-content-around m-0",
-                                      attrs: { for: "distance" },
-                                    },
-                                    [
-                                      _c(
-                                        "span",
-                                        { staticClass: "white-text" },
-                                        [_vm._v("Distanza:")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "output",
-                                        { staticClass: "white-text" },
-                                        [
-                                          _vm._v(
-                                            " " + _vm._s(_vm.distance) + " km"
-                                          ),
-                                        ]
-                                      ),
-                                    ]
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "d-flex align-items-center justify-content-center",
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.distance,
-                                          expression: "distance",
-                                        },
-                                      ],
-                                      staticClass: "distance",
-                                      attrs: {
-                                        type: "range",
-                                        id: "distance",
-                                        name: "distance",
-                                        oninput:
-                                          "this.nextElementSibling.value = this.value + ' km'",
-                                      },
-                                      domProps: { value: _vm.distance },
-                                      on: {
-                                        __r: function ($event) {
-                                          _vm.distance = $event.target.value
-                                        },
-                                      },
-                                    }),
-                                  ]
-                                ),
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col-12 my-3" }, [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn blue-background text-white w-100",
-                                    on: { click: _vm.getApartments },
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\r\n                                                Inizia a cercare\r\n                                            "
-                                    ),
-                                  ]
-                                ),
-                              ]),
+                        _c("div", { staticClass: "row input-group ml-0" }, [
+                          _c("div", { staticClass: "col-12 my-3" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.num_rooms,
+                                  expression: "num_rooms",
+                                },
+                              ],
+                              staticClass: "btn w-100",
+                              attrs: {
+                                id: "num_rooms",
+                                name: "num_rooms",
+                                type: "number",
+                                min: "0",
+                                max: "10",
+                                placeholder: "N. camere",
+                              },
+                              domProps: { value: _vm.num_rooms },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.num_rooms = $event.target.value
+                                },
+                              },
+                            }),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 my-3" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.num_beds,
+                                  expression: "num_beds",
+                                },
+                              ],
+                              staticClass: "btn w-100",
+                              attrs: {
+                                id: "num_beds",
+                                name: "num_beds",
+                                type: "number",
+                                min: "0",
+                                max: "10",
+                                placeholder: "N. letti",
+                              },
+                              domProps: { value: _vm.num_beds },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.num_beds = $event.target.value
+                                },
+                              },
+                            }),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 my-3" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.num_bathrooms,
+                                  expression: "num_bathrooms",
+                                },
+                              ],
+                              staticClass: "btn w-100",
+                              attrs: {
+                                id: "num_bathrooms",
+                                name: "num_bathrooms",
+                                type: "number",
+                                min: "0",
+                                max: "10",
+                                placeholder: "N. bagni",
+                              },
+                              domProps: { value: _vm.num_bathrooms },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.num_bathrooms = $event.target.value
+                                },
+                              },
+                            }),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 my-3" }, [
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.address,
+                                  expression: "address",
+                                },
+                              ],
+                              staticClass: "btn w-100",
+                              attrs: {
+                                required: "",
+                                type: "text",
+                                id: "address",
+                                name: "address",
+                                placeholder: "In quale città?",
+                              },
+                              domProps: { value: _vm.address },
+                              on: {
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.address = $event.target.value
+                                },
+                              },
+                            }),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 my-3" }, [
+                            _c("div", { staticClass: "mb-2" }, [
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "d-flex justify-content-around m-0",
+                                  attrs: { for: "distance" },
+                                },
+                                [
+                                  _c("span", { staticClass: "white-text" }, [
+                                    _vm._v("Distanza:"),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("output", { staticClass: "white-text" }, [
+                                    _vm._v(" " + _vm._s(_vm.distance) + " km"),
+                                  ]),
+                                ]
+                              ),
                             ]),
-                          ]
-                        ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "d-flex align-items-center justify-content-center",
+                              },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.distance,
+                                      expression: "distance",
+                                    },
+                                  ],
+                                  staticClass: "distance",
+                                  attrs: {
+                                    type: "range",
+                                    id: "distance",
+                                    name: "distance",
+                                    oninput:
+                                      "this.nextElementSibling.value = this.value + ' km'",
+                                  },
+                                  domProps: { value: _vm.distance },
+                                  on: {
+                                    __r: function ($event) {
+                                      _vm.distance = $event.target.value
+                                    },
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 my-3" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn blue-background text-white w-100",
+                                on: { click: _vm.getApartments },
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n                                            Inizia a cercare\r\n                                        "
+                                ),
+                              ]
+                            ),
+                          ]),
+                        ]),
                       ]),
                     ]),
                   ]),
@@ -5715,177 +5673,167 @@ var render = function () {
                 { staticClass: "px-4 py-2" },
                 _vm._l(_vm.apartments, function (apartment, index) {
                   return _c("li", { key: index }, [
-                    apartment.visible == 1
-                      ? _c(
-                          "div",
-                          { staticClass: "p-4 my-4 border container-fluid" },
-                          [
-                            _c("div", { staticClass: "d-flex row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "p-4 my-4 border container-fluid" },
+                      [
+                        _c("div", { staticClass: "d-flex row" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "img-box col-12 col-lg-5 d-flex align-items-center",
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "w-100",
+                                attrs: {
+                                  src: "/storage/" + apartment.image,
+                                  alt: "",
+                                },
+                              }),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between",
+                            },
+                            [
+                              _c("div", [
+                                _c("h2", { staticClass: "m-0" }, [
+                                  _vm._v(_vm._s(apartment.name)),
+                                ]),
+                                _vm._v(" "),
+                                _c("hr", { staticClass: "my-2" }),
+                                _vm._v(" "),
+                                _c(
+                                  "h4",
+                                  { staticClass: "font-xxs gray-text" },
+                                  [
+                                    _c("i", {
+                                      staticClass: "fas fa-map-marker-alt",
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "ml-2" }, [
+                                      _vm._v(_vm._s(apartment.address)),
+                                    ]),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
                               _c(
-                                "div",
+                                "ul",
                                 {
                                   staticClass:
-                                    "img-box col-12 col-lg-5 d-flex align-items-center",
+                                    "d-none d-lg-flex flex-wrap pl-0 py-3 white-background",
+                                  attrs: { id: "services_list" },
                                 },
                                 [
-                                  _c("img", {
-                                    staticClass: "w-100",
-                                    attrs: {
-                                      src: "/storage/" + apartment.image,
-                                      alt: "",
-                                    },
-                                  }),
+                                  _c("li", [
+                                    _c("i", {
+                                      staticClass:
+                                        "fas fa-door-open font-xxs bruschetta-text",
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      { staticClass: "d-inline-block mx-1" },
+                                      [
+                                        _vm._v(
+                                          _vm._s(apartment.num_rooms) +
+                                            " camere"
+                                        ),
+                                      ]
+                                    ),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "mx-3" }, [
+                                    _vm._v("|"),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _c("i", {
+                                      staticClass:
+                                        "fas fa-bed font-xxs bruschetta-text",
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      { staticClass: "d-inline-block mx-1" },
+                                      [
+                                        _vm._v(
+                                          _vm._s(apartment.num_beds) + " letti"
+                                        ),
+                                      ]
+                                    ),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", { staticClass: "mx-3" }, [
+                                    _vm._v("|"),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("li", [
+                                    _c("i", {
+                                      staticClass:
+                                        "fas fa-ruler-combined font-xxs bruschetta-text",
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "span",
+                                      { staticClass: "d-inline-block mx-1" },
+                                      [
+                                        _vm._v(
+                                          _vm._s(apartment.square_meters) + "mq"
+                                        ),
+                                      ]
+                                    ),
+                                  ]),
                                 ]
                               ),
                               _vm._v(" "),
                               _c(
                                 "div",
-                                {
-                                  staticClass:
-                                    "col-12 col-lg-7 py-2 px-4 d-flex flex-column justify-content-between",
-                                },
+                                { staticClass: "pt-2" },
                                 [
-                                  _c("div", [
-                                    _c("h2", { staticClass: "m-0" }, [
-                                      _vm._v(_vm._s(apartment.name)),
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("hr", { staticClass: "my-2" }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "h4",
-                                      { staticClass: "font-xxs gray-text" },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fas fa-map-marker-alt",
-                                        }),
-                                        _vm._v(" "),
-                                        _c("span", { staticClass: "ml-2" }, [
-                                          _vm._v(_vm._s(apartment.address)),
-                                        ]),
-                                      ]
-                                    ),
-                                  ]),
-                                  _vm._v(" "),
                                   _c(
-                                    "ul",
+                                    "router-link",
                                     {
-                                      staticClass:
-                                        "d-none d-lg-flex flex-wrap pl-0 py-3 white-background",
-                                      attrs: { id: "services_list" },
-                                    },
-                                    [
-                                      _c("li", [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-door-open font-xxs bruschetta-text",
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "d-inline-block mx-1",
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(apartment.num_rooms) +
-                                                " camere"
-                                            ),
-                                          ]
-                                        ),
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("li", { staticClass: "mx-3" }, [
-                                        _vm._v("|"),
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("li", [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-bed font-xxs bruschetta-text",
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "d-inline-block mx-1",
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(apartment.num_beds) +
-                                                " letti"
-                                            ),
-                                          ]
-                                        ),
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("li", { staticClass: "mx-3" }, [
-                                        _vm._v("|"),
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("li", [
-                                        _c("i", {
-                                          staticClass:
-                                            "fas fa-ruler-combined font-xxs bruschetta-text",
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "span",
-                                          {
-                                            staticClass: "d-inline-block mx-1",
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(apartment.square_meters) +
-                                                "mq"
-                                            ),
-                                          ]
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "pt-2" },
-                                    [
-                                      _c(
-                                        "router-link",
-                                        {
-                                          attrs: {
-                                            to: {
-                                              name: "Show",
-                                              params: {
-                                                slug: apartment.slug,
-                                                id: apartment.apartment_id,
-                                              },
-                                            },
+                                      attrs: {
+                                        to: {
+                                          name: "Show",
+                                          params: {
+                                            slug: apartment.slug,
+                                            id: apartment.id,
                                           },
                                         },
+                                      },
+                                    },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn blue-background text-white",
+                                        },
                                         [
-                                          _c(
-                                            "button",
-                                            {
-                                              staticClass:
-                                                "btn blue-background text-white",
-                                            },
-                                            [
-                                              _vm._v(
-                                                "\r\n                                                Visualizza immobile →\r\n                                            "
-                                              ),
-                                            ]
+                                          _vm._v(
+                                            "\r\n                                                Visualizza immobile →\r\n                                            "
                                           ),
                                         ]
                                       ),
-                                    ],
-                                    1
+                                    ]
                                   ),
-                                ]
+                                ],
+                                1
                               ),
-                            ]),
-                          ]
-                        )
-                      : _vm._e(),
+                            ]
+                          ),
+                        ]),
+                      ]
+                    ),
                   ])
                 }),
                 0
@@ -5909,7 +5857,7 @@ var staticRenderFns = [
         "a",
         {
           staticClass: "btn blue-background text-white w-100",
-          attrs: { href: "", "data-toggle": "modal", "data-target": "#leads" },
+          attrs: { href: "", "data-toggle": "modal", "data-target": "#search" },
         },
         [
           _c("i", { staticClass: "fas fa-sliders-h" }),
@@ -22316,7 +22264,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Mariano\Desktop\BooleanClasse#39\progetto_finale\BoolBnB\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Eduardo\Documents\BoolBnB\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
