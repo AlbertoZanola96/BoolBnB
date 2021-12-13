@@ -69,23 +69,26 @@
                             <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
                         </div>
 
-                        <div class="d-flex align-items-center services py-3 overflow-x">
-                            <span for="services" class="d-block font-s font-weight-bold">Servizi |</span>
-
-                            <div v-for="(apartmentService, index) in apartmentServices" :key="index">
-                                <input
-                                class="form-check-input" type="checkbox" :name="apartmentService" :value="apartmentService" :id="apartmentService">
-                                <label class="form-check-label py-1 px-2 mx-2 shadow" :for="apartmentService">
-                                    {{ apartmentService }}
-                                </label>
-                            </div>
-                        </div>
+                            <!-- btn cerca  -->
+                        <button class="btn blue-background text-white" v-on:click="getApartments">
+                            Inizia a cercare
+                        </button>
                     </div>
+                <!-- </form> -->
+            </div>
 
-                        <!-- btn cerca  -->
-                    <button class="btn blue-background text-white" v-on:click="getApartments">
-                        Inizia a cercare
-                    </button>
+            <div class="col-12 d-none d-md-block input-lg">
+                <div class="d-flex justify-content-center align-items-center services py-3 overflow-x">
+                    <span for="services" class="d-block font-s font-weight-bold">Servizi |</span>
+
+
+                    <div v-for="(apartmentService, index) in apartmentServices" :key="index">
+                        <input
+                        class="form-check-input" type="checkbox" :name="apartmentService" :value="apartmentService" :id="apartmentService">
+                        <label class="form-check-label py-1 px-2 mx-2 shadow" :for="apartmentService">
+                            {{ apartmentService }}
+                        </label>
+                    </div>
                 </div>
             </div>
 
