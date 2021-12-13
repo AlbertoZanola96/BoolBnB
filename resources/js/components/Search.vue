@@ -2,7 +2,7 @@
 <div id="search-container">
     <section id="input_container" class="container-fluid border-bottom">
         <div class="row align-items-center h-100 align-items-center">
-            <div class="col-12 d-none d-md-block input-lg">
+            <div class="col-12 d-none d-md-block input-lg mt-md-1">
                 <!-- <form action="" class="d-flex px-2"> -->
                     <div class="input-group justify-content-center align-items-center">
                         <div>
@@ -74,6 +74,18 @@
                         <button class="btn btn-primary" v-on:click="getApartments">
                             Inizia a cercare
                         </button>
+
+                        <div class="d-flex align-items-center services py-3 overflow-x">
+                            <span for="services" class="d-block font-s font-weight-bold">Servizi |</span>
+
+                            <div v-for="(apartmentService, index) in apartmentServices" :key="index">
+                                <input
+                                class="form-check-input" type="checkbox" :name="apartmentService" :value="apartmentService" :id="apartmentService">
+                                <label class="form-check-label py-1 px-2 mx-2 shadow" :for="apartmentService">
+                                    {{ apartmentService }}
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 <!-- </form> -->
             </div>
@@ -162,6 +174,19 @@
                                                 <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
                                             </div>
                                         </div>
+
+                                        <div class="d-flex align-items-center flex-wrap services py-3">
+                                            <span for="services" class="d-block font-s white-text font-weight-bold">Servizi |</span>
+
+                                            <div v-for="(apartmentService, index) in apartmentServices" :key="index">
+                                                <input
+                                                class="form-check-input" type="checkbox" :name="apartmentService + '1'" :value="apartmentService + '1'" :id="apartmentService + '1'">
+                                                <label class="form-check-label py-1 px-2 mx-2 my-2 shadow" :for="apartmentService + '1'">
+                                                    {{ apartmentService }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
 
                                             <!-- btn cerca  -->
                                         <div class="col-12 my-3">
@@ -275,7 +300,24 @@ export default {
                 left: [25, -35],
                 right: [-25, -35]
             },
-            zoomValue: 5
+            zoomValue: 5,
+            apartmentServices:[
+                'Condizionatore',
+                
+                'Parcheggio',
+                
+                'Palestra',
+                
+                'Wi-Fi',
+                
+                'Piscina',
+                
+                'Spa',
+                
+                'Balcone',
+                
+                'Lavatrice',
+            ]
         }
     },
     methods: {
@@ -372,7 +414,7 @@ export default {
     height: calc(100vh - 60px);
     
     #input_container{
-        height: 8%;
+        height: 12%;
 
         .input-lg{
             input{
@@ -389,8 +431,32 @@ export default {
         }
     }
 
+    .services{
+        
+        label {
+            border-radius:40px;
+            -webkit-font-smoothing: antialiased;
+            text-align:center;
+            background-color: white;
+            transition: all 0.5s;
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        input:checked + label {
+            background-color: #237DC7;
+            color: white;
+        }
+    }
+
+    .overflow-x{
+        overflow-x: auto;
+    }
+
     #dataUi_container{
-        height: 92%;
+        height: 88%;
 
 
         .row{
@@ -449,6 +515,10 @@ export default {
             }
             
         }
+    }
+
+    .backgroundred{
+        background-color: red;
     }
 
 }

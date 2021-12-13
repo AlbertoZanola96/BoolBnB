@@ -2449,6 +2449,31 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Search',
   data: function data() {
@@ -2475,7 +2500,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         left: [25, -35],
         right: [-25, -35]
       },
-      zoomValue: 5
+      zoomValue: 5,
+      apartmentServices: ['Condizionatore', 'Parcheggio', 'Palestra', 'Wi-Fi', 'Piscina', 'Spa', 'Balcone', 'Lavatrice']
     };
   },
   methods: {
@@ -2961,7 +2987,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#search-container[data-v-5026ffd3] {\n  height: calc(100vh - 60px);\n}\n#search-container #input_container[data-v-5026ffd3] {\n  height: 8%;\n}\n#search-container #input_container .input-lg input[data-v-5026ffd3] {\n  border: 1px solid #6b6b6b;\n  width: 120px;\n  margin: 0 15px;\n}\n@media (max-width: 1000px) {\n#search-container #input_container .input-lg input[data-v-5026ffd3] {\n    max-width: 90px;\n}\n}\n#search-container #dataUi_container[data-v-5026ffd3] {\n  height: 92%;\n}\n#search-container #dataUi_container .row[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list) {\n  height: 100%;\n  overflow-y: scroll;\n  list-style: none;\n  background-color: #f1f2f6;\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar {\n  width: 10px;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb {\n  background: #888;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) li[data-v-5026ffd3] {\n  background-color: white;\n  box-shadow: 1px 7px 29px -11px rgba(0, 0, 0, 0.54);\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) ul[data-v-5026ffd3] {\n  list-style: none;\n}\n#search-container #dataUi_container .row .box-img[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .box-img #map-div[data-v-5026ffd3] {\n  width: 100%;\n  height: 100%;\n}", ""]);
+exports.push([module.i, "#search-container[data-v-5026ffd3] {\n  height: calc(100vh - 60px);\n}\n#search-container #input_container[data-v-5026ffd3] {\n  height: 12%;\n}\n#search-container #input_container .input-lg input[data-v-5026ffd3] {\n  border: 1px solid #6b6b6b;\n  width: 120px;\n  margin: 0 15px;\n}\n@media (max-width: 1000px) {\n#search-container #input_container .input-lg input[data-v-5026ffd3] {\n    max-width: 90px;\n}\n}\n#search-container .services label[data-v-5026ffd3] {\n  border-radius: 40px;\n  -webkit-font-smoothing: antialiased;\n  text-align: center;\n  background-color: white;\n  transition: all 0.5s;\n}\n#search-container .services input[type=checkbox][data-v-5026ffd3] {\n  display: none;\n}\n#search-container .services input:checked + label[data-v-5026ffd3] {\n  background-color: #237DC7;\n  color: white;\n}\n#search-container .overflow-x[data-v-5026ffd3] {\n  overflow-x: auto;\n}\n#search-container #dataUi_container[data-v-5026ffd3] {\n  height: 88%;\n}\n#search-container #dataUi_container .row[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list) {\n  height: 100%;\n  overflow-y: scroll;\n  list-style: none;\n  background-color: #f1f2f6;\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar {\n  width: 10px;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb {\n  background: #888;\n}\n#search-container #dataUi_container .row .apartments-container ul[data-v-5026ffd3]:not(#services_list)::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) li[data-v-5026ffd3] {\n  background-color: white;\n  box-shadow: 1px 7px 29px -11px rgba(0, 0, 0, 0.54);\n}\n#search-container #dataUi_container .row .apartments-container ul:not(#services_list) ul[data-v-5026ffd3] {\n  list-style: none;\n}\n#search-container #dataUi_container .row .box-img[data-v-5026ffd3] {\n  height: 100%;\n}\n#search-container #dataUi_container .row .box-img #map-div[data-v-5026ffd3] {\n  width: 100%;\n  height: 100%;\n}\n#search-container .backgroundred[data-v-5026ffd3] {\n  background-color: red;\n}", ""]);
 
 // exports
 
@@ -5268,200 +5294,256 @@ var render = function () {
           "div",
           { staticClass: "row align-items-center h-100 align-items-center" },
           [
-            _c("div", { staticClass: "col-12 d-none d-md-block input-lg" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "input-group justify-content-center align-items-center",
-                },
-                [
-                  _c("div", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.num_rooms,
-                          expression: "num_rooms",
-                        },
-                      ],
-                      staticClass: "btn",
-                      attrs: {
-                        id: "num_rooms",
-                        name: "num_rooms",
-                        type: "number",
-                        min: "1",
-                        max: "10",
-                        placeholder: "N. camere",
-                      },
-                      domProps: { value: _vm.num_rooms },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.num_rooms = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.num_beds,
-                          expression: "num_beds",
-                        },
-                      ],
-                      staticClass: "btn",
-                      attrs: {
-                        required: "",
-                        id: "num_beds",
-                        name: "num_beds",
-                        type: "number",
-                        min: "1",
-                        max: "10",
-                        placeholder: "N. letti",
-                      },
-                      domProps: { value: _vm.num_beds },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.num_beds = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.num_bathrooms,
-                          expression: "num_bathrooms",
-                        },
-                      ],
-                      staticClass: "btn",
-                      attrs: {
-                        required: "",
-                        id: "num_bathrooms",
-                        name: "num_bathrooms",
-                        type: "number",
-                        min: "1",
-                        max: "10",
-                        placeholder: "N. bagni",
-                      },
-                      domProps: { value: _vm.num_bathrooms },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.num_bathrooms = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.address,
-                          expression: "address",
-                        },
-                      ],
-                      staticClass: "btn",
-                      attrs: {
-                        required: "",
-                        type: "text",
-                        id: "address",
-                        name: "address",
-                        placeholder: "In quale città?",
-                      },
-                      domProps: { value: _vm.address },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.address = $event.target.value
-                        },
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
+            _c(
+              "div",
+              { staticClass: "col-12 d-none d-md-block input-lg mt-md-1" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "input-group justify-content-center align-items-center",
+                  },
+                  [
                     _c("div", [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "d-flex justify-content-around m-0",
-                          attrs: { for: "distance" },
-                        },
-                        [
-                          _c("span", [_vm._v("Distanza:")]),
-                          _vm._v(" "),
-                          _c("output", [
-                            _vm._v(" " + _vm._s(_vm.distance) + " km"),
-                          ]),
-                        ]
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "d-flex align-items-center" }, [
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.distance,
-                            expression: "distance",
+                            value: _vm.num_rooms,
+                            expression: "num_rooms",
                           },
                         ],
-                        staticClass: "distance",
+                        staticClass: "btn",
                         attrs: {
-                          type: "range",
-                          id: "distance",
-                          name: "distance",
-                          oninput:
-                            "this.nextElementSibling.value = this.value + ' km'",
+                          id: "num_rooms",
+                          name: "num_rooms",
+                          type: "number",
+                          min: "1",
+                          max: "10",
+                          placeholder: "N. camere",
                         },
-                        domProps: { value: _vm.distance },
+                        domProps: { value: _vm.num_rooms },
                         on: {
-                          __r: function ($event) {
-                            _vm.distance = $event.target.value
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.num_rooms = $event.target.value
                           },
                         },
                       }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      on: { click: _vm.getApartments },
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Inizia a cercare\n                        "
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.num_beds,
+                            expression: "num_beds",
+                          },
+                        ],
+                        staticClass: "btn",
+                        attrs: {
+                          required: "",
+                          id: "num_beds",
+                          name: "num_beds",
+                          type: "number",
+                          min: "1",
+                          max: "10",
+                          placeholder: "N. letti",
+                        },
+                        domProps: { value: _vm.num_beds },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.num_beds = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.num_bathrooms,
+                            expression: "num_bathrooms",
+                          },
+                        ],
+                        staticClass: "btn",
+                        attrs: {
+                          required: "",
+                          id: "num_bathrooms",
+                          name: "num_bathrooms",
+                          type: "number",
+                          min: "1",
+                          max: "10",
+                          placeholder: "N. bagni",
+                        },
+                        domProps: { value: _vm.num_bathrooms },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.num_bathrooms = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.address,
+                            expression: "address",
+                          },
+                        ],
+                        staticClass: "btn",
+                        attrs: {
+                          required: "",
+                          type: "text",
+                          id: "address",
+                          name: "address",
+                          placeholder: "In quale città?",
+                        },
+                        domProps: { value: _vm.address },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.address = $event.target.value
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "d-flex justify-content-around m-0",
+                            attrs: { for: "distance" },
+                          },
+                          [
+                            _c("span", [_vm._v("Distanza:")]),
+                            _vm._v(" "),
+                            _c("output", [
+                              _vm._v(" " + _vm._s(_vm.distance) + " km"),
+                            ]),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "d-flex align-items-center" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.distance,
+                              expression: "distance",
+                            },
+                          ],
+                          staticClass: "distance",
+                          attrs: {
+                            type: "range",
+                            id: "distance",
+                            name: "distance",
+                            oninput:
+                              "this.nextElementSibling.value = this.value + ' km'",
+                          },
+                          domProps: { value: _vm.distance },
+                          on: {
+                            __r: function ($event) {
+                              _vm.distance = $event.target.value
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: { click: _vm.getApartments },
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Inizia a cercare\n                        "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "d-flex align-items-center services py-3 overflow-x",
+                      },
+                      [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "d-block font-s font-weight-bold",
+                            attrs: { for: "services" },
+                          },
+                          [_vm._v("Servizi |")]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(
+                          _vm.apartmentServices,
+                          function (apartmentService, index) {
+                            return _c("div", { key: index }, [
+                              _c("input", {
+                                staticClass: "form-check-input",
+                                attrs: {
+                                  type: "checkbox",
+                                  name: apartmentService,
+                                  id: apartmentService,
+                                },
+                                domProps: { value: apartmentService },
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass:
+                                    "form-check-label py-1 px-2 mx-2 shadow",
+                                  attrs: { for: apartmentService },
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(apartmentService) +
+                                      "\n                                "
+                                  ),
+                                ]
+                              ),
+                            ])
+                          }
+                        ),
+                      ],
+                      2
+                    ),
+                  ]
+                ),
+              ]
+            ),
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
@@ -5683,6 +5765,63 @@ var render = function () {
                                   ]
                                 ),
                               ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex align-items-center flex-wrap services py-3",
+                                },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "d-block font-s white-text font-weight-bold",
+                                      attrs: { for: "services" },
+                                    },
+                                    [_vm._v("Servizi |")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(
+                                    _vm.apartmentServices,
+                                    function (apartmentService, index) {
+                                      return _c("div", { key: index }, [
+                                        _c("input", {
+                                          staticClass: "form-check-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            name: apartmentService + "1",
+                                            id: apartmentService + "1",
+                                          },
+                                          domProps: {
+                                            value: apartmentService + "1",
+                                          },
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "form-check-label py-1 px-2 mx-2 my-2 shadow",
+                                            attrs: {
+                                              for: apartmentService + "1",
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    " +
+                                                _vm._s(apartmentService) +
+                                                "\n                                                "
+                                            ),
+                                          ]
+                                        ),
+                                      ])
+                                    }
+                                  ),
+                                ],
+                                2
+                              ),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-12 my-3" }, [
                                 _c(
