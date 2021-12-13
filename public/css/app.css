@@ -10051,90 +10051,74 @@ h3 {
   border: none;
   outline: 0;
 }
-.banner .info-box-2 {
+.banner .info-box {
+  z-index: 10;
+  background-color: #ffffff;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
   margin: 0 auto;
-  background-color: #ffffff;
   border-radius: 5px;
-  z-index: 4;
 }
-.banner .info-box-2 i {
+.banner .info-box .circle {
+  width: 20%;
+}
+.banner .info-box .circle i {
   font-size: 15px;
   color: #2ed573;
 }
-.banner .info-box-2 .center {
-  margin-right: 50px;
+.banner .info-box .center {
+  width: 60%;
   font-size: 18px;
 }
-.banner .info-box-2 .center .info2-title {
+.banner .info-box .center .info-title {
   color: #2ed573;
 }
-.banner .info-box-2 .center .info2-description {
+.banner .info-box .center .info-description {
   color: #57606f;
 }
-.banner .info-box-2 .btn-home {
+.banner .info-box .button-home {
+  width: 20%;
+}
+.banner .info-box .button-home .btn-home {
   width: 100%;
   padding: 10px;
   border: 1px solid #2ed573;
   background-color: #ffffff;
   color: #2ed573;
 }
+.banner .info-box .button-home .btn-home:hover {
+  background-color: #2ed573;
+  color: #ffffff;
+}
 
-.info-box {
-  position: relative;
+.info-box-2 {
   min-height: 15vh;
   background-color: #2f3542;
 }
-.info-box .wrapper {
-  margin: 0 auto;
+.info-box-2 .info-title {
   color: #ffffff;
-  transform: translate(0, -50%);
-}
-.info-box .wrapper .center {
   font-size: 18px;
-  margin: 0 auto;
 }
-.info-box .wrapper .center .info-description {
+.info-box-2 .info-description {
+  font-size: 18px;
   color: #a4b0be;
 }
-.info-box .info-box-2 {
-  position: relative;
-  transform: translate(0, -50%);
-  margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 5px;
-  z-index: 4;
+.info-box-2 .button-home {
+  padding-left: 10px;
+  width: 20%;
 }
-.info-box .info-box-2 i {
-  font-size: 15px;
-  color: #2ed573;
-}
-.info-box .info-box-2 .center {
-  font-size: 18px;
-}
-.info-box .info-box-2 .center .info2-title {
-  color: #2ed573;
-}
-.info-box .info-box-2 .center .info2-description {
-  color: #57606f;
-}
-.info-box .info-box-2 .btn-home {
+.info-box-2 .button-home .btn-home {
   width: 100%;
-  border: 1px solid #2ed573;
+  padding: 10px;
+  border: 1px solid #ff6348;
   background-color: #ffffff;
-  color: #2ed573;
+  color: #ff6348;
 }
-.info-box .info-box-2 .btn-home:hover {
+.info-box-2 .button-home .btn-home:hover {
+  background-color: #ff6348;
   color: #ffffff;
-  background-color: #2ed573;
-}
-
-.apartments {
-  margin: 0 auto;
-  background-color: turquoise;
 }
 
 .modal .modal-content {
@@ -10185,12 +10169,6 @@ ul .sponsor-card {
 ul .sponsor-card:hover {
   box-shadow: 2px 0px 25px -10px rgba(0, 0, 0, 0.431);
 }
-@media screen and (min-width: 992px) {
-  ul .sponsor-card .row {
-    height: 330px;
-    max-height: 330px;
-  }
-}
 ul .sponsor-card .description-box {
   max-height: 55px;
 }
@@ -10202,6 +10180,69 @@ ul .sponsor-card .description-box div {
   -webkit-line-clamp: 3;
 }
 
+@media screen and (max-width: 727px) {
+  .info-box-2 .info-text {
+    text-align: center;
+  }
+  .info-box-2 .button-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 767px) {
+  .banner .info-box .circle {
+    display: none;
+  }
+}
+@media screen and (max-width: 654px) {
+  .banner .info-box .center {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 607px) {
+  .banner .info-box {
+    flex-direction: column;
+  }
+  .banner .info-box .center {
+    width: 100%;
+  }
+  .banner .info-box .button-home {
+    width: 50%;
+  }
+
+  .info-box-2 .info-container {
+    flex-direction: column;
+  }
+  .info-box-2 .info-container .info-text {
+    margin: 20px 0;
+  }
+  .info-box-2 .button-home {
+    display: inline;
+    width: 100%;
+    padding-left: 0;
+  }
+}
+@media screen and (max-width: 241px) {
+  .banner .info-box .button-home {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 478px) {
+  .info-box-2 {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 256px) {
+  .info-box-2 {
+    margin-top: 45px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  ul .sponsor-card img {
+    padding-top: 10px;
+  }
+}
 header {
   width: 100%;
   height: 80px;
@@ -10461,6 +10502,10 @@ body {
   color: #ff4757;
 }
 
+.bruschetta-text {
+  color: #ff6348;
+}
+
 .white-text {
   color: #ffffff;
 }
@@ -10514,7 +10559,7 @@ body {
 }
 
 .blue-background {
-  background-color: #3742fa;
+  background-color: #2f3542;
 }
 
 .lightgray-background {
@@ -10549,6 +10594,10 @@ body {
   background-color: #f1f2f6;
 }
 
+.bruschetta-background {
+  background-color: #ff6348;
+}
+
 h-100 {
   height: 100%;
 }
@@ -10559,9 +10608,6 @@ h-100 {
   white-space: nowrap;
 }
 
-#show_container h1 {
-  color: #335b7c;
-}
 #show_container h3 {
   color: black;
 }
@@ -10576,7 +10622,7 @@ h-100 {
   display: inline-block;
   color: white;
   padding: 5px 10px;
-  background-color: #1e90ff;
+  background-color: #ff6348;
   border-radius: 100px;
 }
 #show_container .my-img {
@@ -10733,56 +10779,29 @@ h2 {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
   height: 350px;
-  background: #000;
   color: #fff;
   background-image: url("https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg");
   background-size: cover;
   position: relative;
 }
-footer .info {
-  justify-content: center;
-}
-footer .info ul {
-  z-index: 1;
-  padding: 30px;
-}
-footer .info ul li {
-  list-style-type: none;
-  text-align: center;
-}
 footer a {
-  color: white;
-  text-decoration: none;
+  color: #ffffff;
+  text-decoration: none !important;
 }
 footer a:hover {
-  color: #57606f;
+  color: #ff6348;
+}
+footer a i:hover {
+  transform: rotate(-10deg);
+}
+footer a p:hover {
+  transform: rotate(-10deg);
 }
 footer .copyright {
   padding: 20px;
 }
-footer .linkedin {
-  justify-content: space-around;
-  margin-top: 20px;
-}
-footer i:hover {
-  transform: rotate(-10deg);
-}
-footer p:hover {
-  transform: rotate(-10deg);
-}
-footer a:hover {
-  color: #0D66C2;
-}
-footer .title h3 {
-  text-align: center;
-}
-
-.overlay {
+footer .overlay {
   width: 100%;
   height: 100%;
   background: #363F49;
@@ -10791,8 +10810,9 @@ footer .title h3 {
 }
 
 .mia-img {
-  width: 0px;
+  width: 400px;
   height: 250px;
+  margin-bottom: 20px;
 }
 
 * {

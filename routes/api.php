@@ -26,5 +26,5 @@ Route::get('/sponsored', 'Api\ApartmentController@sponsored');
 // click tracking api route 
 Route::post('/clicks', 'Api\ClickController@clickTracking');
 
-// message send route 
+// message send api route 
 Route::post('/send-message', 'Api\LeadController@sendMessage');

@@ -6,7 +6,6 @@ Vue.use(VueRouter);
 import Home from './components/Home';
 import Search from './components/Search';
 import Show from './components/Show';
-import Success from './components/Success';
 
 const router = new VueRouter({
     mode: 'history',
@@ -25,11 +24,6 @@ const router = new VueRouter({
             path: '/show/:slug',
             name: 'Show',
             component: Show
-        },
-        {
-            path: '/success',
-            name: 'Success',
-            component: Success
         }
     ]
 });

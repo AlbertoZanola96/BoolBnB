@@ -18,8 +18,9 @@ class ApartmentsTableSeeder extends Seeder
     {
         $faker = FakerFactory::create('it_IT');
         $users = User::all();
-        $cities = config('cities');
+        $addresses = config('addresses');
 
+        $counter = 0;
         foreach($users as $user) {
             $newApartment = new Apartment();
             $newApartment->user_id = $user->id;
@@ -29,12 +30,13 @@ class ApartmentsTableSeeder extends Seeder
             $newApartment->num_beds = $faker->numberBetween(1,10);
             $newApartment->num_bathrooms = $faker->numberBetween(1, 3);
             $newApartment->square_meters = $faker->numberBetween(50, 300);
-            // $newApartment->city = $cities[rand(0, count($cities))];
-            $newApartment->address = $faker->streetAddress();
-            $newApartment->lat = $faker->latitude($min = -90, $max = 90);
-            $newApartment->lon = $faker->longitude($min = -180, $max = 180);
+            $newApartment->address = $addresses[$counter]['address'];
+            $newApartment->lat = $addresses[$counter]['lat'];
+            $newApartment->lon = $addresses[$counter]['lon'];
+            $newApartment->image = 'img-app/casa-' . $faker->numberBetween(1,30) . '.jpg';
             $newApartment->slug = Str::slug($newApartment->name);
             $newApartment->save();
+            $counter++;
         }
     }
 }

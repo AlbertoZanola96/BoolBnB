@@ -36,12 +36,12 @@
 
     <!-- The sidebar -->
     <div class="sidebar mt-3">
-        <a class="nav-link d-flex align-items-center" href="{{ route('admin.index') }}">
+        {{-- <a class="nav-link d-flex align-items-center" href="{{ route('admin.index') }}">
             <i class="far fa-user d-flex justify-content-center"></i>
             <span class="ml-2 d-lg-block">
                 Dashboard
             </span>
-        </a>
+        </a> --}}
         <a class="nav-link d-flex align-items-center" href="{{ route('admin.apartments.index') }}">
             <i class="fas fa-home d-flex justify-content-center"></i>
             <span class="ml-2 d-lg-block">

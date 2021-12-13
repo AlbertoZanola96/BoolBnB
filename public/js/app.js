@@ -37276,8 +37276,8 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // confirm delete buttons 
 
 
-var deleteArr = document.querySelectorAll('.deleteForm');
-console.log(deleteArr);
+var deleteArr = document.querySelectorAll('.deleteForm'); // console.log(deleteArr);
+
 deleteArr.forEach(function (el) {
   el.addEventListener('submit', function (e) {
     var res = confirm('Sei sicuro di voler eliminare?');
@@ -37286,10 +37286,6 @@ deleteArr.forEach(function (el) {
       e.preventDefault();
     }
   });
-}); // reset modals 
-
-$('#leads').on('hidden.bs.modal', function () {
-  $(this).find('form').trigger('reset');
 }); // toggle view msgs 
 
 var showMsgs = document.querySelectorAll('.show-msg');
