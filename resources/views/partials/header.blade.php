@@ -45,7 +45,7 @@
                                         @csrf
                                     </form>
                                 </li>
-                    @else
+                            @else
                                 <li class="nav-item login">
                                     <a href="" data-backdrop="true" data-toggle="modal" data-target="#login">Login</a>
                                 </li>    

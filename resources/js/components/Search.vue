@@ -259,7 +259,7 @@
                 </ul>
             </div>
 
-            <div class="col-12 col-md-7 col-lg-6 p-0 box-img">
+            <div class="col-12 col-md-7 col-lg-6 p-0 mt-2 mt-md-0 box-img">
                 <div id="map-div" class="map"></div>
             </div>
         </div>
@@ -540,11 +540,11 @@ export default {
 
             @media (max-width: 768px) {
                 .apartments-container{
-                    height: 70%;
+                    height: 60%;
                 }
 
                 .box-img{
-                    height: 30%;
+                    height: 40%;
                 }
             }
             

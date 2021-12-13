@@ -175,7 +175,6 @@ class ApartmentController extends Controller
             'num_beds' => 'required|integer|min:1|max:10',
             'num_bathrooms' => 'nullable|integer|min:1|max:10',
             'square_meters' => 'nullable|integer|min:30|max:1000',
-            // 'city' => 'required',
             'address' => 'required|max:255',
             'services' => 'exists:services,id',
             'visible' => 'required',
@@ -211,6 +210,9 @@ class ApartmentController extends Controller
             $form_data['image'] = $image_path;
         }
 
+        $slug = Str::slug($form_data['name']);
+        $apartment->slug = $slug;
+        
         // aggiorniamo l'appartamento 
         $apartment->update($form_data);
 
