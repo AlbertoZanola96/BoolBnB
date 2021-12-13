@@ -261,8 +261,8 @@ class ApartmentController extends Controller
             $clicksPerMonth[] = Click::where('apartment_id', $apartment->id)->whereMonth('created_at', $i + 1)->count();
         }
         
-        json_encode($leadsPerMonth);
-        json_encode($clicksPerMonth);
+        // json_encode($leadsPerMonth);
+        // json_encode($clicksPerMonth);
 
         return view('admin.apartments.stats', compact('user', 'leadsPerMonth', 'clicksPerMonth', 'apartment'));
     }

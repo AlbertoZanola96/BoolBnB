@@ -1,36 +1,32 @@
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     height: 350px;
-    background: #000;
     color: #fff;
     background-image: url('https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/pass/GoogleMapTA.jpg');
     background-size: cover;
     position: relative;
-
-    .info {
-        justify-content: center;
-        
-        ul {
-            z-index: 1;
-            padding: 30px;
-            
-            li  {
-                list-style-type: none; 
-                text-align: center;
-            }
-        }
-    }
-
     
     a {
-        color: white;
-        text-decoration: none;
+        color: $white;
+        text-decoration: none !important;
 
         &:hover {
-            color: $grisaille;
+            color: $bruschetta;
+        }
+
+        i:hover {
+            -webkit-transform: rotate(-10deg);
+           -moz-transform: rotate(-10deg);
+           -o-transform: rotate(-10deg);
+           -ms-transform: rotate(-10deg);
+           transform: rotate(-10deg);
+        }
+    
+        p:hover {
+            -webkit-transform: rotate(-10deg);
+            -moz-transform: rotate(-10deg);
+            -o-transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg);
         }
     }
 
@@ -38,40 +34,12 @@ footer {
         padding: 20px;
     }
 
-    .linkedin {
-        justify-content: space-around;
-        margin-top: 20px;
-    }
 
-    i:hover {
-        -webkit-transform: rotate(-10deg);
-       -moz-transform: rotate(-10deg);
-       -o-transform: rotate(-10deg);
-       -ms-transform: rotate(-10deg);
-       transform: rotate(-10deg);
+    .overlay {
+    width: 100%;
+    height: 100%;
+    background: #363F49;
+    opacity: 0.9;
+    position: absolute;
     }
-
-    p:hover {
-        -webkit-transform: rotate(-10deg);
-        -moz-transform: rotate(-10deg);
-        -o-transform: rotate(-10deg);
-        -ms-transform: rotate(-10deg);
-        transform: rotate(-10deg);
-    }
-
-    a:hover {
-        color:#0D66C2;
-    }
-
-    .title h3 {
-        text-align: center;
-    }
-}
-
-.overlay {
-  width: 100%;
-  height: 100%;
-  background: #363F49;
-  opacity: 0.9;
-  position: absolute;
 }

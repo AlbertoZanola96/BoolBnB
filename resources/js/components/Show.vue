@@ -233,8 +233,8 @@ export default {
             this.ip_address = data.ip;
             this.apartment_id = this.$route.params.id;
     
-                // console.log(this.apartment_id);
-                // console.log(this.ip_address);
+                console.log(this.apartment_id);
+                console.log(this.ip_address);
     
             if(this.apartment_id != undefined) {
                 axios.post(
@@ -274,6 +274,7 @@ export default {
             // console.log(data);  
         },
         sendLeadData() {
+            console.log('ciao');
             if(this.apartment) {
                 axios.post(
                     this.apiLead + "apartment_id=" + this.apartment.id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message
@@ -282,7 +283,6 @@ export default {
                     $('#leads form :input').val("");
                 });
             }
-
             // this.$router.push({ name: 'Success', params: {slug: this.apartment.slug, id: this.apartment_id} });
         }
     },

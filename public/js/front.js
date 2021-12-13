@@ -2061,72 +2061,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   data: function data() {
@@ -2200,9 +2134,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
 //
 //
 //
@@ -2861,14 +2792,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 data = _context.sent;
                 _this.ip_address = data.ip;
-                _this.apartment_id = _this.$route.params.id; // console.log(this.apartment_id);
-                // console.log(this.ip_address);
+                _this.apartment_id = _this.$route.params.id;
+                console.log(_this.apartment_id);
+                console.log(_this.ip_address);
 
                 if (_this.apartment_id != undefined) {
                   axios.post(_this.apiIpAddressIdApartment + "ip_address=" + _this.ip_address + "&apartment_id=" + _this.apartment_id);
                 }
 
-              case 9:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -2931,6 +2863,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       marker.setPopup(popup); // console.log(data);  
     },
     sendLeadData: function sendLeadData() {
+      console.log('ciao');
+
       if (this.apartment) {
         axios.post(this.apiLead + "apartment_id=" + this.apartment.id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message).then(function (resp) {
           $('#leads').modal('hide');
@@ -2944,27 +2878,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.getClicks();
     this.getApartment();
   }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Success.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Success.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Success'
 });
 
 /***/ }),
@@ -5006,13 +4919,15 @@ var render = function () {
               }),
             ]
           ),
+          _vm._v(" "),
+          _vm._m(0),
         ]),
       ]
     ),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
     _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
     _vm._v(" "),
     _c("div", { staticClass: "container-fluid p-4" }, [
       _c(
@@ -5195,7 +5110,6 @@ var render = function () {
                                   "router-link",
                                   {
                                     attrs: {
-                                      target: "_blank",
                                       to: {
                                         name: "Show",
                                         params: {
@@ -5242,60 +5156,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "info-box-2 d-flex align-items-center p-3" },
+      [
+        _c("div", [_c("i", { staticClass: "fas fa-circle mx-5" })]),
+        _vm._v(" "),
+        _c("div", { staticClass: "center" }, [
+          _c("div", { staticClass: "info2-title" }, [
+            _vm._v(
+              "\n                        Vuoi il tuo appartamento in cima alla lista?\n                    "
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info2-description" }, [
+            _vm._v(
+              "\n                        Registrati e dai un'occhiata alle nostre sponsorizzazioni!\n                    "
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("button", { staticClass: "btn-home" }, [_vm._v("Registrati ora")]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "info-box container-fluid" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }, [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "info-box-2 d-flex align-items-center p-4 flex-wrap flex-sm-nowrap justify-content-between",
-                },
-                [
-                  _c("div", [_c("i", { staticClass: "fas fa-circle mx-5" })]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "center mx-md-5 my-4 my-sm-0" }, [
-                    _c("div", { staticClass: "info2-title" }, [
-                      _vm._v(
-                        "\n                                    Vuoi il tuo appartamento in cima alla lista?\n                                "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "info2-description" }, [
-                      _vm._v(
-                        "\n                                    Registrati e dai un'occhiata alle nostre sponsorizzazioni!\n                                "
-                      ),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _c("button", { staticClass: "btn-home px-5 py-3" }, [
-                      _vm._v("Registrati ora"),
-                    ]),
-                  ]),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "wrapper" }, [
-                _c("div", { staticClass: "center px-5" }, [
-                  _c("div", { staticClass: "info-title" }, [
-                    _vm._v(
-                      "\n                                    Pubblica annunci gratuitamente\n                                "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info-description" }, [
-                    _vm._v(
-                      "\n                                    Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.\n                                "
-                    ),
-                  ]),
-                ]),
-              ]),
-            ]),
+        _c("div", { staticClass: "col-12 info-title" }, [
+          _vm._v(
+            "\n                Pubblica annunci gratuitamente\n            "
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-12 info-description" }, [
+            _vm._v(
+              "\n                    Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.\n                "
+            ),
           ]),
         ]),
       ]),
@@ -5939,14 +5842,6 @@ var render = function () {
                                           ]
                                         ),
                                       ]),
-                                      _vm._v(" "),
-                                      _c("li", [
-                                        _vm._v(
-                                          "\r\n                                            " +
-                                            _vm._s(apartment.apartment_id) +
-                                            "\r\n                                        "
-                                        ),
-                                      ]),
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -5958,7 +5853,6 @@ var render = function () {
                                         "router-link",
                                         {
                                           attrs: {
-                                            target: "_blank",
                                             to: {
                                               name: "Show",
                                               params: {
@@ -6658,30 +6552,6 @@ var staticRenderFns = [
     )
   },
 ]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Success.vue?vue&type=template&id=e836a030&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Success.vue?vue&type=template&id=e836a030&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Success\n")])
-}
-var staticRenderFns = []
 render._withStripped = true
 
 
@@ -22298,75 +22168,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Success.vue":
-/*!*********************************************!*\
-  !*** ./resources/js/components/Success.vue ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Success_vue_vue_type_template_id_e836a030_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Success.vue?vue&type=template&id=e836a030&scoped=true& */ "./resources/js/components/Success.vue?vue&type=template&id=e836a030&scoped=true&");
-/* harmony import */ var _Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Success.vue?vue&type=script&lang=js& */ "./resources/js/components/Success.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Success_vue_vue_type_template_id_e836a030_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Success_vue_vue_type_template_id_e836a030_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "e836a030",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Success.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Success.vue?vue&type=script&lang=js&":
-/*!**********************************************************************!*\
-  !*** ./resources/js/components/Success.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Success.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Success.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Success.vue?vue&type=template&id=e836a030&scoped=true&":
-/*!****************************************************************************************!*\
-  !*** ./resources/js/components/Success.vue?vue&type=template&id=e836a030&scoped=true& ***!
-  \****************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_e836a030_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Success.vue?vue&type=template&id=e836a030&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Success.vue?vue&type=template&id=e836a030&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_e836a030_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Success_vue_vue_type_template_id_e836a030_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/front.js":
 /*!*******************************!*\
   !*** ./resources/js/front.js ***!
@@ -22413,11 +22214,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Home */ "./resources/js/components/Home.vue");
 /* harmony import */ var _components_Search__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Search */ "./resources/js/components/Search.vue");
 /* harmony import */ var _components_Show__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Show */ "./resources/js/components/Show.vue");
-/* harmony import */ var _components_Success__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Success */ "./resources/js/components/Success.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-
 
 
 
@@ -22435,10 +22234,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/show/:slug',
     name: 'Show',
     component: _components_Show__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }, {
-    path: '/success',
-    name: 'Success',
-    component: _components_Success__WEBPACK_IMPORTED_MODULE_5__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
