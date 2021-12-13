@@ -40,6 +40,14 @@
                     </div>
                 @endif 
 
+                @if ($apartments == [])
+                    <div class="row">
+                        <div class="col-12">
+                            <P>NESSUN' APPARTAMENTO</P>
+                        </div>
+                    </div>
+                @endif
+
                 @foreach ($apartments as $apartment)
                     <div class="container-fluid card mb-4">
                         <div class="row">
