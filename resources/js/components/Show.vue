@@ -141,18 +141,17 @@
                 </div>
             </div>
         </div>
-
-        <!-- message modal  -->
         <div class="modal fade" id="leads" data-backdrop="true" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content bg-dark">
-                    <div class="mt-2 d-flex justify-content-center align-items-end">
-                        <h3 class="modal-title text-white" id="staticBackdropLabel">Invia messaggio</h3>
+                <div class="modal-content">
+                    <div class="mt-2 d-flex justify-content-center align-items-center">
+                        <h3 class="modal-title text-white" id="staticBackdropLabel">MESSAGE</h3>
                     </div>
                     <button type="button" class="close text-white position-absolute" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="modal-body">
+                        <form @submit.prevent="sendLeadData()">
                         <!-- input nascosti per prendere id e slug  -->
                         <input name="apartment_id" id="apartment_id" type="hidden" value="">
                         <input name="slug" id="slug" type="hidden" value="">
@@ -162,7 +161,7 @@
                             <label for="name" class="text-white col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
-                                <input v-model="nameMessage" placeholder="Insert your name" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" autofocus>
+                                <input v-model="nameMessage" placeholder="Insert your name" id="name" type="text" class="form-control" name="name" required autocomplete="name" autofocus>
                             </div>
                         </div>
                         
@@ -171,7 +170,7 @@
                             <label for="email" class="text-white col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input v-model="emailMessage" placeholder="Insert E-Mail Address" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">
+                                <input v-model="emailMessage" placeholder="Insert E-Mail Address" id="email" type="email" class="form-control" name="email" required autocomplete="email" autofocus>
                             </div>
                         </div>
 
@@ -180,22 +179,23 @@
                             <label for="message" class="text-white col-md-4 col-form-label text-md-right">Message</label>
 
                             <div class="col-md-6">
-                                <textarea v-model="message" placeholder="Insert message" name="message" id="message" cols="30" rows="5" class="form-control @error('message') is-invalid @enderror" required autocomplete="message"></textarea>
+                                <textarea v-model="message" placeholder="Insert message" id="message" class="form-control" cols="30" rows="5" name="message" required autocomplete="message" autofocus></textarea>
                             </div>
                         </div>
-
+                        
                         <div class="row d-flex justify-content-center link">
                             <div class="col-md-10">
                                 <!-- send message button -->
-                                <button type="submit"  id="leadbtn" class="modalbtn">
+                                <button type="sendLeadData()" id="leadbtn" class="modalbtn">
                                     Send message
                                 </button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
     </div>
 </template>
 
@@ -278,13 +278,12 @@ export default {
             if(this.apartment) {
                 axios.post(
                     this.apiLead + "apartment_id=" + this.apartment.id + "&name=" + this.nameMessage + "&email=" + this.emailMessage + "&message=" + this.message
-                );
+                ).then(resp => {
+                    $('#leads').modal('hide');
+                    $('#leads form :input').val("");
+                });
             }
-        },
-        closeModal() {
-            $('#leads').on('hidden.bs.modal', function () {
-            $(this).find('form').trigger('reset');
-            })
+            // this.$router.push({ name: 'Success', params: {slug: this.apartment.slug, id: this.apartment_id} });
         }
     },
     created() {

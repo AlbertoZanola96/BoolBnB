@@ -8,7 +8,7 @@ require('./bootstrap');
 
 // confirm delete buttons 
 const deleteArr = document.querySelectorAll('.deleteForm');
-console.log(deleteArr);
+// console.log(deleteArr);
 
 deleteArr.forEach(function (el) {
   el.addEventListener('submit', function (e) {
@@ -19,11 +19,6 @@ deleteArr.forEach(function (el) {
     }
   });
 });
-
-// reset modals 
-$('#leads').on('hidden.bs.modal', function () {
-  $(this).find('form').trigger('reset');
-})
 
 // toggle view msgs 
 const showMsgs = document.querySelectorAll('.show-msg');
