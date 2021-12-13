@@ -25,9 +25,6 @@
                                         </div>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item visibility">
-                                    <a href="{{ url('/admin') }}">Dashboard</a>
-                                </li> --}}
                                 <li class="nav-item visibility">
                                     <a href="{{ url('/admin/apartments') }}">I miei appartamenti</a>
                                 </li>
@@ -36,6 +33,9 @@
                                 </li>
                                 <li class="nav-item visibility">
                                     <a href="{{ url('/admin/apartments/create') }}">Nuovo appartamento</a>
+                                </li>
+                                <li class="nav-item visibility">
+                                    <a href="{{ url('/search') }}">Ricerca Avanzata</a>
                                 </li>
                                 <li class="nav-item visibility">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -74,9 +74,6 @@
                     @else
                         <div class="dropdown-menu">
                             <ul>
-                                {{-- <li>
-                                    <a class="ml-3" href="{{ url('/admin') }}">Dashboard</a>
-                                </li> --}}
                                 <li>
                                     <a class="ml-3" href="{{ url('/admin/apartments') }}">I miei appartamenti</a>
                                 </li>
@@ -85,6 +82,9 @@
                                 </li>
                                 <li>
                                     <a class="ml-3" href="{{ url('/admin/apartments/create') }}">Nuovo appartamento</a>
+                                </li>
+                                <li class="nav-item visibility">
+                                    <a href="{{ url('/search') }}">Ricerca Avanzata</a>
                                 </li>
                                 <li>
                                     <a class="ml-3" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

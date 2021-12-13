@@ -4,21 +4,21 @@
         <div class="row align-items-center h-100 align-items-center">
             <div class="col-12 d-none d-md-block input-lg mt-md-1">
                 <!-- <form action="" class="d-flex px-2"> -->
-                    <div class="input-group justify-content-center align-items-center">
-                        <div>
-                            <!-- num_rooms  -->
-                            <input 
-                                class="btn" 
-                                v-model="num_rooms" 
-                                id="num_rooms" 
-                                name="num_rooms" 
-                                type="number" 
-                                min="1" 
-                                max="10" 
-                                placeholder="N. camere">
-                        </div>
+                <div class="input-group justify-content-center align-items-center">
+                    <div>
+                        <!-- num_rooms  -->
+                        <input 
+                            class="btn" 
+                            v-model="num_rooms" 
+                            id="num_rooms" 
+                            name="num_rooms" 
+                            type="number" 
+                            min="1" 
+                            max="10" 
+                            placeholder="N. camere">
+                    </div>
 
-                        <!-- num_beds  -->
+                    <!-- num_beds  -->
                     <div>
                         <input
                             required
@@ -64,29 +64,26 @@
                                 <span>Distanza:</span>
                                 <output> {{ distance }} km</output>
                             </label>
-                            </div>
+                        </div>
+
                         <div class="d-flex align-items-center">
                             <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
                         </div>
-
-                            <!-- btn cerca  -->
-                        <button class="btn blue-background text-white" v-on:click="getApartments">
-                            Inizia a cercare
-                        </button>
                     </div>
-                <!-- </form> -->
+                        <!-- btn cerca  -->
+                    <button class="btn blue-background text-white" v-on:click="getApartments">
+                        Inizia a cercare
+                    </button>
+                </div>
             </div>
 
             <div class="col-12 d-none d-md-block input-lg">
                 <div class="d-flex justify-content-center align-items-center services py-3 overflow-x">
-                    <span for="services" class="d-block font-s font-weight-bold">Servizi |</span>
-
-
+                    <span for="services" class="d-block font-s font-weight-bold">Servizi:</span>
                     <div v-for="(apartmentService, index) in apartmentServices" :key="index">
-                        <input
-                        class="form-check-input" type="checkbox" :name="apartmentService" :value="apartmentService" :id="apartmentService">
-                        <label class="form-check-label py-1 px-2 mx-2 shadow" :for="apartmentService">
-                            {{ apartmentService }}
+                        <input class="form-check-input" type="checkbox" :name="apartmentService.id" :value="apartmentService.id" :id="apartmentService.id" v-on:change="getServices">
+                        <label class="form-check-label py-1 px-2 mx-2 shadow" :for="apartmentService.id">
+                            {{ apartmentService.serviceName }}
                         </label>
                     </div>
                 </div>
@@ -170,14 +167,18 @@
                                                 <output class="white-text"> {{ distance }} km</output>
                                             </label>
                                         </div>
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
+                                        </div>
+
                                         <span for="services" class="d-block w-100 font-s white-text text-center font-weight-bold">Servizi:</span>
 
                                         <div class="d-flex align-items-center justify-content-center flex-wrap services py-3">
                                             <div v-for="(apartmentService, index) in apartmentServices" :key="index">
                                                 <input
-                                                    class="form-check-input" type="checkbox" :name="apartmentService + '1'" :value="apartmentService + '1'" :id="apartmentService + '1'">
+                                                    class="form-check-input" type="checkbox" :name="apartmentService.id" :value="apartmentService" :id="apartmentService + '1'" v-on:change="getServices">
                                                 <label class="form-check-label py-1 px-2 mx-2 my-2 shadow" :for="apartmentService + '1'">
-                                                    {{ apartmentService }}
+                                                    {{ apartmentService.serviceName }}
                                                 </label>
                                             </div>
                                         </div>
@@ -189,13 +190,6 @@
                                                 Inizia a cercare
                                             </button>
                                         </div>
-                                    </div>
-
-                                        <!-- btn cerca  -->
-                                    <div class="col-12 my-3">
-                                        <button class="btn blue-background text-white w-100" v-on:click="getApartments">
-                                            Inizia a cercare
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -303,22 +297,41 @@ export default {
             },
             zoomValue: 5,
             apartmentServices:[
-                'Condizionatore',
+                {
+                    'serviceName' : 'Condizionatore',
+                    'id' : 1
+                },
+                {
+                    'serviceName' : 'Parcheggio',
+                    'id' : 2
+                },
+                {
+                    'serviceName' : 'Palestra',
+                    'id' : 3
+                },
+                {
+                    'serviceName' : 'Wi-fi',
+                    'id' : 4
+                },
+                {
+                    'serviceName' : 'Piscina',
+                    'id' : 5
+                },
+                {
+                    'serviceName' : 'Spa',
+                    'id' : 6
+                },
+                {
+                    'serviceName' : 'Balcone',
+                    'id' : 7
+                },
+                {
+                    'serviceName' : 'Lavatrice',
+                    'id' : 8
+                },
                 
-                'Parcheggio',
-                
-                'Palestra',
-                
-                'Wi-Fi',
-                
-                'Piscina',
-                
-                'Spa',
-                
-                'Balcone',
-                
-                'Lavatrice',
-            ]
+            ],
+            selectedServices: []
         }
     },
     methods: {
@@ -345,7 +358,9 @@ export default {
                         "&lat=" +
                         this.lat +
                         "&lon=" +
-                        this.lon
+                        this.lon +
+                        "&services=" +
+                        this.selectedServices
                     )
                     .then((res) => {
                         this.apartments = res.data.results;
@@ -374,9 +389,8 @@ export default {
             });
             this.map.addControl(new tt.FullscreenControl());
             this.map.addControl(new tt.NavigationControl());
-            
-            // this.map.flyTo({center: [this.lon, this.lat], zoom: 9});
-        }, createMarker(array) {
+        }, 
+        createMarker(array) {
             // console.log(this.apartments);
             array.forEach((el) => {
                 let cor = [el.lon, el.lat];
@@ -387,7 +401,6 @@ export default {
                     `${el.name}`);
                 marker.setPopup(popup);
             });
-
         },
         async getSponsored() {
             const res = await axios.get(this.apiSponsored);
@@ -395,6 +408,14 @@ export default {
             this.apartments = data;
             this.createMarker(this.apartments);
             console.log(this.apartments);
+        },
+        getServices(e) {
+            if (e.target.checked === true) {
+                this.selectedServices.push(e.target.value);
+            } else {
+                this.selectedServices.splice(
+                this.selectedServices.indexOf(e.target.value), 1);
+            }
         }
     },
     created() {

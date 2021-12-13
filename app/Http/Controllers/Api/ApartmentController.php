@@ -27,6 +27,7 @@ class ApartmentController extends Controller
             $filteredApartments = Apartment::whereHas('services', function($q) use($ids){
                 $q->whereIn('service_id', $ids);
             })->get();
+            // dd($filteredApartments);
         }
         
         // query filtro senza raggio di km 
