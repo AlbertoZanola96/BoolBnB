@@ -10214,6 +10214,9 @@ ul .sponsor-card .description-box div {
   .info-box-2 .info-container {
     flex-direction: column;
   }
+  .info-box-2 .info-container .info-text {
+    margin: 20px 0;
+  }
   .info-box-2 .button-home {
     display: inline;
     width: 100%;
