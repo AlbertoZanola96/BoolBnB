@@ -31,100 +31,83 @@
         }
     }
 
-    // info box 2 
-    // .info-box-2 {
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: 50%;
-    //     transform: translate(-50%, 50%);
-    //     margin: 0 auto;
-    //     background-color: $white;
-    //     border-radius: 5px;
-    //     z-index: 4;
+    .info-box {
+        z-index: 10;
+        background-color: $white;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        margin: 0 auto;
+        border-radius: 5px;
+        .circle {
+            width: 20%;
+            i {
+                font-size: 15px;
+                color: $ufo-green;
+            }
+        }
+        .center {
+            width: 60%;
+            font-size: 18px;
 
-    //     i {
-    //         font-size: 15px;
-    //         color: $ufo-green;
-    //     }
-
-    //     .center {
-    //         margin-right: 50px;
-    //         font-size: 18px;
-
-    //         .info2-title {
-    //             color: $ufo-green;
-    //         }
+            .info-title {
+                color: $ufo-green;
+            }
     
-    //         .info2-description {
-    //             color: $grisaille;
-    //         }
-    //     }
-
-    //     .btn-home {
-    //         width: 100%;
-    //         padding: 10px;
-    //         border: 1px solid $ufo-green;
-    //         background-color: $white;
-    //         color: $ufo-green;
-    //     }
-
-    // }
+            .info-description {
+                color: $grisaille;
+            }
+        }
+        .button-home {
+            width: 20%;
+            .btn-home {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid $ufo-green;
+                background-color: $white;
+                color: $ufo-green;
+                &:hover {
+                    background-color: $ufo-green;
+                    color: $white;
+                }
+            }
+        }
+    }
 }
 
-// info-box 
-// .info-box {
-//     position: relative;
-//     min-height: 15vh;
-//     background-color: $prestige-blue;
+// info-box-2 
+.info-box-2 {
+    // position: relative;
+    min-height: 15vh;
+    background-color: $prestige-blue;
 
-//     .info-title {
-//         color: $white;
-//         font-size: 18px;
-//     }
+    .info-title {
+        color: $white;
+        font-size: 18px;
+    }
 
-//     .info-description {
-//         font-size: 18px;
-//         color: $peace;
-//     }
+    .info-description {
+        font-size: 18px;
+        color: $peace;
+    }
 
-//     .info-box-2 {
-//         position: relative;
-//         transform: translate(0, -50%);
-//         margin: 0 auto;
-//         background-color: $white;
-//         border-radius: 5px;
-//         z-index: 4;
-
-//         i {
-//             font-size: 15px;
-//             color: $ufo-green;
-//         }
-
-//         .center {
-//             font-size: 18px;
-
-//             .info2-title {
-//                 color: $ufo-green;
-//             }
-    
-//             .info2-description {
-//                 color: $grisaille;
-//             }
-//         }
-
-//         .btn-home {
-//             width: 100%;
-//             border: 1px solid $ufo-green;
-//             background-color: $white;
-//             color: $ufo-green;
-
-//             &:hover {
-//                 color: $white;
-//                 background-color: $ufo-green;
-//             }
-//         }
-//     }
-// }
+    .button-home {
+        padding-left: 10px;
+        width: 20%;
+        .btn-home {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid $bruschetta;
+            background-color: $white;
+            color: $bruschetta;
+            &:hover {
+                background-color: $bruschetta;
+                color: $white;
+            }
+        }
+    }
+}
 
 // modal
 .modal {
@@ -180,14 +163,6 @@ ul{
         &:hover{
             box-shadow: 2px 0px 25px -10px rgba(0, 0, 0, 0.431);
         }
-        .row{
-
-            @media screen and (min-width: 992px) {
-                height: 330px;
-                max-height: 330px;
-            }
-        }
-
         .description-box{
             max-height: 55px;
             & div{
@@ -202,3 +177,96 @@ ul{
         }
     }
 }
+
+//media-query
+@media screen and (max-width: 727px) {
+    .info-box-2 {
+        .info-text {
+            text-align: center;
+        }
+        .button-home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    } 
+}
+
+@media screen and (max-width: 767px) {
+    .banner {
+        .info-box {
+            .circle {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 654px) {
+    .banner {
+        .info-box {
+            .center {
+                width: 70%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 607px) {
+    .banner {
+        .info-box {
+            flex-direction: column;
+            .center {
+                width: 100%;
+            }
+            .button-home {
+                width: 50%;
+            }
+        }
+    }
+    .info-box-2 {
+        .info-container {
+            flex-direction: column;
+            .info-text {
+                margin: 20px 0;
+            }
+        }
+        .button-home {
+            display: inline;
+            width: 100%;
+            padding-left: 0;
+        }
+    } 
+}
+
+@media screen and (max-width: 241px) {
+    .banner {
+        .info-box {
+            .button-home {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .info-box-2 {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 256px) {
+    .info-box-2 {
+        margin-top: 45px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    ul {
+        .sponsor-card {
+            img {
+                padding-top: 10px;
+            }
+        }
+    }
+} 
