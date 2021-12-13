@@ -69,11 +69,6 @@
                             <input type="range" v-model="distance" class="distance" id="distance" name="distance" oninput="this.nextElementSibling.value = this.value + ' km'">
                         </div>
 
-                            <!-- btn cerca  -->
-                        <button class="btn blue-background text-white" v-on:click="getApartments">
-                            Inizia a cercare
-                        </button>
-
                         <div class="d-flex align-items-center services py-3 overflow-x">
                             <span for="services" class="d-block font-s font-weight-bold">Servizi |</span>
 

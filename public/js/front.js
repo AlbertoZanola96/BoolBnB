@@ -2407,11 +2407,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Search',
   data: function data() {
@@ -5480,19 +5475,6 @@ var render = function () {
                           },
                         }),
                       ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn blue-background text-white",
-                          on: { click: _vm.getApartments },
-                        },
-                        [
-                          _vm._v(
-                            "\r\n                            Inizia a cercare\r\n                        "
-                          ),
-                        ]
-                      ),
                       _vm._v(" "),
                       _c(
                         "div",
