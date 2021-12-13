@@ -18,38 +18,39 @@
                     >
                 </div>
 
-                <!-- info box 2  -->
-                <div class="info-box-2 d-flex align-items-center p-3">
-                    <div>
-                        <i class="fas fa-circle mx-5"></i>
+                <!-- info box  -->
+                <div class="info-box col-12 col-sm-11 col-md-10 col-lg-9 col-xl-8 d-flex justify-content-around align-items-center p-3">
+                    <div class="circle text-center">
+                        <i class="fas fa-circle"></i>
                     </div>
-
-                    <div class="center">
-                        <div class="info2-title">
+                    <div class="center text-center">
+                        <div class="info-title font-weight-bold">
                             Vuoi il tuo appartamento in cima alla lista?
                         </div>
-                        <div class="info2-description">
+                        <div class="info-description">
                             Registrati e dai un'occhiata alle nostre sponsorizzazioni!
                         </div>
                     </div>
-
-                    <div>
-                        <button class="btn-home">Registrati ora</button>
+                    <div class="button-home">
+                        <a href="" data-backdrop="true" data-toggle="modal" data-target="#register"><button class="btn-home">Registrati ora</button></a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- info box  -->
-        <div class="info-box container-fluid">
-            <div class="row">
-                <div class="col-12 info-title">
-                    Pubblica annunci gratuitamente
-                </div>
-                <div class="row">
-                    <div class="col-12 info-description">
+        <!-- info box 2 -->
+        <div class="info-box-2 container-fluid pt-5">
+            <div class="info-container mt-3 d-flex justify-content-center">
+                <div class="info-text">
+                    <div class="info-title">
+                        Pubblica annunci gratuitamente
+                    </div>
+                    <div class="info-description">
                         Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.
                     </div>
+                </div>
+                <div class="button-home pb-4">
+                    <a href="" data-backdrop="true" data-toggle="modal" data-target="#login"><button class="btn-home">Accedi adesso!</button></a>
                 </div>
             </div>  
         </div>
@@ -70,11 +71,11 @@
                 <li v-for="(apartment, index) in apartments" :key="index" class="col-12 col-md-6 p-3">
                     <div class="white-background overflow-hidden sponsor-card">
                         <div class="row w-100 ml-0 align-items-center">
-                            <div class="col-12 col-xl-6 d-flex align-items-center">
+                            <div class="col-12 col-xl-7">
                                 <img class="w-100" :src="'/storage/' + apartment.image" alt="">
                             </div>
 
-                            <div class="col-12 col-xl-6 py-3 py-xl-3 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between">
+                            <div class="col-12 col-xl-5 py-3 py-xl-3 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between">
                                 <div>
                                     <h2 class="m-0 text-overflow">{{ apartment.name }}</h2>
                                     <hr class="my-2">
@@ -83,7 +84,7 @@
                                         <span class="ml-2">{{ apartment.address }}</span>
                                     </h4>
                                     <!-- services list  -->
-                                    <ul id="services_list" class="d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-xl-3 white-background">
+                                    <ul id="services_list" class="d-flex flex-wrap pl-0 py-2 pb-xl-3 white-background">
                                         <!-- num_rooms  -->
                                         <li>
                                             <i class="fas fa-door-open font-xxs bruschetta-text"></i>

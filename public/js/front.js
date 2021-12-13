@@ -2061,6 +2061,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   data: function data() {
@@ -4940,28 +4941,18 @@ var render = function () {
                   "div",
                   { staticClass: "row w-100 ml-0 align-items-center" },
                   [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "col-12 col-xl-6 d-flex align-items-center",
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "w-100",
-                          attrs: {
-                            src: "/storage/" + apartment.image,
-                            alt: "",
-                          },
-                        }),
-                      ]
-                    ),
+                    _c("div", { staticClass: "col-12 col-xl-7" }, [
+                      _c("img", {
+                        staticClass: "w-100",
+                        attrs: { src: "/storage/" + apartment.image, alt: "" },
+                      }),
+                    ]),
                     _vm._v(" "),
                     _c(
                       "div",
                       {
                         staticClass:
-                          "col-12 col-xl-6 py-3 py-xl-3 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between",
+                          "col-12 col-xl-5 py-3 py-xl-3 mt-3 mt-md-0 d-flex flex-column h-100 justify-content-between",
                       },
                       [
                         _c("div", [
@@ -4987,7 +4978,7 @@ var render = function () {
                             "ul",
                             {
                               staticClass:
-                                "d-none d-md-flex flex-wrap pl-0 py-2 pb-md-0 pb-xl-3 white-background",
+                                "d-flex flex-wrap pl-0 py-2 pb-xl-3 white-background",
                               attrs: { id: "services_list" },
                             },
                             [
@@ -5135,26 +5126,46 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "info-box-2 d-flex align-items-center p-3" },
+      {
+        staticClass:
+          "info-box col-12 col-sm-11 col-md-10 col-lg-9 col-xl-8 d-flex justify-content-around align-items-center p-3",
+      },
       [
-        _c("div", [_c("i", { staticClass: "fas fa-circle mx-5" })]),
+        _c("div", { staticClass: "circle text-center" }, [
+          _c("i", { staticClass: "fas fa-circle" }),
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "center" }, [
-          _c("div", { staticClass: "info2-title" }, [
+        _c("div", { staticClass: "center text-center" }, [
+          _c("div", { staticClass: "info-title font-weight-bold" }, [
             _vm._v(
               "\n                        Vuoi il tuo appartamento in cima alla lista?\n                    "
             ),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "info2-description" }, [
+          _c("div", { staticClass: "info-description" }, [
             _vm._v(
               "\n                        Registrati e dai un'occhiata alle nostre sponsorizzazioni!\n                    "
             ),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", [
-          _c("button", { staticClass: "btn-home" }, [_vm._v("Registrati ora")]),
+        _c("div", { staticClass: "button-home" }, [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "",
+                "data-backdrop": "true",
+                "data-toggle": "modal",
+                "data-target": "#register",
+              },
+            },
+            [
+              _c("button", { staticClass: "btn-home" }, [
+                _vm._v("Registrati ora"),
+              ]),
+            ]
+          ),
         ]),
       ]
     )
@@ -5163,22 +5174,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info-box container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 info-title" }, [
-          _vm._v(
-            "\n                Pubblica annunci gratuitamente\n            "
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12 info-description" }, [
-            _vm._v(
-              "\n                    Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.\n                "
+    return _c("div", { staticClass: "info-box-2 container-fluid pt-5" }, [
+      _c(
+        "div",
+        { staticClass: "info-container mt-3 d-flex justify-content-center" },
+        [
+          _c("div", { staticClass: "info-text" }, [
+            _c("div", { staticClass: "info-title" }, [
+              _vm._v(
+                "\n                    Pubblica annunci gratuitamente\n                "
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "info-description" }, [
+              _vm._v(
+                "\n                    Inserisci i tuoi annunci! Fatti trovare da chi sta cercando appartamenti.\n                "
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "button-home pb-4" }, [
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "",
+                  "data-backdrop": "true",
+                  "data-toggle": "modal",
+                  "data-target": "#login",
+                },
+              },
+              [
+                _c("button", { staticClass: "btn-home" }, [
+                  _vm._v("Accedi adesso!"),
+                ]),
+              ]
             ),
           ]),
-        ]),
-      ]),
+        ]
+      ),
     ])
   },
   function () {

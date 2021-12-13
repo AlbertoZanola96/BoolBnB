@@ -25,9 +25,9 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li class="nav-item visibility">
+                                {{-- <li class="nav-item visibility">
                                     <a href="{{ url('/admin') }}">Dashboard</a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item visibility">
                                     <a href="{{ url('/admin/apartments') }}">I miei appartamenti</a>
                                 </li>
@@ -74,9 +74,9 @@
                     @else
                         <div class="dropdown-menu">
                             <ul>
-                                <li>
+                                {{-- <li>
                                     <a class="ml-3" href="{{ url('/admin') }}">Dashboard</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a class="ml-3" href="{{ url('/admin/apartments') }}">I miei appartamenti</a>
                                 </li>
