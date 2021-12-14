@@ -18,16 +18,13 @@
                         <ul class="navbar-nav">
                             @auth
                                 <li class="nav-item">
-                                    <a href="{{ url('/admin') }}">
+                                    <a href="{{ url('/admin/apartments') }}">
                                         <div class="loged d-flex align-items-center">
                                             <i class="far fa-user"></i>
                                             {{ $user->name . ' ' . $user->surname }}
                                         </div>
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item visibility">
-                                    <a href="{{ url('/admin') }}">Dashboard</a>
-                                </li> --}}
                                 <li class="nav-item visibility">
                                     <a href="{{ url('/admin/apartments') }}">I miei appartamenti</a>
                                 </li>
@@ -38,6 +35,9 @@
                                     <a href="{{ url('/admin/apartments/create') }}">Nuovo appartamento</a>
                                 </li>
                                 <li class="nav-item visibility">
+                                    <a href="{{ url('/search') }}">Ricerca Avanzata</a>
+                                </li>
+                                <li class="nav-item visibility">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
@@ -45,7 +45,7 @@
                                         @csrf
                                     </form>
                                 </li>
-                    @else
+                            @else
                                 <li class="nav-item login">
                                     <a href="" data-backdrop="true" data-toggle="modal" data-target="#login">Login</a>
                                 </li>    
@@ -74,9 +74,6 @@
                     @else
                         <div class="dropdown-menu">
                             <ul>
-                                {{-- <li>
-                                    <a class="ml-3" href="{{ url('/admin') }}">Dashboard</a>
-                                </li> --}}
                                 <li>
                                     <a class="ml-3" href="{{ url('/admin/apartments') }}">I miei appartamenti</a>
                                 </li>
@@ -85,6 +82,9 @@
                                 </li>
                                 <li>
                                     <a class="ml-3" href="{{ url('/admin/apartments/create') }}">Nuovo appartamento</a>
+                                </li>
+                                <li class="nav-item visibility">
+                                    <a href="{{ url('/search') }}">Ricerca Avanzata</a>
                                 </li>
                                 <li>
                                     <a class="ml-3" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

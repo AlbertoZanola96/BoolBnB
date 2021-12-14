@@ -1,5 +1,5 @@
 <?php 
 
-return ['Cucina', 'Bagno Privato', 'Aria Condizionata', 'Parcheggio', 'Animali Domestici', 'Servizi in Camera', 'Palestra', 'Wi-Fi', 'Piscina', 'Spa', 'Balcone', 'Vasca', 'Macchina da Caffè', 'Lavatrice'];
+return ['Condizionatore', 'Parcheggio', 'Palestra', 'Wi-Fi', 'Piscina', 'Spa', 'Balcone', 'Lavatrice'];
 
 ?>

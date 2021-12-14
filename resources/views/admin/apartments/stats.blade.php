@@ -33,7 +33,7 @@
        let clicksPerMonth = JSON.parse('<?php echo json_encode($clicksPerMonth) ?>');
     
         let firstChart = new Chart(leadsChart, {
-            type: 'line', //bar, pie, line, doughnut, radar, polarArea
+            type: 'bar', //bar, pie, line, doughnut, radar, polarArea
             data: {
                 labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
                 datasets: [
@@ -54,7 +54,7 @@
                         leadsPerMonth[11]
                     ],
                     backgroundColor: [
-                        'red'
+                        '#2f3542'
                     ],
                     borderWidth: 1,
                     borderColor: 'grey',
@@ -78,7 +78,7 @@
                         clicksPerMonth[11]
                     ],
                     backgroundColor: [
-                        'green'
+                        '#ff6348'
                     ],
                     borderWidth: 1,
                     borderColor: 'grey',

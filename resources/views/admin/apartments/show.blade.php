@@ -147,22 +147,8 @@
                     <h2 class="font-m">Descrizione:</h2>
                     <hr>
                     <p>{{ $apartment->description }}</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, tenetur? Quo, nemo. Dolor quisquam fugiat numquam est nesciunt nam a, ducimus ex doloremque. Nisi deserunt earum veritatis, ad totam laudantium? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus consectetur qui debitis, perspiciatis consequatur repellendus quae accusamus alias autem placeat deleniti? Laborum necessitatibus soluta amet eveniet ab non ea molestiae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, eos dicta. Quidem reprehenderit consectetur natus numquam quae laudantium, sed assumenda dolor quaerat placeat nam nisi odio consequuntur itaque animi blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere porro illum id vel velit dolore minima quisquam! Aliquam amet ea rem natus tempore nesciunt excepturi, suscipit officia vel, ipsum laboriosam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo adipisci beatae illum laudantium culpa! Quibusdam aliquam alias harum repellendus. Assumenda maxime sint autem enim asperiores expedita iste odio dolores quae!</p>
                 </div>  
             </div> 
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="white-background p-4 shadow">
-                    <div class="d-flex">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h2 class="font-m mx-3">Indirizzo immobile:</h2>
-                    </div>
-                    <hr>
-                    <p><span><i class="fas fa-map-pin font-xxs mr-4"></i></span>{{ $apartment->address }}</p>
-                </div>
-            </div>
         </div>
     </div>
 </div>

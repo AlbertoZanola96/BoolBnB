@@ -10254,7 +10254,11 @@ header .navigation {
   padding: 0;
 }
 header .navigation #logo {
+<<<<<<< HEAD
   height: 60px;
+=======
+  height: 70px;
+>>>>>>> 50238f8c7485da895b22f18af8ee778c3565afda
 }
 header .navigation #logo img {
   height: 100%;

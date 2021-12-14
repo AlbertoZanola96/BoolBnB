@@ -69,7 +69,7 @@
         <div class="container-fluid p-4">
             <ul class="row mb-0">
                 <li v-for="(apartment, index) in apartments" :key="index" class="col-12 col-md-6 p-3">
-                    <div v-if="apartment.visible == 1" class="white-background overflow-hidden sponsor-card">
+                    <div class="white-background overflow-hidden sponsor-card">
                         <div class="row w-100 ml-0 align-items-center">
                             <div class="col-12 col-xl-7">
                                 <img class="w-100" :src="'/storage/' + apartment.image" alt="">
@@ -117,7 +117,7 @@
 
                                 <div>
                                     <hr class="d-none d-md-block">
-                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.id} }">
+                                    <router-link :to="{ name: 'Show', params: {slug: apartment.slug, id: apartment.apartment_id} }">
                                         <button class="btn blue-background w-100 text-white" >
                                             Visualizza immobile &#8594;
                                         </button>
