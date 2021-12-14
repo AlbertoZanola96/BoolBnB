@@ -27,16 +27,7 @@ class ApartmentController extends Controller
             $filteredApartments = Apartment::whereHas('services', function($q) use($ids){
                 $q->whereIn('service_id', $ids);
             })->get();
-            // dd($filteredApartments);
         }
-        
-        // query filtro senza raggio di km 
-        // $query = Apartment::where('visible', 1)
-        // ->where('num_rooms', '>=', $resQuery['num_rooms'] ?? 0)
-        // ->where('num_beds', '>=', $resQuery['num_beds'] ?? 0)
-        // ->where('num_bathrooms', '>=', $resQuery['num_bathrooms'] ?? 0);
-
-        // $filteredApartments = $query->get();
 
         $matchingApartments = [];
         $stdRadius = $request->distance;
@@ -51,6 +42,7 @@ class ApartmentController extends Controller
                 array_push($matchingApartments, $apartment);
             }
         };
+
 
         return response()->json([
             'success' => true,
@@ -74,7 +66,10 @@ class ApartmentController extends Controller
 
     // cerca appartamenti sponsorizzati 
     public function sponsored() {
-        $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')->whereDate('expiration_date', '>', Carbon::now()->toDateString())->get();
+        $sponsored = DB::table('apartments')->join('apartment_sponsor', 'apartments.id', '=', 'apartment_sponsor.apartment_id')
+            ->whereDate('expiration_date', '>', Carbon::now()->toDateString())
+            ->where('visible', 1)
+            ->get();
         
         return response()->json([
             'success' => true,
