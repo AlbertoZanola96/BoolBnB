@@ -78,7 +78,7 @@
             </div>
 
             <div class="col-12 d-none d-md-block input-lg">
-                <div class="d-flex justify-content-center align-items-center services py-3 overflow-x">
+                <div class="d-flex justify-content-center align-items-center services overflow-x">
                     <span for="services" class="d-block font-s font-weight-bold">Servizi:</span>
                     <div v-for="(apartmentService, index) in apartmentServices" :key="index">
                         <input class="form-check-input" type="checkbox" :name="apartmentService.id" :value="apartmentService.id" :id="apartmentService.id" v-on:change="getServices">

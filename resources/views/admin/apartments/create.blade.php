@@ -8,7 +8,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-auto">
+            <div class="col-12">
                 <h1>Informazioni generali</h1>
                     
                             
